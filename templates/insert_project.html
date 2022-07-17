@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Toast UI Editor -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    
+</head>
+<body>
+    <h1>게시 글 쓰기</h1>
+    <div id="editor"></div>
+    <button onclick="seeHtml()">html보기</button>
+	<button onclick="seeMd()">markdown보기</button>
+
+    <div id="viewer"></div>
+
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script>
+        const Editor = toastui.Editor;
+ 
+        const editor = new Editor({
+            el: document.querySelector('#editor'),
+            height: '600px',
+            initialEditType: 'markdown',
+            previewStyle: 'vertical'
+        });
+
+        seeHtml = function(){
+			alert(editor.getHTML());
+		}
+		seeMd = function(){
+			alert(editor.getMarkdown());
+		}
+        editor.addHook("addImageBlobHook", function(blob, callback){
+            // blob 텍스트 
+            console.log(blob)
+            
+            // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
+            // callback의 인수로 넣으시면 됩니다. 
+            callback("콜백으로 받아온 이미지 URL")
+        })
+
+
+
+        const context = "# 안녕하세여 \n> 이건 마크다운 으로 작성되었습니다."
+
+        const viewer = Editor.factory({
+            el: document.querySelector('#viewer'),
+            viewer: true,
+            height: '500px',
+            initialValue: context
+          });
+
+    </script>
+
+</body>
+</html>
