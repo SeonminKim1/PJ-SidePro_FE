@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+}
+
+.container-join {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wrap-join {
+    display: inline-block;
+    width: 600px;
+}
+
+.box-title-join {
+    margin-bottom: 2rem;
+}
+
+.box-title-join>h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.wrap-input-join>li,
+.box-btn-join>li {
+    list-style: none;
+    margin: 0 0 20px;
+}
+
+.wrap-input-join>li>input {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    text-indent: 10px;
+    font-size: 1.2rem;
+    background-color: whitesmoke;
+    color: black
+}
+
+.wrap-input-join>li>input:focus {
+    outline: 2px solid rgb(75, 0, 226)
+}
+
+.box-btn-join {
+    margin-top: 30px;
+}
+
+.box-btn-join>li>button {
+    border: 0;
+    outline: 0;
+    width: 10rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.box-btn-join>li>button {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-join-join:hover {
+    color: whitesmoke;
+    background-color: rgb(75, 0, 226);
+    font-weight: 700;
+}
+
+.wrap-input-join>li>input,
+button {
+    height: 3rem;
+}
+
+.login-text {
+    display: block;
+    margin-top: 40px;
+}
+
+.btn-login-join {
+    margin-top: 10px;
+}
+
+.btn-login-join:hover {
+    font-weight: 700;
+    background-color: black;
+    color: white;
+}
+
+.btn-social-login-join:hover {
+    font-weight: 700;
+    background-color: yellow;
+
+}
+
+
+@media screen and (max-width: 768px) {
+    .wrap-input-join>li>input {
+        width: 70%;
+    }
+}
