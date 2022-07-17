@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDE PRO</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;500;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
+
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="/static/css/join.css">
+
+    <!-- Javascript Import -->
+    <script async src="/static/js/join.js"></script>
+</head>
+
+<body>
+    <div class="background-img-join">
+        <section class="background-join">
+            <div class="container-join">
+                <div class="wrap-join">
+                    <div class="box-title-join">
+                        <h1>SIDE PRO</h1>
+                    </div>
+                    <div class="wrap-input-join">
+                        <li><input id="input-id-join" type="email" size=40 placeholder="E-mail" title="아이디"></li>
+                        <li><input id="input-fullname-join" type="text" size=40 placeholder="Name" title="이름"></li>
+                        <li><input id="input-password-join" type="password" size=40 maxlength="16"
+                                placeholder="Password" title="비밀번호"></li>
+                        <li><input type="password" id="input-password-confirm" size="40" maxlength="16"
+                                placeholder="Password Confirm"></li>
+                    </div>
+                    <div class="box-btn-join">
+                        <li>
+                            <button type="submit" onclick="join()" class="btn-join-join">
+                                회원가입
+                            </button>
+                        </li>
+                        <li>
+                            <span class="login-text">이미 아이디가 있으신가요?</span>
+                            <button class="btn-login-join" onclick="location.href='login.html'">
+                                <span>로그인</span>
+                            </button>
+                            <button class="btn-social-login-join" onclick="/">
+                                <span>소셜 로그인</span>
+                            </button>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>
