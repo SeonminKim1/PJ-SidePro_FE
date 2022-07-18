@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDE PRO</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;500;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
+
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="/static/css/login.css">
+
+    <!-- Javascript Import -->
+    <script async src="/static/js/login.js"></script>
+</head>
+
+<body>
+    <section class="background-login">
+        <div class="container-login">
+            <div class="wrap-login">
+                <div class="box-title-login">
+                    <h1>SIDE PRO</h1>
+                </div>
+                <div class="wrap-input-login">
+                    <li><input id="input-id-login" type="text" size=40 placeholder="E-mail" title="아이디"></li>
+                    <li><input id="input-password-login" type="password" size=40 maxlength="16" placeholder="Password"
+                            title="비밀번호">
+                    </li>
+                    <li class="btn-login-login">
+                        <button type="submit" onclick="login()" class="btn-login">
+                            로그인
+                        </button>
+                        <button type="submit" onclick="login()" class="btn-social-login">
+                            소셜 로그인
+                        </button>
+                    </li>
+                    <li>
+                        <span class="text-join">아직 아이디가 없으신가요?</span>
+                        <button class="btn-join-login" onclick="location.href='join.html'">
+                            <span>회원가입</span>
+                        </button>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
