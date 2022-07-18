@@ -16,7 +16,7 @@
 	<button onclick="seeMd()">markdown보기</button>
 
     <div id="viewer"></div>
-
+    <script src="/static/_base.js"></script>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script>
         const Editor = toastui.Editor;
@@ -37,12 +37,27 @@
         editor.addHook("addImageBlobHook", function(blob, callback){
             // blob 텍스트 
             console.log(blob)
+
             
             // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
-            // callback의 인수로 넣으시면 됩니다. 
-            callback("콜백으로 받아온 이미지 URL")
-        })
+            const formdata = new FormData();
+            formdata.append("file", blob)
 
+            const response =  fetch(`${backend_base_url}/project/upload/`,{
+                //headers: {
+                //    'Content-Type': 'multipart/form-data',
+                //},
+                method: "POST",
+                body: formdata,
+            })
+            .then(response=>response.json())
+            .then(json=>{
+                console.log(json)
+                // callback의 인수로 넣으시면 됩니다. 
+                callback(json["url"], "image")
+            })
+
+        });
 
 
         const context = "# 안녕하세여 \n> 이건 마크다운 으로 작성되었습니다."
