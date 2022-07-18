@@ -14,8 +14,18 @@
     <div id="editor"></div>
     <button onclick="seeHtml()">html보기</button>
 	<button onclick="seeMd()">markdown보기</button>
-
     <div id="viewer"></div>
+
+
+    title : <input type="text" id="title"> <br>
+    git_hub url : <input type="text" id="url"> <br>
+    option : <input type=checkbox name="skills" id=".net" value=1 checked>.net 
+    <input type=checkbox name="skills" id="ABAP" value=2 checked>ABAP <br>
+    <button onclick="insert_project()">글쓰기</button>
+
+
+
+
     <script src="/static/_base.js"></script>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script>
@@ -34,6 +44,17 @@
 		seeMd = function(){
 			alert(editor.getMarkdown());
 		}
+        insert_project = function() {
+            data = {
+                "title" : document.querySelector("#title").value,
+                "git_hub_url":  document.querySelector("#git_hub_url").value,
+                "content":  editor.getMarkdown(),
+                "skills": document.getElementById('.net').value,
+                "skills": document.getElementById('ABAP').value,
+            }
+            
+        }
+
         editor.addHook("addImageBlobHook", function(blob, callback){
             // blob 텍스트 
             console.log(blob)
@@ -50,16 +71,19 @@
                 method: "POST",
                 body: formdata,
             })
-            .then(response=>response.json())
+            .then(response=>{
+                console.log(response)
+                return response.json()
+            })
             .then(json=>{
                 console.log(json)
                 // callback의 인수로 넣으시면 됩니다. 
                 callback(json["url"], "image")
             })
-
+            
+            
         });
-
-
+        
         const context = "# 안녕하세여 \n> 이건 마크다운 으로 작성되었습니다."
 
         const viewer = Editor.factory({
