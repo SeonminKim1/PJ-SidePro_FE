@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+}
+
+.container-login {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.wrap-login {
+    display: inline-block;
+    width: 600px;
+}
+
+.box-title-login {
+    margin-bottom: 2rem;
+}
+
+.box-title-login>h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.wrap-input-login {
+    padding-left: 0;
+}
+
+.wrap-input-login>li {
+    list-style: none;
+    margin: 0 0 20px;
+}
+
+.wrap-input-login>li>input {
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    text-indent: 10px;
+    font-size: 1.2rem;
+    background-color: whitesmoke;
+    color: grey;
+}
+
+.wrap-input-login>li>input:focus {
+    outline: 2px solid rgb(75, 0, 226);
+}
+
+.wrap-input-login>li>button {
+    border: 0;
+    outline: 0;
+    width: 10rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.wrap-input-login>li>button {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.btn-login-login>button {
+    font-weight: 600;
+}
+
+.btn-login:hover {
+    font-weight: 700;
+    color: white;
+    background-color: rgb(75, 0, 226);
+}
+
+.btn-social-login:hover {
+    font-weight: 700;
+    background-color: yellow;
+}
+
+.wrap-input-login>li>input,
+button {
+    height: 3rem;
+}
+
+.btn-join-login {
+    margin-top: 10px;
+}
+
+.btn-join-login:hover {
+    background-color: grey;
+    color: white;
+}
+
+.text-join {
+    display: block;
+    margin-top: 40px;
+}
+
+@media screen and (max-width: 768px) {
+    .wrap-input-login>li>input {
+        width: 70%;
+    }
+}
