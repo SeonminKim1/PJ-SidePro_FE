@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/static/css/join.css">
 
     <!-- Javascript Import -->
+    <script src="/static/js/_base.js"></script>
+    <script src="/static/js/user.js"></script>
     <script async src="/static/js/join.js"></script>
 </head>
 
@@ -33,7 +35,7 @@
                     </div>
                     <div class="wrap-input-join">
                         <li><input id="input-id-join" type="email" size=40 placeholder="E-mail" title="아이디"></li>
-                        <li><input id="input-fullname-join" type="text" size=40 placeholder="Name" title="이름"></li>
+                        <li><input id="input-username-join" type="text" size=40 placeholder="Name" title="이름"></li>
                         <li><input id="input-password-join" type="password" size=40 maxlength="16"
                                 placeholder="Password" title="비밀번호"></li>
                         <li><input type="password" id="input-password-confirm" size="40" maxlength="16"
@@ -50,6 +52,9 @@
                             <button class="btn-login-join" onclick="location.href='login.html'">
                                 <span>로그인</span>
                             </button>
+                            <a href="{% provider_login_url 'kakao' %}">
+                                카카오 로그인
+                            </a>
                             <button class="btn-social-login-join" onclick="/">
                                 <span>소셜 로그인</span>
                             </button>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDE PRO</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;500;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
+
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    <!-- Javascript Import -->
+    <script async src="/static/js/main.js"></script>
+    <script async src="/static/js/chat.js"></script>
+
+</head>
+
+<body>
+    <!-- Fixed Button -->
+    <div class="btn-fixed-container">
+        <button class="btn-chat-open" onclick="activeChatList()">나의 채팅창</button>
+        <button class="btn-project-regist">프로젝트 등록하기!</button>
+    </div>
+
+
+
+    <!-- Chat List -->
+    <aside id="chat-container">
+        <div class="box-btn-chat">
+            <button class="btn-chat-close" onclick="DisableChatList()">🞩</button>
+        </div>
+        <div class="box-text-title-chat">
+            <span class="text-title-chat">CHAT LIST</span>
+        </div>
+        <div class="wrap-profile-chat">
+            <div>
+                <img src="/static/img/profile-kim.png" class="img-profile">
+            </div>
+            <div class="box-text-profile-chat">
+                <span class="text-profile-name" onclick="modalOpen()">김프로</span>
+                <span class="text-profile-desc">미리보기 텍스트</span>
+            </div>
+        </div>
+        <div class="wrap-profile-chat">
+            <div>
+                <img src="/static/img/profile-song.png" class="img-profile">
+            </div>
+            <div class="box-text-profile-chat">
+                <span class="text-profile-name" onclick="modalOpen()">송르탄</span>
+                <span class="text-profile-desc">미리보기 텍스트</span>
+            </div>
+        </div>
+        <div class="wrap-profile-chat">
+            <div>
+                <img src="/static/img/profile-park.png" class="img-profile">
+            </div>
+            <div class="box-text-profile-chat">
+                <span class="text-profile-name" onclick="modalOpen()">박코딩</span>
+                <span class="text-profile-desc">미리보기 텍스트</span>
+            </div>
+        </div>
+    </aside>
+
+    <!-- User Profile -->
+    <div id="user-modal" class="container-profile-modal">
+        <div class="wrap-profile-modal">
+            <div class="box-close-modal">
+                <button class="btn-profile-modal" onclick="modalClose()">🞩</button>
+            </div>
+            <div class="box-profile-modal">
+                <div>
+                    <img src="/static/img/profile-kim.png" class="img-profile">
+                </div>
+                <div class="box-text-modal">
+                    <span class="text-profile-name text-modal-name">김프로</span>
+                    <span class="text-profile-portfolio">github.com/kimpro</span>
+                </div>
+            </div>
+            <div class="box-btn-modal">
+                <button class="btn-profile-modal">유저 페이지 보기</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
