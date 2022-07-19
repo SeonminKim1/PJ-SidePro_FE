@@ -1,5 +1,10 @@
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("chat.js - DOMContentLoaded")
+});
+
 // 1. 채팅창 목록(Room) 조회
-const asideChat = document.getElementById("chat-container"); 	
+const asideChat = document.getElementById("chat-list"); 
+const asideChatRoom = document.getElementById("chat-room"); 	
 const modal = document.getElementById("user-modal");
 
 // Chat List Open
@@ -18,9 +23,6 @@ function DisableChatList() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    console.log("chat.js - DOMContentLoaded")
-});
 
 async function loadChattingRoomPageByUser() {
     console.log("chat.js - loadChattingRoomPageByUser")
@@ -71,6 +73,20 @@ function Add_userlist_html(response_json){
     }
 }
 
+// Chat Room Open
+function activeChatRoom() { 	
+    if(asideChatRoom.style.display == '') {
+        asideChatRoom.style.display = 'block'; 		
+    } 
+}
+
+// Chat Room Close
+function DisableChatRoom() { 
+    if(asideChatRoom.style.display == 'block') {
+        asideChatRoom.style.display = '';
+        modal.style.display = '';
+    }
+}
 
 // Profile Modal Open
 function modalOpen(profile_img, user2_username, github_url) { 	

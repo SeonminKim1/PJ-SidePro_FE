@@ -44,8 +44,8 @@ body {
 }
 
 
-/* Chat List */
-aside {
+/* Chat Room List */
+.chat-list {
     display: none;
     z-index: 999;
     position: absolute;
@@ -75,14 +75,38 @@ aside {
     color: black;
 }
 
-.wrap-profile-chat {
-    display: flex;
+.container-profile-chat-list {
+    display: block;
     margin: 30px 20px;
 }
 
-.box-text-profile-chat>span {
+.wrap-profile-chat-list {
+    display: flex;
+    margin: 20px 0;
+}
+
+.box-text-chatlist {
+    margin-left: 20px;
+}
+
+.box-text-user {
+    display: flex;
+}
+
+.box-text-user>button {
+    border: none;
+    margin-left: 20px;
+    font-size: .5rem;
+    font-weight: 600;
+    color: aliceblue;
+    background-color: black;
+    cursor: pointer;
+}
+
+.text-profile-desc {
     display: block;
-    margin: 2px 10px;
+    margin: 3px 0;
+    font-size: .8rem;
     color: black;
 }
 
@@ -98,6 +122,74 @@ aside {
 
 .img-profile, .img-profile-modal {
     width: 3rem;
+}
+
+
+/* Chatting */
+.chat-container {
+    display: none;
+    z-index: 999;
+    position: absolute;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: gainsboro;
+}
+
+.wrap-profile-chat {
+    display: inline-block;
+}
+
+.box-text-profile-chat {
+    margin: 5px 10px;
+    padding: 10px;
+
+}
+
+.box-text-chat {
+    display: inline-block;
+    padding: 10px;
+    margin: 5px 15px;
+    border-radius: 12px;
+    color: aliceblue;
+    background-color: rgb(75, 0, 226);
+}
+
+.box-text-chat-user {
+    background-color: black;
+}
+
+.text-chat-date {
+    padding: 2px;
+    font-size: .7rem;
+}
+
+.text-chat-name {
+    font-size: 1rem;
+}
+
+.box-input-chat {
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+}
+
+.input-chat {
+    border: none;
+    outline: none;
+    width: 70%;
+    margin: 15px;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 1rem;
+}
+
+.btn-chat {
+    border: none;
+    padding: 10px;
+    font-weight: 600;
+    color: aliceblue;
+    background-color: rgb(75, 0, 226);
 }
 
 
