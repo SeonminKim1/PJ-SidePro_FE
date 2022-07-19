@@ -35,41 +35,96 @@
 
 
     <!-- Chat List -->
-    <aside id="chat-container">
+    <aside id="chat-list" class="chat-list">
         <div class="box-btn-chat">
             <button class="btn-chat-close" onclick="DisableChatList()">🞩</button>
         </div>
         <div class="box-text-title-chat">
             <span class="text-title-chat">CHAT LIST</span>
         </div>
-        <div class="wrap-profile-chat">
-            <div>
-                <img src="/static/img/profile-kim.png" class="img-profile">
+        <div class="container-profile-chat-list">
+            <div class="wrap-profile-chat-list">
+                <div>
+                    <img src="/static/img/profile-kim.png" class="img-profile">
+                </div>
+                <div class="box-text-chatlist">
+                    <div class="box-text-user">
+                        <span class=" text-profile-name" onclick="modalOpen()">김프로</span>
+                        <button onclick="activeChatRoom()">채팅 열기</button>
+                    </div>
+                    <div>
+                        <span class="text-profile-desc">미리보기 텍스트</span>
+                    </div>
+                </div>
             </div>
-            <div class="box-text-profile-chat">
-                <span class="text-profile-name" onclick="modalOpen()">김프로</span>
-                <span class="text-profile-desc">미리보기 텍스트</span>
+            <div class="wrap-profile-chat-list">
+                <div>
+                    <img src="/static/img/profile-song.png" class="img-profile">
+                </div>
+                <div class="box-text-chatlist">
+                    <div class="box-text-user">
+                        <span class=" text-profile-name" onclick="modalOpen()">황디자인</span>
+                        <button onclick="activeChatRoom()">채팅 열기</button>
+                    </div>
+                    <div>
+                        <span class="text-profile-desc">미리보기 텍스트</span>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="wrap-profile-chat">
-            <div>
-                <img src="/static/img/profile-song.png" class="img-profile">
-            </div>
-            <div class="box-text-profile-chat">
-                <span class="text-profile-name" onclick="modalOpen()">송르탄</span>
-                <span class="text-profile-desc">미리보기 텍스트</span>
-            </div>
-        </div>
-        <div class="wrap-profile-chat">
-            <div>
-                <img src="/static/img/profile-park.png" class="img-profile">
-            </div>
-            <div class="box-text-profile-chat">
-                <span class="text-profile-name" onclick="modalOpen()">박코딩</span>
-                <span class="text-profile-desc">미리보기 텍스트</span>
+            <div class="wrap-profile-chat-list">
+                <div>
+                    <img src="/static/img/profile-park.png" class="img-profile">
+                </div>
+                <div class="box-text-chatlist">
+                    <div class="box-text-user">
+                        <span class=" text-profile-name" onclick="modalOpen()">박코딩</span>
+                        <button onclick="activeChatRoom()">채팅 열기</button>
+                    </div>
+                    <div>
+                        <span class="text-profile-desc">미리보기 텍스트</span>
+                    </div>
+                </div>
             </div>
         </div>
     </aside>
+
+
+    <!-- Chatting -->
+    <aside id="chat-room" class="chat-container">
+        <div class="box-btn-chat">
+            <button class="btn-chat-close" onclick="DisableChatRoom()">🞩</button>
+        </div>
+        <div class="box-text-title-chat">
+            <span class="text-title-chat">CHATTING</span>
+        </div>
+        <div class="wrap-chat-partner">
+            <div class="box-text-profile-chat">
+                <span id="chat-partner" class="text-chat-name" onclick="modalOpen()">김프로</span>
+            </div>
+            <div id="box-chat-partner" class="box-text-chat">
+                <span id="chat-partner-desc" class="text-chat-desc">안녕하세요! 채팅 두줄이 된다면? 더 길어진다면? 내가 물음표 살인마라면?</span>
+                <span class="text-chat-date">2022-07-19</span>
+            </div>
+        </div>
+        <div class="wrap-chat-user">
+            <div class="box-text-profile-chat">
+                <span id="chat-user-self" class="text-chat-name" onclick="modalOpen()">나</span>
+            </div>
+            <div id="box-chat-user-self" class="box-text-chat box-text-chat-user ">
+                <span id="chat-partner-desc" class="text-chat-desc">용건은 간단히 바랍니다.</span>
+                <span class="text-chat-date">2022-07-19</span>
+            </div>
+        </div>
+        <div class="box-input-chat">
+            <input class="input-chat" placeholder="채팅 입력하기">
+            <button class="btn-chat">전송</button>
+        </div>
+    </aside>
+
+
+
+
+
 
     <!-- User Profile -->
     <div id="user-modal" class="container-profile-modal">
