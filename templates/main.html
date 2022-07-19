@@ -47,7 +47,7 @@
                 <img src="/static/img/profile-kim.png" class="img-profile">
             </div>
             <div class="box-text-profile-chat">
-                <span class=text-profile-name">김프로</span>
+                <span class="text-profile-name" onclick="modalOpen()">김프로</span>
                 <span class="text-profile-desc">미리보기 텍스트</span>
             </div>
         </div>
@@ -56,7 +56,7 @@
                 <img src="/static/img/profile-song.png" class="img-profile">
             </div>
             <div class="box-text-profile-chat">
-                <span class=text-profile-name">송르탄</span>
+                <span class="text-profile-name" onclick="modalOpen()">송르탄</span>
                 <span class="text-profile-desc">미리보기 텍스트</span>
             </div>
         </div>
@@ -65,11 +65,32 @@
                 <img src="/static/img/profile-park.png" class="img-profile">
             </div>
             <div class="box-text-profile-chat">
-                <span class=text-profile-name">박코딩</span>
+                <span class="text-profile-name" onclick="modalOpen()">박코딩</span>
                 <span class="text-profile-desc">미리보기 텍스트</span>
             </div>
         </div>
     </aside>
+
+    <!-- User Profile -->
+    <div id="user-modal" class="container-profile-modal">
+        <div class="wrap-profile-modal">
+            <div class="box-close-modal">
+                <button class="btn-profile-modal" onclick="modalClose()">🞩</button>
+            </div>
+            <div class="box-profile-modal">
+                <div>
+                    <img src="/static/img/profile-kim.png" class="img-profile">
+                </div>
+                <div class="box-text-modal">
+                    <span class="text-profile-name text-modal-name">김프로</span>
+                    <span class="text-profile-portfolio">github.com/kimpro</span>
+                </div>
+            </div>
+            <div class="box-btn-modal">
+                <button class="btn-profile-modal">유저 페이지 보기</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
