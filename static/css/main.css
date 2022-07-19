@@ -136,6 +136,10 @@ body {
     background-color: gainsboro;
 }
 
+.box-chat-partner{
+    height:60vh;
+    overflow-y:scroll;
+}
 .wrap-profile-chat {
     display: inline-block;
 }
