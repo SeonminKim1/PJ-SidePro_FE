@@ -96,7 +96,7 @@ aside {
     font-weight: lighter;
 }
 
-.img-profile {
+.img-profile, .img-profile-modal {
     width: 3rem;
 }
 
