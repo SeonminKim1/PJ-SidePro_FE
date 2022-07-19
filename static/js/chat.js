@@ -1,4 +1,5 @@
-const asideChat = document.getElementById("chat-container"); 	
+const asideChat = document.getElementById("chat-list"); 
+const asideChatRoom = document.getElementById("chat-room"); 	
 const modal = document.getElementById("user-modal");
 
 // Chat List Open
@@ -12,6 +13,22 @@ function activeChatList() {
 function DisableChatList() { 
     if(asideChat.style.display == 'block') {
         asideChat.style.display = '';
+        modal.style.display = '';
+    }
+}
+
+
+// Chat Room Open
+function activeChatRoom() { 	
+    if(asideChatRoom.style.display == '') {
+        asideChatRoom.style.display = 'block'; 		
+    } 
+}
+
+// Chat Room Close
+function DisableChatRoom() { 
+    if(asideChatRoom.style.display == 'block') {
+        asideChatRoom.style.display = '';
         modal.style.display = '';
     }
 }
