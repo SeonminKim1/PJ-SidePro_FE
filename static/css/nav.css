@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    background-color: #EFEFEF;
 }
 
 html,
@@ -18,7 +17,7 @@ body {
     justify-content: space-between;
 }
 
-h1 {
+.title {
     margin-left: 30px;
     font-size: 2.4rem;
 }
@@ -49,5 +48,4 @@ h1 {
 
 .text-category-nav:hover::after {
     transform: scaleX(1);
-
 }
