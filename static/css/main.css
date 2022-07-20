@@ -120,7 +120,7 @@ body {
     font-weight: lighter;
 }
 
-.img-profile {
+.img-profile, .img-profile-modal {
     width: 3rem;
 }
 
@@ -136,6 +136,10 @@ body {
     background-color: gainsboro;
 }
 
+.box-chat-partner{
+    height:60vh;
+    overflow-y:scroll;
+}
 .wrap-profile-chat {
     display: inline-block;
 }
