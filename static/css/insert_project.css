@@ -1,0 +1,73 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: #EFEFEF;
+}
+
+#editor {
+    background-color: white;
+}
+
+.container-project-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.wrap-project-post {
+    width: 70%;
+    height: 80%;
+}
+
+.box-title-post>h1 {
+    font-weight: 500;
+}
+
+.title-project-post {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.2rem;
+    border: none;
+    outline: none;
+}
+
+.box-info-project {
+    margin: 20px 0;
+}
+
+.info-project-post {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+
+.box-btn-project-post {
+    margin: 20px 0;
+}
+
+.btn-project-submit {
+    border: none;
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    color: aliceblue;
+    background-color: black;
+}
+
+.btn-project-submit:hover {
+    background-color: rgb(75, 0, 226);
+    ;
+}
