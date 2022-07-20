@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content-box"><div>
+    <div id="viewer"></div>
+    
+
+    <script src="/static/_base.js"></script>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script>
+    function viewer() {
+        const Editor = toastui.Editor;
+
+        fetch(`${backend_base_url}/project/45`,{
+            headers: {
+                Accept: "application/json",
+                'content-type': "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method: 'GET',
+        })
+        .then(response=>{
+            return response.json()
+        })
+        .then(json=>{
+            const viewer = Editor.factory({
+                el: document.querySelector('#viewer'),
+                viewer: true,
+                height: '500px',
+                initialValue: json["content"]
+            });
+        })
+    }
+    viewer()
+    </script>
+</body>
+</html>

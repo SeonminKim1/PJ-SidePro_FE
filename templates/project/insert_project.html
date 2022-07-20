@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Toast UI Editor -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    
+</head>
+<body>
+    <h1>게시 글 쓰기</h1>
+    <div id="editor"></div>
+    <button onclick="seeHtml()">html보기</button>
+	<button onclick="seeMd()">markdown보기</button>
+    <div id="viewer"></div>
+
+
+    title : <input type="text" id="title"> <br>
+    git_hub_url : <input type="text" id="git_hub_url"> <br>
+    option : <input type=checkbox name="skills" id=".net" value=1 checked>.net 
+    <input type=checkbox name="skills" id="ABAP" value=2 checked>ABAP <br>
+    <button onclick="insert_project()">글쓰기</button>
+
+
+
+
+    <script src="/static/_base.js"></script>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    <script>
+        const Editor = toastui.Editor;
+ 
+        const editor = new Editor({
+            el: document.querySelector('#editor'),
+            height: '600px',
+            initialEditType: 'markdown',
+            previewStyle: 'vertical'
+        });
+
+        seeHtml = function(){
+			alert(editor.getHTML());
+		}
+		seeMd = function(){
+			alert(editor.getMarkdown());
+		}
+        insert_project = function() {
+            data = {
+                "title" : document.querySelector("#title").value,
+                "github_url":  document.querySelector("#git_hub_url").value,
+                "content":  editor.getMarkdown(),
+                "skills": [document.getElementById('.net').value, document.getElementById('ABAP').value]
+            }
+            console.log(data)
+            
+            fetch(`${backend_base_url}/project/`,{
+                headers: {
+                    Accept: "application/json",
+                    'content-type': "application/json",
+                    "Authorization": "Bearer " + localStorage.getItem("access")
+                },
+                method: 'POST',
+                body: JSON.stringify(data)
+            })
+            .then(response=>{
+                console.log(response)
+                return response.json()
+            })
+            .then(json=>{
+                console.log(json)
+                alert("게시글 작성 성공!")
+            })
+            
+            
+        }
+
+        editor.addHook("addImageBlobHook", function(blob, callback){
+            // blob 텍스트 
+            console.log(blob)
+
+            
+            // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
+            const formdata = new FormData();
+            formdata.append("file", blob)
+
+            fetch(`${backend_base_url}/project/upload/`,{
+                //headers: {
+                //    'Content-Type': 'multipart/form-data',
+                //},
+                method: "POST",
+                body: formdata,
+            })
+            .then(response=>{
+                console.log(response)
+                return response.json()
+            })
+            .then(json=>{
+                console.log(json)
+                // callback의 인수로 넣으시면 됩니다. 
+                callback(json["url"], "image")
+            })
+            
+            
+        });
+    </script>
+
+</body>
+</html>
