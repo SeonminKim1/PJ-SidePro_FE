@@ -13,7 +13,7 @@ body {
     background-color: #EFEFEF;
 }
 
-/* Fixed Button */
+/* 채팅, 프로젝트 등록 고정 버튼 */
 .btn-fixed-container {
     position: fixed;
     bottom: 30px;
@@ -45,7 +45,7 @@ body {
 }
 
 
-/* Chat Room List */
+/* 채팅룸 리스트 */
 .chat-list {
     display: none;
     z-index: 999;
@@ -127,7 +127,7 @@ body {
 }
 
 
-/* Chatting */
+/* 채팅 */
 .chat-container {
     display: none;
     z-index: 999;
@@ -200,7 +200,7 @@ body {
 }
 
 
-/* User Profile */
+/* 유저 프로필 모달 */
 .container-profile-modal {
     display: none;
 }
@@ -255,8 +255,6 @@ body {
 /* Main */
 
 /* 배너 */
-.wrap-main {}
-
 .box-banner-main {
     width: 90%;
     margin: auto;
@@ -266,23 +264,109 @@ body {
     width: 100%;
 }
 
+.wrap-search-main {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+/* 검색 */
+.box-search-main {
+    display: flex;
+    width: 40%;
+    padding: 10 0px;
+    border: 2px solid;
+    border-color: transparent transparent black transparent;
+    /* background-color: aqua; */
+}
+
+.input-search-main {
+    outline: none;
+    border: none;
+    width: 100%;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 1.2rem;
+
+}
+
+.btn-search-main {
+    border: none;
+    outline: none;
+    width: 10%;
+    font-size: 1.2rem;
+    background-color: transparent;
+}
+
+.btn-search-main:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* 정렬 */
+.box-dropdown-align-main {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+.box-dropdown-align-main:hover .dropdown-content-main {
+    display: block;
+
+}
+
+.btn-dropdown-main {
+    border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.dropdown-content-main {
+    display: none;
+    position: absolute;
+    width: 100px;
+    padding: 10px;
+    z-index: 1;
+    background-color: white;
+}
+
+.dropdown-content-main>a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: normal;
+    color: black;
+}
+
+.dropdown-content-main>a:hover {
+    color: rgb(75, 0, 226);
+}
+
 
 /* 카드 섹션  전체*/
 .container-card-section-main {
     margin: 5% 0;
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
 }
 
 /* 카드 섹션 */
 .wrap-card-section-main {
-    background-color: burlywood;
+    /* background-color: burlywood; */
     width: 90%;
     margin: 3% auto;
 }
 
 .text-title-section-main {
     margin: 0 8%;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
 }
 
 .text-title-suggest {
@@ -300,7 +384,7 @@ body {
     display: flex;
     justify-content: center;
     padding: 20px;
-    background-color: cornsilk;
+    /* background-color: cornsilk; */
 }
 
 /* 카드 */
