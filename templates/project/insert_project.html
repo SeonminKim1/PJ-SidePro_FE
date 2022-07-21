@@ -72,7 +72,7 @@
                 "title": document.querySelector("#title").value,
                 "github_url": document.querySelector("#git_hub_url").value,
                 "content": editor.getMarkdown(),
-                "skills": [document.getElementById('.net').value, document.getElementById('ABAP').value]
+                "skills" : [document.querySelector("#stack_tag").value],
             }
             console.log(data)
 
@@ -92,6 +92,7 @@
                 .then(json => {
                     console.log(json)
                     alert("게시글 작성 성공!")
+                    //window.location.replace("/templates/project/project_detail.html/" + json["id"])
                 })
 
 
