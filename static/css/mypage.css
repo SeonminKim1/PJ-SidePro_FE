@@ -1,0 +1,158 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: #EFEFEF;
+}
+
+.container-mypage {
+    display: flex;
+    margin: 5% 0 0 3%;
+    /* background-color: beige; */
+}
+
+
+/* Aside: Profile */
+.container-profile-user {
+    width: 45%;
+    /* background-color: cadetblue; */
+}
+
+.box-card-profile {
+    display: flex;
+    /* background-color: aliceblue; */
+}
+
+.img-profile-mypage {
+    width: 96px;
+}
+
+.wrap-text-profile-mypage {
+    width: 100%;
+    margin-left: 20px;
+    /* background-color: antiquewhite; */
+}
+
+.text-profile-mypage {
+    display: block;
+    font-size: 1rem;
+    /* background-color: aliceblue; */
+}
+
+.text-user-name-mypage {
+    padding: 0 0 5px 0;
+    font-weight: 700;
+}
+
+.text-user-stack-mypage,
+.text-user-github-mypage,
+.text-user-region-mypage {
+    padding: 3px 0;
+    font-size: .8rem;
+
+}
+
+.box-text-introduce {
+    margin-top: 20px;
+    padding: 16px;
+    word-break: keep-all;
+    background-color: white;
+}
+
+.box-btn-modify-mypage {
+    margin: 20px 0;
+}
+
+.btn-modify-mypage {
+    border: none;
+    outline: none;
+    padding: 10px 12px;
+    color: aliceblue;
+    background-color: black;
+}
+
+
+/* Main: Card Section */
+
+/* 전체 카드 섹션*/
+.container-card-mypage {
+    margin: 0 0 0 2%;
+    /* background-color: aquamarine; */
+}
+
+/* 전체 카드 섹션 타이틀 포함 wrap */
+.wrap-card-section-mypage {
+    /* background-color: aliceblue; */
+    width: 96%;
+}
+
+.text-title-section-myproject {}
+
+.text-title-section-myproject>span {
+    font-size: 1.2rem;
+}
+
+/* 카드 섹션 라인: 나의 프로젝트 */
+.container-card-section-myproject {
+    display: flex;
+    padding: 20px;
+    /* background-color: aquamarine; */
+}
+
+/* 카드 */
+.wrap-card-project {
+    width: 30%;
+    margin: 0 4%;
+    padding: 20px;
+    background-color: white;
+}
+
+.box-card-content-project {
+    /* background-color: antiquewhite; */
+}
+
+.img-card-thumnail-mypage {
+    width: 100%;
+}
+
+.card-text {
+    display: block;
+    margin: 10px 0;
+    word-break: keep-all;
+}
+
+.text-title-card-project {
+    /* background-color: aliceblue; */
+
+}
+
+.text-indroduce-card-project {
+    font-size: .8rem;
+}
+
+.wrap-writer-mypage {
+    margin-top: 20px;
+    /* background-color: cadetblue; */
+}
+
+.text-writer-mypage {
+    margin-right: 10px;
+}
+
+.btn-chat-mypage {
+    border: none;
+    outline: none;
+    padding: 5px 12px;
+    font-weight: 600;
+    border-radius: 30px;
+    color: aliceblue;
+    background-color: rgb(75, 0, 226);
+}
