@@ -21,20 +21,27 @@
 </head>
 
 <body>
+    <h2>룸만들기</h2>
+    <button class="btn-room-create" onclick="CreateRoomNode(this)" value="지올팍">유저 이름입니당(현재:지올팍)</button>
+    <button class="btn-room-create" onclick="CreateRoomNode(this)" value="김선민">유저 이름입니당(현재:김선민)</button>
+
     <!-- Fixed Button -->
     <div class="btn-fixed-container">
-        <button class="btn-chat-open" onclick="activeChatList()">나의 채팅창</button>
+        <button class="btn-chat-open" onclick="activeRoomList()">나의 채팅창</button>
         <button class="btn-project-regist">프로젝트 등록하기!</button>
     </div>
 
-    <!-- Chat List -->
+    <!-- Chat Room List -->
     <aside id="chat-list" class="chat-list">
         <div class="box-btn-chat">
-            <button class="btn-chat-close" onclick="DisableChatList()">🞩</button>
+            <button class="btn-chat-close" onclick="DisableRoomList()">🞩</button>
         </div>
         
-        <div class="box-text-title-chat">
-            <span class="text-title-chat">CHAT LIST</span>
+        <div class="box-text-title-room">
+            <span class="text-title-room">CHAT LIST</span>
+        </div>
+        <div id = "chat-room-list" class ="box-chat-room-list">
+
         </div>
         <!--
         <div class="container-profile-chat-list">
@@ -84,16 +91,15 @@
         -->
     </aside>
 
-
     <!-- Chatting -->
     <aside id="chat-room" class="chat-container" >
         <div class="box-btn-chat">
-            <button class="btn-chat-close" onclick="DisableChatRoom()">🞩</button>
+            <button class="btn-chat-room-close">🞩</button>
         </div>
         <div class="box-text-title-chat">
             <span class="text-title-chat">CHATTING</span>
         </div>
-        <div id = "chat-box" class="box-chat-partner">
+        <div id = "chat-box" class="box-chat-partner-user">
             <!--
             
             <div class="wrap-chat-partner">
@@ -123,11 +129,6 @@
         </div>
     </aside>
 
-
-
-
-
-
     <!-- User Profile -->
     <div id="user-modal" class="container-profile-modal">
         <div class="wrap-profile-modal">
@@ -153,6 +154,8 @@
 <!-- Javascript Import -->
 <script src="/static/js/_base.js"></script>
 <script src="/static/js/main.js"></script>
-<script src="/static/js/chat.js"></script>
+<script src="/static/js/chatRoom.js"></script>
+<script src="/static/js/chatUserProfile.js"></script>
+<script src="/static/js/chatting.js"></script>
 
 </html>
