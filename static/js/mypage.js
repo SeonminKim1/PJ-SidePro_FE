@@ -45,14 +45,14 @@ getMyUserInfo();
 
 
 
-async function myProjectList(){
+async function myProjectList() {
     const response = await fetch(`${backend_base_url}/user/profile/project/`, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
-        method : "GET",
+        method: "GET",
     })
 
     response_json = await response.json()
@@ -88,14 +88,14 @@ myProjectList()
 
 
 
-async function myBookmarkProjectList(){
+async function myBookmarkProjectList() {
     const response = await fetch(`${backend_base_url}/user/profile/project/bookmark/`, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
-        method : "GET",
+        method: "GET",
     })
 
     response_json = await response.json()
