@@ -17,7 +17,7 @@
     function viewer() {
         const Editor = toastui.Editor;
 
-        fetch(`${backend_base_url}/project/45`,{
+        fetch(`${backend_base_url}/project/${project_id}`,{
             headers: {
                 Accept: "application/json",
                 'content-type': "application/json",
