@@ -55,7 +55,7 @@ body {
     background-color: gainsboro;
 }
 
-.btn-chat-close {
+.btn-chat-close, .btn-chat-room-close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -66,11 +66,11 @@ body {
     cursor: pointer;
 }
 
-.box-text-title-chat {
+.box-text-title-chat, .box-text-title-room {
     margin: 20px 20px;
 }
 
-.text-title-chat {
+.text-title-chat, .text-title-room {
     font-size: 1.5rem;
     color: black;
 }
@@ -136,8 +136,8 @@ body {
     background-color: gainsboro;
 }
 
-.box-chat-partner{
-    height:60vh;
+.box-chat-partner-user, .box-chat-room-list{
+    height:70vh;
     overflow-y:scroll;
 }
 .wrap-profile-chat {
