@@ -5,38 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIDE PRO</title>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;500;900&display=swap"
-        rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
-
+    <title>Document</title>
+    <!-- Toast UI Editor -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
     <!-- CSS Import -->
     <link rel="stylesheet" href="/static/css/main.css">
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
-    <!-- Fixed Button -->
-    <div class="btn-fixed-container">
-        <button class="btn-chat-open" onclick="activeChatList()">나의 채팅창</button>
-        <button class="btn-project-regist">프로젝트 등록하기!</button>
-    </div>
+    <nav id="bar-nav">
+        <script>$("#bar-nav").load("/templates/nav.html");</script>
+    </nav>
+    <section>
+        <!-- Fixed Button -->
+        <div class="btn-fixed-container">
+            <button class="btn-chat-open" onclick="activeChatList()">나의 채팅창</button>
+            <button class="btn-project-regist">프로젝트 등록하기!</button>
+        </div>
 
-    <!-- Chat List -->
-    <aside id="chat-list" class="chat-list">
-        <div class="box-btn-chat">
-            <button class="btn-chat-close" onclick="DisableChatList()">🞩</button>
-        </div>
-        
-        <div class="box-text-title-chat">
-            <span class="text-title-chat">CHAT LIST</span>
-        </div>
-        <!--
+        <!-- Chat List -->
+        <aside id="chat-list" class="chat-list">
+            <div class="box-btn-chat">
+                <button class="btn-chat-close" onclick="DisableChatList()">🞩</button>
+            </div>
+
+            <div class="box-text-title-chat">
+                <span class="text-title-chat">CHAT LIST</span>
+            </div>
+            <!--
         <div class="container-profile-chat-list">
             <div class="wrap-profile-chat-list">
                 <div>
@@ -82,19 +81,19 @@
             </div>
         </div>
         -->
-    </aside>
+        </aside>
 
 
-    <!-- Chatting -->
-    <aside id="chat-room" class="chat-container" >
-        <div class="box-btn-chat">
-            <button class="btn-chat-close" onclick="DisableChatRoom()">🞩</button>
-        </div>
-        <div class="box-text-title-chat">
-            <span class="text-title-chat">CHATTING</span>
-        </div>
-        <div id = "chat-box" class="box-chat-partner">
-            <!--
+        <!-- Chatting -->
+        <aside id="chat-room" class="chat-container">
+            <div class="box-btn-chat">
+                <button class="btn-chat-close" onclick="DisableChatRoom()">🞩</button>
+            </div>
+            <div class="box-text-title-chat">
+                <span class="text-title-chat">CHATTING</span>
+            </div>
+            <div id="chat-box" class="box-chat-partner">
+                <!--
             
             <div class="wrap-chat-partner">
                 <div class="box-text-profile-chat">
@@ -116,38 +115,171 @@
                 </div>
             </div>
             -->
-        </div>
-        <div class="box-input-chat">
-            <input class="input-chat" placeholder="채팅 입력하기">
-            <button class="btn-chat">전송</button>
-        </div>
-    </aside>
-
-
-
-
-
-
-    <!-- User Profile -->
-    <div id="user-modal" class="container-profile-modal">
-        <div class="wrap-profile-modal">
-            <div class="box-close-modal">
-                <button class="btn-profile-modal" onclick="modalClose()">🞩</button>
             </div>
-            <div class="box-profile-modal">
-                <div>
-                    <img src="/static/img/profile-kim.png" class="img-profile img-profile-modal">
+            <div class="box-input-chat">
+                <input class="input-chat" placeholder="채팅 입력하기">
+                <button class="btn-chat">전송</button>
+            </div>
+        </aside>
+
+
+        <!-- Main -->
+        <main class="container-main">
+            <div class="wrap-main">
+                <div class="box-banner-main">
+                    <img class="img-banner-main" src="/static/img/banner.png">
                 </div>
-                <div class="box-text-modal">
-                    <span class="text-profile-name text-modal-name text-profile-name-modal">김프로</span>
-                    <span class="text-profile-portfolio text-profile-portfolio-modal">github.com/kimpro</span>
+                <!-- Filter -->
+                <div class="wrap-search-main">
+                    <div>
+                        <input>
+                        <button>검색</button>
+                    </div>
+                    <div class="box-dropdown-align-main">
+                        <button></button>
+                    </div>
+                </div>
+                <div class="container-card-section-main">
+                    <!-- 카드 섹션 1-->
+                    <div class="wrap-card-section-main">
+                        <div class="text-title-section-main">
+                            <span class="text-title-suggest">사용자님에게 맞는 추천 프로젝트!</span>
+                        </div>
+                        <div class="container-card-section">
+                            <!-- 카드 -->
+                            <div class="wrap-card-project-suggest">
+                                <div class="box-card-content-project">
+                                    <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg">
+                                    <div class="box-text-card-project">
+                                        <span class="card-text text-title-card-project">프로젝트 제목</span>
+                                        <span class="card-text text-indroduce-card-project">프로젝트 한줄소개! 나의 첫번째 프로젝트를
+                                            소개합니다!</span>
+                                        <span class="card-text text-stack-card-project">Python Django JAVA</span>
+                                    </div>
+                                    <div class="wrap-writer-mypage">
+                                        <span class="text-writer-mypage">김코딩</span>
+                                        <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card-project-suggest">
+                                <div class="box-card-content-project">
+                                    <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg">
+                                    <div class="box-text-card-project">
+                                        <span class="card-text text-title-card-project">프로젝트 제목</span>
+                                        <span class="card-text text-indroduce-card-project">프로젝트 한줄소개! 나의 첫번째 프로젝트를
+                                            소개합니다!</span>
+                                        <span class="card-text text-stack-card-project">Python Django JAVA</span>
+                                    </div>
+                                    <div class="wrap-writer-mypage">
+                                        <span class="text-writer-mypage">김코딩</span>
+                                        <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card-project-suggest">
+                                <div class="box-card-content-project">
+                                    <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg">
+                                    <div class="box-text-card-project">
+                                        <span class="card-text text-title-card-project">프로젝트 제목</span>
+                                        <span class="card-text text-indroduce-card-project">프로젝트 한줄소개! 나의 첫번째 프로젝트를
+                                            소개합니다!</span>
+                                        <span class="card-text text-stack-card-project">Python Django JAVA</span>
+                                    </div>
+                                    <div class="wrap-writer-mypage">
+                                        <span class="text-writer-mypage">김코딩</span>
+                                        <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 카드 섹션 2 -->
+                    <div class="wrap-card-section-main">
+                        <div class="text-title-section-main">
+                            <span class="text-title-project">여러 프로젝트를 둘러보세요~</span>
+                        </div>
+                        <div class="container-card-section">
+                            <!-- 카드 -->
+                            <div class="wrap-card-project">
+                                <div class="box-card-content-project">
+                                    <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg">
+                                    <div class="box-text-card-project">
+                                        <span class="card-text text-title-card-project">프로젝트 제목</span>
+                                        <span class="card-text text-indroduce-card-project">프로젝트 한줄소개! 나의 첫번째 프로젝트를
+                                            소개합니다!</span>
+                                        <span class="card-text text-stack-card-project">Python Django JAVA</span>
+                                    </div>
+                                    <div class="wrap-writer-mypage">
+                                        <span class="text-writer-mypage">김코딩</span>
+                                        <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card-project">
+                                <div class="box-card-content-project">
+                                    <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg">
+                                    <div class="box-text-card-project">
+                                        <span class="card-text text-title-card-project">프로젝트 제목</span>
+                                        <span class="card-text text-indroduce-card-project">프로젝트 한줄소개! 나의 첫번째 프로젝트를
+                                            소개합니다!</span>
+                                        <span class="card-text text-stack-card-project">Python Django JAVA</span>
+                                    </div>
+                                    <div class="wrap-writer-mypage">
+                                        <span class="text-writer-mypage">김코딩</span>
+                                        <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wrap-card-project">
+                                <div class="box-card-content-project">
+                                    <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg">
+                                    <div class="box-text-card-project">
+                                        <span class="card-text text-title-card-project">프로젝트 제목</span>
+                                        <span class="card-text text-indroduce-card-project">프로젝트 한줄소개! 나의 첫번째 프로젝트를
+                                            소개합니다!</span>
+                                        <span class="card-text text-stack-card-project">Python Django JAVA</span>
+                                    </div>
+                                    <div class="wrap-writer-mypage">
+                                        <span class="text-writer-mypage">김코딩</span>
+                                        <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </main>
+
+
+
+
+
+
+        <!-- User Profile -->
+        <div id="user-modal" class="container-profile-modal">
+            <div class="wrap-profile-modal">
+                <div class="box-close-modal">
+                    <button class="btn-profile-modal" onclick="modalClose()">🞩</button>
+                </div>
+                <div class="box-profile-modal">
+                    <div>
+                        <img src="/static/img/profile-kim.png" class="img-profile img-profile-modal">
+                    </div>
+                    <div class="box-text-modal">
+                        <span class="text-profile-name text-modal-name text-profile-name-modal">김프로</span>
+                        <span class="text-profile-portfolio text-profile-portfolio-modal">github.com/kimpro</span>
+                    </div>
+                </div>
+                <div class="box-btn-modal">
+                    <button class="btn-profile-modal">유저 페이지 보기</button>
                 </div>
             </div>
-            <div class="box-btn-modal">
-                <button class="btn-profile-modal">유저 페이지 보기</button>
-            </div>
         </div>
-    </div>
+    </section>
 </body>
 
 <!-- Javascript Import -->

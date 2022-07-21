@@ -10,6 +10,7 @@ body {
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
+    background-color: #EFEFEF;
 }
 
 /* Fixed Button */
@@ -120,7 +121,8 @@ body {
     font-weight: lighter;
 }
 
-.img-profile, .img-profile-modal {
+.img-profile,
+.img-profile-modal {
     width: 3rem;
 }
 
@@ -136,10 +138,11 @@ body {
     background-color: gainsboro;
 }
 
-.box-chat-partner{
-    height:60vh;
-    overflow-y:scroll;
+.box-chat-partner {
+    height: 60vh;
+    overflow-y: scroll;
 }
+
 .wrap-profile-chat {
     display: inline-block;
 }
@@ -246,4 +249,112 @@ body {
 
 .box-btn-modal>button:hover {
     font-weight: 700;
+}
+
+
+/* Main */
+
+/* 배너 */
+.wrap-main {}
+
+.box-banner-main {
+    width: 90%;
+    margin: auto;
+}
+
+.img-banner-main {
+    width: 100%;
+}
+
+
+/* 카드 섹션  전체*/
+.container-card-section-main {
+    margin: 5% 0;
+    background-color: antiquewhite;
+}
+
+/* 카드 섹션 */
+.wrap-card-section-main {
+    background-color: burlywood;
+    width: 90%;
+    margin: 3% auto;
+}
+
+.text-title-section-main {
+    margin: 0 8%;
+    background-color: cadetblue;
+}
+
+.text-title-suggest {
+    font-size: 1.2rem;
+    color: rgb(75, 0, 226);
+}
+
+.text-title-project {
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* 카드 섹션 라인: 나의 프로젝트 */
+.container-card-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: cornsilk;
+}
+
+/* 카드 */
+.wrap-card-project {
+    width: 20%;
+    margin: 0 4%;
+    padding: 20px;
+    background-color: white;
+}
+
+.wrap-card-project-suggest {
+    width: 20%;
+    margin: 0 4%;
+    padding: 20px;
+    background-color: #d0ceff;
+}
+
+.box-card-content-project {
+    /* background-color: antiquewhite; */
+}
+
+.img-card-thumnail-mypage {
+    width: 100%;
+}
+
+.card-text {
+    display: block;
+    margin: 10px 0;
+    word-break: keep-all;
+}
+
+.text-title-card-project {
+    /* background-color: aliceblue; */
+}
+
+.text-indroduce-card-project {
+    font-size: .8rem;
+}
+
+.wrap-writer-mypage {
+    margin-top: 20px;
+    /* background-color: cadetblue; */
+}
+
+.text-writer-mypage {
+    margin-right: 10px;
+}
+
+.btn-chat-mypage {
+    border: none;
+    outline: none;
+    padding: 5px 12px;
+    font-weight: 600;
+    border-radius: 30px;
+    color: aliceblue;
+    background-color: rgb(75, 0, 226);
 }
