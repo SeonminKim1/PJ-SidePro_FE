@@ -9,6 +9,7 @@
 <body>
     <div id="content-box"><div>
     <div id="viewer"></div>
+    <div id="bookmark"></div>
     
 
     <script src="/static/_base.js"></script>
@@ -17,7 +18,7 @@
     function viewer() {
         const Editor = toastui.Editor;
 
-        fetch(`${backend_base_url}/project/${project_id}`,{
+        fetch(`${backend_base_url}/project/54`,{
             headers: {
                 Accept: "application/json",
                 'content-type': "application/json",
@@ -35,9 +36,37 @@
                 height: '500px',
                 initialValue: json["content"]
             });
+
+            // 북마크 버튼
+            const payload = JSON.parse(localStorage.getItem("payload"));
+            const bookmark_div = document.querySelector("#bookmark");
+            bookmark_div.innerHTML = ``
+            const bookmark_btn = document.createElement('div');
+            bookmark_btn.className = 'bookmark_btn';
+            
+            if (json["bookmark"].includes(payload.user_id)){
+                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♥</button>`
+            } else {
+                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♡</button>`
+            }
+            bookmark_div.append(bookmark_btn)
+
         })
     }
     viewer()
+
+    function bookmark(project_id) {
+        fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
+            headers: {
+                Accept: "application/json",
+                'content-type': "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method: 'POST',
+        })
+
+        viewer()
+    }
     </script>
 </body>
 </html>
