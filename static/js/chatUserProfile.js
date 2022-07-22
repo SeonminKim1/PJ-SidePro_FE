@@ -1,3 +1,4 @@
+
 // Profile Modal Open
 function modalOpen(profile_img, user2_username, github_url) { 	
     console.log("chat.js - modalOpen")

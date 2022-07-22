@@ -1,3 +1,4 @@
+
 // 모달, ROOM 관련
 const modal = document.getElementById("user-modal"); // 모달 
 const asideChat = document.getElementById("chat-list"); // 채팅룸 모달 전체
