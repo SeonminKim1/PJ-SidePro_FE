@@ -101,7 +101,7 @@ body {
 }
 
 /* 카드 섹션 라인: 나의 프로젝트 */
-.container-card-section-myproject {
+.container-card-section-myproject, .container-card-section-mybookmarkproject {
     display: flex;
     padding: 20px;
     /* background-color: aquamarine; */
