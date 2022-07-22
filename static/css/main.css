@@ -10,9 +10,10 @@ body {
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
+    background-color: #EFEFEF;
 }
 
-/* Fixed Button */
+/* 채팅, 프로젝트 등록 고정 버튼 */
 .btn-fixed-container {
     position: fixed;
     bottom: 30px;
@@ -44,7 +45,7 @@ body {
 }
 
 
-/* Chat Room List */
+/* 채팅룸 리스트 */
 .chat-list {
     display: none;
     z-index: 999;
@@ -54,6 +55,7 @@ body {
     height: 100vh;
     background-color: gainsboro;
 }
+
 
 .btn-chat-close, .btn-chat-room-close {
     position: absolute;
@@ -65,6 +67,7 @@ body {
     background-color: transparent;
     cursor: pointer;
 }
+
 
 .box-text-title-chat, .box-text-title-room {
     margin: 20px 20px;
@@ -120,12 +123,13 @@ body {
     font-weight: lighter;
 }
 
-.img-profile, .img-profile-modal {
+.img-profile,
+.img-profile-modal {
     width: 3rem;
 }
 
 
-/* Chatting */
+/* 채팅 */
 .chat-container {
     display: none;
     z-index: 999;
@@ -136,10 +140,12 @@ body {
     background-color: gainsboro;
 }
 
+
 .box-chat-partner-user, .box-chat-room-list{
     height:70vh;
     overflow-y:scroll;
 }
+
 .wrap-profile-chat {
     display: inline-block;
 }
@@ -197,7 +203,7 @@ body {
 }
 
 
-/* User Profile */
+/* 유저 프로필 모달 */
 .container-profile-modal {
     display: none;
 }
@@ -246,4 +252,196 @@ body {
 
 .box-btn-modal>button:hover {
     font-weight: 700;
+}
+
+
+/* Main */
+
+/* 배너 */
+.box-banner-main {
+    width: 90%;
+    margin: auto;
+}
+
+.img-banner-main {
+    width: 100%;
+}
+
+.wrap-search-main {
+    display: flex;
+    justify-content: space-between;
+    margin: 5%;
+}
+
+/* 검색 */
+.box-search-main {
+    display: flex;
+    width: 40%;
+    padding: 10 0px;
+    border: 2px solid;
+    border-color: transparent transparent black transparent;
+    /* background-color: aqua; */
+}
+
+.input-search-main {
+    outline: none;
+    border: none;
+    width: 100%;
+    margin: 0 10px;
+    padding: 10px;
+    background-color: transparent;
+    font-size: 1.2rem;
+
+}
+
+.btn-search-main {
+    border: none;
+    outline: none;
+    width: 10%;
+    font-size: 1.2rem;
+    background-color: transparent;
+}
+
+.btn-search-main:hover {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* 정렬 */
+.box-dropdown-align-main {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    text-align: center;
+}
+
+.box-dropdown-align-main:hover .dropdown-content-main {
+    display: block;
+
+}
+
+.btn-dropdown-main {
+    border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.dropdown-content-main {
+    display: none;
+    position: absolute;
+    width: 100px;
+    padding: 10px;
+    z-index: 1;
+    background-color: white;
+}
+
+.dropdown-content-main>a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: normal;
+    color: black;
+}
+
+.dropdown-content-main>a:hover {
+    color: rgb(75, 0, 226);
+}
+
+
+/* 카드 섹션  전체*/
+.container-card-section-main {
+    margin: 5% 0;
+    /* background-color: antiquewhite; */
+}
+
+/* 카드 섹션 */
+.wrap-card-section-main {
+    /* background-color: burlywood; */
+    width: 90%;
+    margin: 3% auto;
+}
+
+.text-title-section-main {
+    margin: 0 8%;
+    /* background-color: cadetblue; */
+}
+
+.text-title-suggest {
+    font-size: 1.2rem;
+    color: rgb(75, 0, 226);
+}
+
+.text-title-project {
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* 카드 섹션 라인: 나의 프로젝트 */
+.container-card-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    /* background-color: cornsilk; */
+}
+
+/* 카드 */
+.wrap-card-project {
+    width: 20%;
+    margin: 0 4%;
+    padding: 20px;
+    background-color: white;
+}
+
+.wrap-card-project-suggest {
+    width: 20%;
+    margin: 0 4%;
+    padding: 20px;
+    background-color: #d0ceff;
+}
+
+.box-card-content-project {
+    /* background-color: antiquewhite; */
+}
+
+.img-card-thumnail-mypage {
+    width: 100%;
+}
+
+.card-text {
+    display: block;
+    margin: 10px 0;
+    word-break: keep-all;
+}
+
+.text-title-card-project {
+    /* background-color: aliceblue; */
+}
+
+.text-indroduce-card-project {
+    font-size: .8rem;
+}
+
+.wrap-writer-mypage {
+    margin-top: 20px;
+    /* background-color: cadetblue; */
+}
+
+.text-writer-mypage {
+    margin-right: 10px;
+}
+
+.btn-chat-mypage {
+    border: none;
+    outline: none;
+    padding: 5px 12px;
+    font-weight: 600;
+    border-radius: 30px;
+    color: aliceblue;
+    background-color: rgb(75, 0, 226);
 }

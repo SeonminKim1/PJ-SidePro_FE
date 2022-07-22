@@ -1,3 +1,4 @@
+
 // Chatting Room Open
 async function activeChatRoom(roomname, user1_username, user2_username) { 	
     if(asideChatRoom.style.display == '') {
@@ -209,4 +210,5 @@ function AddDeactiveChatRoomEvent(roomname){
             }
         }
     };
+
 }
