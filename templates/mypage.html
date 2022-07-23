@@ -13,10 +13,7 @@
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-    <!-- Javascript Import -->
-    <script src="/static/js/_base.js"></script>
-    <script src="/static/js/mypage.js"></script>
+    
 </head>
 
 <body>
@@ -46,21 +43,26 @@
             <div class="wrap-card-section-mypage">
                 <div class="text-title-section-myproject">
                     <span>나의 프로젝트</span>
+                    <span class="prev"><</span><span class="next">></span>  
                 </div>
                 <div class="container-card-section-myproject">
-                    <!-- 카드 -->
+                    <div class="myproject-slides"><!-- 카드 --></div>                
                 </div>
             </div>
             <div class="wrap-card-section-mypage">
                 <div class="text-title-section-myproject">
                     <span>북마크 프로젝트</span>
+                    <span class="prev"><</span><span class="next">></span>
                 </div>
                 <div class="container-card-section-mybookmarkproject">
-                    <!-- 카드 -->
+                        <div class="mybookmarkproject-slides"><!-- 카드 --></div>
                 </div>
             </div>
-
         </main>
     </section>
-
+    
 </body>
+<!-- Javascript Import -->
+<script src="/static/js/_base.js"></script>
+<script src="/static/js/mypage.js"></script>
+</html>

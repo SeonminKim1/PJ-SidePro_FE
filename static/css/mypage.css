@@ -22,7 +22,7 @@ body {
 
 /* Aside: Profile */
 .container-profile-user {
-    width: 45%;
+    width: 25%;
     /* background-color: cadetblue; */
 }
 
@@ -84,6 +84,7 @@ body {
 
 /* 전체 카드 섹션*/
 .container-card-mypage {
+    width: 70%;
     margin: 0 0 0 2%;
     /* background-color: aquamarine; */
 }
@@ -91,7 +92,6 @@ body {
 /* 전체 카드 섹션 타이틀 포함 wrap */
 .wrap-card-section-mypage {
     /* background-color: aliceblue; */
-    width: 96%;
 }
 
 .text-title-section-myproject {}
@@ -101,18 +101,58 @@ body {
 }
 
 /* 카드 섹션 라인: 나의 프로젝트 */
-.container-card-section-myproject, .container-card-section-mybookmarkproject {
-    display: flex;
-    padding: 20px;
+.container-card-section-myproject {
+    /* display: flex; */
+    /* padding: 20px; */
     /* background-color: aquamarine; */
+    position: relative;
+    margin: 2% auto;
+    width: 1000px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.container-card-section-mybookmarkproject {
+    /* display: flex; */
+    /* padding: 20px; */
+    /* background-color: aquamarine; */
+    position: relative;
+    margin: 2% auto;
+    width: 1000px;
+    height: 450px;
+    overflow: hidden;
+}
+
+.myproject-slides,
+.mybookmarkproject-slides {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.myproject-slides.animated,
+.mybookmarkproject-slides.animated {
+    transition: 0.5s ease-out;
+}
+
+.prev,
+.next {
+    background: #333;
+    color: #fff;
+    padding: 0 13px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
 }
 
 /* 카드 */
 .wrap-card-project {
-    width: 30%;
-    margin: 0 4%;
+    width: 300px;
+    height: 450px;
+    margin: 0 10px;
     padding: 20px;
     background-color: white;
+    float: left;
 }
 
 .box-card-content-project {

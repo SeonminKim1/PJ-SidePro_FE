@@ -1,3 +1,79 @@
+document.addEventListener("DOMContentLoaded", function () {
+    getMyUserInfo();
+    myProjectList();
+    myBookmarkProjectList();
+});
+
+var slides = document.querySelector('.myproject-slides'),
+    slide = document.querySelectorAll('.myproject-slides .wrap-card-project'),
+    // slide = slides.getElementsByClassName('myproject-slides'),
+    currentIdx = 0,
+    slideCount = slide.length,
+    slideWidth = 300,
+    slideMargin = 20,
+    prevBtn = document.querySelector('.prev'),
+    nextBtn = document.querySelector('.next');
+
+makeClone();
+
+function makeClone() {
+    for (var i = 0; i < slideCount; i++) {
+        var cloneSlide = slide[i].cloneNode(true);
+        cloneSlide.classList.add('clone');
+        slides.appendChild(cloneSlide);
+    }
+    for (var i = slideCount - 1; i >= 0; i--) {
+        var cloneSlide = slide[i].cloneNode(true);
+        cloneSlide.classList.add('clone');
+        slides.prepend(cloneSlide);
+    }
+    updateWidth();
+    setInitialPos();
+    setTimeout(function () {
+        slides.classList.add('animated');
+    }, 100);
+
+}
+
+function updateWidth() {
+    var currentSlides = document.querySelectorAll('.wrap-card-project');
+    var newSlideCount = currentSlides.length;
+
+    var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+    slides.style.width = newWidth;
+}
+
+function setInitialPos() {
+    var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+    slides.style.transform = 'translateX(' + initialTranslateValue + 'px)';
+}
+
+nextBtn.addEventListener('click', function () {
+    moveSlide(currentIdx + 1);
+})
+prevBtn.addEventListener('click', function () {
+    moveSlide(currentIdx - 1);
+})
+
+function moveSlide(num) {
+    slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+    currentIdx = num;
+    console.log(currentIdx, slideCount)
+
+    if (currentIdx == slideCount || currentIdx == -slideCount) {
+        setTimeout(function () {
+            slides.classList.remove('animated');
+            slides.style.left = '0px';
+            currentIdx = 0;
+        }, 500);
+        setTimeout(function () {
+            slides.classList.add('animated');
+        }, 600);
+    }
+}
+
+
+
 // 비동기 통신 async 내 정보 출력
 async function getMyUserInfo() {
 
@@ -41,8 +117,6 @@ async function getMyUserInfo() {
         `
     }
 }
-getMyUserInfo();
-
 
 
 async function myProjectList() {
@@ -62,7 +136,7 @@ async function myProjectList() {
         myprojectlist = response_json
         console.log(myprojectlist)
 
-        const list_box = document.querySelector(".container-card-section-myproject")
+        const list_box = document.querySelector(".myproject-slides")
 
         myprojectlist.forEach(myproject => {
 
@@ -84,7 +158,7 @@ async function myProjectList() {
         });
     }
 }
-myProjectList()
+
 
 
 
@@ -105,7 +179,7 @@ async function myBookmarkProjectList() {
         mybookmarkprojectlist = response_json
         console.log(mybookmarkprojectlist)
 
-        const list_box = document.querySelector(".container-card-section-mybookmarkproject")
+        const list_box = document.querySelector(".mybookmarkproject-slides")
 
         mybookmarkprojectlist.forEach(mybookmarkproject => {
 
@@ -131,4 +205,10 @@ async function myBookmarkProjectList() {
         });
     }
 }
-myBookmarkProjectList()
+
+
+
+
+
+
+
