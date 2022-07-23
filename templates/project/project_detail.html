@@ -18,6 +18,7 @@
     function viewer() {
         const Editor = toastui.Editor;
 
+        // 게시물 상세 조회 (id=54인 게시물 테스트용)
         fetch(`${backend_base_url}/project/54`,{
             headers: {
                 Accept: "application/json",
@@ -64,7 +65,6 @@
             },
             method: 'POST',
         })
-
         viewer()
     }
     </script>
