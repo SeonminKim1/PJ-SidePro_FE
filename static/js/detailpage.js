@@ -57,7 +57,7 @@ async function DetailPageViewer(project_id) {
     AddArticleViewUpdateDelete(response_json) 
 
     // 5. 댓글 추가, 조회, 수정, 삭제
-    // AddCommentCrud(response_json) 
+    AddCommentCrud(response_json) 
 
 }
 
