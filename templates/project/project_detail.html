@@ -1,72 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Toast UI Editor -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@200;300;400;500;600;700&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+KR:wght@100;500;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
+
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="/static/css/project_detail.css">
+
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-    <div id="content-box"><div>
-    <div id="viewer"></div>
-    <div id="bookmark"></div>
-    
+    <nav id="bar-nav">
+        <script>$("#bar-nav").load("/templates/nav.html");</script>
+    </nav>
+    <section class="container-project-post-detail">
+        <article class="wrap-project-post-detail">
+            <!-- 상단 타이틀 -->
+            <div>
+                <div class="wrap-title-first-detail">
+                    <div class="box-title-info-detail">
+                        <div class="box-title-project-detail">
+                            <span class="text-title-project-detail">프로젝트 제목</span>
+                        </div>
+                        <div class="box-date-project-detail">
+                            <span class="text-date-project-detail">2022-07-24</span>
+                        </div>
+                    </div>
+                    <div class="box-bookmark-project-detail">
+                        <i class="fa-solid fa-star"></i>
+                        <!-- <i class="fa-regular fa-star"></i> -->
+                    </div>
+                </div>
+                <div class="wrap-title-second-detail">
+                    <div class="box-title-second-detail">
+                        <span class="text-stack-project-detail">Python Django JAVA</span>
+                    </div>
+                    <div class="box-link-profile-detail">
+                        <img class="img-github-project-detail" src="/static/img/github.svg">
+                        <span class="link-github-project-detail">github.com/kimpro</span>
+                    </div>
+                </div>
+            </div>
+            <!-- 컨텐츠 섹션 -->
+            <div class="wrap-content-project-detail">
+                content
+            </div>
+            <!-- 버튼 -->
+            <div class="box-btn-detail">
+                <button class="btn-modify-detail">수정하기</button>
+                <button class="btn-delete-detail">삭제하기</button>
+            </div>
+        </article>
+        <!-- 댓글 -->
+        <div class="container-reply-detail">
+            <div class="wrap-reply-detail">
+                <div class="box-reply-detail">
+                    <div>
+                        <span class="user-reply-detail">사용자</span>
+                        <input class="input-reply-detail" type="text" placeholder="댓글을 입력하세요">
+                    </div>
+                    <button class="btn-reply-detail">댓글달기</button>
+                </div>
+                <div class="wrap-comment-detail">
+                    <div class="box-title-comment-detail">
+                        <span class="text-title-comment-detail">Comments</span>
+                    </div>
+                    <div class="box-comment-detail">
+                        <div class="box-comment-content-detail">
+                            <span class="user-comment-detail">사용자</span>
+                        </div>
+                        <div class="wrap-comment-content-detail">
+                            <div class="comment-content-detail">댓글 내용입니다.</div>
+                            <div class="box-btn-comment-content">
+                                <button class="btn-delete-comment-detail">삭제</button>
+                                <button class="btn-modify-comment-detail">수정</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <script src="/static/_base.js"></script>
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-    <script>
-    function viewer() {
-        const Editor = toastui.Editor;
 
-        // 게시물 상세 조회 (id=54인 게시물 테스트용)
-        fetch(`${backend_base_url}/project/54`,{
-            headers: {
-                Accept: "application/json",
-                'content-type': "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("access")
-            },
-            method: 'GET',
-        })
-        .then(response=>{
-            return response.json()
-        })
-        .then(json=>{
-            const viewer = Editor.factory({
-                el: document.querySelector('#viewer'),
-                viewer: true,
-                height: '500px',
-                initialValue: json["content"]
-            });
 
-            // 북마크 버튼
-            const payload = JSON.parse(localStorage.getItem("payload"));
-            const bookmark_div = document.querySelector("#bookmark");
-            bookmark_div.innerHTML = ``
-            const bookmark_btn = document.createElement('div');
-            bookmark_btn.className = 'bookmark_btn';
-            
-            if (json["bookmark"].includes(payload.user_id)){
-                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♥</button>`
-            } else {
-                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♡</button>`
-            }
-            bookmark_div.append(bookmark_btn)
 
-        })
-    }
-    viewer()
+    <!--  -->
+    <div id="content-box">
+        <div>
+            <div id="viewer"></div>
+            <div id="bookmark"></div>
 
-    function bookmark(project_id) {
-        fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
-            headers: {
-                Accept: "application/json",
-                'content-type': "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("access")
-            },
-            method: 'POST',
-        })
-        viewer()
-    }
-    </script>
+
+            <script src="/static/_base.js"></script>
+            <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+            <script>
+                function viewer() {
+                    const Editor = toastui.Editor;
+
+                    // 게시물 상세 조회 (id=54인 게시물 테스트용)
+                    fetch(`${backend_base_url}/project/54`, {
+                        headers: {
+                            Accept: "application/json",
+                            'content-type': "application/json",
+                            "Authorization": "Bearer " + localStorage.getItem("access")
+                        },
+                        method: 'GET',
+                    })
+                        .then(response => {
+                            return response.json()
+                        })
+                        .then(json => {
+                            const viewer = Editor.factory({
+                                el: document.querySelector('#viewer'),
+                                viewer: true,
+                                height: '500px',
+                                initialValue: json["content"]
+                            });
+
+                            // 북마크 버튼
+                            const payload = JSON.parse(localStorage.getItem("payload"));
+                            const bookmark_div = document.querySelector("#bookmark");
+                            bookmark_div.innerHTML = ``
+                            const bookmark_btn = document.createElement('div');
+                            bookmark_btn.className = 'bookmark_btn';
+
+                            if (json["bookmark"].includes(payload.user_id)) {
+                                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♥</button>`
+                            } else {
+                                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♡</button>`
+                            }
+                            bookmark_div.append(bookmark_btn)
+
+                        })
+                }
+                viewer()
+
+                function bookmark(project_id) {
+                    fetch(`${backend_base_url}/project/${project_id}/bookmark/`, {
+                        headers: {
+                            Accept: "application/json",
+                            'content-type': "application/json",
+                            "Authorization": "Bearer " + localStorage.getItem("access")
+                        },
+                        method: 'POST',
+                    })
+                    viewer()
+                }
+            </script>
 </body>
+
 </html>
