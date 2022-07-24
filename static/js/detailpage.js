@@ -51,7 +51,7 @@ async function DetailPageViewer(project_id) {
     AddTitleBookmark(response_json) 
 
     // 3. 기술스택 & GitURL
-    // AddSkillsGiturl(response_json) 
+    AddSkillsGiturl(response_json) 
 
     // 4. 게시글 조회, 수정, 삭제
     // AddArticleViewUpdateDelete(response_json) 
@@ -105,4 +105,25 @@ async function bookmark(node) {
     } else {
         alert('게시글 삭제 실패: ', response.status)
     }
+}
+
+// 3. 기술스택 & GitURL
+function AddSkillsGiturl(response_json){
+    console.log("detailpage.js - AddSkillsGiturl")
+    // 3.1 skills
+    const skill_box = document.getElementById('skills-div')
+    skills = response_json['skills']
+    for(let i = 0; i<skills.length; i++){
+        SkillTag = document.createElement('span')
+        SkillTag.innerText = skills[i];
+        SkillTag.style.marginRight = "5px";
+        SkillTag.style.color = "cyan";
+        skill_box.append(SkillTag)
+    }
+
+    // 3.2 writer, gitlink
+    const writer_span = document.getElementById('writer-span')
+    const gitlink_span = document.getElementById('gitlink-span')
+    writer_span.innerText = response_json['user']
+    gitlink_span.innerText = response_json['github_url']
 }
