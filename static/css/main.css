@@ -283,6 +283,10 @@ body {
     /* background-color: aqua; */
 }
 
+.box-search-tag{
+    background-color:cyan;
+}
+
 .input-search-main {
     outline: none;
     border: none;
