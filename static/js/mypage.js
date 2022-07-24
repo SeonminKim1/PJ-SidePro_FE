@@ -1,3 +1,12 @@
+var slides, slide, currentIdx, slideCount, slideWidth, slideMargin, prevBtn, nextBtn;
+var slidesBookmark, slideBookmark, currentIdxBookmark, slideCountBookmark, slideWidthBookmark, slideMarginBookmark, prevBtnBookmark, nextBtnBookmark;
+
+window.addEventListener('DOMContentLoaded', function () {
+    getMyUserInfo();
+    myProjectList();
+    myBookmarkProjectList();
+});
+
 // 비동기 통신 async 내 정보 출력
 async function getMyUserInfo() {
 
@@ -41,8 +50,6 @@ async function getMyUserInfo() {
         `
     }
 }
-getMyUserInfo();
-
 
 
 async function myProjectList() {
@@ -62,7 +69,7 @@ async function myProjectList() {
         myprojectlist = response_json
         console.log(myprojectlist)
 
-        const list_box = document.querySelector(".container-card-section-myproject")
+        const list_box = document.querySelector(".myproject-slides")
 
         myprojectlist.forEach(myproject => {
 
@@ -80,12 +87,79 @@ async function myProjectList() {
             `
 
             list_box.prepend(project_card)
-
         });
+
+        if (myprojectlist.length > 3) {
+            slides = document.querySelector('.myproject-slides');
+            slide = document.querySelectorAll('.myproject-slides .wrap-card-project');
+            currentIdx = 0;
+            slideCount = slide.length;
+            slideWidth = 300;
+            slideMargin = 20;
+            prevBtn = document.querySelector('.prev');
+            nextBtn = document.querySelector('.next');
+            makeClone();
+
+            function makeClone() {
+                for (var i = 0; i < slideCount; i++) {
+                    var cloneSlide = slide[i].cloneNode(true);
+                    cloneSlide.classList.add('clone');
+                    slides.appendChild(cloneSlide);
+                }
+                for (var i = slideCount - 1; i >= 0; i--) {
+                    var cloneSlide = slide[i].cloneNode(true);
+                    cloneSlide.classList.add('clone');
+                    slides.prepend(cloneSlide);
+                }
+                updateWidth();
+                setInitialPos();
+                setTimeout(function () {
+                    slides.classList.add('animated');
+                }, 100);
+            }
+
+            function updateWidth() {
+                var currentSlides = document.querySelectorAll('.myproject-slides .wrap-card-project');
+                var newSlideCount = currentSlides.length;
+
+                var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+                slides.style.width = newWidth;
+            }
+
+            function setInitialPos() {
+                var initialTranslateValue = -(slideWidth + slideMargin) * slideCount;
+                slides.style.transform = 'translateX(' + initialTranslateValue + 'px)';
+            }
+
+            prevBtnBookmark.style.display = 'inline-block'
+            nextBtnBookmark.style.display = 'inline-block'
+
+            nextBtn.addEventListener('click', function () {
+                moveSlide(currentIdx + 1);
+            })
+            prevBtn.addEventListener('click', function () {
+                moveSlide(currentIdx - 1);
+            })
+
+            function moveSlide(num) {
+                slides.style.left = -num * (slideWidth + slideMargin) + 'px';
+                currentIdx = num;
+                console.log(currentIdx, slideCount)
+
+                if (currentIdx == slideCount || currentIdx == -slideCount) {
+                    setTimeout(function () {
+                        slides.classList.remove('animated');
+                        slides.style.left = '0px';
+                        currentIdx = 0;
+                    }, 500);
+                    setTimeout(function () {
+                        slides.classList.add('animated');
+                    }, 600);
+                }
+            }
+        }
     }
 }
-myProjectList()
-
 
 
 async function myBookmarkProjectList() {
@@ -105,7 +179,7 @@ async function myBookmarkProjectList() {
         mybookmarkprojectlist = response_json
         console.log(mybookmarkprojectlist)
 
-        const list_box = document.querySelector(".container-card-section-mybookmarkproject")
+        const list_box = document.querySelector(".mybookmarkproject-slides")
 
         mybookmarkprojectlist.forEach(mybookmarkproject => {
 
@@ -129,6 +203,105 @@ async function myBookmarkProjectList() {
             list_box.prepend(project_card)
 
         });
+
+        if (mybookmarkprojectlist.length > 3) {
+
+            slidesBookmark = document.querySelector('.mybookmarkproject-slides');
+            slideBookmark = document.querySelectorAll('.mybookmarkproject-slides .wrap-card-project');
+            currentIdxBookmark = 0;
+            slideCountBookmark = slideBookmark.length;
+            slideWidthBookmark = 300;
+            slideMarginBookmark = 20;
+            prevBtnBookmark = document.querySelector('.prev-bookmark');
+            nextBtnBookmark = document.querySelector('.next-bookmark');
+            makeClone();
+
+            function makeClone() {
+                for (var i = 0; i < slideCountBookmark; i++) {
+                    var cloneSlide = slideBookmark[i].cloneNode(true);
+                    cloneSlide.classList.add('clone');
+                    slidesBookmark.appendChild(cloneSlide);
+                }
+                for (var i = slideCountBookmark - 1; i >= 0; i--) {
+                    var cloneSlide = slideBookmark[i].cloneNode(true);
+                    cloneSlide.classList.add('clone');
+                    slidesBookmark.prepend(cloneSlide);
+                }
+                updateWidth();
+                setInitialPos();
+                setTimeout(function () {
+                    slidesBookmark.classList.add('animated');
+                }, 100);
+            }
+
+            function updateWidth() {
+                var currentSlidesBookmark = document.querySelectorAll('.mybookmarkproject-slides .wrap-card-project');
+                var newSlideCountBookmark = currentSlidesBookmark.length;
+
+                var newWidthBookmark = (slideWidthBookmark + slideMarginBookmark) * newSlideCountBookmark - slideMarginBookmark + 'px';
+                slidesBookmark.style.width = newWidthBookmark;
+            }
+
+            function setInitialPos() {
+                var initialTranslateValueBookmark = -(slideWidthBookmark + slideMarginBookmark) * slideCountBookmark;
+                slidesBookmark.style.transform = 'translateX(' + initialTranslateValueBookmark + 'px)';
+            }
+
+            prevBtnBookmark.style.display = 'inline-block'
+            nextBtnBookmark.style.display = 'inline-block'
+
+            nextBtnBookmark.addEventListener('click', function () {
+                moveSlide(currentIdxBookmark + 1);
+            })
+            prevBtnBookmark.addEventListener('click', function () {
+                moveSlide(currentIdxBookmark - 1);
+            })
+
+            function moveSlide(num) {
+                slidesBookmark.style.left = -num * (slideWidthBookmark + slideMarginBookmark) + 'px';
+                currentIdxBookmark = num;
+                console.log(currentIdxBookmark, slideCountBookmark)
+
+                if (currentIdxBookmark == slideCountBookmark || currentIdxBookmark == -slideCountBookmark) {
+                    setTimeout(function () {
+                        slidesBookmark.classList.remove('animated');
+                        slidesBookmark.style.left = '0px';
+                        currentIdxBookmark = 0;
+                    }, 300);
+                    setTimeout(function () {
+                        slidesBookmark.classList.add('animated');
+                    }, 400);
+                }
+            }
+        }
     }
 }
-myBookmarkProjectList()
+
+
+async function userWithdrawal() {
+
+    if (!confirm("정말 탈퇴하시겠습니까?")) {
+        // 취소 : 반응없음
+    } else {
+        // 확인 : 
+        const response = await fetch(`${backend_base_url}/user/profile/`, {
+            headers: {
+                Accept: "application/json",
+                'content-type': "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method: "DELETE",
+        });
+
+        response_json = await response.json();
+        alert(response_json["msg"]);
+
+        window.location.replace(`${frontend_base_url}/templates/login.html`);
+    };
+}
+
+
+function toUserProfile() {
+    window.location.replace(`${frontend_base_url}/templates/userprofile.html`);
+}
+
