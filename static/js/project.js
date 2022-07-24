@@ -86,6 +86,7 @@ async function project_list(url){
     }
 }
 
+// 북마크 등록/해제
 function bookmark(project_id, url) {
     fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
         headers: {
