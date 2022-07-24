@@ -22,7 +22,7 @@ body {
 
 /* Aside: Profile */
 .container-profile-user {
-    width: 45%;
+    width: 25%;
     /* background-color: cadetblue; */
 }
 
@@ -77,6 +77,7 @@ body {
     padding: 10px 12px;
     color: aliceblue;
     background-color: black;
+    cursor: pointer;
 }
 
 
@@ -84,6 +85,7 @@ body {
 
 /* 전체 카드 섹션*/
 .container-card-mypage {
+    width: 70%;
     margin: 0 0 0 2%;
     /* background-color: aquamarine; */
 }
@@ -91,7 +93,6 @@ body {
 /* 전체 카드 섹션 타이틀 포함 wrap */
 .wrap-card-section-mypage {
     /* background-color: aliceblue; */
-    width: 96%;
 }
 
 .text-title-section-myproject {}
@@ -101,18 +102,70 @@ body {
 }
 
 /* 카드 섹션 라인: 나의 프로젝트 */
-.container-card-section-myproject, .container-card-section-mybookmarkproject {
-    display: flex;
-    padding: 20px;
+.container-card-section-myproject {
+    /* display: flex; */
+    /* padding: 20px; */
     /* background-color: aquamarine; */
+    position: relative;
+    margin: 2% auto;
+    width: 940px;
+    height: 350px;
+    overflow: hidden;
+}
+
+.container-card-section-mybookmarkproject {
+    /* display: flex; */
+    /* padding: 20px; */
+    /* background-color: aquamarine; */
+    position: relative;
+    margin: 2% auto;
+    width: 960px;
+    height: 450px;
+    overflow: hidden;
+}
+
+.myproject-slides,
+.mybookmarkproject-slides {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.myproject-slides.animated,
+.mybookmarkproject-slides.animated {
+    transition: 0.5s ease-out;
+}
+
+.prev,
+.next {
+    display: none;
+    background: #333;
+    color: #fff;
+    padding: 0 13px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.prev-bookmark,
+.next-bookmark {
+    display: none;
+    background: #333;
+    color: #fff;
+    padding: 0 13px;
+    margin: 0 10px;
+    text-align: center;
+    cursor: pointer;
 }
 
 /* 카드 */
 .wrap-card-project {
-    width: 30%;
-    margin: 0 4%;
+    width: 300px;
+    height: 450px;
+    margin-right: 20px;
     padding: 20px;
     background-color: white;
+    float: left;
 }
 
 .box-card-content-project {

@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    margin: 0;
+    background-color: #EFEFEF;
+}
+
+input,
+button {
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    font-weight: 400;
+    color: black;
+}
+
+.container-profile-regist {
+    /* background-color: antiquewhite; */
+}
+
+.box-text-title-profile-regist {
+    width: 90%;
+    margin: 20px auto;
+    padding: 30px;
+    /* background-color: brown; */
+}
+
+.text-title-profile-regist {
+    font-size: 1.5rem;
+    /* background-color: bisque; */
+}
+
+
+/* 프로필 등록 섹션 */
+.wrap-profile-regist {
+    margin: auto;
+    width: 90%;
+    margin: 0 5%;
+    /* background-color: darkgray; */
+}
+
+.box-profile-regist {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    padding: 30px;
+    background-color: gainsboro;
+}
+
+.box-img-profile-regist {
+    margin: 20px auto;
+    /* background-color: aqua; */
+}
+
+.img-profile-regist {
+    width: 180px;
+}
+
+.wrap-info-profile-regist {
+    width: 60%;
+    margin: auto;
+}
+
+.wrap-info-profile-regist>input,
+.text-introduce-self-regist {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+.wrap-info-profile-regist>input,
+.wrap-dropdown-regist,
+.box-text-introduce-self-regist {
+    margin: 20px 0;
+}
+
+
+/* 드롭다운 */
+.wrap-dropdown-regist {
+    display: flex;
+}
+
+.box-dropdown-region-regist,
+.box-dropdown-data-regist {
+    position: relative;
+    display: inline-block;
+    width: 40%;
+    text-align: center;
+}
+
+.box-dropdown-region-regist {
+    margin-right: 10%;
+}
+
+.box-dropdown-region-regist:hover .dropdown-content-region,
+.box-dropdown-data-regist:hover .dropdown-content-date {
+    display: block;
+}
+
+.btn-dropdown-region,
+.btn-dropdown-data {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+    background-color: white;
+}
+
+.dropdown-content-region,
+.dropdown-content-date {
+    display: none;
+    position: absolute;
+    width: 100%;
+    padding: 10px;
+    z-index: 1;
+    background-color: whitesmoke;
+}
+
+.dropdown-content-region>a,
+.dropdown-content-date>a {
+    display: block;
+    margin: 10px 0;
+    font-weight: 300;
+    /* background-color: antiquewhite; */
+}
+
+.dropdown-content-region>a:hover,
+.dropdown-content-date>a:hover {
+    font-weight: 400;
+    color: rgb(75, 0, 226);
+}
+
+
+.box-text-introduce-self-regist {
+    height: 120px;
+    background-color: white;
+}
+
+.text-introduce-self-regist {
+    font-size: .8rem;
+}
+
+/* 동록 버튼 */
+.box-btn-regist {
+    /* background-color: aqua; */
+}
+
+.box-btn-regist>button {
+    padding: 10px 12px;
+    font-size: 1.2rem;
+    color: aliceblue;
+}
+
+.btn-submit-regist {
+    margin-right: 20px;
+    background-color: black;
+}
+
+.btn-submit-regist:hover {
+    font-weight: 600;
+    background-color: rgb(75, 0, 226);
+}
+
+.btn-modify-regist {
+    background-color: crimson;
+}
+
+.btn-modify-regist:hover {
+    font-weight: 600;
+}
