@@ -54,7 +54,7 @@ async function DetailPageViewer(project_id) {
     AddSkillsGiturl(response_json) 
 
     // 4. 게시글 조회, 수정, 삭제
-    // AddArticleViewUpdateDelete(response_json) 
+    AddArticleViewUpdateDelete(response_json) 
 
     // 5. 댓글 추가, 조회, 수정, 삭제
     // AddCommentCrud(response_json) 
@@ -127,3 +127,65 @@ function AddSkillsGiturl(response_json){
     writer_span.innerText = response_json['user']
     gitlink_span.innerText = response_json['github_url']
 }
+
+
+// 4. 게시글 조회, 수정, 삭제
+function AddArticleViewUpdateDelete(response_json){
+    console.log("detailpage.js - AddArticleViewUpdateDelete")
+    // 4.1 게시글 조회 (Viewer Editor)
+    const viewer = Editor.factory({
+        el: document.querySelector('#viewer'),
+        viewer: true,
+        height: '500px',
+        initialValue: response_json["content"]
+    });
+
+    // 게시글 수정, 삭제
+    const project_update_btn = document.getElementById('project-update-btn')
+    const project_delete_btn = document.getElementById('project-delete-btn')
+
+    // 4.2 게시글 수정
+    project_update_btn.addEventListener('click', function(){
+        updateArticle( // insertproject.js
+            response_json["id"], // project_id
+            response_json['title'],
+            response_json['created_date'],
+            response_json['skills'],
+            response_json['thumnail_img_path'],
+            response_json['content'],
+        )
+    })
+
+    // 4.3 게시글 삭제
+    project_delete_btn.addEventListener('click', function(){deleteArticle()})
+}
+
+
+// 4.2 게시글 수정
+function updateArticle(){
+    console.log("detailpage.js - updateArticle")
+    UpdateContentsByDefaultValue()
+    window.location.replace(`${frontend_base_url}/templates/main.html`);
+}
+
+// 4.3 게시글 삭제
+async function deleteArticle(){
+    console.log("detailpage.js - deleteArticle")
+
+    const response = await fetch(`${backend_base_url}/project/${project_id}/`,{
+        headers: {
+            Accept: "application/json",
+            'content-type': "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'DELETE',
+    })
+    response_json = response.json()
+    if(response.status == 200) {
+        alert(response_json['success'], response.status)
+        window.location.replace(`${frontend_base_url}/templates/main.html`);
+    } else {
+        alert('게시글 삭제 실패: ', response.status)
+    }
+}
+
