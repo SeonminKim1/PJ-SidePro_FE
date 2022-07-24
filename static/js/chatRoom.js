@@ -118,7 +118,6 @@ async function RemoveRoomNode(node, roomname){
     console.log("chat.js - RemoveRoomNode")
     // 채팅방 나가기 여부 confirm 창
     if(!confirm("정말 대화방을 나가시겠습니까? 상대방은 읽기모드로만 전환되며, 대화 재요청시 재활성화 됩니다.")){
-        pass // 취소 버튼
     }else{ // 확인 버튼
         const response = await fetch(`${backend_base_url}/chat/rooms/${roomname}/`, {
             headers:{
