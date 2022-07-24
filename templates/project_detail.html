@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+</head>
+<body>
+    <h2 id="title-box"></h2>
+    <button id="bookmark-btn" onclick="bookmark(this)">☆</button>
+    <span id="create-date"></span>
+    <div id="skills-github-div">
+        <div id="skills-div"></div>
+        <div id="github-div">
+            <span id="writer-span"></span>
+            <span id="gitlink-span"></span>
+        </div>
+    </div>
+
+    <hr>
+    <div id="viewer"></div>
+
+    <hr>
+    <div class = "update-delete-btn">
+        <button id = "project-update-btn">수정하기</button>
+        <button id = "project-delete-btn">삭제하기</button>
+    </div>
+
+    <!-- 댓글 -->
+    <div class = "comment-write-box">
+        <span id="comment-login-user"></span>
+        <input id = "comment-write-input" type="text"/>
+        <button id = "comment-write-btn">댓글달기</button>
+    </div>
+
+    <h2>Comments</h2>
+    <div id = "comment-read-box">
+        <div id="comment-content">
+            <!--
+                <span id="comment-writer-name">${comment_user}</span>
+                <span id="comment-writer-text_${comment_id}">${comment_text}</span>
+                <span id="comment-writer-content_${comment_id}">${comment_create_date}</span>
+                <button id="comment-update-btn_${comment_id}" onclick='updateComment(this)'>수정</button>
+                <button id="comment-delete-btn_${comment_id}" onclick='deleteComment(this)'>삭제</button>
+            -->
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+</body>
+<!-- Javascript Import -->
+<script src="/static/js/_base.js"></script>
+<script src="/static/js/detailpage.js"></script>
+
+</html>
