@@ -29,7 +29,6 @@ async function  GetBaseInfo(){
         method: 'GET',
     })    
     response_json = await response.json()
-    console.log(response_json)
     login_username = response_json['login_username'] // JS 내 변수로 지정
     skills = response_json['skills']
     SetSkillsFilteringInitalize(skills)
@@ -60,7 +59,7 @@ function DrawSkillTag(){
             alert('기술 스택 리스트 중 하나를 선택해 주세요!')
         }else{ // skill 검색 필터에 추가 하기
             var SkillsTag = document.createElement('span')
-            SkillsTag.id = "skills-tag"
+            SkillsTag.className = "skills-tag"
             SkillsTag.innerText = check_value;
             SkillsTag.style.marginRight = "3px";
             filter_div_tag.appendChild(SkillsTag)
@@ -122,7 +121,6 @@ async function getFilterResult() {
         alert('ERROR: ', response.status)
     }
 }
-
 
 // 필터링
 async function getSearchResult() {
