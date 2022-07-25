@@ -9,13 +9,15 @@ document.addEventListener("DOMContentLoaded", () => {
 async function project_list(url, filter){
     if (url == null){
         url = `${backend_base_url}/project/?page_size=9`
+    } else {
+        url = url.replace("filter=popualr", "")
+        url = url.replace("filter=newest", "")
+        url = url.replace("filter=views", "")
     }
     if (filter == null){
         filter = ""
-    } else {
-        filter = '&filter=' + filter
     }
-    const response = await fetch(url + filter, {
+    const response = await fetch(url + '&filter=' + filter, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
