@@ -10,13 +10,13 @@ const ROOM_STATUS_PENDING = 'pending'
 const ROOM_STATUS_STOP = 'stop'
 
 // String => Datetime or Date 형으로
-function StringToDatetime(string_time, type){
+function StringToDatetime(string_time, type){ // StringToDatetime("2022-07-25T16:54:19.064558", 2)
     time = new Date(string_time);
     function pad(n) { return n<10 ? "0"+n : n }
-    if(type == 1){ // 2022-07-25 01:42:29
+    if(type == 'DATETIME'){ // 2022-07-25 01:42:29
         return time.getFullYear() + "-" + pad(time.getMonth()+1) + "-" + pad(time.getDate())+" "+
            pad(time.getHours()) + ":" + pad(time.getMinutes()) + ":" + pad(time.getSeconds())
-    }else if(type == 2){ // 2022-07-15
+    }else if(type == 'DATE'){ // 2022-07-15
         return time.getFullYear() + "-" + pad(time.getMonth()+1) + "-" + pad(time.getDate())
     }
 }
