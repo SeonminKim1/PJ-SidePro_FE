@@ -86,7 +86,7 @@ insert_project = function () {
                     console.log(json)
                     localStorage.setItem("project_id", json['id'])
                     alert("게시글 작성 성공!")
-                    window.location.replace("/templates/detail_project.html/")
+                    window.location.replace("/templates/detail_project.html")
                 })
         })
 }
