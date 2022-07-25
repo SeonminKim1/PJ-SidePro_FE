@@ -33,7 +33,7 @@ async function getMyUserInfo() {
 
         // innerHTML로 원하는 형태로 데이터 출력
         profile_img.innerHTML = `
-        <img class="img-profile-mypage" src="/static/img${myuserinfo['userprofile']['profile_image']}">
+        <img class="img-profile-mypage" src="${myuserinfo['userprofile']['profile_image']}">
         `
 
         info_box.innerHTML = `
@@ -76,8 +76,8 @@ async function myProjectList() {
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
             project_card.innerHTML = `
-            <div class="box-card-content-project">
-                <img class="img-card-thumnail-mypage" src="/static/img${myproject.thumnail_img_path}">
+            <div class="box-card-content-project" onclick="toDetailProject()">
+                <img class="img-card-thumnail-mypage" src="${myproject.thumnail_img_path}">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${myproject.title}</span>
                     <span class="card-text text-indroduce-card-project">${myproject.content}</span>
@@ -131,8 +131,8 @@ async function myProjectList() {
                 slides.style.transform = 'translateX(' + initialTranslateValue + 'px)';
             }
 
-            prevBtnBookmark.style.display = 'inline-block'
-            nextBtnBookmark.style.display = 'inline-block'
+            prevBtn.style.display = 'inline-block'
+            nextBtn.style.display = 'inline-block'
 
             nextBtn.addEventListener('click', function () {
                 moveSlide(currentIdx + 1);
@@ -185,8 +185,9 @@ async function myBookmarkProjectList() {
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
+            project_card.onclick = "toDetailProject()"
             project_card.innerHTML = `
-            <div class="box-card-content-project">
+            <div class="box-card-content-project" onclick="toDetailProject()">
                 <img class="img-card-thumnail-mypage" src="/static/img${mybookmarkproject.thumnail_img_path}">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${mybookmarkproject.title}</span>
@@ -305,3 +306,7 @@ function toUserProfile() {
     window.location.replace(`${frontend_base_url}/templates/userprofile.html`);
 }
 
+
+function toDetailProject() {
+    window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+}

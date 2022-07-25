@@ -65,7 +65,24 @@ async function login() {
         localStorage.setItem("payload", jsonPayload);
         // window.location.replace(`${frontend_base_url}/`);
         alert("환영합니다!")
-        window.location.replace(`${frontend_base_url}/templates/main.html`);
+        payload = JSON.parse(localStorage.getItem("payload"))
+        user_id = payload["user_id"]
+        const response = await fetch(`${backend_base_url}/user/profile`,{
+            headers:{
+            Accept: "application/json",
+            'content-type': "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method: 'GET'
+        })
+        response_json = await response.json()
+
+        if (response_json['userprofile'] == null) {
+            window.location.replace(`${frontend_base_url}/templates/userprofile.html`);
+        } else {
+            window.location.replace(`${frontend_base_url}/templates/main.html`);
+        }
+        
     } else {
         alert(response.status)
     }
