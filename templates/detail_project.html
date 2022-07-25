@@ -8,6 +8,7 @@
     <title>Document</title>
     <!-- Toast UI Editor -->
     <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,31 +39,36 @@
                 <div class="wrap-title-first-detail">
                     <div class="box-title-info-detail">
                         <div class="box-title-project-detail">
-                            <span class="text-title-project-detail">프로젝트 제목</span>
+                            <span class="text-title-project-detail"></span>
                         </div>
                         <div class="box-date-project-detail">
-                            <span class="text-date-project-detail">2022-07-24</span>
+                            <span class="text-date-project-detail"></span>
                         </div>
                     </div>
-                    <div class="box-bookmark-project-detail">
+                    <div class="box-bookmark-project-detail" onclick="bookmark(this)">
                         <i class="fa-solid fa-star"></i>
                         <!-- <i class="fa-regular fa-star"></i> -->
                     </div>
                 </div>
                 <div class="wrap-title-second-detail">
                     <div class="box-title-second-detail">
-                        <span class="text-stack-project-detail">Python Django JAVA</span>
+                        <!--
+                            <span class="text-stack-project-detail">Python Django JAVA</span>
+                        -->
                     </div>
                     <div class="box-link-profile-detail">
                         <img class="img-github-project-detail" src="/static/img/github.svg">
-                        <span class="link-github-project-detail">github.com/kimpro</span>
+                        <a href="" class="link-github-a-tag" target="_blank"><span class="link-github-project-detail"></span></a>
                     </div>
                 </div>
             </div>
             <!-- 컨텐츠 섹션 -->
+            <div class="wrap-content-project-detail" id="viewer"></div>
+            <!--
             <div class="wrap-content-project-detail">
                 content
             </div>
+            -->
             <!-- 버튼 -->
             <div class="box-btn-detail">
                 <button class="btn-modify-detail">수정하기</button>
@@ -74,16 +80,18 @@
             <div class="wrap-reply-detail">
                 <div class="box-reply-detail">
                     <div>
-                        <span class="user-reply-detail">사용자</span>
+                        <span class="user-reply-detail"></span>
                         <input class="input-reply-detail" type="text" placeholder="댓글을 입력하세요">
                     </div>
                     <button class="btn-reply-detail">댓글달기</button>
                 </div>
+
                 <div class="wrap-comment-detail">
                     <div class="box-title-comment-detail">
                         <span class="text-title-comment-detail">Comments</span>
                     </div>
                     <div class="box-comment-detail">
+                    <!--
                         <div class="box-comment-content-detail">
                             <span class="user-comment-detail">사용자</span>
                         </div>
@@ -94,78 +102,16 @@
                                 <button class="btn-modify-comment-detail">수정</button>
                             </div>
                         </div>
+                    -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-
-    <!--  -->
-    <div id="content-box">
-        <div>
-            <div id="viewer"></div>
-            <div id="bookmark"></div>
-
-
-            <script src="/static/_base.js"></script>
-            <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-            <script>
-                function viewer() {
-                    const Editor = toastui.Editor;
-
-                    // 게시물 상세 조회 (id=54인 게시물 테스트용)
-                    fetch(`${backend_base_url}/project/54`, {
-                        headers: {
-                            Accept: "application/json",
-                            'content-type': "application/json",
-                            "Authorization": "Bearer " + localStorage.getItem("access")
-                        },
-                        method: 'GET',
-                    })
-                        .then(response => {
-                            return response.json()
-                        })
-                        .then(json => {
-                            const viewer = Editor.factory({
-                                el: document.querySelector('#viewer'),
-                                viewer: true,
-                                height: '500px',
-                                initialValue: json["content"]
-                            });
-
-                            // 북마크 버튼
-                            const payload = JSON.parse(localStorage.getItem("payload"));
-                            const bookmark_div = document.querySelector("#bookmark");
-                            bookmark_div.innerHTML = ``
-                            const bookmark_btn = document.createElement('div');
-                            bookmark_btn.className = 'bookmark_btn';
-
-                            if (json["bookmark"].includes(payload.user_id)) {
-                                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♥</button>`
-                            } else {
-                                bookmark_btn.innerHTML = `<button type="button" onclick="bookmark(${json["id"]})">♡</button>`
-                            }
-                            bookmark_div.append(bookmark_btn)
-
-                        })
-                }
-                viewer()
-
-                function bookmark(project_id) {
-                    fetch(`${backend_base_url}/project/${project_id}/bookmark/`, {
-                        headers: {
-                            Accept: "application/json",
-                            'content-type': "application/json",
-                            "Authorization": "Bearer " + localStorage.getItem("access")
-                        },
-                        method: 'POST',
-                    })
-                    viewer()
-                }
-            </script>
 </body>
+
+<!-- Javascript Import -->
+<script src="/static/js/_base.js"></script>
+<script src="/static/js/detailproject.js"></script>
 
 </html>

@@ -29,7 +29,6 @@ async function  GetBaseInfo(){
         method: 'GET',
     })    
     response_json = await response.json()
-    console.log(response_json)
     login_username = response_json['login_username'] // JS 내 변수로 지정
     skills = response_json['skills']
     SetSkillsFilteringInitalize(skills)
@@ -122,7 +121,6 @@ async function getFilterResult() {
         alert('ERROR: ', response.status)
     }
 }
-
 
 // 필터링
 async function getSearchResult() {

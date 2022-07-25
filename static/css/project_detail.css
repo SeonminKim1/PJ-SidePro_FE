@@ -191,6 +191,11 @@ input {
     font-weight: 300;
 }
 
+.comment-content-detail-input{
+    background-color: cyan;
+    border:1px solid black;
+}
+
 .box-btn-comment-content>button {
     margin: 0 6px;
     padding: 5px 7px;
