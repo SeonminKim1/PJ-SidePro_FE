@@ -3,7 +3,13 @@
 }
 
 html,
-body {
+body,
+aside,
+section {
+    height: 100%;
+}
+
+.box-chat-room-list {
     height: 100%;
 }
 
@@ -12,6 +18,7 @@ body {
     margin: 0;
     background-color: #EFEFEF;
 }
+
 
 /* 채팅, 프로젝트 등록 고정 버튼 */
 .btn-fixed-container {
@@ -48,7 +55,7 @@ body {
 /* 채팅룸 리스트 */
 .chat-list {
     display: none;
-    z-index: 999;
+    z-index: 1;
     position: absolute;
     right: 0;
     width: 300px;
@@ -336,7 +343,7 @@ body {
 }
 
 .box-search-tag {
-    /* background-color: cyan; */
+    background-color: cyan;
 }
 
 .input-search-main {
@@ -410,9 +417,9 @@ body {
 }
 
 
-/* 카드 섹션  전체*/
+/* 카드 섹션  전체 */
 .container-card-section-main {
-    margin: 5% 0;
+    margin-top: 5%;
     /* background-color: antiquewhite; */
 }
 
@@ -420,7 +427,7 @@ body {
 .wrap-card-section-main {
     /* background-color: burlywood; */
     width: 90%;
-    margin: 3% auto;
+    margin: 3% auto 0 auto;
 }
 
 .text-title-section-main {
@@ -484,6 +491,8 @@ body {
 }
 
 .wrap-writer-mypage {
+    display: flex;
+    justify-content: space-between;
     margin-top: 20px;
     /* background-color: cadetblue; */
 }
@@ -500,4 +509,30 @@ body {
     border-radius: 30px;
     color: aliceblue;
     background-color: rgb(75, 0, 226);
+}
+
+.btn-bookmark-main {
+    border: none;
+    outline: none;
+    font-size: 24px;
+    background-color: transparent;
+}
+
+/* 페이지네이션 */
+.box-btn-page-main {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    /* background-color: aqua; */
+}
+
+.btn-page-main {
+    margin: 0 20px;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+.btn-page-main:hover {
+    font-weight: 400;
+    color: rgb(75, 0, 226);
 }
