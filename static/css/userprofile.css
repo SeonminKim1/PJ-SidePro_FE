@@ -30,7 +30,7 @@ a {
 }
 
 .box-text-title-profile-regist {
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
     padding: 30px;
     /* background-color: brown; */
@@ -59,12 +59,16 @@ a {
 }
 
 .box-img-profile-regist {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
     margin: 20px auto;
     /* background-color: aqua; */
 }
 
 .img-profile-regist {
-    width: 180px;
+    width: 100%;
+    min-width: 200px;
 }
 
 .wrap-info-profile-regist {
@@ -90,14 +94,14 @@ a {
 
 /* 드롭다운 */
 .wrap-dropdown-regist {
+    width: 100%;
     display: flex;
 }
 
 .box-dropdown-region-regist,
 .box-dropdown-data-regist {
     position: relative;
-    display: inline-block;
-    width: 40%;
+    width: 50%;
     text-align: center;
 }
 
@@ -118,6 +122,12 @@ a {
     background-color: transparent;
     cursor: pointer;
     background-color: white;
+    border: none;
+}
+
+.btn-dropdown-region:focus,
+.btn-dropdown-data:focus {
+    outline: none;
 }
 
 .dropdown-content-region,
@@ -151,11 +161,21 @@ a {
 }
 
 .text-introduce-self-regist {
+    height: 100%;
     font-size: .8rem;
+    border: none;
+    resize: none;
+}
+
+.text-introduce-self-regist:focus {
+    outline: none;
 }
 
 /* 동록 버튼 */
 .box-btn-regist {
+    width: 100%;
+    display: flex;
+    justify-content: end;
     /* background-color: aqua; */
 }
 
@@ -181,4 +201,18 @@ a {
 
 .btn-modify-regist:hover {
     font-weight: 600;
+}
+
+.skills-tag {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+}
+
+.box-search-tag {
+    display: flex;
+    overflow: auto;
 }

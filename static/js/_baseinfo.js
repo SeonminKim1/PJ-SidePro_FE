@@ -67,10 +67,9 @@ function DrawSkillTag(){
         if(!sidepro_skill_list.includes(check_value)){
             alert('기술 스택 리스트 중 하나를 선택해 주세요!')
         }else{ // skill 검색 필터에 추가 하기
-            var SkillsTag = document.createElement('span')
+            var SkillsTag = document.createElement('div')
             SkillsTag.className = "skills-tag"
             SkillsTag.innerText = check_value;
-            SkillsTag.style.marginRight = "3px";
             filter_div_tag.appendChild(SkillsTag)
             filter_input_tag.value = '' // input 초기화
             // 추가된 <span> tag 저장

@@ -170,6 +170,7 @@ body {
 
 .box-card-content-project {
     /* background-color: antiquewhite; */
+    cursor: pointer;
 }
 
 .img-card-thumnail-mypage {
