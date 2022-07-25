@@ -104,7 +104,8 @@
                         .then(json => {
                             console.log(json)
                             alert("게시글 작성 성공!")
-                            //window.location.replace("/templates/project/project_detail.html/" + json["id"])
+                            localStorage.setItem("project_id", json['id'])
+                            window.location.replace("/templates/project_detail.html/")
                         })
 
                 })
