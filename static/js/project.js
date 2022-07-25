@@ -38,7 +38,7 @@ async function project_list(url){
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${element.user}</span>
                     <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
-                    <div id="bookmark_${element.id}"> 
+                    <div id="bookmark_${element.id}" class="btn-bookmark-main"> 
                 </div>
             </div>
             `
@@ -52,9 +52,9 @@ async function project_list(url){
         bookmark_btn.className = 'bookmark_btn';
 
         if (element.bookmark.includes(payload.user_id)){
-            bookmark_btn.innerHTML = `<button type="button" onclick="bookmark('${element.id}','${url}')">♥</button>`
+            bookmark_btn.innerHTML = `<button type="button" onclick="bookmark('${element.id}','${url}')">⭐️</button>`
         } else {
-            bookmark_btn.innerHTML = `<button type="button" onclick="bookmark('${element.id}','${url}')">♡</button>`
+            bookmark_btn.innerHTML = `<button type="button" onclick="bookmark('${element.id}','${url}')">☆</button>`
         }
         bookmark_div.append(bookmark_btn)
             
