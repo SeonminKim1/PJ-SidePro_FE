@@ -15,24 +15,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 현재 Login 한 user 정보 조회
 // skills 목록 조회
-async function  GetBaseInfo(){
+function  GetBaseInfo(){
     console.log("_baseinfo.js - GetBaseInfo")
     payload = JSON.parse(localStorage.getItem("payload"))
     // console.log('payload:',(payload), typeof(payload))
     user_id = payload["user_id"]
     console.log('user_id: ', user_id)
-    const response = await fetch(`${backend_base_url}/user/main/init/`,{
+    const response = fetch(`${backend_base_url}/user/main/init/`,{
         headers:{
             Accept: "application/json",
             'content-type': "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-    })    
-    response_json = await response.json()
-    login_username = response_json['login_username'] // JS 내 변수로 지정
-    skills = response_json['skills']
-    SetSkillsFilteringInitalize(skills)
+    }).then(response => {
+        return response.json()
+    }).then(response_json => {
+        login_username = response_json['login_username'] // JS 내 변수로 지정
+        skills = response_json['skills']
+        console.log('현재 로그인한 user는 ', login_username)
+        SetSkillsFilteringInitalize(skills)
+    })
 } 
 
 // 필터링 Skill들(option) 목록(datalist)에 추가 

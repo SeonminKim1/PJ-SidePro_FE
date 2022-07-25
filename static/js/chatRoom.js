@@ -142,32 +142,34 @@ async function RemoveRoomNode(node, roomname){
 }
 
 // ROOM 생성
-async function CreateRoomNode(node){
+async function CreateRoomNode(username){
     console.log('chatRoom.js - CreateRoomNode')
-    opponent_username = node.value
+    opponent_username = username
     console.log(login_username, opponent_username)
-    
-    let init_roomname = 'init' // uuidv4() // uuid로 roomname
-    // console.log('===roomname입니다', roomname)
-    const formdata = new FormData()
-    formdata.append("user1", login_username)
-    formdata.append("user2", opponent_username)
-    formdata.append('room_status', ROOM_STATUS_START)
-    const response = await fetch(`${backend_base_url}/chat/rooms/${init_roomname}/`, {
-        headers:{
-            "Authorization": "Bearer " + localStorage.getItem("access"),
-        },
-        method: 'POST',
-        body: formdata,
-    })
-    response_json = await response.json()
-    console.log('lkk', response_json)
-    if(response.status == 201 | response.status==200) {
-        // alert('대화방 만들기 성공 : ', response.status, response.message)
-        activeRoomList()
-        activeChatRoom(response_json['uuid_roomname'], login_username, opponent_username)
-    } else {
-        alert('대화방 만들기 ERROR : ', response.status, response.message)
+    if(login_username != username){
+        let init_roomname = 'init' // uuidv4() // uuid로 roomname
+        // console.log('===roomname입니다', roomname)
+        const formdata = new FormData()
+        formdata.append("user1", login_username)
+        formdata.append("user2", opponent_username)
+        formdata.append('room_status', ROOM_STATUS_RUNNING)
+        const response = await fetch(`${backend_base_url}/chat/rooms/${init_roomname}/`, {
+            headers:{
+                "Authorization": "Bearer " + localStorage.getItem("access"),
+            },
+            method: 'POST',
+            body: formdata,
+        })
+        response_json = await response.json()
+        if(response.status == 201 | response.status==200) {
+            // alert('대화방 만들기 성공 : ', response.status, response.message)
+            activeRoomList()
+            activeChatRoom(response_json['uuid_roomname'], login_username, opponent_username)
+        } else {
+            alert('대화방 만들기 ERROR : ', response.status, response.message)
+        }
+    }else{
+        alert('자기자신과는 대화할 수 없습니다')
     }
 }
 

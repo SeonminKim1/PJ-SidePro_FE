@@ -9,7 +9,7 @@ const comment_view = document.querySelector('.box-comment-detail')
 document.addEventListener('DOMContentLoaded', function () {
     console.log("detailpage.js - DOMContentLoaded")
     
-    localStorage.setItem('project_id', 4);
+    // localStorage.setItem('project_id', 4);
     project_id = localStorage.getItem('project_id');
     GetLoginUserInfo()
     DetailPageViewer(project_id);
@@ -246,7 +246,7 @@ async function insertUpdateDeleteComment(){
                 <div class="box-comment-content-detail">
                     <span class = "user-comment-detail">${comment_user}</span>
                 </div>
-                <div class="wrap-comment-content-detail">
+                <div class="wrap-comment-content-detail_${comment_id}">
                     <div class="comment-content-detail_${comment_id}">${comment_text}</div>
                     <div class="comment-content-date_${comment_id}">${comment_create_date}</div>
                     <div class="box-btn-comment-content">

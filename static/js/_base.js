@@ -5,7 +5,7 @@ const backend_base_ip_port = "127.0.0.1:8000"
 
 const frontend_base_url = "http://127.0.0.1:5500"
 
-const ROOM_STATUS_START = 'start'
+const ROOM_STATUS_RUNNING = 'running'
 const ROOM_STATUS_PENDING = 'pending'
 const ROOM_STATUS_STOP = 'stop'
 

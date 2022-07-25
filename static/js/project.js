@@ -3,7 +3,6 @@ window.onload = project_list()
 document.addEventListener("DOMContentLoaded", () => {
     console.log("project.js - DOMContentLoaded")
     localStorage.setItem("update_mode", 0)
-    console.log('====', localStorage.getItem("update_mode"))
 });
 
 async function project_list(url, filter){
@@ -34,7 +33,7 @@ async function project_list(url, filter){
     if (response.status == 200) {
         
         response_json["results"].forEach(element => {
-            console.log(element)
+            // console.log(element)
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
@@ -50,7 +49,7 @@ async function project_list(url, filter){
                 </div>
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${element.user}</span>
-                    <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                    <button class="btn-chat-mypage btn-chat-mypage_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
                     <span id="bookmark_${element.id}"></span>
                 </div>
             </div>

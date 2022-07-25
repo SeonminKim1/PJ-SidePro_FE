@@ -64,8 +64,9 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
 
         // get now datetime
         var chat_time = new Date();
-        var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' + 
-                 chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
+        var dt = StringToDatetime(chat_time, 'DATETIME')
+        // var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' + 
+        //          chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
         
         // Send Message
         chatSocket.send(JSON.stringify({
@@ -108,7 +109,7 @@ async function CreateRoomSetStatus(roomname, user1_username, user2_username){
     const formdata = new FormData()
     formdata.append("user1", user1_username)
     formdata.append("user2", user2_username)
-    formdata.append('room_status', ROOM_STATUS_START)
+    formdata.append('room_status', ROOM_STATUS_RUNNING)
     const response = await fetch(`${backend_base_url}/chat/rooms/${roomname}/`, {
         headers:{
             "Authorization": "Bearer " + localStorage.getItem("access"),
@@ -146,8 +147,11 @@ async function GetRoomChattingList(roomname, user2_username){
     // 채팅방 HTML 대화 출력하기
     for (let i=0; i<msgs.length; i++){
         var chat_time = new Date(msgs[i].send_time);
-        var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' +
-                 chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
+
+        var dt = StringToDatetime(chat_time, 'DATETIME')
+
+        // var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' +
+        //          chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
 
         const chatDiv = document.createElement('div')
         if(msgs[i].send_user == login_username){
