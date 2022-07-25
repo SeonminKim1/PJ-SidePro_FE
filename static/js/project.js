@@ -2,7 +2,7 @@ window.onload = project_list()
 
 async function project_list(url){
     if (url == null){
-        url = `${backend_base_url}/project/?page_size=5`
+        url = `${backend_base_url}/project/?page_size=9`
     }
     const response = await fetch(url, {
         headers: {
@@ -38,7 +38,7 @@ async function project_list(url){
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${element.user}</span>
                     <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
-                    <div id="bookmark_${element.id}" class="btn-bookmark-main"> 
+                    <span id="bookmark_${element.id}"></span>
                 </div>
             </div>
             `
@@ -52,9 +52,9 @@ async function project_list(url){
         bookmark_btn.className = 'bookmark_btn';
 
         if (element.bookmark.includes(payload.user_id)){
-            bookmark_btn.innerHTML = `<button type="button" onclick="bookmark('${element.id}','${url}')">⭐️</button>`
+            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}')">⭐️</button>`
         } else {
-            bookmark_btn.innerHTML = `<button type="button" onclick="bookmark('${element.id}','${url}')">☆</button>`
+            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}')">☆</button>`
         }
         bookmark_div.append(bookmark_btn)
             
@@ -62,26 +62,26 @@ async function project_list(url){
         
 
         // 이전버튼 생성할 div 선택
-        const previous_div = document.querySelector(".previous")
-        previous_div.innerHTML ='' // div 내부 초기화
-        // 다음버튼 생성할 div 선택
-        const next_div = document.querySelector(".next")
-        next_div.innerHTML ='' // div 내부 초기화
+        const pagenation_div = document.querySelector(".box-btn-page-main")
+        pagenation_div.innerHTML ='' // div 내부 초기화
+        // // 다음버튼 생성할 div 선택
+        // const next_div = document.querySelector(".btn-page-main next")
+        // next_div.innerHTML ='' // div 내부 초기화
         // 이전 버튼 생성
         if (response_json['previous'] != null){
             const previous_btn = document.createElement('span')
             previous_btn.classNAme = 'previous_btn';
             previous_btn.innerHTML= `
-            <button type="button" onclick='project_list("${response_json['previous']}")'>이전</button>`;
-            previous_div.append(previous_btn)
+            <span type="button" onclick='project_list("${response_json['previous']}")'class="btn-page-main previous">←이전 페이지</span>`
+            pagenation_div.append(previous_btn)
         }
         // 다음 버튼 생성
         if (response_json['next'] != null){
             const next_btn = document.createElement('span')
             next_btn.classNAme = 'next_btn';
             next_btn.innerHTML= `
-            <button type="button" onclick='project_list("${response_json['next']}")'>다음</button>`;
-            next_div.append(next_btn)
+            <span type="button" onclick='project_list("${response_json['next']}")'class="btn-page-main next">다음 페이지→</span>`
+            pagenation_div.append(next_btn)
         }
     }
 }
