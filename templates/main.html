@@ -35,14 +35,15 @@
     </nav>
     <section>
         <h2>룸만들기</h2>
-        <button class="btn-room-create" onclick="CreateRoomNode(this)" value="poco">유저 이름입니당(현재:상대방)</button>
+        <button class="btn-room-create" onclick="CreateRoomNode(this)" value="pie">유저 이름입니당(현재:상대방)</button>
         <button class="btn-room-create" onclick="CreateRoomNode(this)" value="sine">유저 이름입니당(현재:나)</button>
 
 
         <!-- 채팅, 프로젝트 등록 고정 버튼 -->
         <div class="btn-fixed-container">
             <button class="btn-chat-open" onclick="activeRoomList()">나의 채팅창</button>
-            <button class="btn-project-regist" onclick="window.location.href='/templates/insert_project.html'">프로젝트 등록하기!</button>
+            <button class="btn-project-regist" onclick="window.location.href='/templates/insert_project.html'">프로젝트
+                등록하기!</button>
 
         </div>
 
@@ -162,8 +163,9 @@
                     <!-- 필터 -->
                     <div class="box-search-main">
                         <div class="box-search-tag"></div>
-                        <input class="input-search-main" type="text" list="search-list" onkeyup="DrawSkillTag()" placeholder="기술스택으로 검색해보세요. ">
-                        <datalist id ="search-list">
+                        <input class="input-search-main" type="text" list="search-list" onkeyup="DrawSkillTag()"
+                            placeholder="기술스택으로 검색해보세요. ">
+                        <datalist id="search-list">
                             <!--<option value="Python" />-->
                         </datalist>
                         <button class="btn-search-main">검색</button>

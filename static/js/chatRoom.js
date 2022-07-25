@@ -94,14 +94,19 @@ function AddRoomListHtml(response_json){
         const newUserDiv = document.createElement('div')
         newUserDiv.className = "wrap-profile-chat-list wrap-profile-chat-list_" + i;
         newUserDiv.innerHTML = `
-            <div><img src=${profile_img} class="img-profile"></div>
+            <div class="box-img-profile-chatroom">
+                <img src=${profile_img} class="img-profile">
+            </div>
             <div class="box-text-chatlist box-text-chatlist_${i}">
                 <div class="box-text-user box-text-user_${i}">
-                    <span class="text-profile-name text-profile-name_${i}"
+                    <div>
+                        <span class="text-profile-name text-profile-name_${i}"
                         onclick="modalOpen('${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
-                    <button onclick="activeChatRoom('${roomname}', '${user1_username}', '${user2_username}')">
-                    <button onclick="RemoveRoomNode(this, '${roomname}')" class="btn-room-close">🞩</button>
-                    채팅 열기</button>
+                    </div>
+                    <div>
+                        <button class="btn-open-chatting-room" onclick="activeChatRoom('${roomname}', '${user1_username}', '${user2_username}')">채팅 열기 💬</button>
+                        <button onclick="RemoveRoomNode(this, '${roomname}')" class="btn-room-close">🞩</button>
+                    </div>
                 </div>
                 <div>
                     <span class="text-profile-desc text-profile-desc_${i}">${last_message}</span>

@@ -37,8 +37,8 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
         if(data.username == login_username){
             newChatDiv.className = "wrap-chat-user"
             newChatDiv.innerHTML = `
-                    <div class="box-text-profile-chat">
-                        <span id="chat-user" class="text-chat-name">${data.username}</span>
+                    <div class="box-text-profile-chat chat-user">
+                        <span id="chat-user" class="text-chat-name-user">${data.username}</span>
                     </div>
                     <div id="box-chat-user" class="box-text-chat">
                         <span id="chat-user-desc" class="text-chat-desc">${data.message}</span>
@@ -154,7 +154,7 @@ async function GetRoomChattingList(roomname, user2_username){
             chatDiv.className = "wrap-chat-user"
             chatDiv.innerHTML = `
                     <div class="box-text-profile-chat">
-                        <span id="chat-user" class="text-chat-name">${msgs[i].send_user}</span>
+                        <span id="chat-user" class="text-chat-name-user">${msgs[i].send_user}</span>
                     </div>
                     <div id="box-chat-user" class="box-text-chat">
                         <span id="chat-user-desc" class="text-chat-desc">${msgs[i].message}</span>

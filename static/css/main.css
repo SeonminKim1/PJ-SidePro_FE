@@ -56,8 +56,19 @@ body {
     background-color: gainsboro;
 }
 
+.wrap-profile-chat-list {
+    padding: 10px;
+    /* background-color: aqua; */
+}
 
-.btn-chat-close, .btn-chat-room-close {
+.box-img-profile-chatroom {
+    display: flex;
+    justify-content: center;
+    background-color: antiquewhite;
+}
+
+.btn-chat-close,
+.btn-chat-room-close {
     position: absolute;
     top: 20px;
     right: 20px;
@@ -69,11 +80,13 @@ body {
 }
 
 
-.box-text-title-chat, .box-text-title-room {
+.box-text-title-chat,
+.box-text-title-room {
     margin: 20px 20px;
 }
 
-.text-title-chat, .text-title-room {
+.text-title-chat,
+.text-title-room {
     font-size: 1.5rem;
     color: black;
 }
@@ -93,17 +106,36 @@ body {
 }
 
 .box-text-user {
+    width: 100%;
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 5%;
+    /* background-color: bisque; */
 }
 
-.box-text-user>button {
+.btn-open-chatting-room {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-open-chatting-room:hover {
+    font-weight: 600;
+}
+
+.btn-room-close {
     border: none;
     margin-left: 20px;
-    font-size: .5rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: aliceblue;
-    background-color: black;
+    color: black;
+    background-color: transparent;
     cursor: pointer;
+}
+
+.btn-room-close:hover {
+    color: crimson;
 }
 
 .text-profile-desc {
@@ -117,6 +149,7 @@ body {
     font-size: 1.2rem;
     font-weight: 500;
     cursor: pointer;
+    /* background-color: cadetblue; */
 }
 
 .text-profile-desc {
@@ -140,10 +173,10 @@ body {
     background-color: gainsboro;
 }
 
-
-.box-chat-partner-user, .box-chat-room-list{
-    height:70vh;
-    overflow-y:scroll;
+.box-chat-partner-user,
+.box-chat-room-list {
+    height: 70vh;
+    overflow-y: scroll;
 }
 
 .wrap-profile-chat {
@@ -153,7 +186,11 @@ body {
 .box-text-profile-chat {
     margin: 5px 10px;
     padding: 10px;
+    /* background-color: brown; */
+}
 
+.wrap-chat-user {
+    float: right;
 }
 
 .box-text-chat {
@@ -162,8 +199,16 @@ body {
     margin: 5px 15px;
     border-radius: 12px;
     color: aliceblue;
+}
+
+#box-chat-user {
     background-color: rgb(75, 0, 226);
 }
+
+#box-chat-partner {
+    background-color: black;
+}
+
 
 .box-text-chat-user {
     background-color: black;
@@ -176,6 +221,13 @@ body {
 
 .text-chat-name {
     font-size: 1rem;
+    /* background-color: lime; */
+}
+
+.text-chat-name-user {
+    margin-left: 80%;
+    font-size: 1rem;
+    /* background-color: aqua; */
 }
 
 .box-input-chat {
@@ -283,8 +335,8 @@ body {
     /* background-color: aqua; */
 }
 
-.box-search-tag{
-    background-color:cyan;
+.box-search-tag {
+    /* background-color: cyan; */
 }
 
 .input-search-main {
