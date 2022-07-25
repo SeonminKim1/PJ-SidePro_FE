@@ -94,7 +94,9 @@ function AddRoomListHtml(response_json){
         const newUserDiv = document.createElement('div')
         newUserDiv.className = "wrap-profile-chat-list wrap-profile-chat-list_" + i;
         newUserDiv.innerHTML = `
-            <div><img src=${profile_img} class="img-profile"></div>
+            <div>
+                <img src=${profile_img} class="img-profile">
+            </div>
             <div class="box-text-chatlist box-text-chatlist_${i}">
                 <div class="box-text-user box-text-user_${i}">
                     <span class="text-profile-name text-profile-name_${i}"

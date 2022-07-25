@@ -43,7 +43,6 @@
         <div class="btn-fixed-container">
             <button class="btn-chat-open" onclick="activeRoomList()">나의 채팅창</button>
             <button class="btn-project-regist">프로젝트 등록하기!</button>
-
         </div>
 
         <!-- 채팅룸 리스트 -->
@@ -136,7 +135,7 @@
                     <span id="chat-partner-desc" class="text-chat-desc">용건은 간단히 바랍니다.</span>
                     <span class="text-chat-date">2022-07-19</span>
                 </div>
-            </div>
+            </div>  
                     </div>
         <div class="box-input-chat">
             <input class="input-chat" placeholder="채팅 입력하기">
@@ -162,8 +161,9 @@
                     <!-- 필터 -->
                     <div class="box-search-main">
                         <div class="box-search-tag"></div>
-                        <input class="input-search-main" type="text" list="search-list" onkeyup="DrawSkillTag()" placeholder="기술스택으로 검색해보세요. ">
-                        <datalist id ="search-list">
+                        <input class="input-search-main" type="text" list="search-list" onkeyup="DrawSkillTag()"
+                            placeholder="기술스택으로 검색해보세요. ">
+                        <datalist id="search-list">
                             <!--<option value="Python" />-->
                         </datalist>
                         <button class="btn-search-main">검색</button>
@@ -198,6 +198,7 @@
                                     <div class="wrap-writer-mypage">
                                         <span class="text-writer-mypage">김코딩</span>
                                         <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                        <button class="btn-bookmark-main">⭐️</button>
                                     </div>
                                 </div>
                             </div>
@@ -213,6 +214,7 @@
                                     <div class="wrap-writer-mypage">
                                         <span class="text-writer-mypage">김코딩</span>
                                         <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                        <button class="btn-bookmark-main">⭐️</button>
                                     </div>
                                 </div>
                             </div>
@@ -228,6 +230,7 @@
                                     <div class="wrap-writer-mypage">
                                         <span class="text-writer-mypage">김코딩</span>
                                         <button class="btn-chat-mypage">커피챗 신청하기 ☕️</button>
+                                        <button class="btn-bookmark-main">☆</button>
                                     </div>
                                 </div>
                             </div>
@@ -286,16 +289,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="previous"></div>
-                        <div class="next"></div>
                     </div>
-
                 </div>
-
-
-
-
-
+                <div class="box-btn-page-main">
+                    <span class="btn-page-main previous">←이전 페이지</span>
+                    <span class="btn-page-main next">다음 페이지→</span>
+                </div>
             </div>
         </main>
         <!-- 유저 프로필 모달 -->
