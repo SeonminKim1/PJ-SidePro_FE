@@ -15,31 +15,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 현재 Login 한 user 정보 조회
 // skills 목록 조회
-async function  GetBaseInfo(){
+async function GetBaseInfo() {
     console.log("_baseinfo.js - GetBaseInfo")
     payload = JSON.parse(localStorage.getItem("payload"))
     // console.log('payload:',(payload), typeof(payload))
     user_id = payload["user_id"]
     console.log('user_id: ', user_id)
-    const response = await fetch(`${backend_base_url}/user/main/init/`,{
-        headers:{
+    const response = await fetch(`${backend_base_url}/user/main/init/`, {
+        headers: {
             Accept: "application/json",
             'content-type': "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-    })    
+    })
     response_json = await response.json()
     login_username = response_json['login_username'] // JS 내 변수로 지정
     skills = response_json['skills']
     SetSkillsFilteringInitalize(skills)
-} 
+
+    // 유저프로필 페이지에서 사용자명 출력
+    const welcome_profile = document.querySelector('.box-text-title-profile-regist');
+    welcome_profile.innerHTML = `
+    <span class="text-title-profile-regist">${login_username} 님, SidePro에 오신 것을 환영합니다!</span>
+    `
+}
 
 // 필터링 Skill들(option) 목록(datalist)에 추가 
-function SetSkillsFilteringInitalize(skills){
+function SetSkillsFilteringInitalize(skills) {
     console.log("_baseinfo.js - SetSkillsFilteringInitalize")
 
-    for(let i=0; i<skills.length; i++){
+    for (let i = 0; i < skills.length; i++) {
         skills_id = skills[i]['id']
         skill_name = skills[i]['name']
         // skill option 만들기
@@ -50,23 +56,23 @@ function SetSkillsFilteringInitalize(skills){
 
         // sidepro 에서 제공하는 skill list
         sidepro_skill_list.push(skill_name)
-        
+
         // skills => object initialize
         skills_object[skill_name] = skills_id
     }
 }
 
 // input 창 event
-function DrawSkillTag(){
+function DrawSkillTag() {
     console.log("_baseinfo.js - DrawSkillTag")
 
     // enter
     if (window.event.keyCode == 13) {
         check_value = filter_input_tag.value // input value 값
         // sidepro list에 들어 있지 않으면~
-        if(!sidepro_skill_list.includes(check_value)){
+        if (!sidepro_skill_list.includes(check_value)) {
             alert('기술 스택 리스트 중 하나를 선택해 주세요!')
-        }else{ // skill 검색 필터에 추가 하기
+        } else { // skill 검색 필터에 추가 하기
             var SkillsTag = document.createElement('div')
             SkillsTag.className = "skills-tag"
             SkillsTag.innerText = check_value;
@@ -75,13 +81,13 @@ function DrawSkillTag(){
             // 추가된 <span> tag 저장
             skill_tag_list.push(SkillsTag)
         }
-    // backspace
-    // input ''인 상태 & 태그도 x 일 때 delete 누르면 아무것도 x
-    }else if (window.event.keyCode == 8 & (filter_input_tag.value=='')){
+        // backspace
+        // input ''인 상태 & 태그도 x 일 때 delete 누르면 아무것도 x
+    } else if (window.event.keyCode == 8 & (filter_input_tag.value == '')) {
         check_value = filter_input_tag.value
-        if(skill_tag_list.length == 0 & check_value ==''){}
+        if (skill_tag_list.length == 0 & check_value == '') { }
         // input ''인 상태 & 태그는 o 일 때 delete 누르면 태그 삭제 
-        else if(skill_tag_list.length != 0 & check_value == ''){
+        else if (skill_tag_list.length != 0 & check_value == '') {
             // tag 삭제
             remove_tag = skill_tag_list.pop()
             filter_div_tag.removeChild(remove_tag)

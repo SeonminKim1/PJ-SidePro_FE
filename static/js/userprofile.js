@@ -75,7 +75,7 @@ function profile_image_preview(input) {
         };
         reader.readAsDataURL(input.files[0]);
     } else {
-        document.getElementById('profile_img_preview').src = "";
+        document.getElementById('profile_img_preview').src = "/static/img/profile-kim.png";
     }
 }
 
