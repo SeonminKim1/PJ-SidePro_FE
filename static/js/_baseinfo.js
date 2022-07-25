@@ -8,7 +8,7 @@ const filter_input_tag = document.querySelector(".input-search-main") // input �
 const filter_datalist_tag = document.getElementById("search-list") // Datalist Tag 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("main.js - DOMContentLoaded")
+    console.log("_baseinfo.js - DOMContentLoaded")
     GetBaseInfo()
     // set_filtering_initalize()
 });
@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 // 현재 Login 한 user 정보 조회
 // skills 목록 조회
 async function  GetBaseInfo(){
-    console.log("chat.js - get_loginuser_info")
+    console.log("_baseinfo.js - GetBaseInfo")
     payload = JSON.parse(localStorage.getItem("payload"))
     // console.log('payload:',(payload), typeof(payload))
     user_id = payload["user_id"]
@@ -37,6 +37,8 @@ async function  GetBaseInfo(){
 
 // 필터링 Skill들(option) 목록(datalist)에 추가 
 function SetSkillsFilteringInitalize(skills){
+    console.log("_baseinfo.js - SetSkillsFilteringInitalize")
+
     for(let i=0; i<skills.length; i++){
         skills_id = skills[i]['id']
         skill_name = skills[i]['name']
@@ -55,7 +57,9 @@ function SetSkillsFilteringInitalize(skills){
 }
 
 // input 창 event
-function DrawSkillTag(){    
+function DrawSkillTag(){
+    console.log("_baseinfo.js - DrawSkillTag")
+
     // enter
     if (window.event.keyCode == 13) {
         check_value = filter_input_tag.value // input value 값

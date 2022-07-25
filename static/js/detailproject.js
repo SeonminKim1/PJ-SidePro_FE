@@ -146,15 +146,15 @@ function AddArticleViewUpdateDelete(response_json){
 
     // 4.2 게시글 수정
     project_modify_btn.addEventListener('click', function(){
-        window.
-        updateArticle( // insertproject.js
-            response_json["id"], // project_id
-            response_json['title'],
-            response_json['created_date'],
-            response_json['skills'],
-            response_json['thumnail_img_path'],
-            response_json['content'],
-        )
+        updateArticle()
+        // updateArticle( // insertproject.js
+        //     // response_json["id"], // project_id
+        //     // response_json['title'],
+        //     // response_json['created_date'],
+        //     // response_json['skills'],
+        //     // response_json['thumnail_img_path'],
+        //     // response_json['content'],
+        // )
     })
 
     // 4.3 게시글 삭제
@@ -165,6 +165,7 @@ function AddArticleViewUpdateDelete(response_json){
 function updateArticle(){
     console.log("detailpage.js - updateArticle")
     localStorage.setItem('project_id', project_id)
+    localStorage.setItem('update_mode', 1)
     window.location.replace(`${frontend_base_url}/templates/insert_project.html`);
 }
 
