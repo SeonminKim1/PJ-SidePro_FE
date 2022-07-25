@@ -80,7 +80,7 @@ function AddTitleBookmark(response_json){
 
     // 2.3 작성일
     const create_data_box = document.querySelector('.text-date-project-detail')
-    create_data_box.innerText = StringToDatetime(response_json['created_date'], 2)
+    create_data_box.innerText = StringToDatetime(response_json['created_date'], 'DATE')
 }
 
 // 2.2 북마크 여부
@@ -235,7 +235,7 @@ async function insertUpdateDeleteComment(){
         comment_id = response_json['data'].id
         comment_user = response_json['data'].user
         comment_text = response_json['data'].comment
-        comment_create_date = StringToDatetime(response_json['data'].created_date, 1)   
+        comment_create_date = StringToDatetime(response_json['data'].created_date, 'DATETIME')   
 
         // comment html 추가
         newCommentDiv = document.createElement('div')
@@ -284,7 +284,7 @@ async function viewComment(comments){
         comment_id = comments[i].id
         comment_user = comments[i].user
         comment_text = comments[i].comment
-        comment_create_date = StringToDatetime(comments[i].created_date, 1) // _base.js에 시간 바꿔줌 
+        comment_create_date = StringToDatetime(comments[i].created_date, 'DATETIME') // _base.js에 시간 바꿔줌 
         
         newCommentDiv = document.createElement('div')
         newCommentDiv.className = 'box-comment-detail-box_' + comment_id
@@ -377,7 +377,7 @@ async function updateComment(update_btn_node){
             // response에서 comment 정보 얻기
             comment_id = response_json['data'].id
             comment_text = response_json['data'].comment
-            comment_create_date = StringToDatetime(response_json['data'].created_date, 1)
+            comment_create_date = StringToDatetime(response_json['data'].created_date, 'DATETIME')
 
             update_div.innerHTML = ` 
                 <div class="comment-content-detail comment-content-detail_${comment_id}">${comment_text}</div>

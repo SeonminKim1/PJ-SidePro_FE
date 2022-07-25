@@ -8,11 +8,14 @@
     <title>Document</title>
     <!-- Toast UI Editor -->
     <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+
     <!-- CSS Import -->
     <link rel="stylesheet" href="/static/css/insert_project.css">
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -51,122 +54,9 @@
         </div>
     </section>
 
-
-
-
     <script src="/static/js/_base.js"></script>
     <script src="/static/js/main.js"></script>
-    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
-    <script>
-        const Editor = toastui.Editor;
-
-        const editor = new Editor({
-            el: document.querySelector('#editor'),
-            height: '600px',
-            initialEditType: 'markdown',
-            previewStyle: 'vertical'
-        });
-
-        seeHtml = function () {
-            alert(editor.getHTML());
-        }
-        seeMd = function () {
-            alert(editor.getMarkdown());
-        }
-        insert_project = function () {
-
-            image_data = new FormData()
-            image_data.append("file", document.querySelector("#thumnail_img_path").files[0])
-            fetch(`${backend_base_url}/project/upload/`, {
-                //headers: {
-                //    'Content-Type': 'multipart/form-data',
-                //},
-                method: "POST",
-                body: image_data,
-            })
-                .then(response => {
-                    console.log(response)
-                    return response.json()
-                })
-                .then(json => {
-                    console.log(json)
-                    console.log(skill_tag_list)
-                    select_skills = []
-                    for (i = 0; i < skill_tag_list.length; i++){
-                        console.log(skill_tag_list[i].innerText)
-                        select_skills.push(skill_tag_list[i].innerText)
-                    }
-                    
-                    console.log(select_skills)
-                    const formdata = new FormData()
-                    formdata.append("thumnail_img_path", json["url"])
-                    formdata.append("title",document.querySelector("#title").value,)    
-                    formdata.append("github_url",document.querySelector("#git_hub_url").value,)    
-                    formdata.append("content",editor.getMarkdown(),)    
-                    formdata.append("skills",[{select_skills}])    
-                    
-                    fetch(`${backend_base_url}/project/`, {
-                        headers: {
-                            "Authorization": "Bearer " + localStorage.getItem("access")
-                        },
-                        method: 'POST',
-                        body: formdata
-                    })
-                        .then(response => {
-                            console.log(response)
-                            return response.json()
-                        })
-                        .then(json => {
-                            console.log(json)
-                            alert("게시글 작성 성공!")
-                            localStorage.setItem("project_id", json['id'])
-                            window.location.replace("/templates/project_detail.html/")
-                        })
-
-                })
-        }
-
-        editor.addHook("addImageBlobHook", function (blob, callback) {
-            // blob 텍스트 
-            console.log(blob)
-
-            // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
-            const formdata = new FormData();
-            formdata.append("file", blob)
-            
-            fetch(`${backend_base_url}/project/upload/`, {
-                method: "POST",
-                body: formdata,
-            })
-                .then(response => {
-                    console.log(response)
-                    return response.json()
-                })
-                .then(json => {
-                    console.log(json)
-                    // callback의 인수로 넣으시면 됩니다. 
-                    callback(json["url"], "image")
-                })
-                
-
-        });
-
-        // 이미지 미리보기
-        function thumnail_image_preview(input) {
-            const base_div = document.querySelector("#thumnail_img_preview")
-            base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`
-        
-            if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                document.getElementById('result_thumnail_file').src = e.target.result;
-            };
-            reader.readAsDataURL(input.files[0]);
-            } else {
-            document.getElementById('result_thumnail_file').src = "";
-            }
-        }
-    </script>
+    <script src="/static/js/insertproject.js"></script>
 
 </body>
 
