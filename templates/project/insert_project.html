@@ -29,7 +29,13 @@
             </div>
             <div class="box-info-project">
                 <input type="text" id="git_hub_url" class="info-project-post" placeholder="프로젝트 레포지토리 주소">
-                <input type="text" id="stack_tag" class="info-project-post" placeholder="기술 스택 태그를 입력하세요">                
+                <div class="box-search-main">
+                    <div class="box-search-tag"></div>
+                    <input class="input-search-main" type="text" list="search-list" onkeyup="DrawSkillTag()" placeholder="기술스택으로 검색해보세요. ">
+                    <datalist id ="search-list">
+                        <!--<option value="Python" />-->
+                    </datalist>
+                </div>
             </div>
             <div id="editor"></div>
             <div>
@@ -49,6 +55,7 @@
 
 
     <script src="/static/js/_base.js"></script>
+    <script src="/static/js/main.js"></script>
     <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script>
         const Editor = toastui.Editor;
@@ -83,12 +90,20 @@
                 })
                 .then(json => {
                     console.log(json)
+                    console.log(skill_tag_list)
+                    select_skills = []
+                    for (i = 0; i < skill_tag_list.length; i++){
+                        console.log(skill_tag_list[i].innerText)
+                        select_skills.push(skill_tag_list[i].innerText)
+                    }
+                    
+                    console.log(select_skills)
                     const formdata = new FormData()
                     formdata.append("thumnail_img_path", json["url"])
                     formdata.append("title",document.querySelector("#title").value,)    
                     formdata.append("github_url",document.querySelector("#git_hub_url").value,)    
                     formdata.append("content",editor.getMarkdown(),)    
-                    formdata.append("skills",[document.querySelector("#stack_tag").value],)    
+                    formdata.append("skills",[{select_skills}])    
                     
                     fetch(`${backend_base_url}/project/`, {
                         headers: {
@@ -104,7 +119,8 @@
                         .then(json => {
                             console.log(json)
                             alert("게시글 작성 성공!")
-                            //window.location.replace("/templates/project/project_detail.html/" + json["id"])
+                            localStorage.setItem("project_id", json["id"])
+                            //window.location.replace("/templates/project/project_detail.html")
                         })
 
                 })

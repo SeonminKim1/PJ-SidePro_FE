@@ -60,7 +60,7 @@ function DrawSkillTag(){
             alert('기술 스택 리스트 중 하나를 선택해 주세요!')
         }else{ // skill 검색 필터에 추가 하기
             var SkillsTag = document.createElement('span')
-            SkillsTag.id = "skills-tag"
+            SkillsTag.className = "skills-tag"
             SkillsTag.innerText = check_value;
             SkillsTag.style.marginRight = "3px";
             filter_div_tag.appendChild(SkillsTag)
