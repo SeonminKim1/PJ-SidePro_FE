@@ -1,5 +1,11 @@
 window.onload = project_list()
 
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("project.js - DOMContentLoaded")
+    localStorage.setItem("update_mode", 0)
+    console.log('====', localStorage.getItem("update_mode"))
+});
+
 async function project_list(url){
     if (url == null){
         url = `${backend_base_url}/project/?page_size=5`
