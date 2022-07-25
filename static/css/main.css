@@ -343,6 +343,7 @@ body {
 }
 
 .box-search-tag {
+    display: flex;
     background-color: cyan;
 }
 
