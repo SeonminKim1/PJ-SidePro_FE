@@ -73,9 +73,9 @@ function AddTitleBookmark(response_json){
     const bookmark_btn = document.querySelector(".box-bookmark-project-detail");
     var bookmark_list = response_json["bookmark"];
     if (bookmark_list.includes(payload.user_id)){
-        bookmark_btn.innerHTML = `<i class="fa-solid fa-star"></i>`
+        bookmark_btn.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
     } else {
-        bookmark_btn.innerHTML = `<i class="fa-regular fa-star"></i>`
+        bookmark_btn.innerHTML = '☆' // `<i class="fa-regular fa-star"></i>`
     }
 
     // 2.3 작성일
@@ -96,10 +96,10 @@ async function bookmark(node) {
     })
     response_json = await response.json()
     if(response.status == 200) {
-        if(node.innerHTML==`<i class="fa-solid fa-star"></i>`){ // bookmark on 일 때 누름
-            node.innerHTML = `<i class="fa-regular fa-star"></i>`
+        if(node.innerHTML=='⭐️'){ // bookmark on 일 때 누름
+            node.innerHTML = '☆'// `<i class="fa-regular fa-star"></i>`
         }else{ // bookmark off 일 때 누름
-            node.innerHTML = `<i class="fa-solid fa-star"></i>`
+            node.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
         }
         alert(response_json['msg'], response.status)
     } else {
