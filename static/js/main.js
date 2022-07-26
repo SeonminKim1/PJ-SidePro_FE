@@ -125,3 +125,17 @@ function project_detail(project_id) {
     localStorage.setItem("update_mode", 0)
     window.location.replace("/templates/detail_project.html")
 }
+
+function search_list(){
+    skills = document.getElementsByClassName("skills-tag")
+    skill_list = ""
+    for (i = 0; i < skills.length; i++){
+        skill_list = skill_list + "&skills=" + skills[i].innerText
+    }
+    console.log(skills)
+    console.log(skill_list)
+    url = `${backend_base_url}/project/?page_size=9` + skill_list
+    console.log(url)
+    project_list(url)
+    
+}
