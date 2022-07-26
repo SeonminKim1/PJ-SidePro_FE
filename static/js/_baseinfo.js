@@ -33,8 +33,7 @@ async function GetBaseInfo() {
     response_json = await response.json()
     login_username = response_json['login_username'] // JS 내 변수로 지정
     skills = response_json['skills']
-    SetSkillsFilteringInitalize(skills)
-   
+    SetSkillsFilteringInitalize(skills)    
 }
 
 // 필터링 Skill들(option) 목록(datalist)에 추가 
