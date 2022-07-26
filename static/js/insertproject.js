@@ -5,13 +5,13 @@ var project_id;
 document.addEventListener('DOMContentLoaded', async function () {
     console.log("insertproject.js - DOMContentLoaded")
     
-    localStorage.setItem('update_mode', 1);
+    // localStorage.setItem('update_mode', 1);
     project_id = localStorage.getItem('project_id')
     update_mode = localStorage.getItem('update_mode');
-
+    console.log('===project_id, update_mode', project_id, update_mode)
+    // 수정하기로 왔을 떄
     if(update_mode == 1){
         GetBaseInfo()
-
         // 게시물 내용 API로 DB값 조회 (id= n인 게시물 테스트용)
         const response = await fetch(`${backend_base_url}/project/${project_id}`,{
             headers: {
@@ -44,6 +44,13 @@ document.addEventListener('DOMContentLoaded', async function () {
             skill_box.append(SkillTag)
         }
 
+        // 썸네일 이미지 채우기
+        const base_div = document.querySelector("#thumnail_img_preview")
+        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`  
+        document.getElementById('result_thumnail_file').src = response_json["thumnail_img_path"];
+
+        const submit_btn = document.querySelector('.btn-project-submit')
+        submit_btn.innerText = '프로젝트 수정 완료'
         // 게시글 조회 (Viewer Editor)
         const editor = new Editor({
             el: document.querySelector('#editor'),
@@ -53,12 +60,28 @@ document.addEventListener('DOMContentLoaded', async function () {
             initialValue: response_json["content"]
         });
         
-        // 썸네일 이미지 채우기
-        const base_div = document.querySelector("#thumnail_img_preview")
-        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`  
-        document.getElementById('result_thumnail_file').src = response_json["thumnail_img_path"];
+        // 이미지 hook 추가
+        editor.addHook("addImageBlobHook", function (blob, callback) {
+            // blob 텍스트 
+            console.log(blob)
         
-    }else{ // 
+            // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
+            const formdata = new FormData();
+            formdata.append("file", blob)
+            
+            fetch(`${backend_base_url}/project/upload/`, {
+                method: "POST",
+                body: formdata,
+            }).then(response => {
+                    console.log(response)
+                    return response.json()
+                }).then(json => {
+                    console.log(json)
+                    // callback의 인수로 넣으시면 됩니다. 
+                    callback(json["url"], "image")
+                })
+        });
+    }else{ // 프로젝트 등록하기로 왔을 때 
         const editor = new Editor({
             el: document.querySelector('#editor'),
             height: '600px',
@@ -70,7 +93,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         editor.addHook("addImageBlobHook", function (blob, callback) {
             // blob 텍스트 
             console.log(blob)
-
+        
             // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
             const formdata = new FormData();
             formdata.append("file", blob)
@@ -96,6 +119,7 @@ insert_project = function () {
     image_data = new FormData()
     image_data.append("file", document.querySelector("#thumnail_img_path").files[0])
 
+    // 이미지 업로드
     fetch(`${backend_base_url}/project/upload/`, {
         //headers: {
         //    'Content-Type': 'multipart/form-data',
@@ -149,7 +173,7 @@ insert_project = function () {
                         alert("게시글 수정 성공!")
                         window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
                     })
-            }else{ // update mode == 0 
+            }else{ // 게시글 등록하기 - update mode == 0
                 fetch(`${backend_base_url}/project/`, {
                     headers: {
                         "Authorization": "Bearer " + localStorage.getItem("access")

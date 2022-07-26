@@ -9,7 +9,7 @@ const comment_view = document.querySelector('.box-comment-detail')
 document.addEventListener('DOMContentLoaded', function () {
     console.log("detailpage.js - DOMContentLoaded")
     
-    localStorage.setItem('project_id', 4);
+    // localStorage.setItem('project_id', 4);
     project_id = localStorage.getItem('project_id');
     GetLoginUserInfo()
     DetailPageViewer(project_id);
@@ -144,17 +144,15 @@ function AddArticleViewUpdateDelete(response_json){
     const project_modify_btn = document.querySelector('.btn-modify-detail')
     const project_delete_btn = document.querySelector('.btn-delete-detail')
 
+    // 게시글 본인 작성글이 아니면 수정, 삭제 안보이게
+    if(login_username != response_json['user']){
+        project_modify_btn.hidden=true;
+        project_delete_btn.hidden=true;
+    }
+    
     // 4.2 게시글 수정
     project_modify_btn.addEventListener('click', function(){
         updateArticle()
-        // updateArticle( // insertproject.js
-        //     // response_json["id"], // project_id
-        //     // response_json['title'],
-        //     // response_json['created_date'],
-        //     // response_json['skills'],
-        //     // response_json['thumnail_img_path'],
-        //     // response_json['content'],
-        // )
     })
 
     // 4.3 게시글 삭제
@@ -246,7 +244,7 @@ async function insertUpdateDeleteComment(){
                 <div class="box-comment-content-detail">
                     <span class = "user-comment-detail">${comment_user}</span>
                 </div>
-                <div class="wrap-comment-content-detail">
+                <div class="wrap-comment-content-detail_${comment_id}">
                     <div class="comment-content-detail_${comment_id}">${comment_text}</div>
                     <div class="comment-content-date_${comment_id}">${comment_create_date}</div>
                     <div class="box-btn-comment-content">
