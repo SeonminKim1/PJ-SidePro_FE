@@ -28,21 +28,31 @@ body {
 
 .box-card-profile {
     display: flex;
+    width: 100%;
     /* background-color: aliceblue; */
 }
 
+.box-img-profile-mypage {
+    width: 45%;
+    display: flex;
+}
+
 .img-profile-mypage {
-    width: 96px;
+    width: 100%;
+    min-width: 100px;
+    object-fit: contain;
 }
 
 .wrap-text-profile-mypage {
-    width: 100%;
-    margin-left: 20px;
+    width: 50%;
+    margin-left: 4%;
     /* background-color: antiquewhite; */
 }
 
 .text-profile-mypage {
-    display: block;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
     font-size: 1rem;
     /* background-color: aliceblue; */
 }
@@ -54,10 +64,40 @@ body {
 
 .text-user-stack-mypage,
 .text-user-github-mypage,
-.text-user-region-mypage {
+.text-user-region-mypage,
+.text-user-meettime-mypage {
     padding: 3px 0;
     font-size: .8rem;
+}
 
+.text-user-stack-mypage>div {
+    margin: 1% 2% 1% 0;
+    padding: 1% 2%;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.text-user-github-mypage>a {
+    display: flex;
+}
+
+.img-github-mypage {
+    min-width: 20px;
+    width: 9%;
+    margin-right: 2%;
+}
+
+.text-user-github-mypage>a:link,
+a:visited {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.text-user-github-mypage>a:link,
+a:visited,
+a:link:active,
+a:visited:active {
+    color: inherit;
 }
 
 .box-text-introduce {
@@ -108,8 +148,8 @@ body {
     /* background-color: aquamarine; */
     position: relative;
     margin: 2% auto;
-    width: 940px;
-    height: 350px;
+    width: 960px;
+    height: 400px;
     overflow: hidden;
 }
 
@@ -137,24 +177,16 @@ body {
 }
 
 .prev,
-.next {
-    display: none;
-    background: #333;
-    color: #fff;
-    padding: 0 13px;
-    margin: 0 10px;
-    text-align: center;
-    cursor: pointer;
-}
-
+.next,
 .prev-bookmark,
 .next-bookmark {
     display: none;
-    background: #333;
+    background: rgb(140, 140, 140);
     color: #fff;
-    padding: 0 13px;
-    margin: 0 10px;
+    padding: 0 10px;
+    margin: 0 7px;
     text-align: center;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -170,36 +202,86 @@ body {
 
 .box-card-content-project {
     /* background-color: antiquewhite; */
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .img-card-thumnail-mypage {
     width: 100%;
+    height: 160px;
+    object-fit: scale-down;
+    object-position: center;
+    cursor: pointer;
+    margin: 0 auto;
 }
 
 .card-text {
     display: block;
     margin: 10px 0;
-    word-break: keep-all;
+    word-break: break-all;
+}
+
+.box-text-card-project {
+    width: 100%;
 }
 
 .text-title-card-project {
     /* background-color: aliceblue; */
-
+    width: 100%;
+    height: 30px;
 }
 
 .text-indroduce-card-project {
+    width: 100%;
+    height: 50px;
     font-size: .8rem;
 }
 
+/* 스킬 아이콘 WARP */
+.text-stack-card-project {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    flex-wrap: wrap;
+    /* overflow: hidden; */
+}
+
+/* 스킬 아이콘 */
+.text-stack-card-project>div {
+    height: 25px;
+    font-size: .8rem;
+    padding: 2px 8px;
+    margin: 0 3px 3px 0;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 프로젝트 정보(조회,댓글,북마크) */
+.project-information {
+    display: flex;
+    align-items: center;
+}
+
+.project-information>div {
+    font-size: 1rem;
+    margin: 0 15% 0 0;
+}
+
 .wrap-writer-mypage {
-    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
     /* background-color: cadetblue; */
 }
 
-.text-writer-mypage {
-    margin-right: 10px;
-}
+.text-writer-mypage {}
 
 .btn-chat-mypage {
     border: none;
@@ -209,4 +291,12 @@ body {
     border-radius: 30px;
     color: aliceblue;
     background-color: rgb(75, 0, 226);
+}
+
+.btn-bookmark-main {
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    background-color: transparent;
+    cursor: pointer;
 }
