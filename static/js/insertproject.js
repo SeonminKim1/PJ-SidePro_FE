@@ -1,4 +1,5 @@
 const Editor = toastui.Editor;
+var editor;
 var update_mode;
 var project_id;
 
@@ -52,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         const submit_btn = document.querySelector('.btn-project-submit')
         submit_btn.innerText = '프로젝트 수정 완료'
         // 게시글 조회 (Viewer Editor)
-        const editor = new Editor({
+        editor = new Editor({
             el: document.querySelector('#editor'),
             height: '600px',
             initialEditType: 'markdown',
@@ -82,7 +83,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                 })
         });
     }else{ // 프로젝트 등록하기로 왔을 때 
-        const editor = new Editor({
+        editor = new Editor({
             el: document.querySelector('#editor'),
             height: '600px',
             initialEditType: 'markdown',
