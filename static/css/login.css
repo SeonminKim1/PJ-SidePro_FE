@@ -10,6 +10,14 @@ body {
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
+    background: linear-gradient(-45deg, whitesmoke, lavender, skyblue, thistle);
+    background-size: 400% 400%;
+    animation: AnimationName 15s ease infinite;
+}
+
+button {
+    outline: none;
+    border: none;
 }
 
 .container-login {
@@ -73,6 +81,14 @@ body {
     cursor: pointer;
 }
 
+.box-btn-login-login {}
+
+.box-btn-login-login>button {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+}
+
 .btn-login-login>button {
     font-weight: 600;
 }
@@ -83,7 +99,7 @@ body {
     background-color: rgb(75, 0, 226);
 }
 
-.btn-social-login:hover {
+.btn-kakao-login:hover {
     font-weight: 700;
     background-color: yellow;
 }

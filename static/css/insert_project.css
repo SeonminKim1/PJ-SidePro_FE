@@ -13,6 +13,11 @@ body {
     background-color: #EFEFEF;
 }
 
+input {
+    outline: none;
+    border: none;
+}
+
 #editor {
     background-color: white;
 }
@@ -45,6 +50,7 @@ body {
     margin: 20px 0;
 }
 
+
 .info-project-post, .git-project-post, .input-search-main {
     display: block;
     width: 100%;
@@ -52,6 +58,41 @@ body {
     padding: 10px;
     border: none;
     outline: none;
+}
+
+.box-thumnail-project-post {
+    display: inline-block;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    font-weight: 300;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+.box-thumnail-project-post:hover,
+.box-thumnail-project-post>label:hover {
+    background-color: gainsboro;
+    cursor: pointer;
+}
+
+.img-thumnail-project-post[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.img-thumnail-project-post,
+.img-base-project-post {
+    width: 300px;
+    max-width: 300px;
+    background-color: aqua;
 }
 
 .box-btn-project-post {
@@ -68,7 +109,6 @@ body {
 
 .btn-project-submit:hover {
     background-color: rgb(75, 0, 226);
-    ;
 }
 
 /* skills */
