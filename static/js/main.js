@@ -55,16 +55,19 @@ async function project_list(url, filter){
                 </div>
             </div>
             `
-            // in_card = document.querySelector("#box-text-card-project_" + element.id)
-            // for (i = 0; i < element.skills.length; i++){
-            //     const skills_span = document.createElement('span')
-            //     skills_span.className = "card-text text-stack-card-project"
-            //     skills_span.innerText= `${element.skills[i]}`
-            //     in_card.append(skills_span)
-            // }
             
-
         list_box.append(project_card)
+
+        // 게시글에 기술 스택 달기
+        skills_list = element['skills']
+        const skills_div = document.querySelector("#box-text-card-project_"+ element["id"])
+        skills_list.forEach(skill => {
+            const skill_card = document.createElement('span')
+            skill_card.className = 'skills-tag'
+            skill_card.innerText = skill
+
+            skills_div.append(skill_card)
+        });
 
         // 북마크 버튼
         const payload = JSON.parse(localStorage.getItem("payload"));
@@ -124,4 +127,18 @@ function project_detail(project_id) {
     localStorage.setItem("project_id", project_id)
     localStorage.setItem("update_mode", 0)
     window.location.replace("/templates/detail_project.html")
+}
+
+function search_list(){
+    skills = document.getElementsByClassName("skills-tag")
+    skill_list = ""
+    for (i = 0; i < skills.length; i++){
+        skill_list = skill_list + "&skills=" + skills[i].innerText
+    }
+    console.log(skills)
+    console.log(skill_list)
+    url = `${backend_base_url}/project/?page_size=9` + skill_list
+    console.log(url)
+    project_list(url)
+    
 }

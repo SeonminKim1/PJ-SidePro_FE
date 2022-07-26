@@ -277,7 +277,7 @@ insert_project = function () {
 // 이미지 미리보기
 function thumnail_image_preview(input) {
     const base_div = document.querySelector("#thumnail_img_preview")
-    base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`
+    base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img" height="200" width="200">`
 
     if (input.files && input.files[0]) {
     var reader = new FileReader();
