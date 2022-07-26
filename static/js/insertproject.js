@@ -116,84 +116,158 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // 게시글 등록
 insert_project = function () {
-    // image data
-    image_data = new FormData()
-    image_data.append("file", document.querySelector("#thumnail_img_path").files[0])
+    
+    // 이미지가 있을 경우
+    if (document.querySelector("#thumnail_img_path").files[0] != null){
+        // image data
+        image_data = new FormData()
+        image_data.append("file", document.querySelector("#thumnail_img_path").files[0])
 
-    // 이미지 업로드
-    fetch(`${backend_base_url}/project/upload/`, {
-        //headers: {
-        //    'Content-Type': 'multipart/form-data',
-        //},
-        method: "POST",
-        body: image_data,
-    }).then(response => {
-            return response.json()
-        }).then(json => {            
-            // Skills Value List
-            select_skills_value = [] // [arc, aws, python]
-            for (i = 0; i < skill_tag_list.length; i++){
-                console.log(skill_tag_list[i].innerText)
-                select_skills_value.push(skill_tag_list[i].innerText)
-            }
+        // 이미지 업로드
+        fetch(`${backend_base_url}/project/upload/`, {
+            //headers: {
+            //    'Content-Type': 'multipart/form-data',
+            //},
+            method: "POST",
+            body: image_data,
+        }).then(response => {
+                return response.json()
+            }).then(json => {            
+                // Skills Value List
+                select_skills_value = [] // [arc, aws, python]
+                for (i = 0; i < skill_tag_list.length; i++){
+                    console.log(skill_tag_list[i].innerText)
+                    select_skills_value.push(skill_tag_list[i].innerText)
+                }
 
-            // Skills ID List
-            select_skills_id = [] // [2, 4, 12]
-            for(let i=0; i<select_skills_value.length; i++){
-                select_skills_id.push(parseInt(skills_object[select_skills_value[i]]))
-            }
+                // Skills ID List
+                select_skills_id = [] // [2, 4, 12]
+                for(let i=0; i<select_skills_value.length; i++){
+                    select_skills_id.push(parseInt(skills_object[select_skills_value[i]]))
+                }
 
-            // form Data 만들기
-            const formdata = new FormData()
-            formdata.append("title",document.querySelector("#title").value,)
+                // form Data 만들기
+                const formdata = new FormData()
+                formdata.append("title",document.querySelector("#title").value,)
 
-            // Skills Append
-            for(let j=0; j<select_skills_id.length; j++){
-                formdata.append("skills",select_skills_id[j])
-            }
-            formdata.append("thumnail_img_path", json["url"])
-            formdata.append("content", editor.getMarkdown(),)    
-            formdata.append("github_url",document.querySelector("#git_hub_url").value,)    
+                // Skills Append
+                for(let j=0; j<select_skills_id.length; j++){
+                    formdata.append("skills",select_skills_id[j])
+                }
+                formdata.append("thumnail_img_path", json["url"])
+                formdata.append("content", editor.getMarkdown(),)    
+                formdata.append("github_url",document.querySelector("#git_hub_url").value,)    
+                formdata.append("description",document.querySelector("#description").value,)    
+                
 
-            // 게시글 update
-            if(update_mode==1){
-                fetch(`${backend_base_url}/project/${project_id}/`, {
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("access")
-                    },
-                    method: 'PUT',
-                    body: formdata
-                }).then(response => {
-                        console.log(response)
-                        return response.json()
-                    }).then(json => {
-                        console.log(json)
-                        localStorage.setItem("project_id", json['id'])
-                        localStorage.setItem("update_mode", 0)
-                        update_mode = 0
-                        alert("게시글 수정 성공!")
-                        window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
-                    })
-            }else{ // 게시글 등록하기 - update mode == 0
-                fetch(`${backend_base_url}/project/`, {
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("access")
-                    },
-                    method: 'POST',
-                    body: formdata
-                }).then(response => {
-                        console.log(response)
-                        return response.json()
-                    }).then(json => {
-                        console.log(json)
-                        localStorage.setItem("project_id", json['id'])
-                        localStorage.setItem("update_mode", 0)
-                        update_mode = 0
-                        alert("게시글 작성 성공!")
-                        window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
-                    })
-            }
+                // 게시글 update
+                if(update_mode==1){
+                    fetch(`${backend_base_url}/project/${project_id}/`, {
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("access")
+                        },
+                        method: 'PUT',
+                        body: formdata
+                    }).then(response => {
+                            console.log(response)
+                            return response.json()
+                        }).then(json => {
+                            console.log(json)
+                            localStorage.setItem("project_id", json['id'])
+                            localStorage.setItem("update_mode", 0)
+                            update_mode = 0
+                            alert("게시글 수정 성공!")
+                            window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+                        })
+                }else{ // 게시글 등록하기 - update mode == 0
+                    fetch(`${backend_base_url}/project/`, {
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("access")
+                        },
+                        method: 'POST',
+                        body: formdata
+                    }).then(response => {
+                            console.log(response)
+                            return response.json()
+                        }).then(json => {
+                            console.log(json)
+                            localStorage.setItem("project_id", json['id'])
+                            localStorage.setItem("update_mode", 0)
+                            update_mode = 0
+                            alert("게시글 작성 성공!")
+                            window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+                        })
+                }
         })
+    } else { // 이미지가 없을 경우
+        // Skills Value List
+        select_skills_value = [] // [arc, aws, python]
+        for (i = 0; i < skill_tag_list.length; i++){
+            console.log(skill_tag_list[i].innerText)
+            select_skills_value.push(skill_tag_list[i].innerText)
+        }
+
+        // Skills ID List
+        select_skills_id = [] // [2, 4, 12]
+        for(let i=0; i<select_skills_value.length; i++){
+            select_skills_id.push(parseInt(skills_object[select_skills_value[i]]))
+        }
+
+        // form Data 만들기
+        const formdata = new FormData()
+        formdata.append("title",document.querySelector("#title").value,)
+
+        // Skills Append
+        for(let j=0; j<select_skills_id.length; j++){
+            formdata.append("skills",select_skills_id[j])
+        }
+        formdata.append("content", editor.getMarkdown(),)    
+        formdata.append("github_url",document.querySelector("#git_hub_url").value,)    
+        formdata.append("description",document.querySelector("#description").value,)   
+
+        // 게시글 update
+        if(update_mode==1){
+            fetch(`${backend_base_url}/project/${project_id}/`, {
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("access")
+                },
+                method: 'PUT',
+                body: formdata
+            }).then(response => {
+                    console.log(response)
+                    return response.json()
+                }).then(json => {
+                    console.log(json)
+                    localStorage.setItem("project_id", json['id'])
+                    localStorage.setItem("update_mode", 0)
+                    update_mode = 0
+                    alert("게시글 수정 성공!")
+                    window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+                })
+        }else{ // 게시글 등록하기 - update mode == 0
+
+        formdata.append("thumnail_img_path", PROJECT_BASE_IMAGE)
+
+            fetch(`${backend_base_url}/project/`, {
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("access")
+                },
+                method: 'POST',
+                body: formdata
+            }).then(response => {
+                    console.log(response)
+                    return response.json()
+                }).then(json => {
+                    console.log(json)
+                    localStorage.setItem("project_id", json['id'])
+                    localStorage.setItem("update_mode", 0)
+                    update_mode = 0
+                    alert("게시글 작성 성공!")
+                    window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+                })
+        }
+    }
+    
 }
 
 

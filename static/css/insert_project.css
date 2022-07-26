@@ -70,3 +70,18 @@ body {
     background-color: rgb(75, 0, 226);
     ;
 }
+
+.skills-tag {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+}
+
+
+.box-search-tag {
+    display: flex;
+    overflow: auto;
+}

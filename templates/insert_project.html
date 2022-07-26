@@ -31,6 +31,8 @@
                 <input type="text" id="title" class="title-project-post" placeholder="프로젝트 제목을 입력하세요">
             </div>
             <div class="box-info-project">
+                <input type="text" id="description" class="info-project-post" placeholder="프로젝트를 한줄로 설명해주세요!">
+
                 <input type="text" id="git_hub_url" class="info-project-post" placeholder="프로젝트 레포지토리 주소">
                 <div class="box-search-main">
                     <div class="box-search-tag"></div>
@@ -38,14 +40,18 @@
                     <datalist id ="search-list">
                         <!--<option value="Python" />-->
                     </datalist>
+                    <br>
+                    썸네일 이미지 : <input type="file" id="thumnail_img_path"  onchange="thumnail_image_preview(this)" alt="/static/img/profile-kim.png">
+                <div id="thumnail_img_preview">
+                    <img src="/static/img/profile-kim.png" width="200px" height="200px" alt="">
+                </div>
                 </div>
             </div>
             <div id="editor"></div>
 
             <!-- <div id="viewer"></div> -->
             <div class="box-btn-project-post">
-                썸네일 이미지 : <input type="file" id="thumnail_img_path" onchange="thumnail_image_preview(this)">
-                <div id="thumnail_img_preview"></div>
+                
                 <button class="btn-project-submit" onclick="insert_project()">프로젝트 등록하기!</button>
             </div>
         </div>
