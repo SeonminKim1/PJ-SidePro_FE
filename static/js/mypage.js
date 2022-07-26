@@ -37,16 +37,32 @@ async function getMyUserInfo() {
         `
 
         info_box.innerHTML = `
-        <span class="text-profile-mypage text-user-name-mypage">${myuserinfo['username']}</span>
-        <span class="text-profile-mypage text-user-stack-mypage">${myuserinfo['userprofile']['skills']}</span>
-        <span class="text-profile-mypage text-user-github-mypage">${myuserinfo['userprofile']['github_url']}</span>
-        <span class="text-profile-mypage text-user-region-mypage">${myuserinfo['userprofile']['region']} ${myuserinfo['userprofile']['meet_time']}</span>
+        <div class="text-profile-mypage text-user-name-mypage">${myuserinfo['username']}</div><hr>
+        <div class="text-profile-mypage text-user-stack-mypage"></div>
+        <div class="text-profile-mypage text-user-github-mypage">
+            <a href="${myuserinfo['userprofile']['github_url']}">
+                <img class="img-github-mypage" src="/static/img/github.svg">
+            ${myuserinfo['userprofile']['github_url']}</a>
+        </div>
+        <div class="text-profile-mypage text-user-region-mypage">활동 지역: ${myuserinfo['userprofile']['region']}</div>
+        <div class="text-profile-mypage text-user-meettime-mypage">활동 시간대: ${myuserinfo['userprofile']['meet_time']}</div
         `
 
+        user_skills_list = myuserinfo['userprofile']['skills']
+        const user_skills_div = document.querySelector('.text-user-stack-mypage')
+
+        user_skills_list.forEach(user_skills => {
+
+            const skill_card = document.createElement('div')
+            skill_card.innerText = user_skills
+
+            user_skills_div.append(skill_card)
+        });
+
         desc_box.innerHTML = `
-        <p class="text-introduce-mypage">
+        <div class="text-introduce-mypage">
         ${myuserinfo['userprofile']['description']}
-        </p>
+        </div>
         `
     }
 }
@@ -76,17 +92,45 @@ async function myProjectList() {
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
             project_card.innerHTML = `
-            <div class="box-card-content-project" onclick="toDetailProject()">
-                <img class="img-card-thumnail-mypage" src="${myproject.thumnail_img_path}">
+            <div class="box-card-content-project">
+                <img class="img-card-thumnail-mypage" src="${myproject.thumnail_img_path}" onclick="toDetailProject(${myproject.id})">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${myproject.title}</span>
-                    <span class="card-text text-indroduce-card-project">${myproject.content}</span>
-                    <span class="card-text text-stack-card-project">${myproject.skills}</span>
+                    <span class="card-text text-indroduce-card-project">${myproject.description}</span>
+                    <div class="card-text text-stack-card-project"></div>
+                    <div class="project-information">
+                        <div id="count">조회 ${myproject.count}</div>
+                        <div id="comment">댓글 ${myproject.comment.length}</div>
+                    </div>
                 </div>
             </div>
             `
-
             list_box.prepend(project_card)
+
+            project_skills_list = myproject.skills
+            const project_skills_div = document.querySelector('.text-stack-card-project')
+
+            project_skills_list.forEach(project_skills => {
+
+                const skill_card = document.createElement('div')
+                skill_card.innerText = project_skills
+
+                project_skills_div.append(skill_card)
+            });
+
+            // 북마크 버튼
+            const payload = JSON.parse(localStorage.getItem("payload"));
+            const bookmark_div = document.querySelector(".project-information");
+            const bookmark_btn = document.createElement('div');
+            bookmark_btn.className = 'bookmark_btn';
+
+            if (myproject.bookmark.includes(payload.user_id)){
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${myproject.id}')">⭐️</button>${myproject.bookmark.length}`
+            } else {
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${myproject.id}')">☆</button>${myproject.bookmark.length}`
+            }
+            bookmark_div.append(bookmark_btn)
+
         });
 
         if (myprojectlist.length > 3) {
@@ -185,24 +229,50 @@ async function myBookmarkProjectList() {
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
-            project_card.onclick = "toDetailProject()"
             project_card.innerHTML = `
-            <div class="box-card-content-project" onclick="toDetailProject()">
-                <img class="img-card-thumnail-mypage" src="/static/img${mybookmarkproject.thumnail_img_path}">
+            <div class="box-card-content-project">
+                <img class="img-card-thumnail-mypage" src="${mybookmarkproject.thumnail_img_path}" onclick="toDetailProject(${mybookmarkproject.id})">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${mybookmarkproject.title}</span>
-                    <span class="card-text text-indroduce-card-project">${mybookmarkproject.content}</span>
-                    <span class="card-text text-stack-card-project">${mybookmarkproject.skills}</span>
+                    <span class="card-text text-indroduce-card-project">${mybookmarkproject.description}</span>
+                    <div class="card-text text-stack-card-project"></div>
+                    <div class="project-information">
+                        <div id="count">조회 ${mybookmarkproject.count}</div>
+                        <div id="comment">댓글 ${mybookmarkproject.comment.length}</div>
+                    </div>
+                </div>
                 </div>
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${mybookmarkproject.user}</span>
-                    <button class="btn-chat-mypage" onclick="">커피챗 신청하기 ☕️</button>
+                    <button class="btn-chat-mypage btn-chat-mypage_${mybookmarkproject.user}" onclick='CreateRoomNode("${mybookmarkproject.user}")'>커피챗 신청하기 ☕️</button>
                 </div>
             </div>
             `
-
             list_box.prepend(project_card)
 
+            project_skills_list = mybookmarkproject.skills
+            const project_skills_div = document.querySelector('.text-stack-card-project')
+
+            project_skills_list.forEach(project_skills => {
+
+                const skill_card = document.createElement('div')
+                skill_card.innerText = project_skills
+
+                project_skills_div.append(skill_card)
+            });
+
+            // 북마크 버튼
+            const payload = JSON.parse(localStorage.getItem("payload"));
+            const bookmark_div = document.querySelector(".project-information");
+            const bookmark_btn = document.createElement('div');
+            bookmark_btn.className = 'bookmark_btn';
+
+            if (mybookmarkproject.bookmark.includes(payload.user_id)){
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${mybookmarkproject.id}')">⭐️</button>${mybookmarkproject.bookmark.length}`
+            } else {
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${mybookmarkproject.id}')">☆</button>${mybookmarkproject.bookmark.length}`
+            }
+            bookmark_div.append(bookmark_btn)
         });
 
         if (mybookmarkprojectlist.length > 3) {
@@ -279,34 +349,26 @@ async function myBookmarkProjectList() {
 }
 
 
-async function userWithdrawal() {
-
-    if (!confirm("정말 탈퇴하시겠습니까?")) {
-        // 취소 : 반응없음
-    } else {
-        // 확인 : 
-        const response = await fetch(`${backend_base_url}/user/profile/`, {
-            headers: {
-                Accept: "application/json",
-                'content-type': "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("access")
-            },
-            method: "DELETE",
-        });
-
-        response_json = await response.json();
-        alert(response_json["msg"]);
-
-        window.location.replace(`${frontend_base_url}/templates/login.html`);
-    };
+function toModifyProfile() {
+    window.location.replace(`${frontend_base_url}/templates/modify_profile.html`);
 }
 
-
-function toUserProfile() {
-    window.location.replace(`${frontend_base_url}/templates/userprofile.html`);
-}
-
-
-function toDetailProject() {
+// 게시물 상세보기
+function toDetailProject(project_id) {
+    localStorage.setItem("project_id", project_id)
     window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+}
+
+
+// 북마크 등록/해제
+function bookmark(project_id) {
+    fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
+        headers: {
+            Accept: "application/json",
+            'content-type': "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'POST',
+    })
+    window.location.reload()
 }

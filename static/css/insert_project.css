@@ -45,7 +45,7 @@ body {
     margin: 20px 0;
 }
 
-.info-project-post {
+.info-project-post, .git-project-post, .input-search-main {
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -69,4 +69,28 @@ body {
 .btn-project-submit:hover {
     background-color: rgb(75, 0, 226);
     ;
+}
+
+/* skills */
+.skills-tag {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+}
+
+.text-stack-project-detail {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+}
+
+.box-search-tag {
+    display: flex;
+    overflow: auto;
 }

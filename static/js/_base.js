@@ -21,6 +21,9 @@ function StringToDatetime(string_time, type){ // StringToDatetime("2022-07-25T16
     }
 }
 
+const PROJECT_BASE_IMAGE = "https://toastuitestbucket.s3.ap-northeast-2.amazonaws.com/project-imgs/project_thumnail.jpeg"
+const PROFILE_BASE_IMAGE = "https://toastuitestbucket.s3.ap-northeast-2.amazonaws.com/profile-park_2022-07-25_14%3A57%3A33"
+
 // function StringToDatetime(string_time, type){
 //     var chat_time, dt;
 //     if(type == 1){

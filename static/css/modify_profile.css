@@ -27,6 +27,7 @@ a {
 
 .container-profile-regist {
     /* background-color: antiquewhite; */
+    padding-bottom: 2%;
 }
 
 .box-text-title-profile-regist {
@@ -44,7 +45,6 @@ a {
 
 /* 프로필 등록 섹션 */
 .wrap-profile-regist {
-    margin: auto;
     width: 90%;
     margin: 0 5%;
     /* background-color: darkgray; */
@@ -53,7 +53,7 @@ a {
 .box-profile-regist {
     display: flex;
     width: 80%;
-    margin: auto;
+    margin: 0 auto;
     padding: 30px;
     background-color: gainsboro;
 }
@@ -179,7 +179,8 @@ a {
 .box-btn-regist {
     width: 100%;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+    align-items: baseline;
     /* background-color: aqua; */
 }
 
@@ -219,4 +220,10 @@ a {
 .box-search-tag {
     display: flex;
     flex-wrap: wrap;
+}
+
+.btn-withdrawal {
+    cursor: pointer;
+    color: black;
+    font-size: 0.9rem;
 }

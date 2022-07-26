@@ -9,9 +9,10 @@ async function project_list(url, filter){
     if (url == null){
         url = `${backend_base_url}/project/?page_size=9`
     } else {
-        url = url.replace("filter=popualr", "")
-        url = url.replace("filter=newest", "")
-        url = url.replace("filter=views", "")
+        url = url.replace("&filter=popular", '')
+        url = url.replace("&filter=newest", '')
+        url = url.replace("&filter=views", '')
+        url = url.replace("&filter=", '')
     }
     if (filter == null){
         filter = ""
@@ -33,28 +34,40 @@ async function project_list(url, filter){
     if (response.status == 200) {
         
         response_json["results"].forEach(element => {
-            // console.log(element)
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
             project_card.innerHTML = `
             <!-- 카드 -->
             <div class="box-card-content-project">
-                <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg" onclick="project_detail('${element.id}')">
-                <div class="box-text-card-project">
+                <img class="img-card-thumnail-mypage" src="${element.thumnail_img_path}" onclick="project_detail('${element.id}')">
+                <div class="box-text-card-project" id="box-text-card-project_${element.id}">
                     <span class="card-text text-title-card-project" onclick="project_detail(${element.id})">${element.title}</span>
-                    <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">프로젝트 한줄소개! 나의 첫번째 프로젝트를
-                        소개합니다!</span>
-                    <span class="card-text text-stack-card-project">${element.skills}</span>
+                    <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">${element.description}</span>
+                    <span id="count">조회수 : ${element.count}</span><br>
+                    <span id="count">댓글 : ${element.comment.length}</span>
+                    <span id="bookmark_${element.id}"></span>
                 </div>
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${element.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
-                    <span id="bookmark_${element.id}"></span>
+                    
                 </div>
             </div>
             `
+            
         list_box.append(project_card)
+
+        // 게시글에 기술 스택 달기
+        skills_list = element['skills']
+        const skills_div = document.querySelector("#box-text-card-project_"+ element["id"])
+        skills_list.forEach(skill => {
+            const skill_card = document.createElement('span')
+            skill_card.className = 'skills-tag'
+            skill_card.innerText = skill
+
+            skills_div.append(skill_card)
+        });
 
         // 북마크 버튼
         const payload = JSON.parse(localStorage.getItem("payload"));
@@ -64,9 +77,9 @@ async function project_list(url, filter){
         bookmark_btn.className = 'bookmark_btn';
 
         if (element.bookmark.includes(payload.user_id)){
-            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">⭐️</button>`
+            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">⭐️</button>${element.bookmark.length}`
         } else {
-            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">☆</button>`
+            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">☆</button>${element.bookmark.length}`
         }
         bookmark_div.append(bookmark_btn)
             
@@ -114,4 +127,18 @@ function project_detail(project_id) {
     localStorage.setItem("project_id", project_id)
     localStorage.setItem("update_mode", 0)
     window.location.replace("/templates/detail_project.html")
+}
+
+function search_list(){
+    skills = document.getElementsByClassName("skills-tag")
+    skill_list = ""
+    for (i = 0; i < skills.length; i++){
+        skill_list = skill_list + "&skills=" + skills[i].innerText
+    }
+    console.log(skills)
+    console.log(skill_list)
+    url = `${backend_base_url}/project/?page_size=9` + skill_list
+    console.log(url)
+    project_list(url)
+    
 }

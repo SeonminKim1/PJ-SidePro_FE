@@ -16,34 +16,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // 현재 Login 한 user 정보 조회
 // skills 목록 조회
-function  GetBaseInfo(){
+async function GetBaseInfo() {
     console.log("_baseinfo.js - GetBaseInfo")
     payload = JSON.parse(localStorage.getItem("payload"))
     // console.log('payload:',(payload), typeof(payload))
     user_id = payload["user_id"]
     console.log('user_id: ', user_id)
-    const response = fetch(`${backend_base_url}/user/main/init/`,{
-        headers:{
+    const response = await fetch(`${backend_base_url}/user/main/init/`, {
+        headers: {
             Accept: "application/json",
             'content-type': "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-    }).then(response => {
-        return response.json()
-    }).then(response_json => {
-        login_username = response_json['login_username'] // JS 내 변수로 지정
-        skills = response_json['skills']
-        console.log('현재 로그인한 user는 ', login_username)
-        SetSkillsFilteringInitalize(skills)
     })
-} 
+    response_json = await response.json()
+    login_username = response_json['login_username'] // JS 내 변수로 지정
+    skills = response_json['skills']
+    SetSkillsFilteringInitalize(skills)    
+}
 
 // 필터링 Skill들(option) 목록(datalist)에 추가 
-function SetSkillsFilteringInitalize(skills){
+function SetSkillsFilteringInitalize(skills) {
     console.log("_baseinfo.js - SetSkillsFilteringInitalize")
 
-    for(let i=0; i<skills.length; i++){
+    for (let i = 0; i < skills.length; i++) {
         skills_id = skills[i]['id']
         skill_name = skills[i]['name']
         // skill option 만들기
@@ -55,14 +52,14 @@ function SetSkillsFilteringInitalize(skills){
 
         // sidepro 에서 제공하는 skill list
         sidepro_skill_list.push(skill_name)
-        
+
         // skills => object initialize
         skills_object[skill_name] = skills_id
     }
 }
 
 // input 창 event
-function DrawSkillTag(){
+function DrawSkillTag() {
     console.log("_baseinfo.js - DrawSkillTag")
 
     // enter

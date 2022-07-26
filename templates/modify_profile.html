@@ -20,7 +20,7 @@
     <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
 
     <!-- CSS Import -->
-    <link rel="stylesheet" href="/static/css/userprofile.css">
+    <link rel="stylesheet" href="/static/css/modify_profile.css">
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -30,10 +30,11 @@
 </head>
 
 <body>
+    <nav id="bar-nav">
+        <script>$("#bar-nav").load("/templates/nav.html");</script>
+    </nav>
     <section class="container-profile-regist">
-        <div class="box-text-title-profile-regist">
-            <span class="text-title-profile-regist">SidePro에 오신 것을 환영합니다! 모두에게 자신을 소개해주세요.</span>
-        </div>
+        <div class="box-text-title-profile-regist"></div>
         <!-- 프로필 등록 섹션 -->
         <div class="wrap-profile-regist">
             <div class="box-profile-regist">
@@ -83,10 +84,11 @@
                         </div>
                     </div>
                     <div class="box-text-introduce-self-regist">
-                        <textarea id="description" class="text-introduce-self-regist" placeholder="간단한 자기 소개글을 작성해 보세요."></textarea>
+                        <textarea id="description" class="text-introduce-self-regist" placeholder="간단한 자기 소개글을 작성해 보세요"></textarea>
                     </div>
                     <div class="box-btn-regist">
                         <!-- <button class="btn-submit-regist">등록하기</button> -->
+                        <span class="btn-withdrawal" onclick="userWithdrawal()">회원 탈퇴</span>
                         <button class="btn-modify-regist" onclick="userprofile_upload()">저장하기</button>
                     </div>
                 </div>
@@ -97,5 +99,5 @@
 <!-- Javascript Import -->
 <script src="/static/js/_base.js"></script>
 <script src="/static/js/_baseinfo.js"></script>
-<script src="/static/js/userprofile.js"></script>
+<script src="/static/js/modify_profile.js"></script>
 </html>
