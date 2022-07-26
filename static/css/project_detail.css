@@ -88,6 +88,15 @@ input {
     /* background-color: aquamarine; */
 }
 
+/* skills */
+.text-stack-project-detail {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+}
 
 /* 컨텐츠 */
 .wrap-content-project-detail {
