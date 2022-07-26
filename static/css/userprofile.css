@@ -8,9 +8,14 @@ body {
 }
 
 body {
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
-    background-color: #EFEFEF;
+    background: linear-gradient(-45deg, whitesmoke, lavender, skyblue, thistle);
+    background-size: 400% 400%;
+    animation: AnimationName 15s ease infinite;
 }
 
 input,
@@ -55,7 +60,7 @@ a {
     width: 80%;
     margin: auto;
     padding: 30px;
-    background-color: gainsboro;
+    background-color: whitesmoke;
 }
 
 .box-img-profile-regist {
@@ -68,7 +73,6 @@ a {
 
 .img-profile-regist {
     width: 100%;
-    min-width: 200px;
 }
 
 .wrap-info-profile-regist {
