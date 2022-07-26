@@ -48,7 +48,7 @@ function userprofile_upload() {
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("access")
                 },
-                method: 'POST',
+                method: 'PUT',
                 body: formdata
             })
                 .then(response => {
@@ -57,9 +57,9 @@ function userprofile_upload() {
                 })
                 .then(json => {
                     console.log(json)
-                    alert('유저프로필 등록완료')
+                    alert('사용자정보 수정완료')
                 })
-            window.location.replace(`${frontend_base_url}/templates/main.html`);
+            window.location.reload();
         })
 }
 
@@ -75,24 +75,29 @@ function profile_image_preview(input) {
         };
         reader.readAsDataURL(input.files[0]);
     } else {
-        document.getElementById('profile_img_preview').src = "/static/img/profile-kim.png";
+        document.getElementById('profile_img_preview').src = "";
     }
 }
 
-// // 라디오 버튼 중 선택된 항목의 value 가져오기
-// categoryNodeList = document.getElementsByName('painting-category');
-// shapeNodeList = document.getElementsByName('painting-shape');
-// categoryNodeList.forEach((node) => {
-//     if (node.checked) {
-//         formdata.append("category", node.value)
-//         console.log(node.value)
-//     }
-// });
-// shapeNodeList.forEach((node) => {
-//     if (node.checked) {
-//         formdata.append("img_shape", node.value)
-//         console.log(node.value)
-//     }
-// });
 
+async function userWithdrawal() {
 
+    if (!confirm("정말 탈퇴하시겠습니까?")) {
+        // 취소 : 반응없음
+    } else {
+        // 확인 : 
+        const response = await fetch(`${backend_base_url}/user/profile/`, {
+            headers: {
+                Accept: "application/json",
+                'content-type': "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method: "DELETE",
+        });
+
+        response_json = await response.json();
+        alert(response_json["msg"]);
+
+        window.location.replace(`${frontend_base_url}/templates/login.html`);
+    };
+}

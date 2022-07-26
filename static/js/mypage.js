@@ -76,11 +76,11 @@ async function myProjectList() {
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
             project_card.innerHTML = `
-            <div class="box-card-content-project" onclick="toDetailProject()">
+            <div class="box-card-content-project" onclick="toDetailProject(${myproject.id})">
                 <img class="img-card-thumnail-mypage" src="${myproject.thumnail_img_path}">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${myproject.title}</span>
-                    <span class="card-text text-indroduce-card-project">${myproject.content}</span>
+                    <span class="card-text text-indroduce-card-project">${myproject.description}</span>
                     <span class="card-text text-stack-card-project">${myproject.skills}</span>
                 </div>
             </div>
@@ -185,13 +185,12 @@ async function myBookmarkProjectList() {
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
-            project_card.onclick = "toDetailProject()"
             project_card.innerHTML = `
-            <div class="box-card-content-project" onclick="toDetailProject()">
+            <div class="box-card-content-project" onclick="toDetailProject(${mybookmarkproject.id})">
                 <img class="img-card-thumnail-mypage" src="/static/img${mybookmarkproject.thumnail_img_path}">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${mybookmarkproject.title}</span>
-                    <span class="card-text text-indroduce-card-project">${mybookmarkproject.content}</span>
+                    <span class="card-text text-indroduce-card-project">${mybookmarkproject.description}</span>
                     <span class="card-text text-stack-card-project">${mybookmarkproject.skills}</span>
                 </div>
                 <div class="wrap-writer-mypage">
@@ -279,34 +278,12 @@ async function myBookmarkProjectList() {
 }
 
 
-async function userWithdrawal() {
-
-    if (!confirm("정말 탈퇴하시겠습니까?")) {
-        // 취소 : 반응없음
-    } else {
-        // 확인 : 
-        const response = await fetch(`${backend_base_url}/user/profile/`, {
-            headers: {
-                Accept: "application/json",
-                'content-type': "application/json",
-                "Authorization": "Bearer " + localStorage.getItem("access")
-            },
-            method: "DELETE",
-        });
-
-        response_json = await response.json();
-        alert(response_json["msg"]);
-
-        window.location.replace(`${frontend_base_url}/templates/login.html`);
-    };
+function toModifyProfile() {
+    window.location.replace(`${frontend_base_url}/templates/modify_profile.html`);
 }
 
-
-function toUserProfile() {
-    window.location.replace(`${frontend_base_url}/templates/userprofile.html`);
-}
-
-
-function toDetailProject() {
+// 게시물 상세보기
+function toDetailProject(project_id) {
+    localStorage.setItem("project_id", project_id)
     window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
 }
