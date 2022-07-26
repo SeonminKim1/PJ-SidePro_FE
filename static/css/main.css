@@ -335,17 +335,17 @@ body {
 /* 검색 */
 .box-search-main {
     display: flex;
-    width: 40%;
+    width: 50%;
     padding: 10 0px;
     border: 2px solid;
     border-color: transparent transparent black transparent;
     /* background-color: aqua; */
 }
-
+/* 
 .box-search-tag {
     display: flex;
     background-color: cyan;
-}
+} */
 
 .input-search-main {
     outline: none;
@@ -361,7 +361,7 @@ body {
 .btn-search-main {
     border: none;
     outline: none;
-    width: 10%;
+    width: 30%;
     font-size: 1.2rem;
     background-color: transparent;
 }
@@ -371,6 +371,15 @@ body {
     cursor: pointer;
 }
 
+/* skills */
+.skills-tag {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+}
 
 /* 정렬 */
 .box-dropdown-align-main {
@@ -536,4 +545,22 @@ body {
 .btn-page-main:hover {
     font-weight: 400;
     color: rgb(75, 0, 226);
+}
+
+.text-stack-card-project {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
+}
+
+.skills-tag {
+    padding: 3px 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    background-color: rgb(4, 73, 201);
+    color: whitesmoke;
+    text-align: center;
 }
