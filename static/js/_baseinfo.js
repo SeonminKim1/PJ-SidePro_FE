@@ -34,12 +34,7 @@ async function GetBaseInfo() {
     login_username = response_json['login_username'] // JS 내 변수로 지정
     skills = response_json['skills']
     SetSkillsFilteringInitalize(skills)
-
-    // 유저프로필 페이지에서 사용자명 출력
-    const welcome_profile = document.querySelector('.box-text-title-profile-regist');
-    welcome_profile.innerHTML = `
-    <span class="text-title-profile-regist">${login_username} 님, SidePro에 오신 것을 환영합니다!</span>
-    `
+   
 }
 
 // 필터링 Skill들(option) 목록(datalist)에 추가 
