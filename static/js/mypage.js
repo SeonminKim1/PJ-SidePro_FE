@@ -76,7 +76,7 @@ async function myProjectList() {
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
             project_card.innerHTML = `
-            <div class="box-card-content-project" onclick="toDetailProject()">
+            <div class="box-card-content-project" onclick="toDetailProject(${myproject.id})">
                 <img class="img-card-thumnail-mypage" src="${myproject.thumnail_img_path}">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${myproject.title}</span>
@@ -185,9 +185,8 @@ async function myBookmarkProjectList() {
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
-            project_card.onclick = "toDetailProject()"
             project_card.innerHTML = `
-            <div class="box-card-content-project" onclick="toDetailProject()">
+            <div class="box-card-content-project" onclick="toDetailProject(${mybookmarkproject.id})">
                 <img class="img-card-thumnail-mypage" src="/static/img${mybookmarkproject.thumnail_img_path}">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project">${mybookmarkproject.title}</span>
@@ -283,7 +282,8 @@ function toModifyProfile() {
     window.location.replace(`${frontend_base_url}/templates/modify_profile.html`);
 }
 
-
-function toDetailProject() {
+// 게시물 상세보기
+function toDetailProject(project_id) {
+    localStorage.setItem("project_id", project_id)
     window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
 }
