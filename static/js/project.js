@@ -9,9 +9,10 @@ async function project_list(url, filter){
     if (url == null){
         url = `${backend_base_url}/project/?page_size=9`
     } else {
-        url = url.replace("filter=popualr", "")
-        url = url.replace("filter=newest", "")
-        url = url.replace("filter=views", "")
+        url = url.replace("&filter=popular", '')
+        url = url.replace("&filter=newest", '')
+        url = url.replace("&filter=views", '')
+        url = url.replace("&filter=", '')
     }
     if (filter == null){
         filter = ""
@@ -33,27 +34,36 @@ async function project_list(url, filter){
     if (response.status == 200) {
         
         response_json["results"].forEach(element => {
-            // console.log(element)
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
             project_card.innerHTML = `
             <!-- 카드 -->
             <div class="box-card-content-project">
-                <img class="img-card-thumnail-mypage" src="/static/img/project_thumnail.jpeg" onclick="project_detail('${element.id}')">
-                <div class="box-text-card-project">
+                <img class="img-card-thumnail-mypage" src="${element.thumnail_img_path}" onclick="project_detail('${element.id}')">
+                <div class="box-text-card-project" id="box-text-card-project_${element.id}">
                     <span class="card-text text-title-card-project" onclick="project_detail(${element.id})">${element.title}</span>
-                    <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">프로젝트 한줄소개! 나의 첫번째 프로젝트를
-                        소개합니다!</span>
-                    <span class="card-text text-stack-card-project">${element.skills}</span>
+                    <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">${element.description}</span>
+                    <span id="count">조회수 : ${element.count}</span><br>
+                    <span id="count">댓글 : ${element.comment.length}</span>
+                    <span id="bookmark_${element.id}"></span>
                 </div>
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${element.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
-                    <span id="bookmark_${element.id}"></span>
+                    
                 </div>
             </div>
             `
+            // in_card = document.querySelector("#box-text-card-project_" + element.id)
+            // for (i = 0; i < element.skills.length; i++){
+            //     const skills_span = document.createElement('span')
+            //     skills_span.className = "card-text text-stack-card-project"
+            //     skills_span.innerText= `${element.skills[i]}`
+            //     in_card.append(skills_span)
+            // }
+            
+
         list_box.append(project_card)
 
         // 북마크 버튼
@@ -64,9 +74,9 @@ async function project_list(url, filter){
         bookmark_btn.className = 'bookmark_btn';
 
         if (element.bookmark.includes(payload.user_id)){
-            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">⭐️</button>`
+            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">⭐️</button>${element.bookmark.length}`
         } else {
-            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">☆</button>`
+            bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${element.id}','${url}', '${filter}')">☆</button>${element.bookmark.length}`
         }
         bookmark_div.append(bookmark_btn)
             
