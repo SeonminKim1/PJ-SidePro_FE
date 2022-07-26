@@ -64,6 +64,12 @@ async function DetailPageViewer(project_id) {
 // 2. 제목 & 북마크 여부 & Date
 function AddTitleBookmark(response_json){
     console.log("detailpage.js - AddTitleBookmark")
+
+    // 2.0 배경
+    const upper_box = document.querySelector('.wrap-upper-post-detail')
+    upper_box.style.backgroundImage = `url('${response_json['thumnail_img_path']}')`;
+    upper_box.style.backgroundSize = "cover";
+
     // 2.1 제목
     const title_box = document.querySelector('.text-title-project-detail')
     title_box.innerText = response_json['title']
