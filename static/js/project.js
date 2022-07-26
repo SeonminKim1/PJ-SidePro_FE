@@ -112,5 +112,6 @@ function bookmark(project_id, url, filter) {
 // 게시물 상세보기
 function project_detail(project_id) {
     localStorage.setItem("project_id", project_id)
+    localStorage.setItem("update_mode", 0)
     window.location.replace("/templates/detail_project.html")
 }
