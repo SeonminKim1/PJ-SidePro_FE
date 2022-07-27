@@ -41,13 +41,16 @@ async function project_list(url, filter){
             <!-- 카드 -->
             <div class="box-card-content-project">
                 <img class="img-card-thumnail-mypage" src="${element.thumnail_img_path}" onclick="project_detail('${element.id}')">
-                <div class="box-text-card-project" id="box-text-card-project_${element.id}">
+                <div class="box-text-card-project">
                     <span class="card-text text-title-card-project" onclick="project_detail(${element.id})">${element.title}</span>
                     <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">${element.description}</span>
-                    <span id="count">조회수 : ${element.count}</span><br>
-                    <span id="count">댓글 : ${element.comment.length}</span>
-                    <span id="bookmark_${element.id}"></span>
+                    <div class="card-text text-skill-card-project" id="box-text-card-project_${element.id}"></div>
                 </div>
+                <div class="project-information">
+                        <div id="count">조회 ${element.count}</div>
+                        <div id="comment">댓글 ${element.comment.length}</div>
+                        <div id="bookmark_${element.id}"></div>
+                    </div>
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${element.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
@@ -62,8 +65,7 @@ async function project_list(url, filter){
         skills_list = element['skills']
         const skills_div = document.querySelector("#box-text-card-project_"+ element["id"])
         skills_list.forEach(skill => {
-            const skill_card = document.createElement('span')
-            skill_card.className = 'skills-tag'
+            const skill_card = document.createElement('div')
             skill_card.innerText = skill
 
             skills_div.append(skill_card)

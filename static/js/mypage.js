@@ -241,7 +241,6 @@ async function myBookmarkProjectList() {
                         <div id="comment">댓글 ${mybookmarkproject.comment.length}</div>
                     </div>
                 </div>
-                </div>
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${mybookmarkproject.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${mybookmarkproject.user}" onclick='CreateRoomNode("${mybookmarkproject.user}")'>커피챗 신청하기 ☕️</button>
@@ -252,12 +251,9 @@ async function myBookmarkProjectList() {
 
             project_skills_list = mybookmarkproject.skills
             const project_skills_div = document.querySelector('.text-stack-card-project')
-
             project_skills_list.forEach(project_skills => {
-
                 const skill_card = document.createElement('div')
                 skill_card.innerText = project_skills
-
                 project_skills_div.append(skill_card)
             });
 
