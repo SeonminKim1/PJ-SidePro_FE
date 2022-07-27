@@ -241,7 +241,6 @@ async function myBookmarkProjectList() {
                         <div id="comment">댓글 ${mybookmarkproject.comment.length}</div>
                     </div>
                 </div>
-                </div>
                 <div class="wrap-writer-mypage">
                     <span class="text-writer-mypage">${mybookmarkproject.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${mybookmarkproject.user}" onclick='CreateRoomNode("${mybookmarkproject.user}")'>커피챗 신청하기 ☕️</button>

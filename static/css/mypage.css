@@ -204,7 +204,6 @@ a:visited:active {
     /* background-color: antiquewhite; */
     display: flex;
     flex-direction: column;
-
 }
 
 .img-card-thumnail-mypage {
@@ -281,7 +280,8 @@ a:visited:active {
     /* background-color: cadetblue; */
 }
 
-.text-writer-mypage {}
+.text-writer-mypage {
+}
 
 .btn-chat-mypage {
     border: none;
