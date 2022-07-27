@@ -150,8 +150,21 @@
         <!-- Main -->
         <main class="container-main">
             <div class="wrap-main">
-                <div class="box-banner-main">
-                    <img class="img-banner-main" src="/static/img/banner-color.png">
+                <!-- 배너 -->
+                <div class="wrap-banner-main">
+                    <div class="box-banner-main">
+                        <img data-index=1 class="img-banner-main" src="/static/img/banner-color.png">
+                        <img data-index=2 class="img-banner-main" src="/static/img/banner-sparta.png">
+                        <img data-index=3 class="img-banner-main" src="/static/img/banner-event.png">
+                        <img data-index=4 class="img-banner-main" src="/static/img/banner-sparta.png">
+                    </div>
+                </div>
+                <!-- 캐러셀 버튼 -->
+                <div class="box-list-btn-main">
+                    <span class="list-btn-item active"></span>
+                    <span class="list-btn-item"></span>
+                    <span class="list-btn-item"></span>
+                    <span class="list-btn-item"></span>
                 </div>
                 <div class="wrap-search-main">
                     <!-- 필터 -->
@@ -162,7 +175,7 @@
                         <datalist id="search-list">
                             <!--<option value="Python" />-->
                         </datalist>
-                        <button class="btn-search-main" onclick="search_list()">검색</button>
+                        <button class="btn-search-main">검색</button>
                     </div>
                     <!-- 정렬 -->
                     <div class="box-dropdown-align-main">
@@ -324,6 +337,7 @@
 <script src="/static/js/chatroom.js"></script>
 <script src="/static/js/chatuserprofile.js"></script>
 <script src="/static/js/chatting.js"></script>
-<script src="/static/js/main.js"></script>
+<script src="/static/js/project.js"></script>
+<script src="/static/js/banner.js"></script>
 
 </html>
