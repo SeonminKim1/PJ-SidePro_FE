@@ -1,10 +1,77 @@
 window.onload = project_list()
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("project.js - DOMContentLoaded")
+    console.log("main.js - DOMContentLoaded")
     localStorage.setItem("update_mode", 0)
+    recommend_lsit()
 });
 
+async function recommend_lsit(){
+    console.log('recommend_lsit')
+    const response = await fetch(`${backend_base_url}/recommend/`,{
+        headers: {
+            Accept: "application/json",
+            'content-type': "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method : "GET",
+    })
+    response_json = await response.json()
+    console.log('===',response_json)
+    const recommend_box = document.querySelector(".container-card-section")
+    recommend_box.innerHTML = ``
+    if(response.status == 200){
+        for(let i=0; i<response_json.length; i++){
+            element = response_json[i]
+            const recommend_card = document.createElement('div')
+            recommend_card.className = "wrap-card-project-suggest"
+            recommend_card.innerHTML = `
+            <div class="box-card-content-project">
+                <img class="img-card-thumnail-mypage" src="${element.thumnail_img_path}" onclick="project_detail('${element.id}')">
+                <div class="box-text-card-project">
+                    <span class="card-text text-title-card-project" onclick="project_detail(${element.id})">${element.title}</span>
+                    <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">${element.description}</span>
+                    <div class="card-text text-stack-card-project" id="box-text-card-suggest-project_${element.id}"></div>
+                </div>
+                <div class="project-information">
+                    <div id="count">조회 ${element.count}</div>
+                    <div id="comment">댓글 ${element.comment.length}</div>
+                    <div id="bookmark_${element.id}"></div>
+                </div>
+                <div class="wrap-writer-mypage">
+                    <span class="text-writer-mypage">${element.user}</span>
+                    <button class="btn-chat-mypage btn-chat-mypage_suggest_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
+                </div>
+            </div>
+            `
+            recommend_box.append(recommend_card)
+
+            // 게시글에 기술 스택 달기
+            skills_list = element['skills']
+            const skills_div = document.getElementById("box-text-card-suggest-project_"+ element["id"])
+            skills_list.forEach(skill => {
+                const skill_card = document.createElement('div')
+                skill_card.innerText = skill
+                skills_div.append(skill_card)
+            });
+
+            // 북마크 버튼
+            const payload = JSON.parse(localStorage.getItem("payload"));
+            const bookmark_div = document.querySelector("#bookmark_"+ element.id);
+            bookmark_div.innerHTML = ``
+            const bookmark_btn = document.createElement('div');
+            bookmark_btn.className = 'bookmark_btn';
+
+            if (element.bookmark.includes(payload.user_id)){
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main">⭐️</button>${element.bookmark.length}`
+            } else {
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main")">☆</button>${element.bookmark.length}`
+            }
+            bookmark_div.append(bookmark_btn)
+                
+        }
+    }
+}
 async function project_list(url, filter){
     if (url == null){
         url = `${backend_base_url}/project/?page_size=9`
