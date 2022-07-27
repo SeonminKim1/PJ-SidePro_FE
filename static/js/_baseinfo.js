@@ -5,7 +5,10 @@ var skill_tag_list_text = new Array();
 var skills_object = {};
 
 const filter_div_tag = document.querySelector('.box-search-tag') // tag 추가될 div
-const filter_input_tag = document.querySelector(".input-search-main") // input 창
+var filter_input_tag = document.querySelector(".input-search-main") // input 창
+if(filter_input_tag == undefined){
+    filter_input_tag = document.querySelector(".input-search-project-post")
+}
 const filter_datalist_tag = document.getElementById("search-list") // Datalist Tag 
 
 document.addEventListener("DOMContentLoaded", () => {

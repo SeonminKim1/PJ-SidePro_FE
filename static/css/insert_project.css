@@ -51,7 +51,7 @@ input {
 }
 
 
-.info-project-post, .git-project-post, .input-search-main {
+.info-project-post, .git-project-post, .input-search-project-post {
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -97,6 +97,7 @@ input {
 
 .box-btn-project-post {
     margin: 20px 0;
+    float:right;
 }
 
 .btn-project-submit {

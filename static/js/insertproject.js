@@ -1,7 +1,8 @@
 const Editor = toastui.Editor;
 var editor;
-var update_mode;
-var project_id;
+
+var update_mode; // page 이동에 사용되는 변수
+var project_id; // page 이동에 사용되는 변수
 
 document.addEventListener('DOMContentLoaded', async function () {
     console.log("insertproject.js - DOMContentLoaded")
@@ -26,6 +27,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         response_json = await response.json()
         
         // title 채우기
+        const title_h1_box = document.querySelector('.box-title-h1')
+        title_h1_box.innerText = String(title_h1_box.innerText).replace('등록', '수정')
         const title_box = document.querySelector('.title-project-post')
         title_box.value = response_json['title']
 
