@@ -25,33 +25,37 @@
     <section class="container-project-post">
         <div class="wrap-project-post">
             <div class="box-title-post">
-                <h1>나의 프로젝트 등록하기</h1>
+                <h1 class="box-title-h1">나의 프로젝트 등록하기</h1>
             </div>
             <div class="box-title-project">
                 <input type="text" id="title" class="title-project-post" placeholder="프로젝트 제목을 입력하세요">
             </div>
             <div class="box-info-project">
                 <input type="text" id="description" class="info-project-post" placeholder="프로젝트를 한줄로 설명해주세요!">
-
                 <input type="text" id="git_hub_url" class="git-project-post" placeholder="프로젝트 레포지토리 주소">
-                <div class="box-search-main">
+                <div class="box-search-project-post">
                     <div class="box-search-tag"></div>
-                    <input class="input-search-main" type="text" list="search-list" onkeydown="DrawSkillTag()" placeholder="기술스택으로 검색해보세요. ">
-                    <datalist id ="search-list">
+                    <input class="input-search-project-post" type="text" list="search-list" onkeyup="DrawSkillTag()"
+                        placeholder="기술스택으로 검색해보세요. ">
+                    <datalist id="search-list">
                         <!--<option value="Python" />-->
                     </datalist>
                     <br>
-                    썸네일 이미지 : <input type="file" id="thumnail_img_path"  onchange="thumnail_image_preview(this)">
-                <div id="thumnail_img_preview">
-                    <img src="/static/img/profile-kim.png" height="200" width="200">
-                </div>
+                    <div class="box-thumnail-project-post">
+                        <label for="thumnail_img_path">썸네일 이미지 선택</label>
+                        <input class="img-thumnail-project-post" type="file" id="thumnail_img_path"
+                            onchange="thumnail_image_preview(this)">
+                    </div>
+                    <div id="thumnail_img_preview">
+                        <img class="img-base-project-post" src="/static/img/thumnail_base.png">
+                    </div>
                 </div>
             </div>
             <div id="editor"></div>
 
             <!-- <div id="viewer"></div> -->
             <div class="box-btn-project-post">
-                
+
                 <button class="btn-project-submit" onclick="insert_project()">프로젝트 등록하기!</button>
             </div>
         </div>

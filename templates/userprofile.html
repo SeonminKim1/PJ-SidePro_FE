@@ -38,22 +38,24 @@
         <div class="wrap-profile-regist">
             <div class="box-profile-regist">
                 <div class="box-img-profile-regist">
-                    <img id="profile_img_preview" class="img-profile-regist" src="/static/img/profile-kim.png">
+                    <img id="profile_img_preview" class="img-profile-regist" src="/static/img/profile_base.png">
                     <div class="text-profile-regist">프로필 사진을 등록해 주세요.</div>
+
                     <input type="file" id="profile_image_path" onchange="profile_image_preview(this)">
                 </div>
                 <div class="wrap-info-profile-regist">
                     <div class="box-search-tag"></div>
-                        <input class="input-search-main" type="text" list="search-list" onkeyup="DrawSkillTag()" placeholder="기술스택을 선택 후 Enter 를 입력해 주세요.(검색가능)">
-                        <datalist id ="search-list">
-                            <!--<option value="Python" />-->
-                        </datalist>
+                    <input class="input-search-main" type="text" list="search-list" onkeyup="DrawSkillTag()"
+                        placeholder="기술스택을 선택 후 Enter 를 입력해 주세요.(검색가능)">
+                    <datalist id="search-list">
+                        <!--<option value="Python" />-->
+                    </datalist>
                     <input id="github_url" type="url" placeholder="Github 주소를 입력해 주세요.">
                     <!-- 드롭다운 -->
                     <div class="wrap-dropdown-regist">
                         <div class="box-dropdown-region-regist">
                             <select id="region" class="btn-dropdown-region">
-                                <option value="">∨ 활동 지역을 선택해 주세요.</option>
+                                <option value=""> 활동 지역을 선택해 주세요.</option>
                                 <option value="1">서울특별시</option>
                                 <option value="2">부산광역시</option>
                                 <option value="3">대구광역시</option>
@@ -75,7 +77,7 @@
                         </div>
                         <div class="box-dropdown-data-regist">
                             <select id="meet_time" class="btn-dropdown-data">
-                                <option value="">∨ 활동 시간을 선택해 주세요.</option>
+                                <option value=""> 활동 시간을 선택해 주세요.</option>
                                 <option value="1">주중 선호</option>
                                 <option value="2">주말 선호</option>
                                 <option value="3">상관 없음</option>
@@ -83,7 +85,8 @@
                         </div>
                     </div>
                     <div class="box-text-introduce-self-regist">
-                        <textarea id="description" class="text-introduce-self-regist" placeholder="간단한 자기 소개글을 작성해 보세요."></textarea>
+                        <textarea id="description" class="text-introduce-self-regist"
+                            placeholder="간단한 자기 소개글을 작성해 보세요"></textarea>
                     </div>
                     <div class="box-btn-regist">
                         <!-- <button class="btn-submit-regist">등록하기</button> -->

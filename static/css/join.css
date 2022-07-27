@@ -10,6 +10,14 @@ body {
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
+    background: linear-gradient(-45deg, whitesmoke, lavender, skyblue, thistle);
+    background-size: 400% 400%;
+    animation: AnimationName 15s ease infinite;
+}
+
+button {
+    outline: none;
+    border: none;
 }
 
 .container-join {
@@ -90,6 +98,18 @@ button {
     margin-top: 40px;
 }
 
+.box-btn-login-join {
+    margin: 10px 0;
+}
+
+.box-btn-login-join>button {
+    display: block;
+    width: 300px;
+    margin: 10px auto;
+}
+
+
+
 .btn-login-join {
     margin-top: 10px;
 }
@@ -100,10 +120,15 @@ button {
     color: white;
 }
 
-.btn-social-login-join:hover {
+.btn-kakao-login-join:hover {
     font-weight: 700;
     background-color: yellow;
+}
 
+.btn-social-login-join:hover {
+    font-weight: 700;
+    color: aliceblue;
+    background-color: blue;
 }
 
 

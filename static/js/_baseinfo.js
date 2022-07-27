@@ -5,13 +5,15 @@ var skill_tag_list_text = new Array();
 var skills_object = {};
 
 const filter_div_tag = document.querySelector('.box-search-tag') // tag 추가될 div
-const filter_input_tag = document.querySelector(".input-search-main") // input 창
+var filter_input_tag = document.querySelector(".input-search-main") // input 창
+if(filter_input_tag == undefined){
+    filter_input_tag = document.querySelector(".input-search-project-post")
+}
 const filter_datalist_tag = document.getElementById("search-list") // Datalist Tag 
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log("_baseinfo.js - DOMContentLoaded")
     GetBaseInfo()
-    // set_filtering_initalize()
 });
 
 // 현재 Login 한 user 정보 조회
@@ -69,7 +71,6 @@ function DrawSkillTag() {
         if(!sidepro_skill_list.includes(check_value)){
             alert('검색 보기 중 하나를 선택해 주세요!')
         }else{ // skill 검색 필터에 추가 하기
-            console.log('====', skill_tag_list, '===', check_value)
             if(skill_tag_list_text.includes(check_value)){
                 alert('이미 추가된 기술 입니다')
             }else{

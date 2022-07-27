@@ -19,6 +19,10 @@ body {
     background-color: #EFEFEF;
 }
 
+nav {
+    color: white;
+    background-color: mediumslateblue;
+}
 
 /* 채팅, 프로젝트 등록 고정 버튼 */
 .btn-fixed-container {
@@ -318,8 +322,9 @@ body {
 
 /* 배너 */
 .box-banner-main {
-    width: 90%;
     margin: auto;
+    padding: 2%;
+    background-color: mediumslateblue;
 }
 
 .img-banner-main {
@@ -329,18 +334,20 @@ body {
 .wrap-search-main {
     display: flex;
     justify-content: space-between;
-    margin: 5%;
+    margin: 2%;
+    /* background-color: aqua; */
 }
 
 /* 검색 */
 .box-search-main {
     display: flex;
     width: 50%;
-    padding: 10 0px;
+    padding: 5px 0;
     border: 2px solid;
     border-color: transparent transparent black transparent;
     /* background-color: aqua; */
 }
+
 /* 
 .box-search-tag {
     display: flex;
@@ -437,7 +444,7 @@ body {
 .wrap-card-section-main {
     /* background-color: burlywood; */
     width: 90%;
-    margin: 3% auto 0 auto;
+    margin: 2% auto 0 auto;
 }
 
 .text-title-section-main {
