@@ -73,6 +73,11 @@ a {
 
 .img-profile-regist {
     width: 100%;
+    max-width: 300px;
+}
+
+.text-profile-regist {
+    margin: 8% auto 2% auto;
 }
 
 .wrap-info-profile-regist {
@@ -209,7 +214,7 @@ a {
 
 .skills-tag {
     padding: 3px 10px;
-    margin-right: 5px;
+    margin: 0 5px 5px 0;
     border-radius: 10px;
     background-color: rgb(4, 73, 201);
     color: whitesmoke;
@@ -218,5 +223,5 @@ a {
 
 .box-search-tag {
     display: flex;
-    overflow: auto;
+    flex-wrap: wrap;
 }

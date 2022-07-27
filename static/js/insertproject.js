@@ -1,7 +1,8 @@
 const Editor = toastui.Editor;
 var editor;
-var update_mode;
-var project_id;
+
+var update_mode; // page 이동에 사용되는 변수
+var project_id; // page 이동에 사용되는 변수
 
 document.addEventListener('DOMContentLoaded', async function () {
     console.log("insertproject.js - DOMContentLoaded")
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     project_id = localStorage.getItem('project_id')
     update_mode = localStorage.getItem('update_mode');
     console.log('===project_id, update_mode', project_id, update_mode)
+
     // 수정하기로 왔을 떄
     if(update_mode == 1){
         GetBaseInfo()
@@ -25,11 +27,17 @@ document.addEventListener('DOMContentLoaded', async function () {
         response_json = await response.json()
         
         // title 채우기
+        const title_h1_box = document.querySelector('.box-title-h1')
+        title_h1_box.innerText = String(title_h1_box.innerText).replace('등록', '수정')
         const title_box = document.querySelector('.title-project-post')
         title_box.value = response_json['title']
 
+        // description 채우기
+        const description_box =  document.querySelector('.info-project-post')
+        description_box.value = response_json['description']
+
         // Github URL 채우기
-        const gitlink_input =  document.querySelector('.info-project-post')
+        const gitlink_input =  document.querySelector('.git-project-post')
         gitlink_input.value = response_json['github_url']
 
         // Skills box 채우기
@@ -39,19 +47,18 @@ document.addEventListener('DOMContentLoaded', async function () {
             SkillTag = document.createElement('span')
             SkillTag.innerText = skills[i];
             SkillTag.className="text-stack-project-detail"
-            // SkillTag.style.marginRight = "5px";
-            // SkillTag.style.color = "cyan";
             skill_tag_list.push(SkillTag)
             skill_box.append(SkillTag)
         }
 
         // 썸네일 이미지 채우기
         const base_div = document.querySelector("#thumnail_img_preview")
-        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`  
+        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img" height="200" width="200">`  
         document.getElementById('result_thumnail_file').src = response_json["thumnail_img_path"];
 
         const submit_btn = document.querySelector('.btn-project-submit')
         submit_btn.innerText = '프로젝트 수정 완료'
+
         // 게시글 조회 (Viewer Editor)
         editor = new Editor({
             el: document.querySelector('#editor'),
@@ -82,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async function () {
                     callback(json["url"], "image")
                 })
         });
+    // update_mode == 0
     }else{ // 프로젝트 등록하기로 왔을 때 
         editor = new Editor({
             el: document.querySelector('#editor'),
@@ -114,7 +122,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     }
 });
 
-// 게시글 등록
+// 게시글 등록(수정)
 insert_project = function () {
     
     // 이미지가 있을 경우
@@ -203,7 +211,6 @@ insert_project = function () {
         // Skills Value List
         select_skills_value = [] // [arc, aws, python]
         for (i = 0; i < skill_tag_list.length; i++){
-            console.log(skill_tag_list[i].innerText)
             select_skills_value.push(skill_tag_list[i].innerText)
         }
 
@@ -245,8 +252,7 @@ insert_project = function () {
                     window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
                 })
         }else{ // 게시글 등록하기 - update mode == 0
-
-        formdata.append("thumnail_img_path", PROJECT_BASE_IMAGE)
+            formdata.append("thumnail_img_path", PROJECT_BASE_IMAGE)
 
             fetch(`${backend_base_url}/project/`, {
                 headers: {
@@ -274,7 +280,7 @@ insert_project = function () {
 // 이미지 미리보기
 function thumnail_image_preview(input) {
     const base_div = document.querySelector("#thumnail_img_preview")
-    base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`
+    base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img" height="200" width="200">`
 
     if (input.files && input.files[0]) {
     var reader = new FileReader();

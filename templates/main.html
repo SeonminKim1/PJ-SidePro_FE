@@ -36,7 +36,7 @@
     <section>
         <!-- 채팅, 프로젝트 등록 고정 버튼 -->
         <div class="btn-fixed-container">
-            <button class="btn-chat-open" onclick="activeRoomList()">나의 채팅창</button>
+            <button class="btn-chat-open" onclick="activeRoomList()">나의 커피챗</button>
             <button class="btn-project-regist" onclick="window.location.href='/templates/insert_project.html'">프로젝트
                 등록하기!</button>
         </div>
@@ -162,7 +162,7 @@
                         <datalist id="search-list">
                             <!--<option value="Python" />-->
                         </datalist>
-                        <button class="btn-search-main">검색</button>
+                        <button class="btn-search-main" onclick="search_list()">검색</button>
                     </div>
                     <!-- 정렬 -->
                     <div class="box-dropdown-align-main">
@@ -324,6 +324,6 @@
 <script src="/static/js/chatroom.js"></script>
 <script src="/static/js/chatuserprofile.js"></script>
 <script src="/static/js/chatting.js"></script>
-<script src="/static/js/project.js"></script>
+<script src="/static/js/main.js"></script>
 
 </html>
