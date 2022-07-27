@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // 썸네일 이미지 채우기
         const base_div = document.querySelector("#thumnail_img_preview")
-        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`  
+        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img" height="200" width="200">`  
         document.getElementById('result_thumnail_file').src = response_json["thumnail_img_path"];
 
         const submit_btn = document.querySelector('.btn-project-submit')
