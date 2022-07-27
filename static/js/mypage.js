@@ -251,12 +251,9 @@ async function myBookmarkProjectList() {
 
             project_skills_list = mybookmarkproject.skills
             const project_skills_div = document.querySelector('.text-stack-card-project')
-
             project_skills_list.forEach(project_skills => {
-
                 const skill_card = document.createElement('div')
                 skill_card.innerText = project_skills
-
                 project_skills_div.append(skill_card)
             });
 
