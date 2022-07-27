@@ -8,9 +8,13 @@ body {
 }
 
 body {
+    min-height: 100vh;
+    place-items: center;
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
-    background-color: #EFEFEF;
+    background: linear-gradient(-45deg, whitesmoke, lavender, skyblue, thistle);
+    background-size: 400% 400%;
+    animation: AnimationName 15s ease infinite;
 }
 
 input,
@@ -44,7 +48,6 @@ a {
 
 /* 프로필 등록 섹션 */
 .wrap-profile-regist {
-    margin: auto;
     width: 90%;
     margin: 0 5%;
     /* background-color: darkgray; */
@@ -55,7 +58,7 @@ a {
     width: 80%;
     margin: auto;
     padding: 30px;
-    background-color: gainsboro;
+    background-color: whitesmoke;
 }
 
 .box-img-profile-regist {

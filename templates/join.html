@@ -22,7 +22,7 @@
     <!-- Javascript Import -->
     <script src="/static/js/_base.js"></script>
     <script src="/static/js/user.js"></script>
-    
+
 </head>
 
 <body>
@@ -49,15 +49,17 @@
                         </li>
                         <li>
                             <span class="login-text">이미 아이디가 있으신가요?</span>
-                            <button class="btn-login-join" onclick="location.href='login.html'">
-                                <span>로그인</span>
-                            </button>
-                            <a href="{% provider_login_url 'kakao' %}">
-                                카카오 로그인
-                            </a>
-                            <button class="btn-social-login-join" onclick="/">
-                                <span>소셜 로그인</span>
-                            </button>
+                            <div class="box-btn-login-join">
+                                <button class="btn-login-join" onclick="location.href='login.html'">
+                                    로그인
+                                </button>
+                                <!-- <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a> -->
+                                <button class="btn-kakao-login-join"
+                                    onclick="location.href='{% provider_login_url 'kakao' %}'">카카오 로그인</button>
+                                <button class="btn-social-login-join" onclick="/">
+                                    구글 로그인
+                                </button>
+                            </div>
                         </li>
                     </div>
                 </div>

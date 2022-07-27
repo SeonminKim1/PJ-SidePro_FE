@@ -1,7 +1,8 @@
 const Editor = toastui.Editor;
 var editor;
-var update_mode;
-var project_id;
+
+var update_mode; // page 이동에 사용되는 변수
+var project_id; // page 이동에 사용되는 변수
 
 document.addEventListener('DOMContentLoaded', async function () {
     console.log("insertproject.js - DOMContentLoaded")
@@ -26,6 +27,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         response_json = await response.json()
         
         // title 채우기
+        const title_h1_box = document.querySelector('.box-title-h1')
+        title_h1_box.innerText = String(title_h1_box.innerText).replace('등록', '수정')
         const title_box = document.querySelector('.title-project-post')
         title_box.value = response_json['title']
 
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // 썸네일 이미지 채우기
         const base_div = document.querySelector("#thumnail_img_preview")
-        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img">`  
+        base_div.innerHTML = `<img src="" id="result_thumnail_file" class="base-img" height="200" width="200">`  
         document.getElementById('result_thumnail_file').src = response_json["thumnail_img_path"];
 
         const submit_btn = document.querySelector('.btn-project-submit')
