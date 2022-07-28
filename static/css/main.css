@@ -672,7 +672,7 @@ nav {
 }
 
 /* 카드 */
-.wrap-card-project {
+.wrap-card-project, .wrap-card-project-suggest {
     width: 370px;
     height: 500px;
     margin-right: 20px;
@@ -680,12 +680,6 @@ nav {
     background-color: white;
 }
 
-.wrap-card-project-suggest {
-    width: 20%;
-    margin: 0 4%;
-    padding: 20px;
-    background-color: #d0ceff;
-}
 
 .box-card-content-project {
     /* background-color: antiquewhite; */
@@ -781,7 +775,7 @@ nav {
     background-color: rgb(75, 0, 226);
 }
 
-.btn-bookmark-main {
+.btn-bookmark-main, .btn-bookmark-main-recommend {
     border: none;
     outline: none;
     font-size: 1.1rem;
@@ -808,6 +802,7 @@ nav {
     color: rgb(75, 0, 226);
 }
 
+/*
 .text-stack-card-project {
     padding: 3px 10px;
     margin-right: 5px;
@@ -815,7 +810,7 @@ nav {
     background-color: rgb(4, 73, 201);
     color: whitesmoke;
     text-align: center;
-}
+}*/
 
 .skills-tag {
     padding: 3px 10px;
