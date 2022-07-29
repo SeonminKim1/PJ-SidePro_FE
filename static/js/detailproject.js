@@ -66,7 +66,7 @@ function AddTitleBookmark(response_json){
     console.log("detailpage.js - AddTitleBookmark")
 
     // 2.0 배경
-    const upper_box = document.querySelector('.wrap-upper-post-detail')
+    const upper_box = document.querySelector('.wrap-thumnail-post-detail')
     upper_box.style.backgroundImage = `url('${response_json['thumnail_img_path']}')`;
     upper_box.style.backgroundSize = "cover";
 
@@ -249,10 +249,10 @@ async function insertUpdateDeleteComment(){
             newCommentDiv.innerHTML = ` 
                 <div class="box-comment-content-detail">
                     <span class = "user-comment-detail">${comment_user}</span>
+                    <div class="comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
                 <div class="wrap-comment-content-detail_${comment_id}">
                     <div class="comment-content-detail_${comment_id}">${comment_text}</div>
-                    <div class="comment-content-date_${comment_id}">${comment_create_date}</div>
                     <div class="box-btn-comment-content">
                         <button class="btn-delete-comment-detail_${comment_id}" onclick='deleteComment(this)'>삭제</button>
                         <button class="btn-modify-comment-detail_${comment_id}" onclick='updateComment(this)'>수정</button>
@@ -263,10 +263,10 @@ async function insertUpdateDeleteComment(){
             newCommentDiv.innerHTML = ` 
                 <div class="box-comment-content-detail">
                     <span class = "user-comment-detail">${comment_user}</span>
+                    <div class="comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
                 <div class="wrap-comment-content-detail">
                     <div class="comment-content-detail_${comment_id}">${comment_text}</div>
-                    <div class="comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
             `
         }
@@ -298,10 +298,10 @@ async function viewComment(comments){
             newCommentDiv.innerHTML = ` 
                 <div class="box-comment-content-detail">
                     <span class = "user-comment-detail">${comment_user}</span>
+                    <div class="comment-content-date comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
                 <div class="wrap-comment-content-detail wrap-comment-content-detail_${comment_id}">
                     <div class="comment-content-detail comment-content-detail_${comment_id}">${comment_text}</div>
-                    <div class="comment-content-date comment-content-date_${comment_id}">${comment_create_date}</div>
                     <div class="box-btn-comment-content box-btn-comment-content_${comment_id}">
                         <button class="btn-delete-comment-detail btn-delete-comment-detail_${comment_id}" onclick='deleteComment(this)'>삭제</button>
                         <button class="btn-modify-comment-detail btn-modify-comment-detail_${comment_id}" onclick='updateComment(this)'>수정</button>
@@ -312,10 +312,10 @@ async function viewComment(comments){
             newCommentDiv.innerHTML = ` 
                 <div class="box-comment-content-detail">
                     <span class = "user-comment-detail">${comment_user}</span>
+                    <div class="comment-content-date comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
                 <div class="wrap-comment-content-detail wrap-comment-content-detail_${comment_id}">
                     <div class="comment-content-detail comment-content-detail_${comment_id}">${comment_text}</div>
-                    <div class="comment-content-date comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
             `
         }

@@ -35,12 +35,16 @@ input {
     background-color: white;
 }
 
+.wrap-thumnail-post-detail {
+    height: 200px;
+}
+
 .wrap-title-first-detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
-    /* background-color: cadetblue; */
+    margin: 40px 0;
+
 }
 
 .box-title-info-detail {
@@ -48,7 +52,7 @@ input {
 }
 
 .box-title-project-detail {
-    /* background-color: aquamarine */
+    /* background-color: aquamarine; */
 }
 
 .text-title-project-detail {
@@ -60,11 +64,14 @@ input {
     display: flex;
     align-items: center;
     margin: 0 20px;
-    /* background-color: antiquewhite; */
 }
 
 .box-bookmark-project-detail>i {
     font-size: 2rem;
+}
+
+.box-bookmark-project-detail:hover {
+    color: yellow;
 }
 
 .wrap-title-second-detail {
@@ -88,12 +95,21 @@ input {
     /* background-color: aquamarine; */
 }
 
+.link-github-a-tag:link {
+    text-decoration: none;
+    color: black;
+}
+
+.link-github-a-tag:hover {
+    color: rgb(75, 0, 226);
+}
+
 /* skills */
 .text-stack-project-detail {
     padding: 3px 10px;
     margin-right: 5px;
     border-radius: 10px;
-    background-color: rgb(4, 73, 201);
+    background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
 }
@@ -187,26 +203,43 @@ input {
 }
 
 .box-comment-content-detail {
+    display: flex;
+    justify-content: space-between;
     margin: 10px 0;
+    /* background-color: aquamarine; */
+}
+
+.user-comment-detail {
+    /* background-color: bisque; */
+}
+
+.comment-content-date {
+    /* background-color: brown; */
 }
 
 .wrap-comment-content-detail {
-    display: flex;
-    justify-content: space-between;
-
+    display: block;
 }
 
 .comment-content-detail {
     font-weight: 300;
 }
 
-.comment-content-detail-input{
-    background-color: cyan;
-    border:1px solid black;
+.comment-content-detail-input {
+    width: 100%;
+    margin: 2px 0;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 1px solid gainsboro;
+}
+
+.box-btn-comment-content {
+    margin: 8px 0;
+    /* background-color: aqua; */
 }
 
 .box-btn-comment-content>button {
-    margin: 0 6px;
+    margin-right: 5px;
     padding: 5px 7px;
 }
 
