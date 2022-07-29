@@ -120,8 +120,8 @@ async function project_list(url, filter){
                     <div class="card-text text-skill-card-project" id="box-text-card-project_${element.id}"></div>
                 </div>
                 <div class="project-information">
-                        <div id="count">조회 ${element.count}</div>
-                        <div id="comment">댓글 ${element.comment.length}</div>
+                        <div id="count"><i class="fa-solid fa-eye"></i> ${element.count}</div>
+                        <div id="comment"><i class="fa-solid fa-comment-dots"></i> ${element.comment.length}</div>
                         <div id="bookmark_${element.id}"></div>
                     </div>
                 <div class="wrap-writer-mypage">
