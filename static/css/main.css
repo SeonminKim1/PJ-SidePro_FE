@@ -24,6 +24,20 @@ nav {
     background-color: mediumslateblue;
 }
 
+
+.text-category-nav::after {
+    display: block !important;
+    content: '' !important;
+    border-bottom: solid 4px aliceblue !important;
+    transform: scaleX(0) !important;
+    transition: transform 250ms ease-in-out !important;
+    transform-origin: left !important;
+}
+
+.text-category-nav:hover::after {
+    transform: scaleX(1) !important;
+}
+
 /* 채팅, 프로젝트 등록 고정 버튼 */
 .btn-fixed-container {
     position: fixed;
@@ -530,7 +544,7 @@ nav {
 /* 검색 */
 .box-search-main {
     display: flex;
-    width: 50%;
+    width: 30%;
     padding: 5px 0;
     border: 2px solid;
     border-color: transparent transparent black transparent;
@@ -551,7 +565,6 @@ nav {
     padding: 10px;
     background-color: transparent;
     font-size: 1.2rem;
-
 }
 
 .btn-search-main {
