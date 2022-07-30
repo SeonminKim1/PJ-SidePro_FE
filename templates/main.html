@@ -166,33 +166,14 @@
                     <span class="list-btn-item"></span>
                     <span class="list-btn-item"></span>
                 </div>
-                <div class="wrap-search-main">
-                    <!-- 필터 -->
-                    <div class="box-search-main">
-                        <div class="box-search-tag"></div>
-                        <input class="input-search-main" type="text" list="search-list" onkeydown="DrawSkillTag()"
-                            placeholder="기술스택으로 검색해보세요. ">
-                        <datalist id="search-list">
-                            <!--<option value="Python" />-->
-                        </datalist>
-                        <button class="btn-search-main">검색</button>
-                    </div>
-                    <!-- 정렬 -->
-                    <div class="box-dropdown-align-main">
-                        <button class="btn-dropdown-main">정렬 ▼</button>
-                        <div class="dropdown-content-main">
-                            <a onclick="project_list(null,'newest')">최신순</a>
-                            <a onclick="project_list(null,'views')">조회순</a>
-                            <a onclick="project_list(null,'popular')">인기순</a>
-                        </div>
-                    </div>
-                </div>
+
                 <div class="container-card-section-main">
                     <!-- 카드 섹션 1-->
                     <div class="wrap-card-section-main">
                         <div class="text-title-section-main">
                             <span class="text-title-suggest">사용자님에게 맞는 추천 프로젝트!</span>
-                        <hr></div>
+                            <hr>
+                        </div>
                         <div class="container-card-section">
                             <!-- 카드 -->
                             <!--
@@ -246,10 +227,33 @@
                             </div>-->
                         </div>
                     </div>
+
                     <!-- 카드 섹션 2 -->
                     <div class="wrap-card-section-main">
                         <div class="text-title-section-main">
-                            <span class="text-title-project">여러 프로젝트를 둘러보세요~</span><hr>
+                            <span class="text-title-project">여러 프로젝트를 둘러보세요~</span>
+                            <hr>
+                            <div class="wrap-search-main">
+                                <!-- 필터 -->
+                                <div class="box-search-main">
+                                    <div class="box-search-tag"></div>
+                                    <input class="input-search-main" type="text" list="search-list"
+                                        onkeydown="DrawSkillTag()" placeholder="기술스택으로 검색해보세요. ">
+                                    <datalist id="search-list">
+                                        <!--<option value="Python" />-->
+                                    </datalist>
+                                    <button class="btn-search-main">검색</button>
+                                </div>
+                                <!-- 정렬 -->
+                                <div class="box-dropdown-align-main">
+                                    <button class="btn-dropdown-main">정렬 ▼</button>
+                                    <div class="dropdown-content-main">
+                                        <a onclick="project_list(null,'newest')">최신순</a>
+                                        <a onclick="project_list(null,'views')">조회순</a>
+                                        <a onclick="project_list(null,'popular')">인기순</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="container-all-card-section" id="project_list">
                             <!-- 카드 -->
