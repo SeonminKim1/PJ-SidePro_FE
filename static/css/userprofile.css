@@ -30,6 +30,7 @@ a {
 }
 
 .container-profile-regist {
+    margin: 8% auto;
     /* background-color: antiquewhite; */
 }
 
@@ -37,6 +38,7 @@ a {
     width: 80%;
     margin: 20px auto;
     padding: 30px;
+    text-align: center;
     /* background-color: brown; */
 }
 
@@ -173,6 +175,7 @@ a {
 
 .text-introduce-self-regist {
     height: 100%;
+    font-family: 'Noto Sans KR', sans-serif;
     font-size: .8rem;
     border: none;
     resize: none;
