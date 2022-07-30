@@ -96,8 +96,8 @@ input {
 }
 
 .box-btn-project-post {
-    margin: 20px 0;
-    float:right;
+    margin: 40px 0;
+    text-align:center;
 }
 
 .btn-project-submit {
