@@ -25,7 +25,7 @@ async function getMyUserInfo() {
         // 유저프로필 페이지에서 사용자명 출력
         const welcome_profile = document.querySelector('.box-text-title-profile-regist');
         welcome_profile.innerHTML = `
-        <span class="text-title-profile-regist">${myuserinfo.username} 님, SidePro에 오신 것을 환영합니다!</span>
+        <span class="text-title-profile-regist">😀 ${myuserinfo.username} 님, SidePro에 오신 것을 환영합니다!</span>
         `
         
         // 프로필 수정페이지에서 DB값 출력
