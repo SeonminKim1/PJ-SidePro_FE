@@ -35,16 +35,33 @@ input {
     background-color: white;
 }
 
+
+/* 상단 썸네일 */
 .wrap-thumnail-post-detail {
-    height: 200px;
+    display: block;
+    /* height: 200px; */
+}
+
+.wrap-upper-post-detail {
+    margin-bottom: 50px;
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    /* background-color: aqua; */
+}
+
+.box-title-info-detail {
+    /* background-color: aquamarine; */
+}
+
+.wrap-content-project-detail {
+    margin-bottom: 8%;
 }
 
 .wrap-title-first-detail {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 40px 0;
-
+    margin: 20px 0;
 }
 
 .box-title-info-detail {
@@ -60,14 +77,20 @@ input {
     font-weight: 400;
 }
 
-.box-date-project-detail {
+.wrap-date-bookmark {
     display: flex;
     align-items: center;
-    margin: 0 20px;
 }
 
-.box-bookmark-project-detail>i {
+.box-date-project-detail {
+    padding: 0 20px;
+    /* background-color: blanchedalmond; */
+}
+
+.box-bookmark-project-detail {
+    text-align: center;
     font-size: 2rem;
+    /* background-color: beige; */
 }
 
 .box-bookmark-project-detail:hover {
@@ -77,7 +100,7 @@ input {
 .wrap-title-second-detail {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 80px;
+    margin-bottom: 40px;
 }
 
 .box-link-profile-detail {
@@ -97,11 +120,16 @@ input {
 
 .link-github-a-tag:link {
     text-decoration: none;
+    outline: none;
     color: black;
 }
 
 .link-github-a-tag:hover {
     color: rgb(75, 0, 226);
+}
+
+.link-github-a-tag:visited {
+    color: black;
 }
 
 /* skills */
@@ -205,7 +233,7 @@ input {
 .box-comment-content-detail {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
+    margin: 30px 0 10px;
     /* background-color: aquamarine; */
 }
 

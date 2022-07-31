@@ -81,7 +81,7 @@ function AddTitleBookmark(response_json){
     if (bookmark_list.includes(payload.user_id)){
         bookmark_btn.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
     } else {
-        bookmark_btn.innerHTML = '☆' // `<i class="fa-regular fa-star"></i>`
+        bookmark_btn.innerHTML = '★' // `<i class="fa-regular fa-star"></i>`
     }
 
     // 2.3 작성일
