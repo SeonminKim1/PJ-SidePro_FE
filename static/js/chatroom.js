@@ -132,7 +132,7 @@ async function RemoveRoomNode(node, roomname){
         })
         response_json = await response.json()
         if(response.status == 200) {
-            room_node = node.parentNode.parentNode.parentNode
+            room_node = node.parentNode.parentNode.parentNode.parentNode
             room_node.remove()
             alert("대화방을 나갔습니다.")
         } else {

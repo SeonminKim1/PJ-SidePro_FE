@@ -82,8 +82,11 @@ nav {
 }
 
 .wrap-profile-chat-list {
-    padding: 10px;
-    /* background-color: aqua; */
+    padding: 10px;   
+}
+
+.wrap-profile-chat-list:hover{
+    background-color: gray;
 }
 
 .box-img-profile-chatroom {
@@ -216,6 +219,7 @@ nav {
 
 .wrap-chat-user {
     /*float: right;*/
+    text-align:right;
 }
 
 .box-text-chat {

@@ -3,8 +3,7 @@ var slidesBookmark, slideBookmark, currentIdxBookmark, slideCountBookmark, slide
 
 window.addEventListener('DOMContentLoaded', function () {
     getMyUserInfo();
-    myProjectList();
-    myBookmarkProjectList();
+    
 });
 
 // 비동기 통신 async 내 정보 출력
@@ -64,6 +63,7 @@ async function getMyUserInfo() {
         ${myuserinfo['userprofile']['description']}
         </div>
         `
+        myBookmarkProjectList();
     }
 }
 
@@ -341,6 +341,7 @@ async function myBookmarkProjectList() {
                 }
             }
         }
+        myProjectList();
     }
 }
 
