@@ -67,10 +67,10 @@ async function recommend_lsit(){
 
             if (element.bookmark.includes(payload.user_id)){
                 bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main-recommend btn-bookmark-main-recommend_${element.id}" onclick="bookmark_recommend('${element.id}')">⭐️</button>
-                <span class="btn-bookmark-main-reommend-count_${element.id}">${element.bookmark.length}</span>`
+                <span class="btn-bookmark-main-reommend-count_${element.id}">${element.bookmark_count}</span>`
             } else {
                 bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main-recommend btn-bookmark-main-recommend_${element.id}" onclick="bookmark_recommend('${element.id}')">☆</button>
-                <span class="btn-bookmark-main-reommend-count_${element.id}">${element.bookmark.length}</span>`
+                <span class="btn-bookmark-main-reommend-count_${element.id}">${element.bookmark_count}</span>`
             }
             bookmark_div.append(bookmark_btn)
                 
@@ -80,7 +80,7 @@ async function recommend_lsit(){
 
 async function project_list(url, filter){
     if (url == null){
-        url = `${backend_base_url}/project/?page_size=9`
+        url = `${backend_base_url}/project/?page_size=6`
     } else {
         url = url.replace("&filter=popular", '')
         url = url.replace("&filter=newest", '')
@@ -121,7 +121,7 @@ async function project_list(url, filter){
                 </div>
                 <div class="project-information">
                         <div id="count"><i class="fa-solid fa-eye"></i> ${element.count}</div>
-                        <div id="comment"><i class="fa-solid fa-comment-dots"></i> ${element.comment.length}</div>
+                        <div id="comment"><i class="fa-solid fa-comment-dots"></i> ${element.comment_count}</div>
                         <div id="bookmark_${element.id}"></div>
                     </div>
                 <div class="wrap-writer-mypage">
@@ -152,10 +152,10 @@ async function project_list(url, filter){
 
         if (element.bookmark.includes(payload.user_id)){
             bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main_${element.id}" onclick="bookmark('${element.id}','${url}', '${filter}')">⭐️</button>
-            <span class="btn-bookmark-main-count_${element.id}">${element.bookmark.length}</span>`
+            <span class="btn-bookmark-main-count_${element.id}">${element.bookmark_count}</span>`
         } else {
             bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main_${element.id}" onclick="bookmark('${element.id}','${url}', '${filter}')">☆</button>
-            <span class="btn-bookmark-main-count_${element.id}">${element.bookmark.length}</span>`
+            <span class="btn-bookmark-main-count_${element.id}">${element.bookmark_count}</span>`
         }
         bookmark_div.append(bookmark_btn)
             
@@ -195,7 +195,15 @@ function bookmark(project_id, url, filter) {
         },
         method: 'POST',
     })
-    project_list(url, filter)
+    bookmark_div = document.querySelector(".btn-bookmark-main_"+ project_id)
+    bookmark_span = document.querySelector(".btn-bookmark-main-count_"+ project_id)
+    if (bookmark_div.innerText == '⭐️'){
+        bookmark_div.innerText = '☆'
+        bookmark_span.innerText = String(parseInt(bookmark_span.innerText) - 1)
+    } else {
+        bookmark_div.innerText = '⭐️'
+        bookmark_span.innerText = String(parseInt(bookmark_span.innerText) + 1)
+    }
 }
 
 // 북마크 등록/해제

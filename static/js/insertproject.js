@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', async function () {
             initialEditType: 'markdown',
             previewStyle: 'vertical'
         });
-        
+
         // 이미지 Append
         editor.addHook("addImageBlobHook", function (blob, callback) {
             // blob 텍스트 
