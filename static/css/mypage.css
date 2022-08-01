@@ -201,7 +201,6 @@ a:visited:active {
 }
 
 .box-card-content-project {
-    /* background-color: antiquewhite; */
     display: flex;
     flex-direction: column;
 }
@@ -253,7 +252,7 @@ a:visited:active {
     padding: 2px 8px;
     margin: 0 3px 3px 0;
     border-radius: 10px;
-    background-color: rgb(4, 73, 201);
+    background-color: black;
     color: whitesmoke;
     text-align: center;
     vertical-align: middle;
@@ -262,12 +261,12 @@ a:visited:active {
 /* 프로젝트 정보(조회,댓글,북마크) */
 .project-information {
     display: flex;
+    justify-content: space-around;
     align-items: center;
 }
 
 .project-information>div {
     font-size: 1rem;
-    margin: 0 15% 0 0;
 }
 
 .wrap-writer-mypage {
@@ -280,8 +279,7 @@ a:visited:active {
     /* background-color: cadetblue; */
 }
 
-.text-writer-mypage {
-}
+.text-writer-mypage {}
 
 .btn-chat-mypage {
     border: none;

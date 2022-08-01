@@ -32,23 +32,28 @@
 <body>
     <section class="container-profile-regist">
         <div class="box-text-title-profile-regist">
-            <span class="text-title-profile-regist">SidePro에 오신 것을 환영합니다! 모두에게 자신을 소개해주세요.</span>
+            <span class="text-title-profile-regist">SIDE PRO에 오신 것을 환영합니다 😆 모두에게 자신을 소개해주세요 ❗️</span>
         </div>
         <!-- 프로필 등록 섹션 -->
         <div class="wrap-profile-regist">
             <div class="box-profile-regist">
-                <div class="box-img-profile-regist">
-                    <img id="profile_img_preview" class="img-profile-regist" src="/static/img/profile_base.png">
-                    <div class="text-profile-regist">프로필 사진을 등록해 주세요.</div>
-
-                    <input type="file" id="profile_image_path" onchange="profile_image_preview(this)">
+                <div class="wrap-img-regist">
+                    <div class="box-img-profile-regist">
+                        <img id="profile_img_preview" class="img-profile-regist" src="/static/img/profile_base.png">
+                    </div>
+                    <div class="box-btn-profile-regist">
+                        <label class="text-profile-regist" for="profile_image_path">프로필 이미지 등록 버튼</label>
+                        <input class="img-thumnail-profile-userprofile" type="file" id="profile_image_path"
+                            onchange="profile_image_preview(this)">
+                    </div>
                 </div>
                 <div class="wrap-info-profile-regist">
                     <div class="box-search-tag"></div>
-                        <input class="input-search-main" type="text" list="search-list" onkeydown="DrawSkillTag()" placeholder="기술스택을 선택 후 Enter 를 입력해 주세요.(검색가능)">
-                        <datalist id ="search-list">
-                            <!--<option value="Python" />-->
-                        </datalist>
+                    <input class="input-search-main" type="text" list="search-list" onkeydown="DrawSkillTag()"
+                        placeholder="기술스택을 선택 후 Enter 를 입력해 주세요.(검색가능)">
+                    <datalist id="search-list">
+                        <!--<option value="Python" />-->
+                    </datalist>
                     <input id="github_url" type="url" placeholder="Github 주소를 입력해 주세요.">
                     <!-- 드롭다운 -->
                     <div class="wrap-dropdown-regist">
@@ -100,4 +105,5 @@
 <script src="/static/js/_base.js"></script>
 <script src="/static/js/_baseinfo.js"></script>
 <script src="/static/js/userprofile.js"></script>
+
 </html>

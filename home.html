@@ -19,40 +19,41 @@
     <!-- CSS Import -->
     <link rel="stylesheet" href="/static/css/home.css">
 
-    <!-- Javascript Import -->
-    <script async src="/static/js/home.js"></script>
 </head>
-<div>
+<div class="container-home">
     <nav>
         <div class="nav-box-btn-home">
             <li>
-                <button class="nav-btn-home nav-btn-login-home" onclick="location.href='login.html'">
+                <button class="nav-btn-home nav-btn-login-home" onclick="location.href='/templates/login.html'">
                     로그인
                 </button>
             </li>
             <li>
-                <button class="nav-btn-home nav-btn-join-home" onclick="location.href='join.html'">
+                <button class="nav-btn-home nav-btn-join-home" onclick="location.href='/templates/join.html'">
                     회원가입
                 </button>
             </li>
         </div>
     </nav>
-    <section class="container-home">
+    <section class="container-section-home">
         <div class="wrap-item-home">
             <span class="text-title-home">SIDE PRO</span>
             <!-- 소개글 더미 -->
-            <P class="text-desc-home">스타트업 지원기관들에게는 혁신기업을 발굴하기 위한 파이프라인과
-                발굴된 스타트업의 관리가 가능한 솔루션을 제공, 업무생산성의 향상과
-                업무 본질에 대한 집중을 지원합니다.
+            <p class="text-desc-home">
+                하는 일이 많지만 만들고 싶은 이야기도 많은 사람들. <br />여러분들의 또 다른 이야기를 보여주세요. 좋아하는 프로젝트를 공유하고 만들어 보세요.
             </P>
-            <div>
-                <button class="btn-entrance-home">둘러보기 →</button>
-            </div>
         </div>
         <div class="box-img-home">
             <img class="img-home" src="/static/img/home.png">
         </div>
     </section>
+    <footer class="container-footer-home">
+        <div class="box-text-footer">
+            <span>INFORMAITION 대표이사 김선민 ｜ 개인정보관리책임자 김민기 ｜ 사업자 등록번호 012-34-56789 ｜
+                CONTACT 경기도 성남시 분당구 대왕판교로 ｜ TEL. 031-777-7777 ｜ MAIL. sidepro@contact.kr ｜ 담당자 박재현 ｜
+                ⓒSIDEPRO Inc. All Rights Reserved.</span>
+        </div>
+    </footer>
 </div>
 
 </html>

@@ -51,7 +51,9 @@ input {
 }
 
 
-.info-project-post, .git-project-post, .input-search-project-post {
+.info-project-post,
+.git-project-post,
+.input-search-project-post {
     display: block;
     width: 100%;
     margin: 10px 0;
@@ -96,8 +98,8 @@ input {
 }
 
 .box-btn-project-post {
-    margin: 20px 0;
-    float:right;
+    margin: 40px 0;
+    text-align: center;
 }
 
 .btn-project-submit {

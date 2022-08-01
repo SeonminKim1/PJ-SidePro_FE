@@ -10,7 +10,7 @@ body {
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
-    background-color: ghostwhite;
+    background-color: mediumslateblue;
 }
 
 nav {
@@ -42,54 +42,62 @@ li {
 
 .nav-btn-home:hover {
     font-weight: 700;
-    color: white;
-    background-color: rgb(75, 0, 226);
-
+    color: mediumslateblue;
+    background-color: aliceblue;
 }
 
-.container-home {
-    display: flex;
-    align-items: center;
-    margin: 10% 0;
+.container-section-home {
+    flex-direction: row;
+    /* align-items: center; */
+    /* margin-top: 5%; */
+    /* background-color: aqua; */
 }
 
 .wrap-item-home {
-    width: 60%;
+    width: 80%;
     padding-left: 10%;
+    margin-left: 5%;
 }
 
 
 .text-title-home {
     font-size: 6rem;
     font-weight: 700;
+    color: aliceblue;
 }
 
 .text-desc-home {
     width: 70%;
     font-size: 1.2rem;
     font-weight: 400;
+    word-break: keep-all;
     line-height: 36px;
-}
-
-.btn-entrance-home {
-    border: none;
-    margin: 10px;
-    padding: 16px 24px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
-    background-color: black;
+    color: aliceblue;
 }
 
 .box-img-home {
     display: flex;
+    /* margin-right: 10%; */
 }
+
 
 .img-home {
     width: 60%;
     margin: auto;
 }
 
+.container-footer-home {
+    text-align: center;
+    padding: 10px;
+}
+
+.box-text-footer>span {
+    text-align: center;
+    font-size: .7rem;
+    font-weight: 400;
+    color: gainsboro;
+
+}
 
 @media screen and (max-width: 768px) {
     .container-home {
