@@ -1,11 +1,15 @@
 // For All
-const backend_base_url = "http://3.37.194.222"
-// const backend_base_url = "http://127.0.0.1:8000"
-const backend_base_ip_port = "3.37.194.222"
-
-// const frontend_base_url = "http://www.sidepro.shop"
-const frontend_base_url = "http://sidepro.shop.s3-website.ap-northeast-2.amazonaws.com"
-// const frontend_base_url = "http://127.0.0.1:5500"
+var is_local = True
+    if(is_local == True){
+        const backend_base_url = "http://127.0.0.1:8000"
+        const backend_base_ip_port = "http://127.0.0.1"      
+        const frontend_base_url = "http://127.0.0.1:5500"
+    }else{
+        const backend_base_url = "http://3.37.194.222"
+        const backend_base_ip_port = "http://3.37.194.222"      
+        // const frontend_base_url = "http://www.sidepro.shop"
+        const frontend_base_url = "http://sidepro.shop.s3-website.ap-northeast-2.amazonaws.com"
+    }
 
 const ROOM_STATUS_RUNNING = 'running'
 const ROOM_STATUS_PENDING = 'pending'
