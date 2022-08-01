@@ -1,6 +1,6 @@
 // For All
-var is_local = True
-    if(is_local == True){
+var is_local = true
+    if(is_local == true){
         const backend_base_url = "http://127.0.0.1:8000"
         const backend_base_ip_port = "127.0.0.1:8000"      
         const frontend_base_url = "http://127.0.0.1:5500"
