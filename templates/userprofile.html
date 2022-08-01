@@ -37,11 +37,15 @@
         <!-- 프로필 등록 섹션 -->
         <div class="wrap-profile-regist">
             <div class="box-profile-regist">
-                <div class="box-img-profile-regist">
-                    <img id="profile_img_preview" class="img-profile-regist" src="/static/img/profile_base.png">
-                    <div class="text-profile-regist">프로필 사진을 등록해 주세요.</div>
-
-                    <input type="file" id="profile_image_path" onchange="profile_image_preview(this)">
+                <div class="wrap-img-regist">
+                    <div class="box-img-profile-regist">
+                        <img id="profile_img_preview" class="img-profile-regist" src="/static/img/profile_base.png">
+                    </div>
+                    <div class="box-btn-profile-regist">
+                        <label class="text-profile-regist" for="profile_image_path">프로필 이미지 등록 버튼</label>
+                        <input class="img-thumnail-profile-userprofile" type="file" id="profile_image_path"
+                            onchange="profile_image_preview(this)">
+                    </div>
                 </div>
                 <div class="wrap-info-profile-regist">
                     <div class="box-search-tag"></div>

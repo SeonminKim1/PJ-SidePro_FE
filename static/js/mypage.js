@@ -99,8 +99,8 @@ async function myProjectList() {
                     <span class="card-text text-indroduce-card-project">${myproject.description}</span>
                     <div class="card-text text-stack-card-project"></div>
                     <div class="project-information">
-                        <div id="count">조회 ${myproject.count}</div>
-                        <div id="comment">댓글 ${myproject.comment.length}</div>
+                        <div id="count"><i class="fa-solid fa-eye"></i> ${myproject.count}</div>
+                        <div id="comment"><i class="fa-solid fa-comment-dots"></i> ${myproject.comment.length}</div>
                     </div>
                 </div>
             </div>
@@ -237,8 +237,8 @@ async function myBookmarkProjectList() {
                     <span class="card-text text-indroduce-card-project">${mybookmarkproject.description}</span>
                     <div class="card-text text-stack-card-project"></div>
                     <div class="project-information">
-                        <div id="count">조회 ${mybookmarkproject.count}</div>
-                        <div id="comment">댓글 ${mybookmarkproject.comment.length}</div>
+                        <div id="count"><i class="fa-solid fa-eye"></i> ${mybookmarkproject.count}</div>
+                        <div id="comment"><i class="fa-solid fa-comment-dots"></i> ${mybookmarkproject.comment.length}</div>
                     </div>
                 </div>
                 <div class="wrap-writer-mypage">
