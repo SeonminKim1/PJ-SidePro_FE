@@ -58,7 +58,15 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
     };
 
     // 메시지 보내기
-    document.querySelector('.btn-chat').onclick = async function(e) {
+    document.querySelector('.input-chat').onkeyup = function(e){
+        if (window.event.keyCode == 13) {
+            sendmessage(e)
+        }
+    }
+    document.querySelector('.btn-chat').onclick =  function(e) {
+        sendmessage(e)
+    }
+    async function sendmessage(e) {
         const message = messageInputDom.value;
 
         // get now datetime
@@ -89,7 +97,9 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
             body: formdata,
         })
         response_json = await response.json()
-    
+        
+        document.querySelector("#chat-box").scrollTop = document.querySelector("#chat-box").scrollHeight;
+
         // Chat 정상적으로 저장
         if(response.status==201) {
             //alert('Chat 생성 SUCCESS: ', response.status, response.message)        
