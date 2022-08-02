@@ -55,7 +55,7 @@ async function GetRoomList() {
 // Room HTML 추가
 function AddRoomListHtml(response_json){
     console.log("chat.js - AddRoomListHtml")
-    document.querySelector('.text-title-room').innerHTML = login_username + '님의 채팅 목록'
+    document.querySelector('.text-title-room').innerHTML = login_username + '님의 채팅 목록 ✨'
     for(let i=0; i<response_json.length; i++){
         // response_json[i] : room
         var roomname = response_json[i].name
@@ -105,7 +105,7 @@ function AddRoomListHtml(response_json){
                     </div>
                     <div>
                         <button class="btn-open-chatting-room" onclick="activeChatRoom('${roomname}', '${user1_username}', '${user2_username}')">채팅 열기 💬</button>
-                        <button onclick="RemoveRoomNode(this, '${roomname}')" class="btn-room-close">🞩</button>
+                        <button onclick="RemoveRoomNode(this, '${roomname}')" class="btn-room-close"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
                 </div>
                 <div>

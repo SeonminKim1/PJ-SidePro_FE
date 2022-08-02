@@ -105,7 +105,7 @@ nav {
 .btn-chat-close,
 .btn-chat-room-close {
     position: absolute;
-    top: 20px;
+    top: 1px;
     right: 20px;
     border: none;
     font-size: 32px;
@@ -117,12 +117,12 @@ nav {
 
 .box-text-title-chat,
 .box-text-title-room {
-    margin: 20px 20px;
+    padding: 10px;
 }
 
 .text-title-chat,
 .text-title-room {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: black;
 }
 
@@ -813,6 +813,10 @@ nav {
     border-radius: 30px;
     color: aliceblue;
     background-color: rgb(75, 0, 226);
+}
+
+.btn-chat-mypage:hover {
+    cursor: pointer;
 }
 
 .btn-bookmark-main,
