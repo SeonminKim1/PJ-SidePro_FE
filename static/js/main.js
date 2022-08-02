@@ -38,7 +38,7 @@ async function recommend_lsit(){
                 </div>
                 <div class="project-information">
                     <div id="count"><i class="fa-solid fa-eye"></i>  ${element.count}</div>
-                    <div id="comment"><i class="fa-solid fa-comment-dots"></i>  ${element.comment.length}</div>
+                    <div id="comment"><i class="fa-solid fa-comment-dots"></i>  ${element.comment_count}</div>
                     <div id="bookmark-suggest_${element.id}"></div>
                 </div>
                 <div class="wrap-writer-mypage">
