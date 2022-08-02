@@ -20,7 +20,6 @@ async function activeChatRoom(roomname, user1_username, user2_username) {
 
 // SOCKET 상태별(open, close, receive, send) Event 설정
 function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
-    console.log("chat.js - SetChattingRoomSocketEvent")
 
     // Set Socket URL
     const url = 'ws://'+ backend_base_ip_port + '/ws/chat/'+ roomname + '/'
@@ -57,16 +56,27 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
         }
         asideChatText.append(newChatDiv)
     };
+    
 
     // 메시지 보내기
-    document.querySelector('.btn-chat').onclick = async function(e) {
+    // 엔터키
+    document.querySelector('.input-chat').onkeyup = function(e){
+        if (window.event.keyCode == 13) {
+            sendmessage(e)
+        }
+    }
+    // 클릭
+    document.querySelector('.btn-chat').onclick =  function(e) {
+        sendmessage(e)
+    }
+    async function sendmessage(e) {
         const message = messageInputDom.value;
-
+        if (message == ""){
+            return alert("메세지를 입력해주세요!")
+        }
         // get now datetime
         var chat_time = new Date();
         var dt = StringToDatetime(chat_time, 'DATETIME')
-        // var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' + 
-        //          chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
         
         // Send Message
         chatSocket.send(JSON.stringify({
@@ -92,7 +102,10 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
             body: formdata,
         })
         response_json = await response.json()
-    
+        
+        // 스크롤 아래로 이동
+        document.querySelector("#chat-box").scrollTop = document.querySelector("#chat-box").scrollHeight;
+
         // Chat 정상적으로 저장
         if(response.status==201) {
             //alert('Chat 생성 SUCCESS: ', response.status, response.message)        
@@ -104,8 +117,6 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
 
 // Chatting Room 오픈시 Room 생성(DB 추가) 및 상태(Status) Update
 async function CreateRoomSetStatus(roomname, user1_username, user2_username){
-    console.log("chat.js - CreateRoomSetStatus")
-
     const formdata = new FormData()
     formdata.append("user1", user1_username)
     formdata.append("user2", user2_username)
@@ -129,7 +140,6 @@ async function CreateRoomSetStatus(roomname, user1_username, user2_username){
 
 // ROOM에 해당하는 Chat DB 가져오기
 async function GetRoomChattingList(roomname, user2_username){
-    console.log("chat.js - GetRoomChattingList")
     // Room 조회 및 생성 & 룸 상태 업데이트 (start)
     const response = await fetch(`${backend_base_url}/chat/rooms/${roomname}/messages/`, {
         headers:{
@@ -149,9 +159,6 @@ async function GetRoomChattingList(roomname, user2_username){
         var chat_time = new Date(msgs[i].send_time);
 
         var dt = StringToDatetime(chat_time, 'DATETIME')
-
-        // var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' +
-        //          chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
 
         const chatDiv = document.createElement('div')
         if(msgs[i].send_user == login_username){
@@ -182,6 +189,9 @@ async function GetRoomChattingList(roomname, user2_username){
                 `
         }
         asideChatText.append(chatDiv)
+        
+        // 스크롤 아래로 이동
+        document.querySelector("#chat-box").scrollTop = document.querySelector("#chat-box").scrollHeight;
     }
     
     if(response.status == 200) {
