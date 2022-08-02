@@ -9,13 +9,13 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: git clone
-        uses: actions/checkout@v2
+      - name: Checkout source code
+        uses: actions/checkout@publish
    
       - name: deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
-          AWS_REGOIN: ap-northeast-2
+          AWS_REGOIN: 'ap-northeast-2'
         run:
           aws s3 cp --recursive --region ap-northeast-2 dist s3://sidepro.shop
