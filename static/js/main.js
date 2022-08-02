@@ -1,13 +1,11 @@
 window.onload = project_list()
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("main.js - DOMContentLoaded")
     localStorage.setItem("update_mode", 0)
     recommend_lsit()
 });
 
 async function recommend_lsit(){
-    console.log('recommend_list')
     const response = await fetch(`${backend_base_url}/recommend/`,{
         headers: {
             Accept: "application/json",
@@ -19,7 +17,6 @@ async function recommend_lsit(){
     response_json = await response.json()
     response_json_result = response_json['results']
     response_json_score = response_json['scores']
-    console.log('===', response_json)
     
     const recommend_box = document.querySelector(".container-card-section")
     recommend_box.innerHTML = ``
@@ -258,10 +255,7 @@ function search_list(){
     for (i = 0; i < skills.length; i++){
         skill_list = skill_list + "&skills=" + skills[i].innerText
     }
-    console.log(skills)
-    console.log(skill_list)
     url = `${backend_base_url}/project/?page_size=9` + skill_list
-    console.log(url)
     project_list(url)
     
 }

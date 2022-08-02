@@ -20,7 +20,6 @@ async function activeChatRoom(roomname, user1_username, user2_username) {
 
 // SOCKET 상태별(open, close, receive, send) Event 설정
 function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
-    console.log("chat.js - SetChattingRoomSocketEvent")
 
     // Set Socket URL
     const url = 'ws://'+ backend_base_ip_port + '/ws/chat/'+ roomname + '/'
@@ -65,8 +64,6 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
         // get now datetime
         var chat_time = new Date();
         var dt = StringToDatetime(chat_time, 'DATETIME')
-        // var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' + 
-        //          chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
         
         // Send Message
         chatSocket.send(JSON.stringify({
@@ -104,8 +101,6 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
 
 // Chatting Room 오픈시 Room 생성(DB 추가) 및 상태(Status) Update
 async function CreateRoomSetStatus(roomname, user1_username, user2_username){
-    console.log("chat.js - CreateRoomSetStatus")
-
     const formdata = new FormData()
     formdata.append("user1", user1_username)
     formdata.append("user2", user2_username)
@@ -129,7 +124,6 @@ async function CreateRoomSetStatus(roomname, user1_username, user2_username){
 
 // ROOM에 해당하는 Chat DB 가져오기
 async function GetRoomChattingList(roomname, user2_username){
-    console.log("chat.js - GetRoomChattingList")
     // Room 조회 및 생성 & 룸 상태 업데이트 (start)
     const response = await fetch(`${backend_base_url}/chat/rooms/${roomname}/messages/`, {
         headers:{
@@ -149,9 +143,6 @@ async function GetRoomChattingList(roomname, user2_username){
         var chat_time = new Date(msgs[i].send_time);
 
         var dt = StringToDatetime(chat_time, 'DATETIME')
-
-        // var dt = chat_time.getFullYear()+'-'+(chat_time.getMonth()+1)+'-'+chat_time.getDate() + ' ' +
-        //          chat_time.getHours() + ":" + chat_time.getMinutes() + ":" + chat_time.getSeconds();
 
         const chatDiv = document.createElement('div')
         if(msgs[i].send_user == login_username){

@@ -12,18 +12,14 @@ if(filter_input_tag == undefined){
 const filter_datalist_tag = document.getElementById("search-list") // Datalist Tag 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("_baseinfo.js - DOMContentLoaded")
     GetBaseInfo()
 });
 
 // 현재 Login 한 user 정보 조회
 // skills 목록 조회
 async function GetBaseInfo() {
-    console.log("_baseinfo.js - GetBaseInfo")
     payload = JSON.parse(localStorage.getItem("payload"))
-    // console.log('payload:',(payload), typeof(payload))
     user_id = payload["user_id"]
-    console.log('user_id: ', user_id)
     const response = await fetch(`${backend_base_url}/user/main/init/`, {
         headers: {
             Accept: "application/json",
@@ -40,7 +36,6 @@ async function GetBaseInfo() {
 
 // 필터링 Skill들(option) 목록(datalist)에 추가 
 function SetSkillsFilteringInitalize(skills) {
-    console.log("_baseinfo.js - SetSkillsFilteringInitalize")
 
     for (let i = 0; i < skills.length; i++) {
         skills_id = skills[i]['id']
@@ -62,8 +57,6 @@ function SetSkillsFilteringInitalize(skills) {
 
 // input 창 event
 function DrawSkillTag() {
-    console.log("_baseinfo.js - DrawSkillTag")
-
     // enter
     if (window.event.keyCode == 13) {
         check_value = filter_input_tag.value // input value 값

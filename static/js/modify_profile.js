@@ -12,7 +12,6 @@ async function getMyUserInfo() {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-        // body: JSON.stringify(Data)
     })
 
     response_json = await response.json()
@@ -20,7 +19,6 @@ async function getMyUserInfo() {
     if (response.status == 200) {
 
         myuserinfo = response_json
-        console.log(myuserinfo)        
 
         // 유저프로필 페이지에서 사용자명 출력
         const welcome_profile = document.querySelector('.box-text-title-profile-regist');
@@ -86,15 +84,12 @@ function userprofile_upload() {
             body: image_data,
         })
             .then(response => {
-                console.log(response)
                 return response.json()
             })
             .then(json => {
-                console.log(json)
                 // Skills Value List
                 select_skills_value = [] // [arc, aws, python]
                 for (i = 0; i < skill_tag_list.length; i++) {
-                    console.log(skill_tag_list[i].innerText)
                     select_skills_value.push(skill_tag_list[i].innerText)
                 }
 
@@ -125,11 +120,9 @@ function userprofile_upload() {
                     body: formdata
                 })
                     .then(response => {
-                        console.log(response)
                         return response.json()
                     })
                     .then(json => {
-                        console.log(json)
                         alert('사용자정보 수정완료')
                     })
                 window.location.replace(`${frontend_base_url}/templates/mypage.html`);
@@ -138,7 +131,6 @@ function userprofile_upload() {
         // Skills Value List
         select_skills_value = [] // [arc, aws, python]
         for (i = 0; i < skill_tag_list.length; i++) {
-            console.log(skill_tag_list[i].innerText)
             select_skills_value.push(skill_tag_list[i].innerText)
         }
 
@@ -168,11 +160,9 @@ function userprofile_upload() {
             body: formdata
         })
             .then(response => {
-                console.log(response)
                 return response.json()
             })
             .then(json => {
-                console.log(json)
                 alert('사용자정보 수정완료')
             })
         window.location.replace(`${frontend_base_url}/templates/mypage.html`);

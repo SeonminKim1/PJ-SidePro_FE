@@ -26,7 +26,6 @@ function userprofile_upload() {
                 // Skills Value List
                 select_skills_value = [] // [arc, aws, python]
                 for (i = 0; i < skill_tag_list.length; i++) {
-                    console.log(skill_tag_list[i].innerText)
                     select_skills_value.push(skill_tag_list[i].innerText)
                 }
     
@@ -57,11 +56,9 @@ function userprofile_upload() {
                     body: formdata
                 })
                     .then(response => {
-                        console.log(response)
                         return response.json()
                     })
                     .then(json => {
-                        console.log(json)
                         alert('유저프로필 등록완료')
                     })
                 window.location.replace(`${frontend_base_url}/templates/main.html`);
@@ -70,7 +67,6 @@ function userprofile_upload() {
         // 이미지가 없는 경우
         select_skills_value = [] // [arc, aws, python]
         for (i = 0; i < skill_tag_list.length; i++) {
-            console.log(skill_tag_list[i].innerText)
             select_skills_value.push(skill_tag_list[i].innerText)
         }
 
@@ -115,9 +111,6 @@ function userprofile_upload() {
 
 // 이미지 미리보기
 function profile_image_preview(input) {
-    // const base_div = document.querySelector("#profile_img_preview")
-    // base_div.innerHTML = `<img src="" id="profile_img_preview" class="img-profile-regist">`
-
     if (input.files && input.files[0]) {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -128,21 +121,4 @@ function profile_image_preview(input) {
         document.getElementById('profile_img_preview').src = "/static/img/profile-kim.png";
     }
 }
-
-// // 라디오 버튼 중 선택된 항목의 value 가져오기
-// categoryNodeList = document.getElementsByName('painting-category');
-// shapeNodeList = document.getElementsByName('painting-shape');
-// categoryNodeList.forEach((node) => {
-//     if (node.checked) {
-//         formdata.append("category", node.value)
-//         console.log(node.value)
-//     }
-// });
-// shapeNodeList.forEach((node) => {
-//     if (node.checked) {
-//         formdata.append("img_shape", node.value)
-//         console.log(node.value)
-//     }
-// });
-
 
