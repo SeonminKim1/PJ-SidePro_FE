@@ -157,23 +157,28 @@ async function GetRoomChattingList(roomname, user2_username){
         if(msgs[i].send_user == login_username){
             chatDiv.className = "wrap-chat-user"
             chatDiv.innerHTML = `
-                    <div class="box-text-profile-chat">
-                        <span id="chat-user" class="text-chat-name-user">${msgs[i].send_user}</span>
-                    </div>
-                    <div id="box-chat-user" class="box-text-chat">
-                        <span id="chat-user-desc" class="text-chat-desc">${msgs[i].message}</span>
-                        <span class="text-chat-date">${dt}</span>
-                    </div>`
+            <div class="wrap-chat-bubble wrap-bubble-user">
+                <div class="box-text-profile-chat box-chat-user">
+                    <span id="chat-user" class="text-chat-name-user">${msgs[i].send_user}</span>
+                </div>
+                <div id="box-chat-user" class="box-text-chat">
+                    <span id="chat-user-desc" class="text-chat-desc">${msgs[i].message}</span>
+                    <p class="text-chat-date">${dt}</p>
+                </div>
+            </div>`
+                    
         }else{
             chatDiv.className = "wrap-chat-partner"
             chatDiv.innerHTML = `
+            <div class="wrap-chat-bubble">
                 <div class="box-text-profile-chat">
                     <span id="chat-partner" class="text-chat-name">${msgs[i].send_user}</span>
                 </div>
                 <div id="box-chat-partner" class="box-text-chat">
                     <span id="chat-partner-desc" class="text-chat-desc">${msgs[i].message}</span>
-                    <span class="text-chat-date">${dt}</span>
+                    <p class="text-chat-date">${dt}</ㅔ>
                 </div>
+            </div>
                 `
         }
         asideChatText.append(chatDiv)
