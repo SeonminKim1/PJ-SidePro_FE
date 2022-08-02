@@ -56,6 +56,7 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
         }
         asideChatText.append(newChatDiv)
     };
+    
 
     // 메시지 보내기
     // 엔터키
@@ -183,6 +184,9 @@ async function GetRoomChattingList(roomname, user2_username){
                 `
         }
         asideChatText.append(chatDiv)
+        
+        // 스크롤 아래로 이동
+        document.querySelector("#chat-box").scrollTop = document.querySelector("#chat-box").scrollHeight;
     }
     
     if(response.status == 200) {
