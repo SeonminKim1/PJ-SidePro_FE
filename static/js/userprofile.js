@@ -1,6 +1,10 @@
 
 // 유저프로필 정보 등록
 function userprofile_upload() {
+    const github_url = document.querySelector('#github_url').value
+    if (!(github_url.includes("http://")) && !(github_url.includes("https://"))) {
+        return alert("github 주소를 확인해주세요!")
+    }
     // 이미지를 있는 경우
     if(document.querySelector("#profile_image_path").files[0] != null){
         image_data = new FormData()

@@ -132,7 +132,7 @@ function userprofile_upload() {
                         console.log(json)
                         alert('사용자정보 수정완료')
                     })
-                window.location.reload();
+                window.location.replace(`${frontend_base_url}/templates/mypage.html`);
             })
     } else {
         // Skills Value List
@@ -175,7 +175,7 @@ function userprofile_upload() {
                 console.log(json)
                 alert('사용자정보 수정완료')
             })
-        window.location.reload();
+        window.location.replace(`${frontend_base_url}/templates/mypage.html`);
     }
 }
 

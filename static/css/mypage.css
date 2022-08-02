@@ -70,6 +70,12 @@ body {
     font-size: .8rem;
 }
 
+.text-user-github-mypage > a {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .text-user-stack-mypage>div {
     margin: 1% 2% 1% 0;
     padding: 1% 2%;
