@@ -124,7 +124,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // 게시글 등록(수정)
 insert_project = function () {
-    
+    const github_url = document.querySelector('#git_hub_url').value
+    if (!(github_url.includes("http://")) && !(github_url.includes("https://"))) {
+        return alert("github 주소를 확인해주세요!")
+    }
     // 이미지가 있을 경우
     if (document.querySelector("#thumnail_img_path").files[0] != null){
         // image data
