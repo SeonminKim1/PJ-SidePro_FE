@@ -93,7 +93,7 @@ nav {
 }
 
 .wrap-profile-chat-list:hover {
-    background-color: gray;
+    background-color: lightgrey;
 }
 
 .box-img-profile-chatroom {
@@ -145,7 +145,6 @@ nav {
     display: flex;
     justify-content: space-between;
     margin-bottom: 5%;
-    /* background-color: bisque; */
 }
 
 .btn-open-chatting-room {
@@ -159,9 +158,14 @@ nav {
     font-weight: 600;
 }
 
+.box-btn-chatroom {
+    position: absolute;
+    right: 10px;
+    margin-left: 20px;
+}
+
 .btn-room-close {
     border: none;
-    margin-left: 20px;
     font-size: 1rem;
     font-weight: 600;
     color: black;
@@ -181,7 +185,7 @@ nav {
 }
 
 .text-profile-name {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 500;
     cursor: pointer;
     /* background-color: cadetblue; */
@@ -211,7 +215,7 @@ nav {
 
 .box-chat-partner-user,
 .box-chat-room-list {
-    height: 70vh;
+    height: 85vh;
     overflow-y: scroll;
 }
 
@@ -219,19 +223,36 @@ nav {
     display: inline-block;
 }
 
-.box-text-profile-chat {
-    margin: 5px 10px;
-    padding: 10px;
-    /* background-color: brown; */
+.wrap-chat-bubble {
+    display: inline-block;
+    margin: 20px 0;
+    /* background-color: aqua; */
 }
 
-.wrap-chat-user {
-    /*float: right;*/
+.wrap-bubble-user {
+    float: right;
+    /* background-color: blanchedalmond; */
+}
+
+.box-text-profile-chat {
+    margin: 5px 16px;
+    padding: 10px 10px;
+    /* background-color: aqua; */
+}
+
+.box-chat-user {
     text-align: right;
 }
 
+
+
+.wrap-chat-user {
+    /*float: right;*/
+    /* text-align: right; */
+}
+
 .box-text-chat {
-    display: inline-block;
+    display: block;
     padding: 10px;
     margin: 5px 15px;
     border-radius: 12px;
@@ -252,8 +273,8 @@ nav {
 }
 
 .text-chat-date {
-    padding: 2px;
     font-size: .7rem;
+    /* background-color: aquamarine; */
 }
 
 .text-chat-name {
@@ -262,15 +283,15 @@ nav {
 }
 
 .text-chat-name-user {
-    margin-left: 80%;
+    /* margin-left: 80%; */
     font-size: 1rem;
-    /* background-color: aqua; */
+    /* background-color: lawngreen; */
 }
 
 .box-input-chat {
     position: absolute;
     right: 20px;
-    bottom: 40px;
+    bottom: 20px;
 }
 
 .input-chat {
@@ -295,6 +316,8 @@ nav {
 /* 유저 프로필 모달 */
 .container-profile-modal {
     display: none;
+    position: absolute;
+    left: 0;
 }
 
 .wrap-profile-modal {
