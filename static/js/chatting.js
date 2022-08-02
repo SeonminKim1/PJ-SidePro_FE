@@ -58,11 +58,13 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
     };
 
     // 메시지 보내기
+    // 엔터키
     document.querySelector('.input-chat').onkeyup = function(e){
         if (window.event.keyCode == 13) {
             sendmessage(e)
         }
     }
+    // 클릭
     document.querySelector('.btn-chat').onclick =  function(e) {
         sendmessage(e)
     }
@@ -98,6 +100,7 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
         })
         response_json = await response.json()
         
+        // 스크롤 아래로 이동
         document.querySelector("#chat-box").scrollTop = document.querySelector("#chat-box").scrollHeight;
 
         // Chat 정상적으로 저장
