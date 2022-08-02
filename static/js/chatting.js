@@ -70,7 +70,9 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
     }
     async function sendmessage(e) {
         const message = messageInputDom.value;
-
+        if (message == ""){
+            return alert("메세지를 입력해주세요!")
+        }
         // get now datetime
         var chat_time = new Date();
         var dt = StringToDatetime(chat_time, 'DATETIME')
