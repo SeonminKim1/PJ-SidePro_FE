@@ -386,7 +386,6 @@ async function updateComment(update_btn_node){
 
             update_div.innerHTML = ` 
                 <div class="comment-content-detail comment-content-detail_${comment_id}">${comment_text}</div>
-                <div class="comment-content-date comment-content-date_${comment_id}">${comment_create_date}</div>
                 <div class="box-btn-comment-content box-btn-comment-content_${comment_id}">
                     <button class="btn-delete-comment-detail btn-delete-comment-detail_${comment_id}" onclick='deleteComment(this)'>삭제</button>
                     <button class="btn-modify-comment-detail btn-modify-comment-detail_${comment_id}" onclick='updateComment(this)'>수정</button>
