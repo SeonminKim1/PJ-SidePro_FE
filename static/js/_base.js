@@ -7,8 +7,8 @@ if (is_local == true) {
 } else {
     var backend_base_url = "http://3.37.194.222:8000"
     var backend_base_ip_port = "3.37.194.222:8000"
-    // const frontend_base_url = "http://www.sidepro.shop"
-    var frontend_base_url = "http://sidepro.shop.s3-website.ap-northeast-2.amazonaws.com"
+    var frontend_base_url = "http://www.sidepro.shop"
+    // var frontend_base_url = "http://sidepro.shop.s3-website.ap-northeast-2.amazonaws.com"
 }
 
 const ROOM_STATUS_RUNNING = 'running'
