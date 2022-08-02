@@ -7,9 +7,6 @@ const comment_write_input = document.querySelector('.input-reply-detail')
 const comment_view = document.querySelector('.box-comment-detail')
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("detailpage.js - DOMContentLoaded")
-    
-    // localStorage.setItem('project_id', 4);
     project_id = localStorage.getItem('project_id');
     GetLoginUserInfo()
     DetailPageViewer(project_id);
@@ -17,9 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // 현재 Login 한 user 정보 조회
 async function GetLoginUserInfo(){
-    console.log("deatilpage.js - get_loginuser_info")
     payload = JSON.parse(localStorage.getItem("payload"))
-    console.log('user_id: ', payload["user_id"])
     const response = await fetch(`${backend_base_url}/user/userinfo/`,{
         headers:{
             Accept: "application/json",
@@ -34,7 +29,6 @@ async function GetLoginUserInfo(){
 
 // 1. 상세 페이지 내용 조회
 async function DetailPageViewer(project_id) {
-    console.log("detailpage.js - DetailPageViewer")
 
     // 1.1 게시물 내용 API로 DB값 조회 (id= n인 게시물 테스트용)
     const response = await fetch(`${backend_base_url}/project/${project_id}`,{
@@ -63,7 +57,6 @@ async function DetailPageViewer(project_id) {
 
 // 2. 제목 & 북마크 여부 & Date
 function AddTitleBookmark(response_json){
-    console.log("detailpage.js - AddTitleBookmark")
 
     // 2.0 배경
     const upper_box = document.querySelector('.wrap-thumnail-post-detail')
@@ -91,7 +84,6 @@ function AddTitleBookmark(response_json){
 
 // 2.2 북마크 여부
 async function bookmark(node) {
-    console.log("detailpage.js - bookmark")
     response = await fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
         headers: {
             Accept: "application/json",
@@ -115,7 +107,6 @@ async function bookmark(node) {
 
 // 3. 기술스택 & GitURL
 function AddSkillsGiturl(response_json){
-    console.log("detailpage.js - AddSkillsGiturl")
     // 3.1 skills
     const skill_box = document.querySelector('.box-title-second-detail')
     skills = response_json['skills']
@@ -137,7 +128,6 @@ function AddSkillsGiturl(response_json){
 
 // 4. 게시글 조회, 수정, 삭제
 function AddArticleViewUpdateDelete(response_json){
-    console.log("detailpage.js - AddArticleViewUpdateDelete")
     // 4.1 게시글 조회 (Viewer Editor)
     const viewer = Editor.factory({
         el: document.querySelector('#viewer'),
@@ -167,7 +157,6 @@ function AddArticleViewUpdateDelete(response_json){
 
 // 4.2 게시글 수정
 function updateArticle(){
-    console.log("detailpage.js - updateArticle")
     localStorage.setItem('project_id', project_id)
     localStorage.setItem('update_mode', 1)
     window.location.replace(`${frontend_base_url}/templates/insert_project.html`);
@@ -175,7 +164,6 @@ function updateArticle(){
 
 // 4.3 게시글 삭제
 async function deleteArticle(){
-    console.log("detailpage.js - deleteArticle")
 
     const response = await fetch(`${backend_base_url}/project/${project_id}/`,{
         headers: {
@@ -197,7 +185,6 @@ async function deleteArticle(){
 
 // 5. 댓글 추가, 조회, 수정, 삭제
 function AddCommentCrud(response_json){
-    console.log("detailpage.js - AddCommentCrud")
 
     const comment_user_span = document.querySelector('.user-reply-detail') // 댓글 유저 창
     const comment_write_btn = document.querySelector('.btn-reply-detail') // 댓글 추가 창
@@ -213,7 +200,6 @@ function AddCommentCrud(response_json){
 
 // 5.1 댓글 추가, 5.3 수정, 5.4 삭제
 async function insertUpdateDeleteComment(){
-    console.log("detailpage.js - insertUpdateDeleteComment")
 
     comment_text = comment_write_input.value; // 댓글 등록 - input text 내용
     const commentdata = { 'comment':comment_text}
@@ -280,8 +266,6 @@ async function insertUpdateDeleteComment(){
 
 // 5.2 댓글 조회
 async function viewComment(comments){
-    console.log("detailpage.js - viewComment")
-
     var newCommentDiv;
     var comment_id, comment_user, comment_text, comment_create_date;
     // comment html 추가  
@@ -325,7 +309,6 @@ async function viewComment(comments){
 
 // 5.3 댓글 수정
 async function updateComment(update_btn_node){ 
-    console.log("detailpage.js - updateComment")
 
     var update_comment_id = (update_btn_node.className).split('_')[1] // 댓글 id number (ex. 24)
     // 부모노드
@@ -409,7 +392,6 @@ async function updateComment(update_btn_node){
 
 // 5.4 댓글 삭제
 async function deleteComment(node){
-    console.log("detailpage.js - deleteComment")
     if(!confirm('정말 삭제하시겠습니까?')){
     }else{
         // delete

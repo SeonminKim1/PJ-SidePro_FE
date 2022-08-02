@@ -30,10 +30,8 @@ function DisableRoomList() {
 
 // Room 목록 조회
 async function GetRoomList() {
-    console.log("chat.js - GetRoomList")
     payload = JSON.parse(localStorage.getItem("payload"))
     user_id = payload["user_id"]
-    console.log('현재 로그인한 user_id: ', user_id)
     const response = await fetch(`${backend_base_url}/chat/rooms/?user_id=${user_id}`,{
         headers:{
             Accept: "application/json",
@@ -43,7 +41,6 @@ async function GetRoomList() {
         method: 'GET',
     })    
     response_json = await response.json()
-    console.log('RoomList : ', response_json)
     if(response.status == 200) {
         //alert('Room 수신 SUCCESS: ', response.status)
         AddRoomListHtml(response_json)
@@ -54,7 +51,6 @@ async function GetRoomList() {
 
 // Room HTML 추가
 function AddRoomListHtml(response_json){
-    console.log("chat.js - AddRoomListHtml")
     document.querySelector('.text-title-room').innerHTML = login_username + '님의 채팅 목록 ✨'
     for(let i=0; i<response_json.length; i++){
         // response_json[i] : room
@@ -120,7 +116,6 @@ function AddRoomListHtml(response_json){
 
 // Room 삭제 - 나가기
 async function RemoveRoomNode(node, roomname){
-    console.log("chat.js - RemoveRoomNode")
     // 채팅방 나가기 여부 confirm 창
     if(!confirm("정말 대화방을 나가시겠습니까? 상대방은 읽기모드로만 전환되며, 대화 재요청시 재활성화 됩니다.")){
     }else{ // 확인 버튼
@@ -143,9 +138,7 @@ async function RemoveRoomNode(node, roomname){
 
 // ROOM 생성
 async function CreateRoomNode(username){
-    console.log('chatRoom.js - CreateRoomNode')
     opponent_username = username
-    console.log(login_username, opponent_username)
     if(login_username != username){
         let init_roomname = 'init' // uuidv4() // uuid로 roomname
         // console.log('===roomname입니다', roomname)

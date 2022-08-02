@@ -5,12 +5,10 @@ var update_mode; // page 이동에 사용되는 변수
 var project_id; // page 이동에 사용되는 변수
 
 document.addEventListener('DOMContentLoaded', async function () {
-    console.log("insertproject.js - DOMContentLoaded")
     
     // localStorage.setItem('update_mode', 1);
     project_id = localStorage.getItem('project_id')
     update_mode = localStorage.getItem('update_mode');
-    console.log('===project_id, update_mode', project_id, update_mode)
 
     // 수정하기로 왔을 떄
     if(update_mode == 1){
@@ -100,8 +98,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // 이미지 Append
         editor.addHook("addImageBlobHook", function (blob, callback) {
-            // blob 텍스트 
-            console.log(blob)
         
             // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
             const formdata = new FormData();
@@ -111,10 +107,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 method: "POST",
                 body: formdata,
             }).then(response => {
-                    console.log(response)
                     return response.json()
                 }).then(json => {
-                    console.log(json)
                     // callback의 인수로 넣으시면 됩니다. 
                     callback(json["url"], "image")
                 })
@@ -147,7 +141,6 @@ insert_project = function () {
                 // Skills Value List
                 select_skills_value = [] // [arc, aws, python]
                 for (i = 0; i < skill_tag_list.length; i++){
-                    console.log(skill_tag_list[i].innerText)
                     select_skills_value.push(skill_tag_list[i].innerText)
                 }
 
@@ -180,10 +173,8 @@ insert_project = function () {
                         method: 'PUT',
                         body: formdata
                     }).then(response => {
-                            console.log(response)
                             return response.json()
                         }).then(json => {
-                            console.log(json)
                             localStorage.setItem("project_id", json['id'])
                             localStorage.setItem("update_mode", 0)
                             update_mode = 0
@@ -198,10 +189,8 @@ insert_project = function () {
                         method: 'POST',
                         body: formdata
                     }).then(response => {
-                            console.log(response)
                             return response.json()
                         }).then(json => {
-                            console.log(json)
                             localStorage.setItem("project_id", json['id'])
                             localStorage.setItem("update_mode", 0)
                             update_mode = 0
@@ -244,10 +233,8 @@ insert_project = function () {
                 method: 'PUT',
                 body: formdata
             }).then(response => {
-                    console.log(response)
                     return response.json()
                 }).then(json => {
-                    console.log(json)
                     localStorage.setItem("project_id", json['id'])
                     localStorage.setItem("update_mode", 0)
                     update_mode = 0
@@ -264,10 +251,8 @@ insert_project = function () {
                 method: 'POST',
                 body: formdata
             }).then(response => {
-                    console.log(response)
                     return response.json()
                 }).then(json => {
-                    console.log(json)
                     localStorage.setItem("project_id", json['id'])
                     localStorage.setItem("update_mode", 0)
                     update_mode = 0

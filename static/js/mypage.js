@@ -16,7 +16,6 @@ async function getMyUserInfo() {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-        // body: JSON.stringify(Data)
     })
 
     response_json = await response.json()
@@ -83,7 +82,6 @@ async function myProjectList() {
     if (response.status == 200) {
 
         myprojectlist = response_json
-        console.log(myprojectlist)
 
         const list_box = document.querySelector(".myproject-slides")
 
@@ -221,7 +219,6 @@ async function myBookmarkProjectList() {
     if (response.status == 200) {
 
         mybookmarkprojectlist = response_json
-        console.log(mybookmarkprojectlist)
 
         const list_box = document.querySelector(".mybookmarkproject-slides")
 
