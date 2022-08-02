@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Toast UI Editor -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="/static/css/mypage.css">
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Javascript Import -->
+    <script src="/static/js/_base.js"></script>
+    <script src="/static/js/userpage.js"></script>
+</head>
+
+<body>
+    <nav id="bar-nav">
+        <script>$("#bar-nav").load("/templates/nav.html");</script>
+    </nav>
+    <section class="container-mypage">
+        <aside class="container-profile-user">
+            <div class="wrap-card-profile">
+                <div class="box-card-profile">
+                    <div class="box-img-profile-mypage">
+                    </div>
+                    <div class="wrap-text-profile-mypage">
+                    </div>
+                </div>
+                <div class="box-text-introduce">
+                    
+                </div>
+            </div>
+            <div class="box-btn-modify-mypage">
+                <button class="btn-modify-mypage" onclick="toModifyProfile()">
+                    정보 수정하기
+                </button>
+            </div>
+        </aside>
+        <main class="container-card-mypage">
+            <div class="wrap-card-section-mypage">
+                <div class="text-title-section-myproject">
+                    <span>나의 프로젝트</span>
+                    <span class="prev"><</span>
+                    <span class="next">></span>  
+                </div>
+                <hr>
+                <div class="container-card-section-myproject">
+                    <div class="myproject-slides"><!-- 카드 --></div>                
+                </div>
+            </div>
+            <div class="wrap-card-section-mypage">
+                <div class="text-title-section-myproject">
+                    <span>북마크한 프로젝트</span>
+                    <span class="prev-bookmark"><</span>
+                    <span class="next-bookmark">></span>
+                </div>
+                <hr>
+                <div class="container-card-section-mybookmarkproject">
+                    <div class="mybookmarkproject-slides"><!-- 카드 --></div>
+                </div>
+            </div>
+        </main>
+    </section>
+    
+</body>
+</html>
