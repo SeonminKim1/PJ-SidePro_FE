@@ -10,13 +10,18 @@ section {
 }
 
 .box-chat-room-list {
-    height: 100%;
+    height: 1200px;
 }
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     background-color: #EFEFEF;
+}
+
+section {
+    display: flex;
+    /* background-color: aqua; */
 }
 
 nav {
@@ -43,6 +48,7 @@ nav {
     position: fixed;
     bottom: 30px;
     right: 30px;
+    z-index: 0;
 }
 
 .btn-fixed-container>button {
@@ -74,7 +80,8 @@ nav {
 .chat-list {
     display: none;
     z-index: 1;
-    position: absolute;
+    position: fixed;
+    top: 0;
     right: 0;
     width: 300px;
     height: 100vh;
@@ -98,7 +105,7 @@ nav {
 .btn-chat-close,
 .btn-chat-room-close {
     position: absolute;
-    top: 20px;
+    top: 1px;
     right: 20px;
     border: none;
     font-size: 32px;
@@ -110,12 +117,12 @@ nav {
 
 .box-text-title-chat,
 .box-text-title-room {
-    margin: 20px 20px;
+    padding: 10px;
 }
 
 .text-title-chat,
 .text-title-room {
-    font-size: 1.5rem;
+    font-size: 1rem;
     color: black;
 }
 
@@ -193,8 +200,9 @@ nav {
 /* 채팅 */
 .chat-container {
     display: none;
-    z-index: 999;
-    position: absolute;
+    z-index: 2;
+    position: fixed;
+    top: 0;
     right: 0;
     width: 300px;
     height: 100vh;
@@ -805,6 +813,10 @@ nav {
     border-radius: 30px;
     color: aliceblue;
     background-color: rgb(75, 0, 226);
+}
+
+.btn-chat-mypage:hover {
+    cursor: pointer;
 }
 
 .btn-bookmark-main,
