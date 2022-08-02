@@ -1,8 +1,15 @@
 
 // Profile Modal Open
 function modalOpen(profile_img, user2_username, github_url) { 	
-    console.log("chat.js - modalOpen")
     if(modal.style.display == '') {
+        
+        var div = document.getElementById("div_id");
+        var divTop = div.getBoundingClientRect().top;
+        var absoluteTop = window.pageYOffset + div.getBoundingClientRect().top;
+        
+
+        modal.style.left = "100px"
+
         modal.style.display = 'block'; 	
         const imgProfileModal = document.querySelector(".img-profile-modal"); 	
         imgProfileModal.src = profile_img
@@ -17,7 +24,6 @@ function modalOpen(profile_img, user2_username, github_url) {
 
 // Profile Modal Close
 function modalClose() { 
-    console.log("chat.js - modalClose")
     if(modal.style.display == 'block') {
         modal.style.display = '';        
     }

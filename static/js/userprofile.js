@@ -1,4 +1,3 @@
-
 // 유저프로필 정보 등록
 function userprofile_upload() {
     const github_url = document.querySelector('#github_url').value
