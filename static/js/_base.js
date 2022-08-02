@@ -2,7 +2,7 @@
 var is_local = true
 if (is_local == true) {
     var backend_base_url = "http://127.0.0.1:8000"
-    var backend_base_ip_port = "127.0.0.1:8001"
+    var backend_base_ip_port = "127.0.0.1:8000"
     var frontend_base_url = "http://127.0.0.1:5500"
 } else {
     var backend_base_url = "http://3.37.194.222:8000"
