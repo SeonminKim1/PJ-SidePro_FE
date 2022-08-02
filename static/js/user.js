@@ -97,4 +97,13 @@ async function login() {
     }
 
 }
-
+function login_enterkey() {
+	if (window.event.keyCode == 13) {
+    	login()
+    }
+}
+function join_enterkey() {
+	if (window.event.keyCode == 13) {
+    	join()
+    }
+}
