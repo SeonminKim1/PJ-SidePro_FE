@@ -346,14 +346,12 @@ async function updateComment(update_btn_node){
         <div class="comment-content-detail comment-content-detail_${update_comment_id}">
             <input type="text" class = "comment-content-detail-input comment-content-detail-input_${update_comment_id}" value=${update_text_node.innerText}/>                   
         </div>
-
-        <div class="comment-content-date comment-content-date_${update_comment_id}">${update_create_node.innerText}</div>
         <div class="box-btn-comment-content box-btn-comment-content_${update_comment_id}">
             <button class="btn-ok-comment-detail btn-ok-comment-detail_${update_comment_id}">완료</button>
             <button class="btn-cancel-comment-detail btn-cancel-comment-detail_${update_comment_id}">취소</button>
         </div>
     `
-
+    document.querySelector(".comment-content-detail-input_"+ update_comment_id).focus(); // 댓글 수정하는 쪽으로 커서 이동
     // 5.3.3 (수정)완료 버튼 노드 생성 => 완료시 HTML 수정내용으로 그려주기
     update_ok_btn = document.querySelector('.btn-ok-comment-detail_' + update_comment_id)
     update_ok_btn.addEventListener('click', async function(){
@@ -430,5 +428,16 @@ async function deleteComment(node){
         }else{
             alert('댓글 삭제 실패했습니다.', response.status)
         }        
+    }
+}
+
+function comment_enterkey() {
+	if (window.event.keyCode == 13) {
+    	insertUpdateDeleteComment()
+    }
+}
+function update_comment_enterkey(update_btn_node) {
+	if (window.event.keyCode == 13) {
+    	updateComment(update_btn_node)
     }
 }
