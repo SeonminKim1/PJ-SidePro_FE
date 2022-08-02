@@ -32,11 +32,11 @@
                 <div class="wrap-input-login">
                     <li><input id="input-id-login" type="text" size=40 placeholder="E-mail" title="아이디"></li>
                     <li><input id="input-password-login" type="password" size=40 maxlength="16" placeholder="Password"
-                            title="비밀번호">
+                        onkeyup="login_enterkey()" title="비밀번호">
                     </li>
                     <li class="btn-login-login">
                         <div class="box-btn-login-login">
-                            <button type="submit" onclick="login()" class="btn-login">
+                            <button type="submit" onclick="login()"  class="btn-login">
                                 로그인
                             </button>
                             <button type="submit" onclick="login()" class="btn-kakao-login">
