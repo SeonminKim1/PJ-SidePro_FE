@@ -315,9 +315,8 @@ nav {
 
 /* 유저 프로필 모달 */
 .container-profile-modal {
-    display: none;
+    display: none; 
     position: absolute;
-    left: 0;
 }
 
 .wrap-profile-modal {
@@ -325,6 +324,10 @@ nav {
     padding: 30px 30px;
     border-radius: 14px;
     background-color: gainsboro;
+    
+    width: 330px;
+    height: 180px;
+    position: fixed;
 }
 
 .box-close-modal {
@@ -366,6 +369,17 @@ nav {
     font-weight: 700;
 }
 
+.text-profile-portfolio-modal > a {
+    color: black;
+    text-decoration: none;
+}
+
+.text-profile-portfolio-modal{
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 /* Main */
 

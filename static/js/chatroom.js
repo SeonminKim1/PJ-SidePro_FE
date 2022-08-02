@@ -61,6 +61,7 @@ function AddRoomListHtml(response_json){
         var user1_username = response_json[i].user1.username
         var user2_username = response_json[i].user2.username;
         var profile_img, github_url;
+        var user2_id = response_json[i].user2.id;
 
         // Backend에선 Room에 참여한 첫번째 유저, 두번째 유저로 저장
         // FE에서 로그인한 유저(user1)과 채팅대상(user2) 설정 (고정)
@@ -97,7 +98,7 @@ function AddRoomListHtml(response_json){
                 <div class="box-text-user box-text-user_${i}">
                     <div>
                         <span class="text-profile-name text-profile-name_${i}"
-                        onclick="modalOpen('${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
+                        onclick="modalClose(); modalOpen('${user2_id}','${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
                     </div>
                     <div class="box-btn-chatroom">
                         <button class="btn-open-chatting-room" onclick="activeChatRoom('${roomname}', '${user1_username}', '${user2_username}')">채팅 열기 💬</button>
