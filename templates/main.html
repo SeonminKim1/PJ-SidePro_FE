@@ -6,16 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIDE PRO</title>
-    <!-- Toast UI Editor -->
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;500;900&display=swap"
-        rel="stylesheet">
-
+    
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
 
@@ -82,11 +73,11 @@
                                 </div>
                                 <!-- 정렬 -->
                                 <div class="box-dropdown-align-main">
-                                    <button class="btn-dropdown-main">정렬 ▼</button>
-                                    <div class="dropdown-content-main">
-                                        <a onclick="project_list(null,'newest')">최신순</a>
-                                        <a onclick="project_list(null,'views')">조회순</a>
-                                        <a onclick="project_list(null,'popular')">인기순</a>
+                                    <button class="btn-dropdown-main" onclick="sort()">정렬 ▼</button>
+                                    <div class="dropdown-content-main" style="display: none;">
+                                        <a onclick="project_list(null,'newest'); sort()">최신순</a>
+                                        <a onclick="project_list(null,'views'); sort()">조회순</a>
+                                        <a onclick="project_list(null,'popular'); sort()">인기순</a>
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +140,7 @@
                 </div>
                 <div class="box-profile-modal">
                     <div>
-                        <img src="/static/img/profile-kim.png" class="img-profile img-profile-modal">
+                        <img src="" class="img-profile img-profile-modal">
                     </div>
                     <div class="box-text-modal">
                         <span class="text-profile-name text-modal-name text-profile-name-modal">김프로
@@ -163,6 +154,9 @@
             </div>
         </div>
     </section>
+    <footer id="footer" class="container-footer-main">
+        <script>$("#footer").load("/templates/footer.html");</script>
+    </footer>
 </body>
 
 <!-- Javascript Import -->

@@ -41,7 +41,7 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
                     </div>
                     <div id="box-chat-user" class="box-text-chat">
                         <span id="chat-user-desc" class="text-chat-desc">${data.message}</span>
-                        <span class="text-chat-date">${data.dt}</span>
+                        <p class="text-chat-date">${data.dt}</p>
                     </div>`
         }else{
             newChatDiv.className = "wrap-chat-partner"
@@ -51,7 +51,7 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
                     </div>
                     <div id="box-chat-partner" class="box-text-chat">
                         <span id="chat-partner-desc" class="text-chat-desc">${data.message}</span>
-                        <span class="text-chat-date">${data.dt}</span>
+                        <p class="text-chat-date">${data.dt}</p>
                     </div>`
         }
         asideChatText.append(newChatDiv)

@@ -89,8 +89,8 @@ function userprofile_upload() {
     const description = document.querySelector('#description').value
     if(description == ""){
         return alert("자기소개를 입력해주세요!")
-    } else if (description.length > 30){
-        return alert("자기소개는 30자 까지만 작성 할 수 있습니다.")
+    } else if (description.length > 25){
+        return alert("자기소개는 25자 까지만 작성 할 수 있습니다.")
     }
     // 이미지를 있는 경우
     if(document.querySelector("#profile_image_path").files[0] != null){

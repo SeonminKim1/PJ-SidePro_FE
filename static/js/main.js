@@ -296,3 +296,14 @@ function toUserPage(user_id) {
     }
     
 }
+
+function sort() {
+    const sort_btn = document.querySelector(".dropdown-content-main")
+    console.log(sort_btn)
+    if (sort_btn.style.display == 'none'){
+        sort_btn.style.display = 'block'
+    } else {
+        sort_btn.style.display = 'none'
+    }
+    
+}
