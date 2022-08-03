@@ -29,7 +29,7 @@ input {
 }
 
 .wrap-project-post-detail {
-    width: 60%;
+    width: 65%;
     margin: auto;
     padding: 5% 5% 0;
     background-color: white;
@@ -70,6 +70,7 @@ input {
 
 .box-title-project-detail {
     /* background-color: aquamarine; */
+
 }
 
 .text-title-project-detail {
@@ -183,8 +184,9 @@ input {
 }
 
 .wrap-reply-detail {
-    width: 60%;
+    width: 65%;
     margin: auto;
+    /* background-color: aqua; */
 }
 
 .box-reply-detail {
@@ -197,9 +199,16 @@ input {
     background-color: white;
 }
 
+.box-reply-user {
+    width: 80%;
+    /* background-color: aquamarine; */
+}
+
 .input-reply-detail {
+    width: 90%;
     margin: 0 10px;
     font-size: 1.2rem;
+    /* background-color: antiquewhite; */
 }
 
 .btn-reply-detail {
@@ -257,6 +266,7 @@ input {
     width: 100%;
     margin: 2px 0;
     padding: 10px;
+    font-weight: 300;
     background-color: whitesmoke;
     border: 1px solid gainsboro;
 }

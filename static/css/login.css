@@ -105,6 +105,12 @@ button {
     background-color: yellow;
 }
 
+.btn-google-login:hover {
+    font-weight: 700;
+    color: aliceblue;
+    background-color: blue;
+}
+
 .wrap-input-login>li>input,
 button {
     height: 3rem;
@@ -115,7 +121,7 @@ button {
 }
 
 .btn-join-login:hover {
-    background-color: grey;
+    background-color: black;
     color: white;
 }
 
