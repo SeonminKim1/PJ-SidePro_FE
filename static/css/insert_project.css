@@ -50,7 +50,6 @@ input {
     margin: 20px 0;
 }
 
-
 .info-project-post,
 .git-project-post,
 .input-search-project-post {
@@ -113,6 +112,7 @@ input {
 .btn-project-submit:hover {
     background-color: rgb(75, 0, 226);
 }
+
 
 /* skills */
 .skills-tag {
