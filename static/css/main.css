@@ -127,6 +127,7 @@ nav {
 .box-text-title-chat,
 .box-text-title-room {
     padding: 10px;
+    background-color: whitesmoke;
 }
 
 .text-title-chat,
@@ -219,13 +220,18 @@ nav {
     right: 0;
     width: 300px;
     height: 100vh;
-    background-color: gainsboro;
+    background-color: whitesmoke;
 }
 
 .box-chat-partner-user,
 .box-chat-room-list {
     height: 85vh;
     overflow-y: scroll;
+    background-color: gainsboro;
+}
+
+.room-list-color {
+    background-color: gainsboro;
 }
 
 .wrap-profile-chat {
@@ -234,7 +240,7 @@ nav {
 
 .wrap-chat-bubble {
     display: inline-block;
-    margin: 20px 0;
+    margin: 3px 0;
     /* background-color: aqua; */
 }
 
