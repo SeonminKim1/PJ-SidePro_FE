@@ -31,7 +31,7 @@ async function recommend_lsit(){
                 <img class="img-card-thumnail-mypage" src="${element.thumnail_img_path}" onclick="project_detail('${element.id}')">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project" onclick="project_detail(${element.id})">${element.title}</span>
-                    <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">${element.description}</span>
+                    <span class="card-text text-indroduce-card-project">${element.description}</span>
                     <div class="card-text text-skill-card-project" id="box-text-card-suggest-project_${element.id}"></div>
                 </div>
                 <div class="project-information">
@@ -122,7 +122,7 @@ async function project_list(url, filter){
                 <img class="img-card-thumnail-mypage" src="${element.thumnail_img_path}" onclick="project_detail('${element.id}')">
                 <div class="box-text-card-project">
                     <span class="card-text text-title-card-project" onclick="project_detail(${element.id})">${element.title}</span>
-                    <span class="card-text text-indroduce-card-project" onclick="project_detail(${element.id})">${element.description}</span>
+                    <span class="card-text text-indroduce-card-project">${element.description}</span>
                     <div class="card-text text-skill-card-project" id="box-text-card-project_${element.id}"></div>
                 </div>
                 <div class="project-information">
