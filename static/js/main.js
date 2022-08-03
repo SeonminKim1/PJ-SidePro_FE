@@ -74,11 +74,12 @@ async function recommend_lsit(){
                 <span class="btn-bookmark-main-reommend-count_${element.id}">${element.bookmark_count}</span>`
             }
             bookmark_div.append(bookmark_btn)
-                
+            
+            const username = document.querySelector('.text-title-suggest')
+            username.innerHTML = '🤔'+login_username+'님에게 맞는 추천 프로젝트!'
         }
         
-    const username = document.querySelector('.text-title-suggest')
-    username.innerHTML = '🤔'+login_username+'님에게 맞는 추천 프로젝트!'
+    
     }
 }
 
