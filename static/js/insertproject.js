@@ -118,10 +118,31 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // 게시글 등록(수정)
 insert_project = function () {
+    const title = document.querySelector("#title").value
+    if (title == ""){
+        return alert("제목을 입력해주세요!")
+    } else if (title.length > 50){
+        return alert("제목은 50자 이하 입니다!")
+    }
+    const description = document.querySelector("#description").value
+    if (description == ""){
+        return alert("한줄 소개를 입력해주세요!")
+    } else if (description.length > 60){
+        return alert("한줄 소개는은 60자 이하 입니다!")
+    }
     const github_url = document.querySelector('#git_hub_url').value
     if (!(github_url.includes("http://")) && !(github_url.includes("https://"))) {
         return alert("github 주소를 확인해주세요!")
     }
+    const skills = skill_tag_list.length
+    if(skills == 0){
+        return alert("기술 스택을 입력해주세요!")
+    }
+    const content = editor.getMarkdown()
+    if (content == ""){
+        return alert("내용을 입력해주세요")
+    }
+    
     // 이미지가 있을 경우
     if (document.querySelector("#thumnail_img_path").files[0] != null){
         // image data
