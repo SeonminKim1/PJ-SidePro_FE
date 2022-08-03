@@ -164,21 +164,23 @@ function updateArticle(){
 
 // 4.3 게시글 삭제
 async function deleteArticle(){
+    if(confirm("게시물을 삭제하시겠습니까?") == true){
 
-    const response = await fetch(`${backend_base_url}/project/${project_id}/`,{
-        headers: {
-            Accept: "application/json",
-            'content-type': "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method: 'DELETE',
-    })
-    response_json = await response.json()
-    if(response.status == 200) {
-        alert(response_json['success'], response.status)
-        window.location.replace(`${frontend_base_url}/templates/main.html`);
-    } else {
-        alert('게시글 삭제 실패: ', response.status)
+        const response = await fetch(`${backend_base_url}/project/${project_id}/`,{
+            headers: {
+                Accept: "application/json",
+                'content-type': "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method: 'DELETE',
+        })
+        response_json = await response.json()
+        if(response.status == 200) {
+            alert(response_json['success'], response.status)
+            window.location.replace(`${frontend_base_url}/templates/main.html`);
+        } else {
+            alert('게시글 삭제 실패: ', response.status)
+        }
     }
 }
 
@@ -235,7 +237,7 @@ async function insertUpdateDeleteComment(){
             newCommentDiv.innerHTML = ` 
                 <div class="box-comment-content-detail">
                     <span class = "user-comment-detail">${comment_user}</span>
-                    <div class="comment-content-date_${comment_id}">${comment_create_date}</div>
+                    <div class="comment-content-date comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
                 <div class="wrap-comment-content-detail wrap-comment-content-detail_${comment_id}">
                     <div class="comment-content-detail comment-content-detail_${comment_id}">${comment_text}</div>
@@ -327,11 +329,11 @@ async function updateComment(update_btn_node){
     // 5.3.2 댓글 입력 input 노드, 날짜, 완료 버튼, 취소 버튼 => 생성 
     update_div.innerHTML = `
         <div class="comment-content-detail comment-content-detail_${update_comment_id}">
-            <input type="text" class = "comment-content-detail-input comment-content-detail-input_${update_comment_id}" value=${update_text_node.innerText}/>                   
+            <input type="textarea" class = "comment-content-detail-input comment-content-detail-input_${update_comment_id}" value="${update_text_node.innerText}">                   
         </div>
         <div class="box-btn-comment-content box-btn-comment-content_${update_comment_id}">
-            <button class="btn-ok-comment-detail btn-ok-comment-detail_${update_comment_id}">완료</button>
-            <button class="btn-cancel-comment-detail btn-cancel-comment-detail_${update_comment_id}">취소</button>
+            <button class="btn-modify-comment-detail btn-ok-comment-detail_${update_comment_id}">완료</button>
+            <button class="btn-delete-comment-detail btn-cancel-comment-detail_${update_comment_id}">취소</button>
         </div>
     `
     document.querySelector(".comment-content-detail-input_"+ update_comment_id).focus(); // 댓글 수정하는 쪽으로 커서 이동
