@@ -19,7 +19,6 @@
     <!-- CSS Import -->
     <link rel="stylesheet" href="/static/css/login.css">
 
-   
 </head>
 
 <body>
@@ -30,17 +29,20 @@
                     <h1>SIDE PRO</h1>
                 </div>
                 <div class="wrap-input-login">
-                    <li><input id="input-id-login" type="text" size=40 placeholder="E-mail" title="아이디"></li>
-                    <li><input id="input-password-login" type="password" size=40 maxlength="16" placeholder="Password"
-                        onkeyup="login_enterkey()" title="비밀번호">
+                    <li><input id="input-id-login" type="text" size=40 placeholder="이메일 주소를 입력하세요" title="아이디"></li>
+                    <li><input id="input-password-login" type="password" size=40 maxlength="16"
+                            placeholder="비밀번호를 입력하세요" onkeyup="login_enterkey()" title="비밀번호">
                     </li>
                     <li class="btn-login-login">
                         <div class="box-btn-login-login">
-                            <button type="submit" onclick="login()"  class="btn-login">
+                            <button type="submit" onclick="login()" class="btn-login">
                                 로그인
                             </button>
                             <button type="submit" onclick='alert("준비중입니다.")' class="btn-kakao-login">
                                 카카오 로그인
+                            </button>
+                            <button type="submit" onclick="login()" class="btn-google-login">
+                                구글 로그인
                             </button>
                         </div>
                     </li>
@@ -54,9 +56,9 @@
             </div>
         </div>
     </section>
-     <!-- Javascript Import -->
-     <script src="/static/js/_base.js"></script>
-     <script src="/static/js/user.js"></script>
+    <!-- Javascript Import -->
+    <script src="/static/js/_base.js"></script>
+    <script src="/static/js/user.js"></script>
 </body>
 
 </html>
