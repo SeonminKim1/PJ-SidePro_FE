@@ -12,7 +12,6 @@ async function getMyUserInfo() {
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-        // body: JSON.stringify(Data)
     })
 
     response_json = await response.json()
@@ -20,7 +19,6 @@ async function getMyUserInfo() {
     if (response.status == 200) {
 
         myuserinfo = response_json
-        console.log(myuserinfo)        
 
         // 유저프로필 페이지에서 사용자명 출력
         const welcome_profile = document.querySelector('.box-text-title-profile-regist');
@@ -72,7 +70,28 @@ async function getMyUserInfo() {
 
 // 유저프로필 정보 등록
 function userprofile_upload() {
-    
+    const skills = skill_tag_list.length
+    if(skills == 0){
+        return alert("기술 스택을 입력해주세요!")
+    }
+    const github_url = document.querySelector('#github_url').value
+    if (!(github_url.includes("http://")) && !(github_url.includes("https://"))) {
+        return alert("github 주소를 확인해주세요!")
+    }
+    const region = document.querySelector('#region').value
+    if(region == 0){
+        return alert("활동 지역을 선택해주세요")
+    }
+    const meet_time = document.querySelector('#meet_time').value
+    if(meet_time == 0){
+        return alert("활동 시간을 선택해주세요")
+    }
+    const description = document.querySelector('#description').value
+    if(description == ""){
+        return alert("자기소개를 입력해주세요!")
+    } else if (description.length > 30){
+        return alert("자기소개는 30자 까지만 작성 할 수 있습니다.")
+    }
     // 이미지를 있는 경우
     if(document.querySelector("#profile_image_path").files[0] != null){
         image_data = new FormData()
@@ -86,15 +105,12 @@ function userprofile_upload() {
             body: image_data,
         })
             .then(response => {
-                console.log(response)
                 return response.json()
             })
             .then(json => {
-                console.log(json)
                 // Skills Value List
                 select_skills_value = [] // [arc, aws, python]
                 for (i = 0; i < skill_tag_list.length; i++) {
-                    console.log(skill_tag_list[i].innerText)
                     select_skills_value.push(skill_tag_list[i].innerText)
                 }
 
@@ -125,11 +141,9 @@ function userprofile_upload() {
                     body: formdata
                 })
                     .then(response => {
-                        console.log(response)
                         return response.json()
                     })
                     .then(json => {
-                        console.log(json)
                         alert('사용자정보 수정완료')
                     })
                 window.location.replace(`${frontend_base_url}/templates/mypage.html`);
@@ -138,7 +152,6 @@ function userprofile_upload() {
         // Skills Value List
         select_skills_value = [] // [arc, aws, python]
         for (i = 0; i < skill_tag_list.length; i++) {
-            console.log(skill_tag_list[i].innerText)
             select_skills_value.push(skill_tag_list[i].innerText)
         }
 
@@ -168,11 +181,9 @@ function userprofile_upload() {
             body: formdata
         })
             .then(response => {
-                console.log(response)
                 return response.json()
             })
             .then(json => {
-                console.log(json)
                 alert('사용자정보 수정완료')
             })
         window.location.replace(`${frontend_base_url}/templates/mypage.html`);

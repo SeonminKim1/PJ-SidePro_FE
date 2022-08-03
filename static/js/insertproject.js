@@ -5,12 +5,10 @@ var update_mode; // page 이동에 사용되는 변수
 var project_id; // page 이동에 사용되는 변수
 
 document.addEventListener('DOMContentLoaded', async function () {
-    console.log("insertproject.js - DOMContentLoaded")
     
     // localStorage.setItem('update_mode', 1);
     project_id = localStorage.getItem('project_id')
     update_mode = localStorage.getItem('update_mode');
-    console.log('===project_id, update_mode', project_id, update_mode)
 
     // 수정하기로 왔을 떄
     if(update_mode == 1){
@@ -100,8 +98,6 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         // 이미지 Append
         editor.addHook("addImageBlobHook", function (blob, callback) {
-            // blob 텍스트 
-            console.log(blob)
         
             // !!!!! 여기서 이미지를 받아와서 이미지 주소를 받아오고 (ajax 등으로)
             const formdata = new FormData();
@@ -111,10 +107,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 method: "POST",
                 body: formdata,
             }).then(response => {
-                    console.log(response)
                     return response.json()
                 }).then(json => {
-                    console.log(json)
                     // callback의 인수로 넣으시면 됩니다. 
                     callback(json["url"], "image")
                 })
@@ -124,10 +118,31 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 // 게시글 등록(수정)
 insert_project = function () {
+    const title = document.querySelector("#title").value
+    if (title == ""){
+        return alert("제목을 입력해주세요!")
+    } else if (title.length > 40){
+        return alert("제목은 40자 이하 입니다!")
+    }
+    const description = document.querySelector("#description").value
+    if (description == ""){
+        return alert("한줄 소개를 입력해주세요!")
+    } else if (description.length > 60){
+        return alert("한줄 소개는은 60자 이하 입니다!")
+    }
     const github_url = document.querySelector('#git_hub_url').value
     if (!(github_url.includes("http://")) && !(github_url.includes("https://"))) {
         return alert("github 주소를 확인해주세요!")
     }
+    const skills = skill_tag_list.length
+    if(skills == 0){
+        return alert("기술 스택을 입력해주세요!")
+    }
+    const content = editor.getMarkdown()
+    if (content == ""){
+        return alert("내용을 입력해주세요")
+    }
+    
     // 이미지가 있을 경우
     if (document.querySelector("#thumnail_img_path").files[0] != null){
         // image data
@@ -147,7 +162,6 @@ insert_project = function () {
                 // Skills Value List
                 select_skills_value = [] // [arc, aws, python]
                 for (i = 0; i < skill_tag_list.length; i++){
-                    console.log(skill_tag_list[i].innerText)
                     select_skills_value.push(skill_tag_list[i].innerText)
                 }
 
@@ -180,10 +194,8 @@ insert_project = function () {
                         method: 'PUT',
                         body: formdata
                     }).then(response => {
-                            console.log(response)
                             return response.json()
                         }).then(json => {
-                            console.log(json)
                             localStorage.setItem("project_id", json['id'])
                             localStorage.setItem("update_mode", 0)
                             update_mode = 0
@@ -198,10 +210,8 @@ insert_project = function () {
                         method: 'POST',
                         body: formdata
                     }).then(response => {
-                            console.log(response)
                             return response.json()
                         }).then(json => {
-                            console.log(json)
                             localStorage.setItem("project_id", json['id'])
                             localStorage.setItem("update_mode", 0)
                             update_mode = 0
@@ -244,10 +254,8 @@ insert_project = function () {
                 method: 'PUT',
                 body: formdata
             }).then(response => {
-                    console.log(response)
                     return response.json()
                 }).then(json => {
-                    console.log(json)
                     localStorage.setItem("project_id", json['id'])
                     localStorage.setItem("update_mode", 0)
                     update_mode = 0
@@ -264,10 +272,8 @@ insert_project = function () {
                 method: 'POST',
                 body: formdata
             }).then(response => {
-                    console.log(response)
                     return response.json()
                 }).then(json => {
-                    console.log(json)
                     localStorage.setItem("project_id", json['id'])
                     localStorage.setItem("update_mode", 0)
                     update_mode = 0

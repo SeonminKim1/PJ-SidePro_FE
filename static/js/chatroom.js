@@ -30,10 +30,8 @@ function DisableRoomList() {
 
 // Room 목록 조회
 async function GetRoomList() {
-    console.log("chat.js - GetRoomList")
     payload = JSON.parse(localStorage.getItem("payload"))
     user_id = payload["user_id"]
-    console.log('현재 로그인한 user_id: ', user_id)
     const response = await fetch(`${backend_base_url}/chat/rooms/?user_id=${user_id}`,{
         headers:{
             Accept: "application/json",
@@ -43,7 +41,6 @@ async function GetRoomList() {
         method: 'GET',
     })    
     response_json = await response.json()
-    console.log('RoomList : ', response_json)
     if(response.status == 200) {
         //alert('Room 수신 SUCCESS: ', response.status)
         AddRoomListHtml(response_json)
@@ -54,7 +51,6 @@ async function GetRoomList() {
 
 // Room HTML 추가
 function AddRoomListHtml(response_json){
-    console.log("chat.js - AddRoomListHtml")
     document.querySelector('.text-title-room').innerHTML = login_username + '님의 채팅 목록 ✨'
     for(let i=0; i<response_json.length; i++){
         // response_json[i] : room
@@ -65,6 +61,16 @@ function AddRoomListHtml(response_json){
         var user1_username = response_json[i].user1.username
         var user2_username = response_json[i].user2.username;
         var profile_img, github_url;
+
+        // 채팅방에 등록되어있는 id 중 현재 접속 중인 id 가 아닌 다른 사람의 id 추출
+        var user1_id = response_json[i].user1.id;
+        var user2_id = response_json[i].user2.id;
+        const payload = JSON.parse(localStorage.getItem("payload"));
+        if (user1_id == payload.user_id){
+            var user_id = user2_id
+        } else {
+            var user_id = user1_id
+        }
 
         // Backend에선 Room에 참여한 첫번째 유저, 두번째 유저로 저장
         // FE에서 로그인한 유저(user1)과 채팅대상(user2) 설정 (고정)
@@ -101,7 +107,7 @@ function AddRoomListHtml(response_json){
                 <div class="box-text-user box-text-user_${i}">
                     <div>
                         <span class="text-profile-name text-profile-name_${i}"
-                        onclick="modalOpen('${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
+                        onclick="modalClose(); modalOpen('${user_id}','${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
                     </div>
                     <div class="box-btn-chatroom">
                         <button class="btn-open-chatting-room" onclick="activeChatRoom('${roomname}', '${user1_username}', '${user2_username}')">채팅 열기 💬</button>
@@ -120,7 +126,6 @@ function AddRoomListHtml(response_json){
 
 // Room 삭제 - 나가기
 async function RemoveRoomNode(node, roomname){
-    console.log("chat.js - RemoveRoomNode")
     // 채팅방 나가기 여부 confirm 창
     if(!confirm("정말 대화방을 나가시겠습니까? 상대방은 읽기모드로만 전환되며, 대화 재요청시 재활성화 됩니다.")){
     }else{ // 확인 버튼
@@ -143,9 +148,7 @@ async function RemoveRoomNode(node, roomname){
 
 // ROOM 생성
 async function CreateRoomNode(username){
-    console.log('chatRoom.js - CreateRoomNode')
     opponent_username = username
-    console.log(login_username, opponent_username)
     if(login_username != username){
         let init_roomname = 'init' // uuidv4() // uuid로 roomname
         // console.log('===roomname입니다', roomname)

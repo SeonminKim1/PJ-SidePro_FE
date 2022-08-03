@@ -2,14 +2,15 @@ var slides, slide, currentIdx, slideCount, slideWidth, slideMargin, prevBtn, nex
 var slidesBookmark, slideBookmark, currentIdxBookmark, slideCountBookmark, slideWidthBookmark, slideMarginBookmark, prevBtnBookmark, nextBtnBookmark;
 
 window.addEventListener('DOMContentLoaded', function () {
-    getMyUserInfo();
+    var user_id = localStorage.getItem("AnotherUser_id")
+    getMyUserInfo(user_id);
     
 });
 
 // 비동기 통신 async 내 정보 출력
-async function getMyUserInfo() {
+async function getMyUserInfo(user_id) {
 
-    const response = await fetch(`${backend_base_url}/user/profile/`, {
+    const response = await fetch(`${backend_base_url}/user/profile/${user_id}/`, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
@@ -44,6 +45,7 @@ async function getMyUserInfo() {
         </div>
         <div class="text-profile-mypage text-user-region-mypage">활동 지역: ${myuserinfo['userprofile']['region']}</div>
         <div class="text-profile-mypage text-user-meettime-mypage">활동 시간대: ${myuserinfo['userprofile']['meet_time']}</div>
+        <button class="btn-chat-mypage btn-chat-mypage" onclick="">커피챗 신청하기 ☕️</button>
         `
 
         user_skills_list = myuserinfo['userprofile']['skills']
@@ -62,13 +64,15 @@ async function getMyUserInfo() {
         ${myuserinfo['userprofile']['description']}
         </div>
         `
-        myBookmarkProjectList();
+        const username = document.querySelector("#text-username")
+        username.innerText = "📜"+ myuserinfo['username'] + "님의 프로젝트"
+        myBookmarkProjectList(user_id);
     }
 }
 
 
-async function myProjectList() {
-    const response = await fetch(`${backend_base_url}/user/profile/project/`, {
+async function myProjectList(user_id) {
+    const response = await fetch(`${backend_base_url}/user/profile/project/${user_id}/`, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
@@ -206,8 +210,8 @@ async function myProjectList() {
 }
 
 
-async function myBookmarkProjectList() {
-    const response = await fetch(`${backend_base_url}/user/profile/project/bookmark/`, {
+async function myBookmarkProjectList(user_id) {
+    const response = await fetch(`${backend_base_url}/user/profile/project/bookmark/${user_id}/`, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
@@ -241,7 +245,8 @@ async function myBookmarkProjectList() {
                     </div>
                 </div>
                 <div class="wrap-writer-mypage">
-                    <span class="text-writer-mypage" onclick="toUserPage(${mybookmarkproject.user_id})">${mybookmarkproject.user}</span>
+                    <span class="text-writer-mypage">${mybookmarkproject.user}</span>
+                    <button class="btn-chat-mypage btn-chat-mypage_${mybookmarkproject.user}" onclick='CreateRoomNode("${mybookmarkproject.user}")'>커피챗 신청하기 ☕️</button>
                 </div>
             </div>
             `
@@ -341,14 +346,11 @@ async function myBookmarkProjectList() {
                 }
             }
         }
-        myProjectList();
+        myProjectList(user_id);
     }
 }
 
 
-function toModifyProfile() {
-    window.location.replace(`${frontend_base_url}/templates/modify_profile.html`);
-}
 
 // 게시물 상세보기
 function toDetailProject(project_id) {
@@ -428,17 +430,4 @@ function bookmark_recommend(project_id) {
         }
     });
 
-}
-
-// 유저 프로필 보기
-function toUserPage(user_id) {
-    login_user = JSON.parse(localStorage.getItem("payload"))["user_id"]
-    if (user_id == login_user){
-        window.location.replace(`${frontend_base_url}/templates/mypage.html`);
-    } else {
-        localStorage.setItem("AnotherUser_id", user_id)
-        localStorage.setItem("isAnotherUser", "true")
-        window.location.replace(`${frontend_base_url}/templates/userpage.html`);
-    }
-    
 }
