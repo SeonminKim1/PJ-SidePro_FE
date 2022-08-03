@@ -234,21 +234,34 @@ a:visited:active {
     /* background-color: aliceblue; */
     width: 100%;
     height: 30px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .text-indroduce-card-project {
     width: 100%;
-    height: 50px;
+    height: 45px;
     font-size: .8rem;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 /* 스킬 아이콘 WARP */
 .text-stack-card-project {
     width: 100%;
-    height: 65px;
+    height: 55px;
     display: flex;
     flex-wrap: wrap;
     /* overflow: hidden; */
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* 스킬 아이콘 */
