@@ -241,8 +241,7 @@ async function myBookmarkProjectList() {
                     </div>
                 </div>
                 <div class="wrap-writer-mypage">
-                    <span class="text-writer-mypage">${mybookmarkproject.user}</span>
-                    <button class="btn-chat-mypage btn-chat-mypage_${mybookmarkproject.user}" onclick='CreateRoomNode("${mybookmarkproject.user}")'>커피챗 신청하기 ☕️</button>
+                    <span class="text-writer-mypage" onclick="toUserPage(${mybookmarkproject.user_id})">${mybookmarkproject.user}</span>
                 </div>
             </div>
             `
@@ -429,4 +428,17 @@ function bookmark_recommend(project_id) {
         }
     });
 
+}
+
+// 유저 프로필 보기
+function toUserPage(user_id) {
+    login_user = JSON.parse(localStorage.getItem("payload"))["user_id"]
+    if (user_id == login_user){
+        window.location.replace(`${frontend_base_url}/templates/mypage.html`);
+    } else {
+        localStorage.setItem("AnotherUser_id", user_id)
+        localStorage.setItem("isAnotherUser", "true")
+        window.location.replace(`${frontend_base_url}/templates/userpage.html`);
+    }
+    
 }

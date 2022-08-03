@@ -64,6 +64,8 @@ async function getMyUserInfo(user_id) {
         ${myuserinfo['userprofile']['description']}
         </div>
         `
+        const username = document.querySelector("#text-username")
+        username.innerText = "📜"+ myuserinfo['username'] + "님의 프로젝트"
         myBookmarkProjectList(user_id);
     }
 }
