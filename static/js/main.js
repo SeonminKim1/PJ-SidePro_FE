@@ -201,6 +201,18 @@ function bookmark(project_id, url, filter) {
         bookmark_div.innerText = '⭐️'
         bookmark_span.innerText = String(parseInt(bookmark_span.innerText) + 1)
     }
+
+    node = document.querySelector('.btn-bookmark-main-recommend_'+project_id)
+    node_count = document.querySelector('.btn-bookmark-main-reommend-count_' + project_id)
+    if(node != null){
+        if(node.innerHTML=='⭐️'){ // bookmark on 일 때 누름
+            node.innerHTML = '☆'// `<i class="fa-regular fa-star"></i>`
+            node_count.innerText = String(parseInt(node_count.innerText) - 1)
+        }else{ // bookmark off 일 때 누름
+            node.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
+            node_count.innerText = String(parseInt(node_count.innerText) + 1)
+        }
+    }
 }
 
 // 북마크 등록/해제

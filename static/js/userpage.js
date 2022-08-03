@@ -3,7 +3,6 @@ var slidesBookmark, slideBookmark, currentIdxBookmark, slideCountBookmark, slide
 
 window.addEventListener('DOMContentLoaded', function () {
     var user_id = localStorage.getItem("AnotherUser_id")
-    console.log(user_id)
     getMyUserInfo(user_id);
     
 });
@@ -11,14 +10,13 @@ window.addEventListener('DOMContentLoaded', function () {
 // 비동기 통신 async 내 정보 출력
 async function getMyUserInfo(user_id) {
 
-    const response = await fetch(`${backend_base_url}/user/profile/`+user_id, {
+    const response = await fetch(`${backend_base_url}/user/profile/${user_id}/`, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
             "Authorization": "Bearer " + localStorage.getItem("access")
         },
         method: 'GET',
-        // body: JSON.stringify(Data)
     })
 
     response_json = await response.json()
@@ -46,7 +44,8 @@ async function getMyUserInfo(user_id) {
             ${myuserinfo['userprofile']['github_url']}</a>
         </div>
         <div class="text-profile-mypage text-user-region-mypage">활동 지역: ${myuserinfo['userprofile']['region']}</div>
-        <div class="text-profile-mypage text-user-meettime-mypage">활동 시간대: ${myuserinfo['userprofile']['meet_time']}</div
+        <div class="text-profile-mypage text-user-meettime-mypage">활동 시간대: ${myuserinfo['userprofile']['meet_time']}</div>
+        <button class="btn-chat-mypage btn-chat-mypage" onclick="">커피챗 신청하기 ☕️</button>
         `
 
         user_skills_list = myuserinfo['userprofile']['skills']
@@ -64,11 +63,31 @@ async function getMyUserInfo(user_id) {
         <div class="text-introduce-mypage">
         ${myuserinfo['userprofile']['description']}
         </div>
-        `  
+        `
+        myBookmarkProjectList(user_id);
+    }
+}
+
+
+async function myProjectList(user_id) {
+    const response = await fetch(`${backend_base_url}/user/profile/project/${user_id}/`, {
+        headers: {
+            Accept: "application/json",
+            'content-type': "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: "GET",
+    })
+
+    response_json = await response.json()
+
+    if (response.status == 200) {
+
+        myprojectlist = response_json
 
         const list_box = document.querySelector(".myproject-slides")
 
-        myuserinfo['user_project'].forEach(myproject => {
+        myprojectlist.forEach(myproject => {
 
             const project_card = document.createElement('div')
             project_card.className = "wrap-card-project"
@@ -106,15 +125,17 @@ async function getMyUserInfo(user_id) {
             bookmark_btn.className = 'bookmark_btn';
 
             if (myproject.bookmark.includes(payload.user_id)){
-                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${myproject.id}')">⭐️</button>${myproject.bookmark_count}`
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main_${myproject.id}" onclick="bookmark('${myproject.id}')">⭐️</button>
+                <span class="btn-bookmark-main-count_${myproject.id}">${myproject.bookmark_count}</span>`
             } else {
-                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${myproject.id}')">☆</button>${myproject.bookmark_count}`
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main_${myproject.id}" onclick="bookmark('${myproject.id}')">☆</button>
+                <span class="btn-bookmark-main-count_${myproject.id}">${myproject.bookmark_count}</span>`
             }
             bookmark_div.append(bookmark_btn)
 
         });
 
-        if (myuserinfo['user_project'].length > 3) {
+        if (myprojectlist.length > 3) {
             slides = document.querySelector('.myproject-slides');
             slide = document.querySelectorAll('.myproject-slides .wrap-card-project');
             currentIdx = 0;
@@ -185,13 +206,10 @@ async function getMyUserInfo(user_id) {
         }
     }
 }
-        
 
 
-
-
-async function myBookmarkProjectList() {
-    const response = await fetch(`${backend_base_url}/user/profile/project/bookmark/`, {
+async function myBookmarkProjectList(user_id) {
+    const response = await fetch(`${backend_base_url}/user/profile/project/bookmark/${user_id}/`, {
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
@@ -205,7 +223,6 @@ async function myBookmarkProjectList() {
     if (response.status == 200) {
 
         mybookmarkprojectlist = response_json
-        console.log(mybookmarkprojectlist)
 
         const list_box = document.querySelector(".mybookmarkproject-slides")
 
@@ -248,9 +265,11 @@ async function myBookmarkProjectList() {
             bookmark_btn.className = 'bookmark_btn';
 
             if (mybookmarkproject.bookmark.includes(payload.user_id)){
-                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${mybookmarkproject.id}')">⭐️</button>${mybookmarkproject.bookmark_count}`
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main-recommend_${mybookmarkproject.id}" onclick="bookmark_recommend('${mybookmarkproject.id}')">⭐️</button>
+            <span class="btn-bookmark-main-reommend-count_${mybookmarkproject.id}">${mybookmarkproject.bookmark_count}</span>`
             } else {
-                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main" onclick="bookmark('${mybookmarkproject.id}')">☆</button>${mybookmarkproject.bookmark_count}`
+                bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main-recommend_${mybookmarkproject.id}" onclick="bookmark_recommend('${mybookmarkproject.id}')">☆</button>
+            <span class="btn-bookmark-main-reommend-count_${mybookmarkproject.id}">${mybookmarkproject.bookmark_count}</span>`
             }
             bookmark_div.append(bookmark_btn)
         });
@@ -325,14 +344,11 @@ async function myBookmarkProjectList() {
                 }
             }
         }
-        myuserinfo['user_project']();
+        myProjectList(user_id);
     }
 }
 
 
-function toModifyProfile() {
-    window.location.replace(`${frontend_base_url}/templates/modify_profile.html`);
-}
 
 // 게시물 상세보기
 function toDetailProject(project_id) {
@@ -340,6 +356,40 @@ function toDetailProject(project_id) {
     window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
 }
 
+
+// 북마크 등록/해제
+function bookmark(project_id, url, filter) {
+    fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
+        headers: {
+            Accept: "application/json",
+            'content-type': "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("access")
+        },
+        method: 'POST',
+    })
+    bookmark_div = document.querySelector(".btn-bookmark-main_"+ project_id)
+    bookmark_span = document.querySelector(".btn-bookmark-main-count_"+ project_id)
+    if (bookmark_div.innerText == '⭐️'){
+        bookmark_div.innerText = '☆'
+        bookmark_span.innerText = String(parseInt(bookmark_span.innerText) - 1)
+    } else {
+        bookmark_div.innerText = '⭐️'
+        bookmark_span.innerText = String(parseInt(bookmark_span.innerText) + 1)
+    }
+
+    node = document.querySelector('.btn-bookmark-main-recommend_'+project_id)
+    node_count = document.querySelector('.btn-bookmark-main-reommend-count_' + project_id)
+    if(node != null){
+        if(node.innerHTML=='⭐️'){ // bookmark on 일 때 누름
+            node.innerHTML = '☆'// `<i class="fa-regular fa-star"></i>`
+            node_count.innerText = String(parseInt(node_count.innerText) - 1)
+        }else{ // bookmark off 일 때 누름
+            node.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
+            node_count.innerText = String(parseInt(node_count.innerText) + 1)
+        }
+    }
+    window.location.reload()
+}
 
 // 북마크 등록/해제
 function bookmark_recommend(project_id) {
@@ -354,7 +404,7 @@ function bookmark_recommend(project_id) {
         if(response.status == 200) {
             node = document.querySelector('.btn-bookmark-main-recommend_'+project_id)
             node_count = document.querySelector('.btn-bookmark-main-reommend-count_' + project_id)
-            if(node.innerHTML=='⭐️'){ // bookmark on 일 때 누름
+            if(node.innerText=='⭐️'){ // bookmark on 일 때 누름
                 node.innerHTML = '☆'// `<i class="fa-regular fa-star"></i>`
                 node_count.innerText = String(parseInt(node_count.innerText) - 1)
             }else{ // bookmark off 일 때 누름
