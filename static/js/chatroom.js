@@ -52,6 +52,7 @@ async function GetRoomList() {
 // Room HTML 추가
 function AddRoomListHtml(response_json){
     document.querySelector('.text-title-room').innerHTML = login_username + '님의 채팅 목록 ✨'
+    asideChatRoomList.innerHTML = ''
     for(let i=0; i<response_json.length; i++){
         // response_json[i] : room
         var roomname = response_json[i].name
@@ -61,7 +62,16 @@ function AddRoomListHtml(response_json){
         var user1_username = response_json[i].user1.username
         var user2_username = response_json[i].user2.username;
         var profile_img, github_url;
+
+        // 채팅방에 등록되어있는 id 중 현재 접속 중인 id 가 아닌 다른 사람의 id 추출
+        var user1_id = response_json[i].user1.id;
         var user2_id = response_json[i].user2.id;
+        const payload = JSON.parse(localStorage.getItem("payload"));
+        if (user1_id == payload.user_id){
+            var user_id = user2_id
+        } else {
+            var user_id = user1_id
+        }
 
         // Backend에선 Room에 참여한 첫번째 유저, 두번째 유저로 저장
         // FE에서 로그인한 유저(user1)과 채팅대상(user2) 설정 (고정)
@@ -98,7 +108,7 @@ function AddRoomListHtml(response_json){
                 <div class="box-text-user box-text-user_${i}">
                     <div>
                         <span class="text-profile-name text-profile-name_${i}"
-                        onclick="modalClose(); modalOpen('${user2_id}','${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
+                        onclick="modalClose(); modalOpen('${user_id}','${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
                     </div>
                     <div class="box-btn-chatroom">
                         <button class="btn-open-chatting-room" onclick="activeChatRoom('${roomname}', '${user1_username}', '${user2_username}')">채팅 열기 💬</button>
@@ -111,7 +121,7 @@ function AddRoomListHtml(response_json){
             </div>
 
 `        // ROOM 목록에 ROOM 추가
-        asideChatRoomList.append(newUserDiv)
+        asideChatRoomList.prepend(newUserDiv)
     }
 }
 

@@ -42,7 +42,7 @@
 </body>
 <script> 
     async function logout(){
-        localStorage.clear
+        window.localStorage.clear(); 
         alert("로그아웃 완료되었습니다.")
         window.location.replace(`${frontend_base_url}/home.html`);
     }

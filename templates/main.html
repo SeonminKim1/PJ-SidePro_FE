@@ -38,9 +38,9 @@
                 <!-- 배너 -->
                 <div class="wrap-banner-main">
                     <div class="box-banner-main">
-                        <img data-index=1 class="img-banner-main" src="/static/img/banner-color.png">
-                        <img data-index=2 class="img-banner-main" src="/static/img/banner-sparta.png">
-                        <img data-index=3 class="img-banner-main" src="/static/img/banner-event.png">
+                        <a href="https://github.com/SeonminKim1/SidePro-BE" target="_blank"><img data-index=1 class="img-banner-main" src="/static/img/banner-color.png"></a>
+                        <a href="https://spartacodingclub.kr/" target="_blank" ><img data-index=2 class="img-banner-main" src="/static/img/banner-sparta.png"></a>
+                        <a onclick="alert('설문 준비중입니다.')"><img data-index=3 class="img-banner-main" src="/static/img/banner-event.png"></a>
                         <img data-index=4 class="img-banner-main" src="/static/img/banner-sparta.png">
                     </div>
                 </div>
@@ -74,7 +74,7 @@
                                 <div class="box-search-main">
                                     <div class="box-search-tag"></div>
                                     <input class="input-search-main" type="text" list="search-list"
-                                        onkeydown="DrawSkillTag()" placeholder="기술스택으로 검색해보세요. ">
+                                        onkeydown="DrawSkillTag()" placeholder="기술스택 입력 후 엔터 눌러주세요!">
                                     <datalist id="search-list">
                                         <!--<option value="Python" />-->
                                     </datalist>
@@ -145,14 +145,15 @@
         <div id="user-modal" class="container-profile-modal">
             <div class="wrap-profile-modal">
                 <div class="box-close-modal">
-                    <button class="btn-profile-modal" onclick="modalClose()">🞩</button>
+                    
                 </div>
                 <div class="box-profile-modal">
                     <div>
                         <img src="/static/img/profile-kim.png" class="img-profile img-profile-modal">
                     </div>
                     <div class="box-text-modal">
-                        <span class="text-profile-name text-modal-name text-profile-name-modal">김프로</span>
+                        <span class="text-profile-name text-modal-name text-profile-name-modal">김프로
+                        </span><span><button class="btn-profile-modal" onclick="modalClose()">🞩</button></span>
                         <span class="text-profile-portfolio text-profile-portfolio-modal">github.com/kimpro</span>
                     </div>
                 </div>
