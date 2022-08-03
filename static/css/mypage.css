@@ -308,6 +308,10 @@ a:visited:active {
     background-color: rgb(75, 0, 226);
 }
 
+.btn-chat-mypage:hover {
+    cursor: pointer;
+}
+
 .btn-bookmark-main {
     border: none;
     outline: none;
