@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- Toast UI Editor -->
-    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
+    
     <!-- CSS Import -->
     <link rel="stylesheet" href="/static/css/mypage.css">
     <!-- Jquery -->
@@ -45,9 +44,8 @@
             <div class="wrap-card-section-mypage">
                 <div class="text-title-section-myproject">
                     <span>📜 나의 프로젝트</span>
-                    <span class="prev">
-                        ←< /span>
-                            <span class="next">→</span>
+                    <span class="prev"><i class="fa-solid fa-arrow-left"></i> </span>
+                    <span class="next"><i class="fa-solid fa-arrow-right"></i></span>
                 </div>
                 <hr>
                 <div class="container-card-section-myproject">
@@ -59,9 +57,8 @@
             <div class="wrap-card-section-mypage">
                 <div class="text-title-section-myproject">
                     <span>📕 북마크한 프로젝트</span>
-                    <span class="prev-bookmark">
-                        ←</span>
-                    <span class="next-bookmark">→</span>
+                    <span class="prev-bookmark"><i class="fa-solid fa-arrow-left"></i></span>
+                    <span class="next-bookmark"><i class="fa-solid fa-arrow-right"></i></span>
                 </div>
                 <hr>
                 <div class="container-card-section-mybookmarkproject">
@@ -72,6 +69,9 @@
             </div>
         </main>
     </section>
+    <footer id="footer" class="container-footer-main">
+        <script>$("#footer").load("/templates/footer.html");</script>
+    </footer>
 
 </body>
 

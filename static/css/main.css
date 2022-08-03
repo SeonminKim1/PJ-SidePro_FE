@@ -2,10 +2,8 @@
     box-sizing: border-box;
 }
 
-html,
 body,
-aside,
-section {
+aside {
     height: 100%;
 }
 
@@ -688,7 +686,7 @@ nav {
     background-color: white;
 }
 
-.dropdown-content-main>a {
+.dropdown-content-main > a {
     display: block;
     padding: 10px;
     text-decoration: none;
@@ -700,6 +698,10 @@ nav {
 .dropdown-content-main>a:hover {
     color: rgb(75, 0, 226);
 }
+
+.btn-dropdown-main:hover .dropdown-content-main {
+    display: block;
+  }
 
 
 /* 카드 섹션  전체 */
@@ -917,6 +919,11 @@ nav {
     font-weight: 400;
     color: rgb(75, 0, 226);
 }
+
+/* 푸터 */
+
+.container-footer-main {}
+
 
 /*
 .text-stack-card-project {
