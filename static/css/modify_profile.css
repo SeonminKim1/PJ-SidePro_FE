@@ -26,7 +26,6 @@ a {
 }
 
 .container-profile-regist {
-    /* background-color: antiquewhite; */
     padding-bottom: 2%;
 }
 
@@ -34,12 +33,10 @@ a {
     width: 80%;
     margin: 20px auto;
     padding: 30px;
-    /* background-color: brown; */
 }
 
 .text-title-profile-regist {
     font-size: 1.5rem;
-    /* background-color: bisque; */
 }
 
 
@@ -47,7 +44,6 @@ a {
 .wrap-profile-regist {
     width: 90%;
     margin: 0 5%;
-    /* background-color: darkgray; */
 }
 
 .box-profile-regist {
@@ -60,18 +56,14 @@ a {
 
 .wrap-img-regist {
     width: 30%;
-    /* background-color: aquamarine; */
 }
 
 .box-img-profile-regist {
     display: flex;
     justify-content: center;
-    /* background-color: blueviolet; */
 }
 
 .box-btn-profile-regist {
-    /* display: flex;
-    flex-direction: column; */
     text-align: center;
     margin: 20px auto;
 }
@@ -83,7 +75,6 @@ a {
     max-height: 300px;
     object-fit: scale-down;
     object-position: center;
-    /* background-color: bisque; */
 }
 
 .img-thumnail-profile-modify[type="file"] {
@@ -110,13 +101,11 @@ a {
     font-weight: 300;
     background-color: white;
     cursor: pointer;
-    /* background-color: aquamarine; */
 }
 
 .text-profile-regist:hover {
     background-color: gainsboro;
 }
-
 
 .wrap-info-profile-regist {
     width: 60%;
@@ -192,7 +181,6 @@ a {
     display: block;
     margin: 10px 0;
     font-weight: 300;
-    /* background-color: antiquewhite; */
 }
 
 .dropdown-content-region>a:hover,
@@ -200,7 +188,6 @@ a {
     font-weight: 400;
     color: rgb(75, 0, 226);
 }
-
 
 .box-text-introduce-self-regist {
     height: 120px;
@@ -218,13 +205,13 @@ a {
     outline: none;
 }
 
+
 /* 동록 버튼 */
 .box-btn-regist {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    /* background-color: aqua; */
 }
 
 .box-btn-regist>button {

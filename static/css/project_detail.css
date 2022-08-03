@@ -25,7 +25,6 @@ input {
 
 .container-project-post-detail {
     padding: 2%;
-    /* background-color: beige; */
 }
 
 .wrap-project-post-detail {
@@ -39,18 +38,12 @@ input {
 /* 상단 썸네일 */
 .wrap-thumnail-post-detail {
     display: block;
-    /* height: 200px; */
 }
 
 .wrap-upper-post-detail {
     margin-bottom: 50px;
     border-width: 0 0 1px 0;
     border-style: solid;
-    /* background-color: aqua; */
-}
-
-.box-title-info-detail {
-    /* background-color: aquamarine; */
 }
 
 .wrap-content-project-detail {
@@ -68,11 +61,6 @@ input {
     display: flex;
 }
 
-.box-title-project-detail {
-    /* background-color: aquamarine; */
-
-}
-
 .text-title-project-detail {
     font-size: 2rem;
     font-weight: 400;
@@ -85,13 +73,11 @@ input {
 
 .box-date-project-detail {
     padding: 0 20px;
-    /* background-color: blanchedalmond; */
 }
 
 .box-bookmark-project-detail {
     text-align: center;
     font-size: 2rem;
-    /* background-color: beige; */
 }
 
 .box-bookmark-project-detail:hover {
@@ -107,16 +93,10 @@ input {
 .box-link-profile-detail {
     display: flex;
     align-items: center;
-    /* background-color: brown; */
 }
 
 .img-github-project-detail {
     margin: 0 10px;
-    /* background-color: aqua; */
-}
-
-.link-github-project-detail {
-    /* background-color: aquamarine; */
 }
 
 .link-github-a-tag:link {
@@ -133,6 +113,7 @@ input {
     color: black;
 }
 
+
 /* skills */
 .text-stack-project-detail {
     padding: 3px 10px;
@@ -141,12 +122,6 @@ input {
     background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
-}
-
-/* 컨텐츠 */
-.wrap-content-project-detail {
-    /*height: 300px;
-    background-color: darkgray;*/
 }
 
 
@@ -179,14 +154,9 @@ input {
 
 
 /* 댓글 */
-.container-reply-detail {
-    /* background-color: aquamarine; */
-}
-
 .wrap-reply-detail {
     width: 65%;
     margin: auto;
-    /* background-color: aqua; */
 }
 
 .box-reply-detail {
@@ -201,14 +171,12 @@ input {
 
 .box-reply-user {
     width: 80%;
-    /* background-color: aquamarine; */
 }
 
 .input-reply-detail {
     width: 90%;
     margin: 0 10px;
     font-size: 1.2rem;
-    /* background-color: antiquewhite; */
 }
 
 .btn-reply-detail {
@@ -225,7 +193,6 @@ input {
 
 .wrap-comment-detail {
     margin: 40px 0;
-    /* background-color: burlywood; */
 }
 
 .text-title-comment-detail {
@@ -243,15 +210,6 @@ input {
     display: flex;
     justify-content: space-between;
     margin: 30px 0 10px;
-    /* background-color: aquamarine; */
-}
-
-.user-comment-detail {
-    /* background-color: bisque; */
-}
-
-.comment-content-date {
-    /* background-color: brown; */
 }
 
 .wrap-comment-content-detail {
@@ -273,7 +231,6 @@ input {
 
 .box-btn-comment-content {
     margin: 8px 0;
-    /* background-color: aqua; */
 }
 
 .box-btn-comment-content>button {

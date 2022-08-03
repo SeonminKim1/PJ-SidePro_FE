@@ -183,7 +183,7 @@ async function GetRoomChattingList(roomname, user2_username){
                 </div>
                 <div id="box-chat-partner" class="box-text-chat">
                     <span id="chat-partner-desc" class="text-chat-desc">${msgs[i].message}</span>
-                    <p class="text-chat-date">${dt}</ㅔ>
+                    <p class="text-chat-date">${dt}</p>
                 </div>
             </div>
                 `

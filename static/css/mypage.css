@@ -16,7 +16,6 @@ body {
 .container-mypage {
     display: flex;
     margin: 5% 0 0 3%;
-    /* background-color: beige; */
 }
 
 
@@ -31,7 +30,6 @@ body {
 .box-card-profile {
     display: flex;
     width: 100%;
-    /* background-color: aliceblue; */
 }
 
 .box-img-profile-mypage {
@@ -48,7 +46,6 @@ body {
 .wrap-text-profile-mypage {
     width: 50%;
     margin-left: 4%;
-    /* background-color: antiquewhite; */
 }
 
 .text-profile-mypage {
@@ -56,7 +53,6 @@ body {
     display: flex;
     flex-wrap: wrap;
     font-size: 1rem;
-    /* background-color: aliceblue; */
 }
 
 .text-user-name-mypage {
@@ -139,15 +135,7 @@ a:visited:active {
 .container-card-mypage {
     width: 70%;
     margin: 0 0 0 2%;
-    /* background-color: aquamarine; */
 }
-
-/* 전체 카드 섹션 타이틀 포함 wrap */
-.wrap-card-section-mypage {
-    /* background-color: aliceblue; */
-}
-
-.text-title-section-myproject {}
 
 .text-title-section-myproject>span {
     font-size: 1.2rem;
@@ -155,9 +143,6 @@ a:visited:active {
 
 /* 카드 섹션 라인: 나의 프로젝트 */
 .container-card-section-myproject {
-    /* display: flex; */
-    /* padding: 20px; */
-    /* background-color: aquamarine; */
     position: relative;
     margin: 2% auto;
     width: 960px;
@@ -166,9 +151,6 @@ a:visited:active {
 }
 
 .container-card-section-mybookmarkproject {
-    /* display: flex; */
-    /* padding: 20px; */
-    /* background-color: aquamarine; */
     position: relative;
     margin: 2% auto;
     width: 960px;
@@ -210,6 +192,7 @@ a:visited:active {
     background-color: rgb(75, 0, 226);
 }
 
+
 /* 카드 */
 .wrap-card-project {
     width: 300px;
@@ -246,7 +229,6 @@ a:visited:active {
 }
 
 .text-title-card-project {
-    /* background-color: aliceblue; */
     width: 100%;
     height: 30px;
 
@@ -259,7 +241,6 @@ a:visited:active {
     width: 100%;
     height: 45px;
     font-size: .8rem;
-
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -267,17 +248,17 @@ a:visited:active {
     -webkit-box-orient: vertical;
 }
 
+
 /* 스킬 아이콘 WARP */
 .text-stack-card-project {
     width: 100%;
     height: 55px;
     display: flex;
     flex-wrap: wrap;
-    /* overflow: hidden; */
-
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
 
 /* 스킬 아이콘 */
 .text-stack-card-project>div {
@@ -291,6 +272,7 @@ a:visited:active {
     text-align: center;
     vertical-align: middle;
 }
+
 
 /* 프로젝트 정보(조회,댓글,북마크) */
 .project-information {
@@ -310,7 +292,6 @@ a:visited:active {
     width: 100%;
     height: 30px;
     margin-top: 10px;
-    /* background-color: cadetblue; */
 }
 
 .text-writer-mypage {

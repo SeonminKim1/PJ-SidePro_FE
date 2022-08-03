@@ -31,7 +31,6 @@ a {
 
 .container-profile-regist {
     margin: 8% auto;
-    /* background-color: antiquewhite; */
 }
 
 .box-text-title-profile-regist {
@@ -39,12 +38,10 @@ a {
     margin: 20px auto;
     padding: 30px;
     text-align: center;
-    /* background-color: brown; */
 }
 
 .text-title-profile-regist {
     font-size: 1.5rem;
-    /* background-color: bisque; */
 }
 
 
@@ -52,7 +49,6 @@ a {
 .wrap-profile-regist {
     width: 90%;
     margin: 0 5%;
-    /* background-color: darkgray; */
 }
 
 .box-profile-regist {
@@ -63,22 +59,14 @@ a {
     background-color: whitesmoke;
 }
 
-.wrap-img-regist {
-    /* background-color: aquamarine; */
-    /* margin-top: 20px; */
-}
-
 .box-img-profile-regist {
     display: flex;
     justify-content: center;
-    /* background-color: aqua; */
 }
 
 .box-btn-profile-regist {
     text-align: center;
-    /* width: 90%; */
     margin: 20px auto;
-    /* background-color: aqua; */
 }
 
 .img-profile-regist {
@@ -194,7 +182,6 @@ a {
     display: block;
     margin: 10px 0;
     font-weight: 300;
-    /* background-color: antiquewhite; */
 }
 
 .dropdown-content-region>a:hover,
@@ -202,7 +189,6 @@ a {
     font-weight: 400;
     color: rgb(75, 0, 226);
 }
-
 
 .box-text-introduce-self-regist {
     height: 120px;
@@ -221,12 +207,12 @@ a {
     outline: none;
 }
 
+
 /* 동록 버튼 */
 .box-btn-regist {
     width: 100%;
     display: flex;
     justify-content: end;
-    /* background-color: aqua; */
 }
 
 .box-btn-regist>button {
