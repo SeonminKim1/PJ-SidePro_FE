@@ -19,8 +19,8 @@ function userprofile_upload() {
     const description = document.querySelector('#description').value
     if(description == ""){
         return alert("자기소개를 입력해주세요!")
-    } else if (description.length > 25){
-        return alert("자기소개는 25자 까지만 작성 할 수 있습니다.")
+    } else if (description.length > 100){
+        return alert("자기소개는 100자 까지만 작성 할 수 있습니다.")
     }
     // 이미지를 있는 경우
     if(document.querySelector("#profile_image_path").files[0] != null){
@@ -122,7 +122,7 @@ function profile_image_preview(input) {
         };
         reader.readAsDataURL(input.files[0]);
     } else {
-        document.getElementById('profile_img_preview').src = "/static/img/profile-kim.png";
+        document.getElementById('profile_img_preview').src = "/static/img/profile_base.png";
     }
 }
 

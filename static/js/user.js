@@ -90,7 +90,7 @@ async function login() {
 
     } else {
         if(response.status==401){
-            alert('아이디나 비밀번호를 잘못 입력하셨습니다. 다시 확인해주세요.', response.status)
+            alert('이미 가입된 회원이거나 입력값을 확인해 주세요.', response.status)
         }else{
             alert(response.status)
         }
