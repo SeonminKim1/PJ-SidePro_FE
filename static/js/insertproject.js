@@ -127,8 +127,8 @@ insert_project = function () {
     const description = document.querySelector("#description").value
     if (description == "") {
         return alert("한줄 소개를 입력해주세요!")
-    } else if (description.length > 60) {
-        return alert("한줄 소개는은 60자 이하 입니다!")
+    } else if (description.length > 100) {
+        return alert("한줄 소개는은 100자 이하 입니다!")
     }
     const github_url = document.querySelector('#git_hub_url').value
     if (!(github_url.includes("http://")) && !(github_url.includes("https://"))) {
