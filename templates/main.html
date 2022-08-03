@@ -73,8 +73,8 @@
                                 </div>
                                 <!-- 정렬 -->
                                 <div class="box-dropdown-align-main">
-                                    <button class="btn-dropdown-main">정렬 ▼</button>
-                                    <div class="dropdown-content-main">
+                                    <button class="btn-dropdown-main" onclick="sort()">정렬 ▼</button>
+                                    <div class="dropdown-content-main" style="display: none;">
                                         <a onclick="project_list(null,'newest')">최신순</a>
                                         <a onclick="project_list(null,'views')">조회순</a>
                                         <a onclick="project_list(null,'popular')">인기순</a>
@@ -140,7 +140,7 @@
                 </div>
                 <div class="box-profile-modal">
                     <div>
-                        <img src="/static/img/profile-kim.png" class="img-profile img-profile-modal">
+                        <img src="" class="img-profile img-profile-modal">
                     </div>
                     <div class="box-text-modal">
                         <span class="text-profile-name text-modal-name text-profile-name-modal">김프로
