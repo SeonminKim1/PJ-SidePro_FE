@@ -2,6 +2,7 @@ window.onload = project_list()
 
 document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("update_mode", 0)
+    
     recommend_lsit()
 });
 
@@ -39,7 +40,7 @@ async function recommend_lsit(){
                     <div id="bookmark-suggest_${element.id}"></div>
                 </div>
                 <div class="wrap-writer-mypage">
-                    <span class="text-writer-mypage">${element.user}</span>
+                    <span class="text-writer-mypage" onclick="toUserPage(${element.user_id})">${element.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_suggest_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
                 </div>
             </div>
@@ -72,6 +73,9 @@ async function recommend_lsit(){
             bookmark_div.append(bookmark_btn)
                 
         }
+        
+    const username = document.querySelector('.text-title-suggest')
+    username.innerHTML = '🤔'+login_username+'님에게 맞는 추천 프로젝트!'
     }
 }
 
@@ -122,7 +126,7 @@ async function project_list(url, filter){
                         <div id="bookmark_${element.id}"></div>
                     </div>
                 <div class="wrap-writer-mypage">
-                    <span class="text-writer-mypage">${element.user}</span>
+                    <span class="text-writer-mypage" onclick="toUserPage('${element.user_id}')">${element.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
                     
                 </div>
@@ -272,3 +276,9 @@ function search_list(){
     
 }
 
+// 유저 프로필 보기
+function toUserPage(user_id) {
+    localStorage.setItem("AnotherUser_id", user_id)
+    localStorage.setItem("isAnotherUser", "true")
+    window.location.replace(`${frontend_base_url}/templates/userpage.html`);
+}
