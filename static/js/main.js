@@ -80,6 +80,8 @@ async function recommend_lsit(){
 }
 
 async function project_list(url, filter){
+    const search_box = document.querySelector(".box-search-tag")
+    search_box.innerHTML = ``
     if (url == null){
         url = `${backend_base_url}/project/?page_size=6`
     } else {
@@ -271,7 +273,7 @@ function search_list(){
     for (i = 0; i < skills.length; i++){
         skill_list = skill_list + "&skills=" + skills[i].innerText
     }
-    url = `${backend_base_url}/project/?page_size=9` + skill_list
+    url = `${backend_base_url}/project/?page_size=6` + skill_list
     project_list(url)
     
 }
