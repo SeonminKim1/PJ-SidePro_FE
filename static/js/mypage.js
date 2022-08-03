@@ -427,6 +427,7 @@ function bookmark_recommend(project_id) {
                 }
             }
         }
+        window.location.reload()
     });
 
 }
