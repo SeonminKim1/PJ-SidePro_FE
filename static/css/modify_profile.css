@@ -244,18 +244,19 @@ a {
 }
 
 .btn-modify-regist {
-    background-color: crimson;
+    background-color: black;
 }
 
 .btn-modify-regist:hover {
     font-weight: 600;
+    background-color: rgb(75, 0, 226);
 }
 
 .skills-tag {
     padding: 3px 10px;
     margin: 0 5px 5px 0;
     border-radius: 10px;
-    background-color: rgb(4, 73, 201);
+    background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
 }
@@ -269,4 +270,8 @@ a {
     cursor: pointer;
     color: black;
     font-size: 0.9rem;
+}
+
+.btn-withdrawal:hover {
+    color: crimson;
 }

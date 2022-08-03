@@ -254,7 +254,7 @@ async function insertUpdateDeleteComment(){
                     <div class="comment-content-date comment-content-date_${comment_id}">${comment_create_date}</div>
                 </div>
                 <div class="wrap-comment-content-detail">
-                    <div class=""comment-content-detail comment-content-detail_${comment_id}">${comment_text}</div>
+                    <div class="comment-content-detail comment-content-detail_${comment_id}">${comment_text}</div>
                 </div>
             `
         }

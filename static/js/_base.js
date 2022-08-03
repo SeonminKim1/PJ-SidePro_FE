@@ -6,9 +6,9 @@ if (is_local == true) {
     var frontend_base_url = "http://127.0.0.1:5500"
 } else {
     var backend_base_url = "http://3.37.194.222:8000"
-    var backend_base_ip_port = "3.37.194.222:8000"
-    // const frontend_base_url = "http://www.sidepro.shop"
-    var frontend_base_url = "http://sidepro.shop.s3-website.ap-northeast-2.amazonaws.com"
+    var backend_base_ip_port = "3.37.194.222:8001"
+    var frontend_base_url = "http://www.sidepro.shop"
+    // var frontend_base_url = "http://sidepro.shop.s3-website.ap-northeast-2.amazonaws.com"
 }
 
 const ROOM_STATUS_RUNNING = 'running'
@@ -28,4 +28,4 @@ function StringToDatetime(string_time, type) { // StringToDatetime("2022-07-25T1
 }
 
 const PROFILE_BASE_IMAGE = "https://s3.ap-northeast-2.amazonaws.com/sidepro.shop/static/img/profile_base.png"
-const PROJECT_BASE_IMAGE = "https://s3.ap-northeast-2.amazonaws.com/sidepro.shop/static/img/project_thumnail.jpeg"
+const PROJECT_BASE_IMAGE = "https://s3.ap-northeast-2.amazonaws.com/sidepro.shop/static/img/project_thumnail.png"

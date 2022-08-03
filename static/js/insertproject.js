@@ -121,8 +121,8 @@ insert_project = function () {
     const title = document.querySelector("#title").value
     if (title == ""){
         return alert("제목을 입력해주세요!")
-    } else if (title.length > 50){
-        return alert("제목은 50자 이하 입니다!")
+    } else if (title.length > 40){
+        return alert("제목은 40자 이하 입니다!")
     }
     const description = document.querySelector("#description").value
     if (description == ""){
