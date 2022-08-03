@@ -40,7 +40,10 @@ async function recommend_lsit(){
                     <div id="bookmark-suggest_${element.id}"></div>
                 </div>
                 <div class="wrap-writer-mypage">
-                    <span class="text-writer-mypage" onclick="toUserPage(${element.user_id})">${element.user}</span>
+                    <div>
+                        <i class="fa-solid fa-user"></i>
+                        <span class="text-writer-mypage" onclick="toUserPage(${element.user_id})">${element.user}</span>
+                    </div>
                     <button class="btn-chat-mypage btn-chat-mypage_suggest_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
                 </div>
             </div>
@@ -128,7 +131,10 @@ async function project_list(url, filter){
                         <div id="bookmark_${element.id}"></div>
                     </div>
                 <div class="wrap-writer-mypage">
-                    <span class="text-writer-mypage" onclick="toUserPage('${element.user_id}')">${element.user}</span>
+                    <div>
+                        <i class="fa-solid fa-user"></i>
+                        <span class="text-writer-mypage" onclick="toUserPage('${element.user_id}')">${element.user}</span>
+                    </div>
                     <button class="btn-chat-mypage btn-chat-mypage_${element.user}" onclick='CreateRoomNode("${element.user}")'>커피챗 신청하기 ☕️</button>
                     
                 </div>

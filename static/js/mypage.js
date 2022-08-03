@@ -241,6 +241,7 @@ async function myBookmarkProjectList() {
                     </div>
                 </div>
                 <div class="wrap-writer-mypage">
+                    <i class="fa-solid fa-user"></i>
                     <span class="text-writer-mypage" onclick="toUserPage(${mybookmarkproject.user_id})">${mybookmarkproject.user}</span>
                 </div>
             </div>
