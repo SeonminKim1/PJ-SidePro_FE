@@ -38,7 +38,7 @@ async function getMyUserInfo() {
         <div class="text-profile-mypage text-user-name-mypage">${myuserinfo['username']}</div><hr>
         <div class="text-profile-mypage text-user-stack-mypage"></div>
         <div class="text-profile-mypage text-user-github-mypage">
-            <a href="${myuserinfo['userprofile']['github_url']}">
+            <a href="${myuserinfo['userprofile']['github_url']}" target="_blank">
                 <img class="img-github-mypage" src="/static/img/github.svg">
             ${myuserinfo['userprofile']['github_url']}</a>
         </div>
