@@ -24,7 +24,6 @@ async function getMyUserInfo(user_id) {
     if (response.status == 200) {
 
         myuserinfo = response_json
-
         // 출력할 div선택해서 가져와 준비
         const profile_img = document.querySelector('.box-img-profile-mypage');
         const info_box = document.querySelector('.wrap-text-profile-mypage');
@@ -45,7 +44,7 @@ async function getMyUserInfo(user_id) {
         </div>
         <div class="text-profile-mypage text-user-region-mypage">활동 지역: ${myuserinfo['userprofile']['region']}</div>
         <div class="text-profile-mypage text-user-meettime-mypage">활동 시간대: ${myuserinfo['userprofile']['meet_time']}</div>
-        <button class="btn-chat-mypage btn-chat-mypage" onclick="">커피챗 신청하기 ☕️</button>
+        <button class="btn-chat-mypage btn-chat-mypage" onclick="CreateRoomNode('${myuserinfo["username"]}')">커피챗 신청하기 ☕️</button>
         `
 
         user_skills_list = myuserinfo['userprofile']['skills']
@@ -428,6 +427,7 @@ function bookmark_recommend(project_id) {
                 }
             }
         }
+        window.location.reload()
     });
 
 }
