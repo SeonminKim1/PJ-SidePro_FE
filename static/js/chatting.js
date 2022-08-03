@@ -36,23 +36,27 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
         if(data.username == login_username){
             newChatDiv.className = "wrap-chat-user"
             newChatDiv.innerHTML = `
-                    <div class="box-text-profile-chat chat-user">
-                        <span id="chat-user" class="text-chat-name-user">${data.username}</span>
-                    </div>
-                    <div id="box-chat-user" class="box-text-chat">
-                        <span id="chat-user-desc" class="text-chat-desc">${data.message}</span>
-                        <p class="text-chat-date">${data.dt}</p>
-                    </div>`
+            <div class="wrap-chat-bubble wrap-bubble-user">
+                <div class="box-text-profile-chat chat-user">
+                    <span id="chat-user" class="text-chat-name-user">${data.username}</span>
+                </div>
+                <div id="box-chat-user" class="box-text-chat">
+                    <span id="chat-user-desc" class="text-chat-desc">${data.message}</span>
+                    <p class="text-chat-date">${data.dt}</p>
+                </div>
+            </div>`
         }else{
             newChatDiv.className = "wrap-chat-partner"
             newChatDiv.innerHTML = `
-                    <div class="box-text-profile-chat">
-                        <span id="chat-partner" class="text-chat-name">${data.username}</span>
-                    </div>
-                    <div id="box-chat-partner" class="box-text-chat">
-                        <span id="chat-partner-desc" class="text-chat-desc">${data.message}</span>
-                        <p class="text-chat-date">${data.dt}</p>
-                    </div>`
+            <div class="wrap-chat-bubble">
+                <div class="box-text-profile-chat">
+                    <span id="chat-partner" class="text-chat-name">${data.username}</span>
+                </div>
+                <div id="box-chat-partner" class="box-text-chat">
+                    <span id="chat-partner-desc" class="text-chat-desc">${data.message}</span>
+                    <p class="text-chat-date">${data.dt}</p>
+                </div>
+            </div>`
         }
         asideChatText.append(newChatDiv)
     };
