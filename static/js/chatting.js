@@ -206,6 +206,7 @@ function AddDeactiveChatRoomEvent(roomname){
     document.querySelector('.btn-chat-room-close').onclick = async (e) => {
         if(asideChatRoom.style.display == 'block') {
             asideChatRoom.style.display = '';
+            GetRoomList()
             modal.style.display = '';
             chatSocket.close();
                 

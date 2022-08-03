@@ -52,6 +52,7 @@ async function GetRoomList() {
 // Room HTML 추가
 function AddRoomListHtml(response_json){
     document.querySelector('.text-title-room').innerHTML = login_username + '님의 채팅 목록 ✨'
+    asideChatRoomList.innerHTML = ''
     for(let i=0; i<response_json.length; i++){
         // response_json[i] : room
         var roomname = response_json[i].name
@@ -120,7 +121,7 @@ function AddRoomListHtml(response_json){
             </div>
 
 `        // ROOM 목록에 ROOM 추가
-        asideChatRoomList.append(newUserDiv)
+        asideChatRoomList.prepend(newUserDiv)
     }
 }
 
