@@ -157,7 +157,7 @@ async function GetRoomChattingList(roomname, user2_username){
     msgs = response_json.chatmessages
 
     // 채팅방 대화 바꿔주기
-    document.querySelector('.text-title-chat').innerHTML = user2_username + '님과의 채팅방'
+    document.querySelector('.text-title-chat').innerHTML = user2_username + '님과의 채팅방 ✨'
     // 채팅방 HTML 대화 출력하기
     for (let i=0; i<msgs.length; i++){
         var chat_time = new Date(msgs[i].send_time);
