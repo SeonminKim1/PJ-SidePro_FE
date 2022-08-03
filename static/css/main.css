@@ -332,11 +332,16 @@ nav {
     background-color: transparent;
 }
 
-.btn-profile-modal {
+.btn-profile-modal,
+.btn-modal-close {
     border: none;
     font-size: 16px;
     background-color: transparent;
     cursor: pointer;
+}
+
+.btn-modal-close:hover {
+    color: crimson;
 }
 
 .box-profile-modal {
