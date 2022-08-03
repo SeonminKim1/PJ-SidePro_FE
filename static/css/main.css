@@ -4,8 +4,7 @@
 
 html,
 body,
-aside,
-section {
+aside {
     height: 100%;
 }
 
@@ -917,6 +916,11 @@ nav {
     font-weight: 400;
     color: rgb(75, 0, 226);
 }
+
+/* 푸터 */
+
+.container-footer-main {}
+
 
 /*
 .text-stack-card-project {
