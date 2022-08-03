@@ -13,10 +13,17 @@ section {
     height: 1200px;
 }
 
+.box-chat-room-list::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
+
 body {
     font-family: 'Noto Sans KR', sans-serif;
     margin: 0;
     background-color: #EFEFEF;
+}
+::-webkit-scrollbar {
+    display: none;
 }
 
 section {

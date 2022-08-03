@@ -22,7 +22,7 @@ function modalOpen(user_id, profile_img, user2_username, github_url) {
         textProfilePortfolioModal.innerHTML = `<a href="${github_url}" target="_blank">${github_url}</a>`
 
         const userprofilebtnModal = document.querySelector(".box-btn-modal");
-        userprofilebtnModal.innerHTML = `<button class="btn-profile-modal" onclick="toUserPage(${user_id})">${user_id}유저 페이지 보기</button>`
+        userprofilebtnModal.innerHTML = `<button class="btn-profile-modal" onclick="toUserPage(${user_id})">유저 페이지 보기</button>`
     }   
 }
 
