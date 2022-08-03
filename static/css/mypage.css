@@ -312,7 +312,9 @@ a:visited:active {
     /* background-color: cadetblue; */
 }
 
-.text-writer-mypage {}
+.text-writer-mypage {
+    margin: 0 10px;
+}
 
 .btn-chat-mypage {
     border: none;

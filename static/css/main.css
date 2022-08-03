@@ -127,6 +127,7 @@ nav {
 .box-text-title-chat,
 .box-text-title-room {
     padding: 10px;
+    background-color: whitesmoke;
 }
 
 .text-title-chat,
@@ -219,13 +220,18 @@ nav {
     right: 0;
     width: 300px;
     height: 100vh;
-    background-color: gainsboro;
+    background-color: whitesmoke;
 }
 
 .box-chat-partner-user,
 .box-chat-room-list {
     height: 85vh;
     overflow-y: scroll;
+    background-color: gainsboro;
+}
+
+.room-list-color {
+    background-color: gainsboro;
 }
 
 .wrap-profile-chat {
@@ -234,7 +240,7 @@ nav {
 
 .wrap-chat-bubble {
     display: inline-block;
-    margin: 20px 0;
+    margin: 3px 0;
     /* background-color: aqua; */
 }
 
@@ -603,6 +609,7 @@ nav {
 .box-search-main {
     display: flex;
     width: 50%;
+    height: 100%;
     padding: 5px 0;
     border: 2px solid;
     border-color: transparent transparent black transparent;
@@ -612,6 +619,7 @@ nav {
 
 .box-search-tag {
     display: flex;
+    align-items: center;
 }
 
 .input-search-main {
@@ -639,12 +647,13 @@ nav {
 
 /* skills */
 .skills-tag {
-    padding: 3px 10px;
+    padding: 6px 10px;
     margin-right: 5px;
     border-radius: 10px;
-    background-color: rgb(4, 73, 201);
+    background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
+    font-size: .8rem;
 }
 
 /* 정렬 */
@@ -655,9 +664,9 @@ nav {
     text-align: center;
 }
 
-.box-dropdown-align-main:hover .dropdown-content-main {
+.box-dropdown-align-main:hover,
+.dropdown-content-main {
     display: block;
-
 }
 
 .btn-dropdown-main {
@@ -863,7 +872,9 @@ nav {
     /* background-color: cadetblue; */
 }
 
-.text-writer-mypage {}
+.text-writer-mypage {
+    margin: 0 10px;
+}
 
 .btn-chat-mypage {
     border: none;
@@ -917,11 +928,11 @@ nav {
     text-align: center;
 }*/
 
-.skills-tag {
+/* .skills-tag {
     padding: 8px 12px;
     margin-right: 5px;
     border-radius: 10px;
     background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
-}
+} */
