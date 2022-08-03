@@ -38,12 +38,13 @@ li {
     border-radius: 30px;
     font-size: 1.5rem;
     cursor: pointer;
+    color: aliceblue;
+    background-color: rgba(72, 21, 190, 0.3);
 }
 
 .nav-btn-home:hover {
     font-weight: 700;
-    color: mediumslateblue;
-    background-color: aliceblue;
+    color: aliceblue;
 }
 
 .container-section-home {
