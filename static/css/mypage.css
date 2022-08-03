@@ -193,12 +193,13 @@ a:visited:active {
 .prev-bookmark,
 .next-bookmark {
     display: none;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
     padding: 0 10px;
-    margin: 0 7px;
+    margin: 0 3px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 20px;
+    font-weight: .8rem;
     cursor: pointer;
 }
 

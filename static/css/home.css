@@ -18,7 +18,6 @@ nav {
     display: flex;
     justify-content: end;
     align-items: center;
-
 }
 
 li {
@@ -81,23 +80,9 @@ li {
     /* margin-right: 10%; */
 }
 
-
 .img-home {
     width: 60%;
     margin: auto;
-}
-
-.container-footer-home {
-    text-align: center;
-    padding: 10px;
-}
-
-.box-text-footer>span {
-    text-align: center;
-    font-size: .7rem;
-    font-weight: 400;
-    color: gainsboro;
-
 }
 
 @media screen and (max-width: 768px) {
