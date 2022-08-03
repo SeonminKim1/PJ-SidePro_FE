@@ -14,7 +14,8 @@ section {
 }
 
 .box-chat-room-list::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera*/
+    display: none;
+    /* Chrome, Safari, Opera*/
 }
 
 body {
@@ -22,6 +23,7 @@ body {
     margin: 0;
     background-color: #EFEFEF;
 }
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -125,6 +127,7 @@ nav {
 .box-text-title-chat,
 .box-text-title-room {
     padding: 10px;
+    background-color: whitesmoke;
 }
 
 .text-title-chat,
@@ -217,13 +220,18 @@ nav {
     right: 0;
     width: 300px;
     height: 100vh;
-    background-color: gainsboro;
+    background-color: whitesmoke;
 }
 
 .box-chat-partner-user,
 .box-chat-room-list {
     height: 85vh;
     overflow-y: scroll;
+    background-color: gainsboro;
+}
+
+.room-list-color {
+    background-color: gainsboro;
 }
 
 .wrap-profile-chat {
@@ -232,7 +240,7 @@ nav {
 
 .wrap-chat-bubble {
     display: inline-block;
-    margin: 20px 0;
+    margin: 3px 0;
     /* background-color: aqua; */
 }
 
@@ -322,7 +330,7 @@ nav {
 
 /* 유저 프로필 모달 */
 .container-profile-modal {
-    display: none; 
+    display: none;
     position: absolute;
 }
 
@@ -331,7 +339,7 @@ nav {
     padding: 30px 30px;
     border-radius: 14px;
     background-color: gainsboro;
-    
+
     width: 330px;
     height: 180px;
     position: fixed;
@@ -376,12 +384,12 @@ nav {
     font-weight: 700;
 }
 
-.text-profile-portfolio-modal > a {
+.text-profile-portfolio-modal>a {
     color: black;
     text-decoration: none;
 }
 
-.text-profile-portfolio-modal{
+.text-profile-portfolio-modal {
     width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -600,7 +608,8 @@ nav {
 /* 검색 */
 .box-search-main {
     display: flex;
-    width: 30%;
+    width: 50%;
+    height: 100%;
     padding: 5px 0;
     border: 2px solid;
     border-color: transparent transparent black transparent;
@@ -610,6 +619,7 @@ nav {
 
 .box-search-tag {
     display: flex;
+    align-items: center;
 }
 
 .input-search-main {
@@ -637,12 +647,13 @@ nav {
 
 /* skills */
 .skills-tag {
-    padding: 3px 10px;
+    padding: 6px 10px;
     margin-right: 5px;
     border-radius: 10px;
-    background-color: rgb(4, 73, 201);
+    background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
+    font-size: .8rem;
 }
 
 /* 정렬 */
@@ -653,9 +664,9 @@ nav {
     text-align: center;
 }
 
-.box-dropdown-align-main:hover .dropdown-content-main {
+.box-dropdown-align-main:hover,
+.dropdown-content-main {
     display: block;
-
 }
 
 .btn-dropdown-main {
@@ -743,8 +754,8 @@ nav {
 /* 카드 */
 .wrap-card-project,
 .wrap-card-project-suggest {
-    width: 370px;
-    height: 500px;
+    width: 350px;
+    height: 470px;
     margin-right: 20px;
     padding: 20px;
     background-color: white;
@@ -760,7 +771,7 @@ nav {
 .img-card-thumnail-mypage {
     width: 100%;
     height: 180px;
-    object-fit: scale-down;
+    object-fit: cover;
     object-position: center;
     cursor: pointer;
     margin: 0 auto;
@@ -778,21 +789,24 @@ nav {
 }
 
 .text-title-card-project {
-    /* background-color: aliceblue; */
     width: 100%;
     height: 35px;
     font-size: 1.3rem;
-    
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    cursor: pointer;
+}
+
+.text-title-card-project:hover {
+    color: rgb(75, 0, 226);
 }
 
 .text-indroduce-card-project {
     width: 100%;
     height: 45px;
     font-size: .9rem;
-    
+
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -806,7 +820,7 @@ nav {
     height: 65px;
     display: flex;
     flex-wrap: wrap;
-    
+
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -827,9 +841,9 @@ nav {
 /* 프로젝트 정보(조회,댓글,북마크) */
 .project-information {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     /* background-color: aqua; */
 }
 
@@ -850,7 +864,7 @@ nav {
 
 .wrap-writer-mypage {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 30px;
@@ -858,7 +872,9 @@ nav {
     /* background-color: cadetblue; */
 }
 
-.text-writer-mypage {}
+.text-writer-mypage {
+    margin: 0 10px;
+}
 
 .btn-chat-mypage {
     border: none;
@@ -912,11 +928,11 @@ nav {
     text-align: center;
 }*/
 
-.skills-tag {
+/* .skills-tag {
     padding: 8px 12px;
     margin-right: 5px;
     border-radius: 10px;
     background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
-}
+} */

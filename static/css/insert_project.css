@@ -30,7 +30,7 @@ input {
 }
 
 .wrap-project-post {
-    width: 70%;
+    width: 65%;
     height: 80%;
 }
 
@@ -119,7 +119,7 @@ input {
     padding: 3px 10px;
     margin-right: 5px;
     border-radius: 10px;
-    background-color: rgb(4, 73, 201);
+    background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
 }
@@ -128,7 +128,7 @@ input {
     padding: 3px 10px;
     margin-right: 5px;
     border-radius: 10px;
-    background-color: rgb(4, 73, 201);
+    background-color: rgb(75, 0, 226);
     color: whitesmoke;
     text-align: center;
 }
