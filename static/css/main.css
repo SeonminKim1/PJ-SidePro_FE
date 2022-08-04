@@ -834,11 +834,14 @@ nav {
     color: black
 }
 
+.bookmark_btn>button {
+    cursor: pointer;
+}
+
 .project-information>div:hover,
 .bookmark_btn>button:hover {
     font-weight: 400;
     color: rgb(75, 0, 226);
-    cursor: pointer;
 }
 
 .wrap-writer-mypage {
@@ -852,6 +855,7 @@ nav {
 
 .text-writer-mypage {
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .btn-chat-mypage {

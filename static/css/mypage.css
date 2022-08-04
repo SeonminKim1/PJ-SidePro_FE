@@ -215,6 +215,7 @@ a:visited:active {
     object-fit: cover;
     object-position: center;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .card-text {
@@ -295,6 +296,7 @@ a:visited:active {
 
 .text-writer-mypage {
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .btn-chat-mypage {
