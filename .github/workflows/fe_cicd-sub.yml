@@ -1,9 +1,9 @@
-name: FE-CI-CD
+name: FE-CI-CD-sub
    
 on:
   push:
     branches:
-      - publish-sub
+      - development
    
 jobs:
   deploy:
