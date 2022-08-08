@@ -2,7 +2,7 @@ window.onload = ()=>{
     const payload = JSON.parse(localStorage.getItem("payload"));
 
     if (payload == null){
-        window.location.href(`${frontend_base_url}/templates/user/login.html`);
+        window.location.replace(`${frontend_base_url}/templates/user/login.html`);
     }
     // 아직 access 토큰의 인가 유효시간이 남은 경우
     if (payload.exp > (Date.now() / 1000)){

@@ -4,7 +4,7 @@ var slidesBookmark, slideBookmark, currentIdxBookmark, slideCountBookmark, slide
 window.addEventListener('DOMContentLoaded', function () {
     var user_id = localStorage.getItem("AnotherUser_id")
     getMyUserInfo(user_id);
-
+    
 });
 
 // 비동기 통신 async 내 정보 출력
@@ -64,7 +64,7 @@ async function getMyUserInfo(user_id) {
         </div>
         `
         const username = document.querySelector("#text-username")
-        username.innerText = "📜" + myuserinfo['username'] + "님의 프로젝트"
+        username.innerText = "📜"+ myuserinfo['username'] + "님의 프로젝트"
         myBookmarkProjectList(user_id);
     }
 }
@@ -125,7 +125,7 @@ async function myProjectList(user_id) {
             const bookmark_btn = document.createElement('div');
             bookmark_btn.className = 'bookmark_btn';
 
-            if (myproject.bookmark.includes(payload.user_id)) {
+            if (myproject.bookmark.includes(payload.user_id)){
                 bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main_${myproject.id}" onclick="bookmark('${myproject.id}')">⭐️</button>
                 <span class="btn-bookmark-main-count_${myproject.id}">${myproject.bookmark_count}</span>`
             } else {
@@ -244,7 +244,6 @@ async function myBookmarkProjectList(user_id) {
                     </div>
                 </div>
                 <div class="wrap-writer-mypage">
-                <i class="fa-solid fa-user"></i>
                     <span class="text-writer-mypage">${mybookmarkproject.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${mybookmarkproject.user}" onclick='CreateRoomNode("${mybookmarkproject.user}")'>커피챗 신청하기 ☕️</button>
                 </div>
@@ -266,7 +265,7 @@ async function myBookmarkProjectList(user_id) {
             const bookmark_btn = document.createElement('div');
             bookmark_btn.className = 'bookmark_btn';
 
-            if (mybookmarkproject.bookmark.includes(payload.user_id)) {
+            if (mybookmarkproject.bookmark.includes(payload.user_id)){
                 bookmark_btn.innerHTML = `<button type="button" class="btn-bookmark-main btn-bookmark-main-recommend_${mybookmarkproject.id}" onclick="bookmark_recommend('${mybookmarkproject.id}')">⭐️</button>
             <span class="btn-bookmark-main-reommend-count_${mybookmarkproject.id}">${mybookmarkproject.bookmark_count}</span>`
             } else {
@@ -355,13 +354,13 @@ async function myBookmarkProjectList(user_id) {
 // 게시물 상세보기
 function toDetailProject(project_id) {
     localStorage.setItem("project_id", project_id)
-    window.location.href(`${frontend_base_url}/templates/detail_project.html`);
+    window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
 }
 
 
 // 북마크 등록/해제
 function bookmark(project_id, url, filter) {
-    fetch(`${backend_base_url}/project/${project_id}/bookmark/`, {
+    fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
@@ -369,9 +368,9 @@ function bookmark(project_id, url, filter) {
         },
         method: 'POST',
     })
-    bookmark_div = document.querySelector(".btn-bookmark-main_" + project_id)
-    bookmark_span = document.querySelector(".btn-bookmark-main-count_" + project_id)
-    if (bookmark_div.innerText == '⭐️') {
+    bookmark_div = document.querySelector(".btn-bookmark-main_"+ project_id)
+    bookmark_span = document.querySelector(".btn-bookmark-main-count_"+ project_id)
+    if (bookmark_div.innerText == '⭐️'){
         bookmark_div.innerText = '☆'
         bookmark_span.innerText = String(parseInt(bookmark_span.innerText) - 1)
     } else {
@@ -379,13 +378,13 @@ function bookmark(project_id, url, filter) {
         bookmark_span.innerText = String(parseInt(bookmark_span.innerText) + 1)
     }
 
-    node = document.querySelector('.btn-bookmark-main-recommend_' + project_id)
+    node = document.querySelector('.btn-bookmark-main-recommend_'+project_id)
     node_count = document.querySelector('.btn-bookmark-main-reommend-count_' + project_id)
-    if (node != null) {
-        if (node.innerHTML == '⭐️') { // bookmark on 일 때 누름
+    if(node != null){
+        if(node.innerHTML=='⭐️'){ // bookmark on 일 때 누름
             node.innerHTML = '☆'// `<i class="fa-regular fa-star"></i>`
             node_count.innerText = String(parseInt(node_count.innerText) - 1)
-        } else { // bookmark off 일 때 누름
+        }else{ // bookmark off 일 때 누름
             node.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
             node_count.innerText = String(parseInt(node_count.innerText) + 1)
         }
@@ -395,7 +394,7 @@ function bookmark(project_id, url, filter) {
 
 // 북마크 등록/해제
 function bookmark_recommend(project_id) {
-    fetch(`${backend_base_url}/project/${project_id}/bookmark/`, {
+    fetch(`${backend_base_url}/project/${project_id}/bookmark/`,{
         headers: {
             Accept: "application/json",
             'content-type': "application/json",
@@ -403,26 +402,26 @@ function bookmark_recommend(project_id) {
         },
         method: 'POST',
     }).then(response => {
-        if (response.status == 200) {
-            node = document.querySelector('.btn-bookmark-main-recommend_' + project_id)
+        if(response.status == 200) {
+            node = document.querySelector('.btn-bookmark-main-recommend_'+project_id)
             node_count = document.querySelector('.btn-bookmark-main-reommend-count_' + project_id)
-            if (node.innerText == '⭐️') { // bookmark on 일 때 누름
+            if(node.innerText=='⭐️'){ // bookmark on 일 때 누름
                 node.innerHTML = '☆'// `<i class="fa-regular fa-star"></i>`
                 node_count.innerText = String(parseInt(node_count.innerText) - 1)
-            } else { // bookmark off 일 때 누름
+            }else{ // bookmark off 일 때 누름
                 node.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
                 node_count.innerText = String(parseInt(node_count.innerText) + 1)
             }
 
             // 하단 프로젝트 목록
-            node2 = document.querySelector('.btn-bookmark-main_' + project_id)
+            node2 = document.querySelector('.btn-bookmark-main_'+ project_id)
             node2_count = document.querySelector('.btn-bookmark-main-count_' + project_id)
-            if (node2 != null) {
-                if (node2.innerHTML == '⭐️') { // bookmark on 일 때 누름
+            if(node2!=null){
+                if(node2.innerHTML=='⭐️'){ // bookmark on 일 때 누름
                     node2.innerHTML = '☆'
                     node2_count.innerText = String(parseInt(node2_count.innerText) - 1)
-
-                } else { // bookmark off 일 때 누름
+    
+                }else{ // bookmark off 일 때 누름
                     node2.innerHTML = '⭐️'
                     node2_count.innerText = String(parseInt(node2_count.innerText) + 1)
                 }
