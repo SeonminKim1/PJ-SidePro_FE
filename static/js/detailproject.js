@@ -159,7 +159,7 @@ function AddArticleViewUpdateDelete(response_json){
 function updateArticle(){
     localStorage.setItem('project_id', project_id)
     localStorage.setItem('update_mode', 1)
-    window.location.href(`${frontend_base_url}/templates/insert_project.html`);
+    window.location.assign(`${frontend_base_url}/templates/insert_project.html`);
 }
 
 // 4.3 게시글 삭제
@@ -177,7 +177,7 @@ async function deleteArticle(){
         response_json = await response.json()
         if(response.status == 200) {
             alert(response_json['success'], response.status)
-            window.location.href(`${frontend_base_url}/templates/main.html`);
+            window.location.assign(`${frontend_base_url}/templates/main.html`);
         } else {
             alert('게시글 삭제 실패: ', response.status)
         }

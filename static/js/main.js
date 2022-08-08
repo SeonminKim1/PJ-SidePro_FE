@@ -271,7 +271,7 @@ function bookmark_recommend(project_id) {
 function project_detail(project_id) {
     localStorage.setItem("project_id", project_id)
     localStorage.setItem("update_mode", 0)
-    window.location.href("/templates/detail_project.html")
+    window.location.assign("/templates/detail_project.html")
 }
 
 function search_list(){
@@ -289,11 +289,11 @@ function search_list(){
 function toUserPage(user_id) {
     login_user = JSON.parse(localStorage.getItem("payload"))["user_id"]
     if (user_id == login_user){
-        window.location.href(`${frontend_base_url}/templates/mypage.html`);
+        window.location.assign(`${frontend_base_url}/templates/mypage.html`);
     } else {
         localStorage.setItem("AnotherUser_id", user_id)
         localStorage.setItem("isAnotherUser", "true")
-        window.location.href(`${frontend_base_url}/templates/userpage.html`);
+        window.location.assign(`${frontend_base_url}/templates/userpage.html`);
     }
     
 }

@@ -146,7 +146,7 @@ function userprofile_upload() {
                     .then(json => {
                         alert('사용자정보 수정완료')
                     })
-                window.location.href(`${frontend_base_url}/templates/mypage.html`);
+                window.location.assign(`${frontend_base_url}/templates/mypage.html`);
             })
     } else {
         // Skills Value List
@@ -186,7 +186,7 @@ function userprofile_upload() {
             .then(json => {
                 alert('사용자정보 수정완료')
             })
-        window.location.href(`${frontend_base_url}/templates/mypage.html`);
+        window.location.assign(`${frontend_base_url}/templates/mypage.html`);
     }
 }
 
@@ -225,7 +225,7 @@ async function userWithdrawal() {
         response_json = await response.json();
         alert(response_json["msg"]);
 
-        window.location.href(`${frontend_base_url}/templates/login.html`);
+        window.location.assign(`${frontend_base_url}/templates/login.html`);
     };
 }
 

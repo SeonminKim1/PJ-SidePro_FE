@@ -354,7 +354,7 @@ async function myBookmarkProjectList(user_id) {
 // 게시물 상세보기
 function toDetailProject(project_id) {
     localStorage.setItem("project_id", project_id)
-    window.location.href(`${frontend_base_url}/templates/detail_project.html`);
+    window.location.assign(`${frontend_base_url}/templates/detail_project.html`);
 }
 
 

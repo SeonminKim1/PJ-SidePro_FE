@@ -35,6 +35,6 @@ function modalClose() {
 
 function toUserPage(user_id) {
     localStorage.setItem("AnotherUser_id", user_id)
-    window.location.href(`${frontend_base_url}/templates/userpage.html`);
+    window.location.assign(`${frontend_base_url}/templates/userpage.html`);
 }
 

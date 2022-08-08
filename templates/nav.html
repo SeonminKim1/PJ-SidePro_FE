@@ -21,7 +21,7 @@
 <body>
     <div class="wrap-nav">
         <div class="box-logo-nav">
-            <h1 class="title" nclick="toMainPage()">SIDE PRO</h1>
+            <h1 class="title" onclick="toMainPage()">SIDE PRO</h1>
         </div>
         <div class="wrap-category-nav">
             <div class="category-nav category-project-nav" onclick="toMainPage()">
@@ -42,19 +42,19 @@
     async function logout(){
         window.localStorage.clear(); 
         alert("로그아웃 완료되었습니다.")
-        window.location.href(`${frontend_base_url}/home.html`);
+        window.location.assign(`${frontend_base_url}/home.html`);
     }
 
     function toMypage(){
-        window.location.href(`${frontend_base_url}/templates/mypage.html`);
+        window.location.assign(`${frontend_base_url}/templates/mypage.html`);
     }
 
     function toUserProfile(){
-        window.location.href(`${frontend_base_url}/templates/userprofile.html`);
+        window.location.assign(`${frontend_base_url}/templates/userprofile.html`);
     }
 
     function toMainPage(){
-        window.location.href(`${frontend_base_url}/templates/main.html`);
+        window.location.assign(`${frontend_base_url}/templates/main.html`);
     }
 </script>
 </html>
