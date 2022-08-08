@@ -72,7 +72,11 @@ function userprofile_upload() {
                     body: formdata
                 })
                 alert('유저프로필 등록완료')
+<<<<<<< HEAD
                 window.location.replace(`${frontend_base_url}/templates/main.html`);
+=======
+                window.location.assign(`${frontend_base_url}/templates/main.html`);
+>>>>>>> 68ea368a1643d696ff8afa4c4cdded84c4eec10d
             })
     } else {
         // 이미지가 없는 경우
@@ -108,7 +112,7 @@ function userprofile_upload() {
             body: formdata
         })
         alert('유저프로필 등록완료')
-        window.location.replace(`${frontend_base_url}/templates/main.html`);
+        window.location.assign(`${frontend_base_url}/templates/main.html`);
     }
 
 }
