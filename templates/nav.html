@@ -42,19 +42,19 @@
     async function logout(){
         window.localStorage.clear(); 
         alert("로그아웃 완료되었습니다.")
-        window.location.replace(`${frontend_base_url}/home.html`);
+        window.location.href(`${frontend_base_url}/home.html`);
     }
 
     function toMypage(){
-        window.location.replace(`${frontend_base_url}/templates/mypage.html`);
+        window.location.href(`${frontend_base_url}/templates/mypage.html`);
     }
 
     function toUserProfile(){
-        window.location.replace(`${frontend_base_url}/templates/userprofile.html`);
+        window.location.href(`${frontend_base_url}/templates/userprofile.html`);
     }
 
     function toMainPage(){
-        window.location.replace(`${frontend_base_url}/templates/main.html`);
+        window.location.href(`${frontend_base_url}/templates/main.html`);
     }
 </script>
 </html>
