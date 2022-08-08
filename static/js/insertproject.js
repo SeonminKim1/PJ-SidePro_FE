@@ -184,41 +184,40 @@ insert_project = function () {
             formdata.append("github_url", document.querySelector("#git_hub_url").value,)
             formdata.append("description", document.querySelector("#description").value,)
 
-
-            // 게시글 update
-            if (update_mode == 1) {
-                fetch(`${backend_base_url}/project/${project_id}/`, {
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("access")
-                    },
-                    method: 'PUT',
-                    body: formdata
-                }).then(response => {
-                    return response.json()
-                }).then(json => {
-                    localStorage.setItem("project_id", json['id'])
-                    localStorage.setItem("update_mode", 0)
-                    update_mode = 0
-                    alert("게시글 수정 성공!")
-                    window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
-                })
-            } else { // 게시글 등록하기 - update mode == 0
-                fetch(`${backend_base_url}/project/`, {
-                    headers: {
-                        "Authorization": "Bearer " + localStorage.getItem("access")
-                    },
-                    method: 'POST',
-                    body: formdata
-                }).then(response => {
-                    return response.json()
-                }).then(json => {
-                    localStorage.setItem("project_id", json['id'])
-                    localStorage.setItem("update_mode", 0)
-                    update_mode = 0
-                    alert("게시글 작성 성공!")
-                    window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
-                })
-            }
+                // 게시글 update
+                if(update_mode==1){
+                    fetch(`${backend_base_url}/project/${project_id}/`, {
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("access")
+                        },
+                        method: 'PUT',
+                        body: formdata
+                    }).then(response => {
+                            return response.json()
+                        }).then(json => {
+                            localStorage.setItem("project_id", json['id'])
+                            localStorage.setItem("update_mode", 0)
+                            update_mode = 0
+                            alert("게시글 수정 성공!")
+                            window.location.href(`${frontend_base_url}/templates/detail_project.html`);
+                        })
+                }else{ // 게시글 등록하기 - update mode == 0
+                    fetch(`${backend_base_url}/project/`, {
+                        headers: {
+                            "Authorization": "Bearer " + localStorage.getItem("access")
+                        },
+                        method: 'POST',
+                        body: formdata
+                    }).then(response => {
+                            return response.json()
+                        }).then(json => {
+                            localStorage.setItem("project_id", json['id'])
+                            localStorage.setItem("update_mode", 0)
+                            update_mode = 0
+                            alert("게시글 작성 성공!")
+                            window.location.href(`${frontend_base_url}/templates/detail_project.html`);
+                        })
+                }
         })
     } else { // 이미지가 없을 경우
         // Skills Value List
@@ -260,7 +259,7 @@ insert_project = function () {
                 localStorage.setItem("update_mode", 0)
                 update_mode = 0
                 alert("게시글 수정 성공!")
-                window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+                window.location.href(`${frontend_base_url}/templates/detail_project.html`);
             })
         } else { // 게시글 등록하기 - update mode == 0
             formdata.append("thumnail_img_path", PROJECT_BASE_IMAGE)
@@ -272,14 +271,15 @@ insert_project = function () {
                 method: 'POST',
                 body: formdata
             }).then(response => {
-                return response.json()
-            }).then(json => {
-                localStorage.setItem("project_id", json['id'])
-                localStorage.setItem("update_mode", 0)
-                update_mode = 0
-                alert("게시글 작성 성공!")
-                window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
-            })
+
+                    return response.json()
+                }).then(json => {
+                    localStorage.setItem("project_id", json['id'])
+                    localStorage.setItem("update_mode", 0)
+                    update_mode = 0
+                    alert("게시글 작성 성공!")
+                    window.location.href(`${frontend_base_url}/templates/detail_project.html`);
+                })
         }
     }
 

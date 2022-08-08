@@ -84,7 +84,7 @@ function AddRoomListHtml(response_json){
             [user1_username, user2_username] = [user2_username, user1_username]; // user2가 login user로 서로 change
         }else{
             alert('인증 토큰이 만료되었습니다. 로그인 페이지로 돌아갑니다')
-            window.location.replace(`${frontend_base_url}/templates/login.html`);
+            window.location.href(`${frontend_base_url}/templates/login.html`);
         }
 
         // Room 삭제 여부 - 상대방이 삭제 했으면 대화방 input 비활성화

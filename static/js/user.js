@@ -25,7 +25,7 @@ async function join() {
     // 정상적인 통신이 되었을 경우 = 회원가입 완료 > 로그인페이지로
     if (response.status == 201) {
         alert("회원가입 완료!")
-        window.location.replace(`${frontend_base_url}/templates/login.html`);
+        window.location.href(`${frontend_base_url}/templates/login.html`);
     } else {
         if(response.status==400){
             alert('이미 가입되어 있는 정보 입니다. 다른 정보를 입력해주세요.', response.status)
@@ -62,13 +62,13 @@ async function login() {
 
         // 파싱하는 부분 복사해서 사용하기! 
         const base64Url = response_json.access.split('.')[1];
-        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        const base64 = base64Url.href(/-/g, '+').href(/_/g, '/');
         const jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
             return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
         }).join(''));
 
         localStorage.setItem("payload", jsonPayload);
-        // window.location.replace(`${frontend_base_url}/`);
+        // window.location.href(`${frontend_base_url}/`);
         alert("환영합니다!")
         payload = JSON.parse(localStorage.getItem("payload"))
         user_id = payload["user_id"]
@@ -83,9 +83,9 @@ async function login() {
         response_json = await response.json()
 
         if (response_json['userprofile'] == null) {
-            window.location.replace(`${frontend_base_url}/templates/userprofile.html`);
+            window.location.href(`${frontend_base_url}/templates/userprofile.html`);
         } else {
-            window.location.replace(`${frontend_base_url}/templates/main.html`);
+            window.location.href(`${frontend_base_url}/templates/main.html`);
         }
 
     } else {
