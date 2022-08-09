@@ -348,13 +348,13 @@ async function myBookmarkProjectList() {
 
 
 function toModifyProfile() {
-    window.location.replace(`${frontend_base_url}/templates/modify_profile.html`);
+    window.location.assign(`${frontend_base_url}/templates/modify_profile.html`);
 }
 
 // 게시물 상세보기
 function toDetailProject(project_id) {
     localStorage.setItem("project_id", project_id)
-    window.location.replace(`${frontend_base_url}/templates/detail_project.html`);
+    window.location.assign(`${frontend_base_url}/templates/detail_project.html`);
 }
 
 
@@ -436,11 +436,11 @@ function bookmark_recommend(project_id) {
 function toUserPage(user_id) {
     login_user = JSON.parse(localStorage.getItem("payload"))["user_id"]
     if (user_id == login_user){
-        window.location.replace(`${frontend_base_url}/templates/mypage.html`);
+        window.location.assign(`${frontend_base_url}/templates/mypage.html`);
     } else {
         localStorage.setItem("AnotherUser_id", user_id)
         localStorage.setItem("isAnotherUser", "true")
-        window.location.replace(`${frontend_base_url}/templates/userpage.html`);
+        window.location.assign(`${frontend_base_url}/templates/userpage.html`);
     }
     
 }
