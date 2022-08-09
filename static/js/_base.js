@@ -5,8 +5,8 @@ if (is_local == true) {
     var backend_base_ip_port = "127.0.0.1:8000"
     var frontend_base_url = "http://127.0.0.1:5500"
 } else {
-    var backend_base_url = "http://43.200.169.83:8000"
-    var backend_base_ip_port = "43.200.169.83:8001"
+    var backend_base_url = "http://13.209.178.94:8000"
+    var backend_base_ip_port = "13.209.178.94:8001"
     // var frontend_base_url = "http://www.sidepro-sub.shop"
     var frontend_base_url = "http://sidepro-sub.shop.s3-website.ap-northeast-2.amazonaws.com"
 }
