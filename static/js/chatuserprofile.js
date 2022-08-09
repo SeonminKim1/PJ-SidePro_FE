@@ -33,8 +33,16 @@ function modalClose() {
     }
 }
 
+// 유저 프로필 보기
 function toUserPage(user_id) {
-    localStorage.setItem("AnotherUser_id", user_id)
-    window.location.assign(`${frontend_base_url}/templates/userpage.html`);
+    login_user = JSON.parse(localStorage.getItem("payload"))["user_id"]
+    if (user_id == login_user){
+        window.location.assign(`${frontend_base_url}/templates/mypage.html`);
+    } else {
+        localStorage.setItem("AnotherUser_id", user_id)
+        localStorage.setItem("isAnotherUser", "true")
+        window.location.assign(`${frontend_base_url}/templates/userpage.html`);
+    }
+    
 }
 

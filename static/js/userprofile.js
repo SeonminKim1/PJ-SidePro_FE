@@ -71,7 +71,6 @@ function userprofile_upload() {
                     method: 'POST',
                     body: formdata
                 })
-                alert('유저프로필 등록완료')
                 window.location.assign(`${frontend_base_url}/templates/main.html`);
             })
     } else {
@@ -107,7 +106,6 @@ function userprofile_upload() {
             method: 'POST',
             body: formdata
         })
-        alert('유저프로필 등록완료')
         window.location.assign(`${frontend_base_url}/templates/main.html`);
     }
 

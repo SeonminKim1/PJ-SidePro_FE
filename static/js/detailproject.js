@@ -99,7 +99,6 @@ async function bookmark(node) {
         }else{ // bookmark off 일 때 누름
             node.innerHTML = '⭐️' // `<i class="fa-solid fa-star"></i>`
         }
-        alert(response_json['msg'], response.status)
     } else {
         alert('게시글 삭제 실패: ', response.status)
     }
@@ -260,7 +259,6 @@ async function insertUpdateDeleteComment(){
         }
         comment_view.append(newCommentDiv)
 
-        alert(response_json['msg'], response.status)
     } else {
         alert('댓글 등록 실패', response.status)
     }
@@ -375,7 +373,6 @@ async function updateComment(update_btn_node){
                 </div>
             `
             // 최종 수정 성공 alert창
-            alert(response_json['msg'], response.status) 
         }else{
             alert('댓글 업데이트 실패했습니다.', response.status)
         }
