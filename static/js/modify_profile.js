@@ -144,7 +144,6 @@ function userprofile_upload() {
                         return response.json()
                     })
                     .then(json => {
-                        alert('사용자정보 수정완료')
                     })
                 window.location.assign(`${frontend_base_url}/templates/mypage.html`);
             })
@@ -184,7 +183,6 @@ function userprofile_upload() {
                 return response.json()
             })
             .then(json => {
-                alert('사용자정보 수정완료')
             })
         window.location.assign(`${frontend_base_url}/templates/mypage.html`);
     }
