@@ -1,5 +1,27 @@
 async function join() {
+    // 정규 표현식을 이용한 아이디 형식 제한 영문 소문자, 대문자, 숫자, 4-30자
+    const id_regExp = /^[a-zA-Z0-9]([a-zA-Z0-9]*)(@)([a-zA-Z0-9]*)(\.)([a-zA-Z]*){4,40}$/;
+    // 정규 표현식을 이용한 패스워드 형식 제한 영문 소문자, 대문자, 숫자,!@#$%^ 8-20자
+    const pwd_regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
 
+    const input_id = document.getElementById("input-id-join").value
+    const input_name = document.getElementById("input-username-join").value
+    const input_pwd = document.getElementById("input-password-join").value
+    const input_pwd_confirm = document.getElementById("input-password-confirm").value
+
+    if (input_id == ""){
+        return alert("아이디를 입력해 주세요")
+    } else if (!id_regExp.test(input_id)){
+        return alert("아이디는 이메일 형식입니다.")
+    } else if(input_name == "") {
+        return alert("이름을 입력해 주세요")
+    } else if(input_pwd == ""){
+        return alert("패스워드를 입력해 주세요")
+    } else if(!pwd_regExp.test(input_pwd)){
+        return alert("패스워드는 숫자,특수문자를 포함한 8-20자 입니다")
+    } else if(!(input_pwd == input_pwd_confirm)){
+        return alert("패스워드를 재입력란을 확인해주세요")
+    }
     // 입력받은 데이터 가져오기
     const joinData = {
         email: document.getElementById("input-id-join").value,
@@ -24,8 +46,7 @@ async function join() {
 
     // 정상적인 통신이 되었을 경우 = 회원가입 완료 > 로그인페이지로
     if (response.status == 201) {
-        alert("회원가입 완료!")
-        window.location.href(`${frontend_base_url}/templates/login.html`);
+        window.location.assign(`${frontend_base_url}/templates/login.html`);
     } else {
         if(response.status==400){
             alert('이미 가입되어 있는 정보 입니다. 다른 정보를 입력해주세요.', response.status)
@@ -69,7 +90,6 @@ async function login() {
 
         localStorage.setItem("payload", jsonPayload);
         // window.location.href(`${frontend_base_url}/`);
-        alert("환영합니다!")
         payload = JSON.parse(localStorage.getItem("payload"))
         user_id = payload["user_id"]
         const response = await fetch(`${backend_base_url}/user/profile`,{
@@ -90,9 +110,9 @@ async function login() {
 
     } else {
         if(response.status==401){
-            alert('이미 가입된 회원이거나 입력값을 확인해 주세요.', response.status)
+            alert('아이디 혹은 비밀번호를 확인해주세요!', response.status)
         }else{
-            alert(response.status)
+            alert('아이디 혹은 비밀번호를 확인해주세요!', response.status)
         }
     }
 

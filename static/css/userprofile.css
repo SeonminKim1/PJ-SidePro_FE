@@ -253,3 +253,9 @@ a {
     display: flex;
     flex-wrap: wrap;
 }
+
+.info-text-stack {
+    font-size: .8rem;
+    word-break: keep-all;
+    color: crimson;
+}
