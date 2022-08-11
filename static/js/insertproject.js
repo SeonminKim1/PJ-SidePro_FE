@@ -173,7 +173,7 @@ insert_project = function () {
 
                 // form Data 만들기
                 const formdata = new FormData()
-                formdata.append("title",document.querySelector("#title").value,)
+                formdata.append("title", XSSCheck_str(document.querySelector("#title").value),)
 
                 // Skills Append
                 for(let j=0; j<select_skills_id.length; j++){
@@ -182,7 +182,7 @@ insert_project = function () {
                 formdata.append("thumnail_img_path", json["url"])
                 formdata.append("content", editor.getMarkdown(),)    
                 formdata.append("github_url",document.querySelector("#git_hub_url").value,)    
-                formdata.append("description",document.querySelector("#description").value,)    
+                formdata.append("description", XSSCheck_str(document.querySelector("#description").value),)    
                 
 
                 // 게시글 update
@@ -233,7 +233,7 @@ insert_project = function () {
 
         // form Data 만들기
         const formdata = new FormData()
-        formdata.append("title",document.querySelector("#title").value,)
+        formdata.append("title", XSSCheck_str(document.querySelector("#title").value),)
 
         // Skills Append
         for(let j=0; j<select_skills_id.length; j++){
@@ -241,7 +241,7 @@ insert_project = function () {
         }
         formdata.append("content", editor.getMarkdown(),)    
         formdata.append("github_url",document.querySelector("#git_hub_url").value,)    
-        formdata.append("description",document.querySelector("#description").value,)   
+        formdata.append("description",XSSCheck_str(document.querySelector("#description").value),)   
 
         // 게시글 update
         if(update_mode==1){

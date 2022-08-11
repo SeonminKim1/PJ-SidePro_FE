@@ -74,7 +74,7 @@ function SetChattingRoomSocketEvent(roomname, user1_username, user2_username){
         sendmessage(e)
     }
     async function sendmessage(e) {
-        const message = messageInputDom.value;
+        const message = XSSCheck_incode(messageInputDom.value);
         if (message == ""){
             return 
         }

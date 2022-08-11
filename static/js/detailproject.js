@@ -202,7 +202,7 @@ function AddCommentCrud(response_json){
 // 5.1 댓글 추가, 5.3 수정, 5.4 삭제
 async function insertUpdateDeleteComment(){
 
-    comment_text = comment_write_input.value; // 댓글 등록 - input text 내용
+    comment_text = XSSCheck_incode(comment_write_input.value); // 댓글 등록 - input text 내용
     const commentdata = { 'comment':comment_text}
 
     response = await fetch(`${backend_base_url}/project/${project_id}/comment/`,{
@@ -339,7 +339,7 @@ async function updateComment(update_btn_node){
     update_ok_btn = document.querySelector('.btn-ok-comment-detail_' + update_comment_id)
     update_ok_btn.addEventListener('click', async function(){
         const update_input_value = document.querySelector('.comment-content-detail-input_'+update_comment_id)
-        const update_commentdata = { 'comment' : update_input_value.value }
+        const update_commentdata = { 'comment' : XSSCheck_incode(update_input_value.value) }
         response = await fetch(`${backend_base_url}/project/${project_id}/comment/${update_comment_id}/`,{
             headers: {
                 Accept: "application/json",

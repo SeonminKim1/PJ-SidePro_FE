@@ -4,10 +4,10 @@ async function join() {
     // 정규 표현식을 이용한 패스워드 형식 제한 영문 소문자, 대문자, 숫자,!@#$%^ 8-20자
     const pwd_regExp = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,20}$/;
 
-    const input_id = document.getElementById("input-id-join").value
-    const input_name = document.getElementById("input-username-join").value
-    const input_pwd = document.getElementById("input-password-join").value
-    const input_pwd_confirm = document.getElementById("input-password-confirm").value
+    const input_id = XSSCheck_str(document.getElementById("input-id-join").value)
+    const input_name = XSSCheck_str(document.getElementById("input-username-join").value)
+    const input_pwd = XSSCheck_str(document.getElementById("input-password-join").value)
+    const input_pwd_confirm = XSSCheck_str(document.getElementById("input-password-confirm").value)
 
     if (input_id == ""){
         return alert("아이디를 입력해 주세요")
@@ -18,17 +18,19 @@ async function join() {
     } else if(input_pwd == ""){
         return alert("패스워드를 입력해 주세요")
     } else if(!pwd_regExp.test(input_pwd)){
-        return alert("패스워드는 숫자,특수문자를 포함한 8-20자 입니다")
+        return alert("패스워드는 영문,숫자,특수문자를 포함한 8-20자 입니다")
     } else if(!(input_pwd == input_pwd_confirm)){
         return alert("패스워드를 재입력란을 확인해주세요")
     }
     // 입력받은 데이터 가져오기
     const joinData = {
-        email: document.getElementById("input-id-join").value,
-        username: document.getElementById("input-username-join").value,
-        password: document.getElementById("input-password-join").value,
-        password_confirm: document.getElementById("input-password-confirm").value,
+        email: input_id,
+        username: input_name,
+        password: input_pwd,
+        password_confirm: input_pwd_confirm,
     }
+    
+
 
     // 입력받은 데이터를 BE서버에 회원가입 url로 request 요청
     const response = await fetch(`${backend_base_url}/user/join/`, {
@@ -61,8 +63,8 @@ async function join() {
 
 async function login() {
     const loginData = {
-        email: document.getElementById("input-id-login").value,
-        password: document.getElementById("input-password-login").value,
+        email: XSSCheck_str(document.getElementById("input-id-login").value),
+        password: XSSCheck_str(document.getElementById("input-password-login").value),
     }
 
     const response = await fetch(`${backend_base_url}/user/api/token/`, {
