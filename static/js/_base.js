@@ -29,9 +29,3 @@ function StringToDatetime(string_time, type) { // StringToDatetime("2022-07-25T1
 
 const PROFILE_BASE_IMAGE = "https://s3.ap-northeast-2.amazonaws.com/sidepro.shop/static/img/profile_base.png"
 const PROJECT_BASE_IMAGE = "https://s3.ap-northeast-2.amazonaws.com/sidepro.shop/static/img/project_thumnail.png"
-
-
-function XSSCheck(text) {
-    text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/gi, "");
-    return text;
-}
