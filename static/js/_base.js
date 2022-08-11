@@ -1,5 +1,5 @@
 // For All
-var is_local = true
+var is_local = false
 if (is_local == true) {
     var backend_base_url = "http://127.0.0.1:8000"
     var backend_base_ip_port = "127.0.0.1:8000"
