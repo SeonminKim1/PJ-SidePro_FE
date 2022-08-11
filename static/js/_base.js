@@ -5,9 +5,9 @@ if (is_local == true) {
     var backend_base_ip_port = "127.0.0.1:8000"
     var frontend_base_url = "http://127.0.0.1:5500"
 } else {
-    var backend_base_url = "http://3.37.194.222:8000"
+    var backend_base_url = "https://sidepro-ec2.shop"
     var backend_base_ip_port = "3.37.194.222:8001"
-    var frontend_base_url = "http://www.sidepro.shop"
+    var frontend_base_url = "https://www.sidepro.shop"
     // var frontend_base_url = "http://sidepro.shop.s3-website.ap-northeast-2.amazonaws.com"
 }
 
