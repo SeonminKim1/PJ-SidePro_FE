@@ -652,6 +652,7 @@ nav {
 .box-dropdown-align-main:hover,
 .dropdown-content-main {
     display: block;
+    cursor: pointer;
 }
 
 .btn-dropdown-main {
@@ -887,6 +888,7 @@ nav {
     display: flex;
     justify-content: center;
     padding: 40px;
+    cursor: pointer;
 }
 
 .btn-page-main {
