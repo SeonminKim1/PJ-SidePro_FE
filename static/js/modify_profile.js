@@ -32,7 +32,7 @@ async function getMyUserInfo() {
         const description = document.querySelector('#description');
         profile_img_preview.src = `${myuserinfo['userprofile']['profile_image']}`
         github_url.value = `${myuserinfo['userprofile']['github_url']}`
-        description.value = `${myuserinfo['userprofile']['description']}`
+        description.value = XSSCheck(`${myuserinfo['userprofile']['description']}`)
 
         // 셀렉트 옵션을 DB에서 받아온 값으로 selected(지역)
         var region = document.querySelectorAll('#region option');
@@ -121,7 +121,7 @@ function userprofile_upload() {
                 }
 
                 const formdata = new FormData()
-                formdata.append("description", document.querySelector('#description').value);
+                formdata.append("description", XSSCheck(document.querySelector('#description').value));
                 formdata.append("profile_image", json["url"]);
                 formdata.append("github_url", document.querySelector('#github_url').value);
 
@@ -161,7 +161,7 @@ function userprofile_upload() {
         }
 
         const formdata = new FormData()
-        formdata.append("description", document.querySelector('#description').value);
+        formdata.append("description", XSSCheck(document.querySelector('#description').value));
         formdata.append("github_url", document.querySelector('#github_url').value);
 
         // Skills Append

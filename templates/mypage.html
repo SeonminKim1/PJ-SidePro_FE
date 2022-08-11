@@ -12,11 +12,9 @@
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- Javascript Import -->
-    <script src="/static/js/_base.js"></script>
-    <script src="/static/js/mypage.js"></script>
 
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+
 </head>
 
 <body>
@@ -70,11 +68,77 @@
                 </div>
             </div>
         </main>
+        <!-- 채팅룸 리스트 -->
+        <aside id="chat-list" class="chat-list">
+            <div class="box-btn-chat">
+                <button class="btn-chat-close" onclick="DisableRoomList()">🞩</button>
+            </div>
+
+            <div class="box-text-title-room">
+                <span class="text-title-room">CHAT LIST</span>
+            </div>
+            <div id="chat-room-list" class="box-chat-room-list room-list-color">
+
+            </div>
+        </aside>
+
+        <!-- 채팅, 프로젝트 등록 고정 버튼 -->
+        <div class="btn-fixed-container">
+            <button class="btn-chat-open" onclick="activeRoomList()">나의 커피챗</button>
+            <button class="btn-project-regist" onclick="window.location.href='/templates/insert_project.html'">프로젝트
+                등록하기!</button>
+        </div>
+
+        <!-- 채팅 -->
+        <aside id="chat-room" class="chat-container">
+            <div class="box-btn-chat">
+                <button class="btn-chat-room-close">🞩</button>
+            </div>
+            <div class="box-text-title-chat">
+                <span class="text-title-chat">CHATTING</span>
+            </div>
+            <div id="chat-box" class="box-chat-partner-user">
+
+            </div>
+            <div class="box-input-chat">
+                <input class="input-chat" placeholder="채팅 입력하기">
+                <button class="btn-chat">전송</button>
+            </div>
+        </aside>
+        <!-- 유저 프로필 모달 -->
+        <div id="user-modal" class="container-profile-modal">
+            <div class="wrap-profile-modal">
+                <div class="box-close-modal">
+
+                </div>
+                <div class="box-profile-modal">
+                    <div>
+                        <img src="" class="img-profile img-profile-modal">
+                    </div>
+                    <div class="box-text-modal">
+                        <div>
+                            <span class="text-profile-name text-modal-name text-profile-name-modal">김프로</span>
+                            <span><button class="btn-modal-close" onclick="modalClose()">🞩</button></span>
+                        </div>
+                        <span class="text-profile-portfolio text-profile-portfolio-modal">github.com/kimpro</span>
+                    </div>
+                </div>
+                <div class="box-btn-modal">
+
+                </div>
+            </div>
+        </div>
     </section>
     <footer id="footer" class="container-footer-main">
         <script>$("#footer").load("/templates/footer.html");</script>
     </footer>
 
 </body>
-
+    <!-- Javascript Import -->
+    <script src="/static/js/_base.js"></script>
+    <script src="/static/js/_basechat.js"></script>
+    <script src="/static/js/chatroom.js"></script>
+    <script src="/static/js/chatuserprofile.js"></script>
+    <script src="/static/js/chatting.js"></script>
+    <script src="/static/js/mypage.js"></script>
 </html>

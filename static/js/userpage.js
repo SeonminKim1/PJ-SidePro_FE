@@ -244,6 +244,7 @@ async function myBookmarkProjectList(user_id) {
                     </div>
                 </div>
                 <div class="wrap-writer-mypage">
+                    <i class="fa-solid fa-user"></i>
                     <span class="text-writer-mypage" onclick="toUserPage(${mybookmarkproject.user_id})">${mybookmarkproject.user}</span>
                     <button class="btn-chat-mypage btn-chat-mypage_${mybookmarkproject.user}" onclick='CreateRoomNode("${mybookmarkproject.user}")'>커피챗 신청하기 ☕️</button>
                 </div>

@@ -76,7 +76,6 @@ async function recommend_lsit(){
             bookmark_div.append(bookmark_btn)
             
             const username = document.querySelector('.text-title-suggest')
-            username.innerHTML = '🤔'+login_username+'님과 비슷한 유저의 프로젝트를 추천해드려요!'
         }
         
     
