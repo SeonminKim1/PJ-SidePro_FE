@@ -52,7 +52,7 @@ function userprofile_upload() {
                 }
     
                 const formdata = new FormData()
-                formdata.append("description", XSSCheck_str(document.querySelector('#description').value));
+                formdata.append("description", XSSCheck(document.querySelector('#description').value));
                 formdata.append("profile_image", json["url"]);
                 formdata.append("github_url", document.querySelector('#github_url').value);
     
@@ -87,7 +87,7 @@ function userprofile_upload() {
         }
 
         const formdata = new FormData()
-        formdata.append("description", XSSCheck_str(document.querySelector('#description').value));
+        formdata.append("description", XSSCheck(document.querySelector('#description').value));
         formdata.append("profile_image", PROFILE_BASE_IMAGE);
         formdata.append("github_url", document.querySelector('#github_url').value);
 

@@ -31,7 +31,7 @@ const PROFILE_BASE_IMAGE = "https://s3.ap-northeast-2.amazonaws.com/sidepro.shop
 const PROJECT_BASE_IMAGE = "https://s3.ap-northeast-2.amazonaws.com/sidepro.shop/static/img/project_thumnail.png"
 
 
-function XSSCheck_incode(str) {
-    let str = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/gi, "");
-    return str;
+function XSSCheck(text) {
+    text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/gi, "");
+    return text;
 }
