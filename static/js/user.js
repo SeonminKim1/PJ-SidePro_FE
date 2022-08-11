@@ -18,17 +18,19 @@ async function join() {
     } else if(input_pwd == ""){
         return alert("패스워드를 입력해 주세요")
     } else if(!pwd_regExp.test(input_pwd)){
-        return alert("패스워드는 숫자,특수문자를 포함한 8-20자 입니다")
+        return alert("패스워드는 영문,숫자,특수문자를 포함한 8-20자 입니다")
     } else if(!(input_pwd == input_pwd_confirm)){
         return alert("패스워드를 재입력란을 확인해주세요")
     }
     // 입력받은 데이터 가져오기
     const joinData = {
-        email: document.getElementById("input-id-join").value,
-        username: document.getElementById("input-username-join").value,
-        password: document.getElementById("input-password-join").value,
-        password_confirm: document.getElementById("input-password-confirm").value,
+        email: input_id,
+        username: input_name,
+        password: input_pwd,
+        password_confirm: input_pwd_confirm,
     }
+    
+
 
     // 입력받은 데이터를 BE서버에 회원가입 url로 request 요청
     const response = await fetch(`${backend_base_url}/user/join/`, {

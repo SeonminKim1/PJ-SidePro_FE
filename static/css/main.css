@@ -652,6 +652,7 @@ nav {
 .box-dropdown-align-main:hover,
 .dropdown-content-main {
     display: block;
+    cursor: pointer;
 }
 
 .btn-dropdown-main {
@@ -852,6 +853,7 @@ nav {
 
 .text-writer-mypage {
     margin: 0 10px;
+    cursor: pointer;
 }
 
 .btn-chat-mypage {
@@ -883,6 +885,7 @@ nav {
     display: flex;
     justify-content: center;
     padding: 40px;
+    cursor: pointer;
 }
 
 .btn-page-main {
