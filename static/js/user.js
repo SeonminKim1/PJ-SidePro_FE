@@ -29,8 +29,6 @@ async function join() {
         password: input_pwd,
         password_confirm: input_pwd_confirm,
     }
-    
-
 
     // 입력받은 데이터를 BE서버에 회원가입 url로 request 요청
     const response = await fetch(`${backend_base_url}/user/join/`, {
@@ -58,7 +56,6 @@ async function join() {
         }
     }
 
-
 }
 
 async function login() {
@@ -82,7 +79,7 @@ function join_enterkey() {
     }
 }
 
-async function login_token(loginData){
+async function login_token(loginData, is_social){
 
     const response = await fetch(`${backend_base_url}/user/api/token/`, {
         headers: {
@@ -127,18 +124,16 @@ async function login_token(loginData){
             window.location.assign(`${frontend_base_url}/templates/main.html`);
         }
     } else {
-        if(response.status==401){
-            alert('아이디 혹은 비밀번호를 확인해주세요!', response.status)
-        }else{
+        if(is_social == true & response.status==401){
+            alert('이미 가입된 이메일 입니다! 일반로그인으로 로그인 해주세요!', response.status)
+        } else {
             alert('아이디 혹은 비밀번호를 확인해주세요!', response.status)
         }
     }
 }
 
-
-
+// 카카오 api 를 쓰기위해 초기화
 window.Kakao.init('8e2d299c275ad124f7fd5489f9dc723a');
-
 
 function kakao_login(){
     console.log(Kakao.isInitialized());
@@ -177,7 +172,7 @@ function kakao_login(){
                                 username: kakao_nickname,
                                 is_social: true,
                             }
-                            fetch(`${backend_base_url}/user/kakao/`,{
+                            fetch(`${backend_base_url}/user/join/`,{
                                 headers: {
                                     Accept: "application/json",
                                     'Content-type': "application/json"
@@ -191,7 +186,8 @@ function kakao_login(){
                                     email: json['email'],
                                     password: json['email']
                                 }
-                                login_token(loginData)
+                                is_social = true
+                                login_token(loginData, is_social)
                             })
                         // 이미 가입한 경우 > 로그인
                         } else {
@@ -199,7 +195,8 @@ function kakao_login(){
                                 email : kakao_email,
                                 password : kakao_email,
                             }
-                            login_token(loginData)
+                            is_social = true
+                            login_token(loginData, is_social)
                         }
                     })
                     
