@@ -14,7 +14,7 @@ async function join() {
     } else if (!id_regExp.test(input_id)){
         return alert("아이디는 이메일 형식입니다.")
     } else if(input_name == "") {
-        return alert("이름을 입력해 주세요")
+        return alert("닉네임을 입력해 주세요")
     } else if(input_pwd == ""){
         return alert("패스워드를 입력해 주세요")
     } else if(!pwd_regExp.test(input_pwd)){
@@ -51,7 +51,7 @@ async function join() {
         window.location.assign(`${frontend_base_url}/templates/login.html`);
     } else {
         if(response.status==400){
-            alert('이미 가입되어 있는 정보 입니다. 다른 정보를 입력해주세요.', response.status)
+            alert('이미 가입되어 있는 정보 입니다. 이메일 혹은 닉네임를 확인해주세요.', response.status)
         }
         else{
             alert(response.status)
@@ -128,4 +128,29 @@ function join_enterkey() {
 	if (window.event.keyCode == 13) {
     	join()
     }
+}
+
+
+
+async function kakao_login(){
+    Kakao.init('8e2d299c275ad124f7fd5489f9dc723a');
+    console.log(Kakao.isInitialized());
+
+    
+    Kakao.Auth.authorize({
+        redirectUri: 'http://localhost:5500/templates/main.html'
+    })
+    Kakao.Auth.login({
+        success: function(authObj) {
+            Kakao.API.request({
+                url: '/v2/user/me',
+                success: function(resp){
+                    console.log(resp)
+                    var email = resp.kakao_acount.email
+                    const email_div = document.getElementById("email")
+                    email_div.innerText = email
+                }
+            })
+        }
+    })
 }

@@ -1,6 +1,7 @@
 
 // Chatting Room Open
 async function activeChatRoom(roomname, user1_username, user2_username) { 	
+    asideChatRoom.style.display = ''
     if(asideChatRoom.style.display == '') {
         asideChatRoom.style.display = 'block'; 	
 
