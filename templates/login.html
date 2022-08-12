@@ -35,7 +35,7 @@
                             <button type="submit" onclick="login()" class="btn-login">
                                 로그인
                             </button>
-                            <button type="submit" onclick='alert("준비중입니다.")' class="btn-kakao-login">
+                            <button type="submit" onclick='kakao_login()' class="btn-kakao-login">
                                 카카오 로그인
                             </button>
                             <button type="submit" onclick='alert("준비중입니다.")' class="btn-google-login">
@@ -55,7 +55,9 @@
     </section>
     <!-- Javascript Import -->
     <script src="/static/js/_base.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script src="/static/js/user.js"></script>
+
 </body>
 
 </html>

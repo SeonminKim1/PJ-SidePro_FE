@@ -62,10 +62,27 @@ async function join() {
 }
 
 async function login() {
+
     const loginData = {
         email: document.getElementById("input-id-login").value,
         password: document.getElementById("input-password-login").value,
     }
+    login_token(loginData)
+
+}
+
+function login_enterkey() {
+	if (window.event.keyCode == 13) {
+    	login()
+    }
+}
+function join_enterkey() {
+	if (window.event.keyCode == 13) {
+    	join()
+    }
+}
+
+async function login_token(loginData){
 
     const response = await fetch(`${backend_base_url}/user/api/token/`, {
         headers: {
@@ -77,7 +94,7 @@ async function login() {
     })
 
     response_json = await response.json()
-
+    
     if (response.status == 200) {
         // 로컬스토리지에 jwt access 토큰과 refresh 토큰 저장
         localStorage.setItem("access", response_json.access)
@@ -109,7 +126,6 @@ async function login() {
         } else {
             window.location.assign(`${frontend_base_url}/templates/main.html`);
         }
-
     } else {
         if(response.status==401){
             alert('아이디 혹은 비밀번호를 확인해주세요!', response.status)
@@ -117,40 +133,79 @@ async function login() {
             alert('아이디 혹은 비밀번호를 확인해주세요!', response.status)
         }
     }
-
-}
-function login_enterkey() {
-	if (window.event.keyCode == 13) {
-    	login()
-    }
-}
-function join_enterkey() {
-	if (window.event.keyCode == 13) {
-    	join()
-    }
 }
 
 
 
-async function kakao_login(){
-    Kakao.init('8e2d299c275ad124f7fd5489f9dc723a');
+window.Kakao.init('8e2d299c275ad124f7fd5489f9dc723a');
+
+
+function kakao_login(){
     console.log(Kakao.isInitialized());
-
     
-    Kakao.Auth.authorize({
-        redirectUri: 'http://localhost:5500/templates/main.html'
-    })
-    Kakao.Auth.login({
+    window.Kakao.Auth.login({
+        scope: 'profile_nickname, account_email',
         success: function(authObj) {
-            Kakao.API.request({
+            console.log(authObj)
+            window.Kakao.API.request({
                 url: '/v2/user/me',
                 success: function(resp){
-                    console.log(resp)
-                    var email = resp.kakao_acount.email
-                    const email_div = document.getElementById("email")
-                    email_div.innerText = email
+                    var kakao_email = resp['kakao_account']['email']
+                    var kakao_nickname = resp['kakao_account']['profile']['nickname']
+                    var data = {
+                        email : kakao_email,
+                        password : kakao_email,
+                        username: kakao_nickname,
+                        is_social: true,
+                    }
+                    // 이미 가입한 이메일인지 체크
+                    fetch(`${backend_base_url}/user/dup/`, {
+                        headers: {
+                            Accept: "application/json",
+                            'Content-type': "application/json"
+                        },
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    }).then(response => {
+                        return response.json()
+                    }).then(json => {
+                        // 가입 안한 경우 > 회원가입 > 로그인
+                        if(json["result"] == 'false'){
+                            const data = {
+                                email : kakao_email,
+                                password : kakao_email,
+                                username: kakao_nickname,
+                                is_social: true,
+                            }
+                            fetch(`${backend_base_url}/user/kakao/`,{
+                                headers: {
+                                    Accept: "application/json",
+                                    'Content-type': "application/json"
+                                },
+                                method: "POST",
+                                body: JSON.stringify(data)
+                            }).then(response => {
+                                return response.json()
+                            }).then(json => {
+                                loginData = {
+                                    email: json['email'],
+                                    password: json['email']
+                                }
+                                login_token(loginData)
+                            })
+                        // 이미 가입한 경우 > 로그인
+                        } else {
+                            const loginData = {
+                                email : kakao_email,
+                                password : kakao_email,
+                            }
+                            login_token(loginData)
+                        }
+                    })
+                    
                 }
             })
         }
     })
+
 }
