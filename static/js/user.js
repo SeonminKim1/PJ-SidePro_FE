@@ -132,6 +132,49 @@ async function login_token(loginData, is_social){
     }
 }
 
+
+function kakao_join(){
+    const username = document.querySelector("#input-username-join").value
+    const data = JSON.parse(localStorage.getItem("kakao"));
+    const join_data = {
+        email: data['email'],
+        password: data['email'],
+        username: username,
+        is_social: 1,
+    }
+    // 닉네임 중복체크
+    fetch(`${backend_base_url}/user/dup_name/`,{
+        headers: {
+            Accept: "application/json",
+            'Content-type': "application/json"
+        },
+        method: "POST",
+        body: JSON.stringify(join_data)
+    }).then(response => {
+        return response.json()
+    }).then(json => {
+        if(json['result'] == 'false') {
+            // 회원가입
+            fetch(`${backend_base_url}/user/join/`,{
+                headers: {
+                    Accept: "application/json",
+                    'Content-type': "application/json"
+                },
+                method: "POST",
+                body: JSON.stringify(join_data)
+            }).then(response => {
+                localStorage.removeItem("kakao")
+                is_social = true
+                login_token(join_data, is_social)
+            })
+        } else {
+            alert("중복된 닉네임입니다!")
+            document.getElementById("input-username-join").focus()
+        }
+    })
+    
+}
+
 // 카카오 api 를 쓰기위해 초기화
 window.Kakao.init('8e2d299c275ad124f7fd5489f9dc723a');
 
@@ -139,18 +182,16 @@ function kakao_login(){
     console.log(Kakao.isInitialized());
     
     window.Kakao.Auth.login({
-        scope: 'profile_nickname, account_email',
+        scope: 'account_email',
         success: function(authObj) {
             console.log(authObj)
             window.Kakao.API.request({
                 url: '/v2/user/me',
                 success: function(resp){
                     var kakao_email = resp['kakao_account']['email']
-                    var kakao_nickname = resp['kakao_account']['profile']['nickname']
                     var data = {
                         email : kakao_email,
                         password : kakao_email,
-                        username: kakao_nickname,
                         is_social: true,
                     }
                     // 이미 가입한 이메일인지 체크
@@ -168,27 +209,10 @@ function kakao_login(){
                         if(json["result"] == 'false'){
                             const data = {
                                 email : kakao_email,
-                                password : kakao_email,
-                                username: kakao_nickname,
                                 is_social: true,
                             }
-                            fetch(`${backend_base_url}/user/join/`,{
-                                headers: {
-                                    Accept: "application/json",
-                                    'Content-type': "application/json"
-                                },
-                                method: "POST",
-                                body: JSON.stringify(data)
-                            }).then(response => {
-                                return response.json()
-                            }).then(json => {
-                                loginData = {
-                                    email: json['email'],
-                                    password: json['email']
-                                }
-                                is_social = true
-                                login_token(loginData, is_social)
-                            })
+                            localStorage.setItem("kakao", JSON.stringify(data));
+                            window.location.assign(`${frontend_base_url}/templates/kakao_join.html`);
                         // 이미 가입한 경우 > 로그인
                         } else {
                             const loginData = {
