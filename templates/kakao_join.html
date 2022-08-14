@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIDE PRO</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/51395e4b23.js" crossorigin="anonymous"></script>
+
+    <!-- CSS Import -->
+    <link rel="stylesheet" href="/static/css/join.css">
+
+
+</head>
+
+<body>
+    <div class="background-img-join">
+        <section class="background-join">
+            <div class="container-join">
+                <div class="wrap-join">
+                    <div class="box-title-join">
+                        <h1>SIDE PRO</h1>
+                    </div>
+                    <div class="wrap-input-join">
+                        <li><input id="input-id-join" type="email" size=40 placeholder="이메일 주소를 입력하세요" title="아이디" readonly></li>
+                        <li><input id="input-username-join" type="text" size=40 placeholder="닉네임을 입력하세요" title="닉네임"></li>
+                    </div>
+                    <div class="box-btn-join">
+                        <li>
+                            <button type="submit" onclick="kakao_join()" class="btn-join-join">
+                               카카오 회원가입
+                            </button>
+                        </li>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Javascript Import -->
+    <script src="/static/js/_base.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script src="/static/js/user.js"></script>
+    <script src="/static/js/kakao.js"></script>
+</body>
+
+    
+
+</html>
