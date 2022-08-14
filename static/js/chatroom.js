@@ -109,8 +109,7 @@ function AddRoomListHtml(response_json){
                     <div>
                         <span class="text-profile-name text-profile-name_${i}"
                         onclick="modalClose(); modalOpen('${user_id}','${profile_img}', '${user2_username}', '${github_url}')">${user2_username}</span>
-                    </div>
-                    <div class="box-btn-chatroom">
+                    
                         <button class="btn-open-chatting-room" onclick="activeChatRoom('${roomname}', '${user1_username}', '${user2_username}')">채팅 열기 💬</button>
                         <button onclick="RemoveRoomNode(this, '${roomname}')" class="btn-room-close"><i class="fa-regular fa-trash-can"></i></button>
                     </div>
