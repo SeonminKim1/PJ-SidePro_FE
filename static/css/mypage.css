@@ -18,6 +18,10 @@ body {
     margin: 5% 0 0 3%;
 }
 
+/* nav */
+.box-search-nav {
+    display: none;
+}
 
 /* Aside: Profile */
 .container-profile-user {
