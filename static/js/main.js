@@ -85,27 +85,48 @@ async function recommend_lsit(){
 async function project_list(url, filter){
     const search_box = document.querySelector(".box-search-tag")
     search_box.innerHTML = ``
+    var flag = 1
     if (url == null){
         url = `${backend_base_url}/project/?page_size=6`
-    } else {
+    }else if (filter =='search'){ // title & user 검색
+        flag = 1
+    }else { // 기술 스택 filter 검색
         url = url.replace("&filter=popular", '')
         url = url.replace("&filter=newest", '')
         url = url.replace("&filter=views", '')
         url = url.replace("&filter=", '')
-    }
+        flag = 0
+    } 
     if (filter == null){
         filter = ""
+        flag = 0
     }
-    const response = await fetch(url + '&filter=' + filter, {
-        headers: {
-            Accept: "application/json",
-            'content-type': "application/json",
-            "Authorization": "Bearer " + localStorage.getItem("access")
-        },
-        method : "GET",
-    })
 
-    response_json = await response.json()
+    var response;
+    // search
+    if(flag){
+        response = await fetch(url, {
+            headers: {
+                Accept: "application/json",
+                'content-type': "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method : "GET",
+        })
+        response_json = await response.json()
+    }
+    // filter 
+    else{
+        response = await fetch(url + '&filter=' + filter, {
+            headers: {
+                Accept: "application/json",
+                'content-type': "application/json",
+                "Authorization": "Bearer " + localStorage.getItem("access")
+            },
+            method : "GET",
+        })
+        response_json = await response.json()
+    }
 
     const list_box = document.querySelector("#project_list")
     list_box.innerHTML = ``
@@ -273,6 +294,7 @@ function project_detail(project_id) {
     window.location.assign("/templates/detail_project.html")
 }
 
+// 기술 스택 검색하기
 function search_list(){
     skills = document.getElementsByClassName("skills-tag")
     skill_list = ""
@@ -280,6 +302,18 @@ function search_list(){
         skill_list = skill_list + "&skills=" + skills[i].innerText
     }
     url = `${backend_base_url}/project/?page_size=6` + skill_list
+    project_list(url)
+}
+
+// 게시글 제목 & 유저 검색하기
+function search_title_user(){
+    search_value_input = document.querySelector(".input-search-nav")
+    search_value = search_value_input.value
+    recommend_card_div = document.getElementById('recommend-card-section-main')
+    recommend_card_div.style.display = 'none'
+
+    url = `${backend_base_url}/project/?page_size=9` + '&search=' + search_value
+    search_value_input.value = null;
     project_list(url)
     
 }
@@ -294,7 +328,6 @@ function toUserPage(user_id) {
         localStorage.setItem("isAnotherUser", "true")
         window.location.assign(`${frontend_base_url}/templates/userpage.html`);
     }
-    
 }
 
 function sort() {
