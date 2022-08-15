@@ -17,14 +17,47 @@ body {
     justify-content: space-between;
 }
 
-.box-logo-nav{
+.box-logo-nav {
     cursor: pointer;
 }
 
 .title {
     margin-left: 30px;
     font-size: 2.4rem;
-    f
+}
+
+.box-search-nav {
+    display: flex;
+    align-items: center;
+}
+
+.input-search-nav,
+.btn-search-nav {
+    height: 50%;
+    outline: none;
+    border: none;
+    color: aliceblue;
+    background-color: transparent;
+}
+
+.input-search-nav {
+    width: 400px;
+    font-size: 1rem;
+    border-bottom: solid 1px rgb(255, 255, 255);
+}
+
+.input-search-nav::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-search-nav {
+    padding: 20px;
+    font-size: 1.2rem;
+}
+
+.btn-search-nav:hover {
+    cursor: pointer;
+    font-weight: 700;
 }
 
 .wrap-category-nav {
